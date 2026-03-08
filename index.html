@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmokingTracker — Fastholdelse gennem friktion-fri registrering</title>
+    <meta name="description"
+        content="SmokingTracker hjælper misbrugsbehandlingssteder med at fastholde borgere via Privacy by Design-registrering. Book en demo i dag." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/logo.png" alt="SmokingTracker Logo" class="logo-img">
+                <span class="logo-text">SmokingTracker</span>
+            </a>
+            <div class="nav-links">
+                <a href="#features" data-i18n="nav.features">Features</a>
+                <a href="#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
+                <a href="/blog.html" data-i18n="nav.blog">Blog</a>
+            </div>
+            <div class="nav-actions">
+                <div class="lang-switch">
+                    <span class="lang-label">DA</span>
+                    <label class="switch">
+                        <input type="checkbox" id="lang-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="lang-label">EN</span>
+                </div>
+                <a href="#cta" class="btn btn-primary" data-i18n="nav.bookDemo">Book a Demo</a>
+                <button class="mobile-menu-btn icon-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="4" x2="20" y1="12" y2="12" />
+                        <line x1="4" x2="20" y1="6" y2="6" />
+                        <line x1="4" x2="20" y1="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- ─── HERO ──────────────────────────────────────────── -->
+        <section class="hero">
+            <div class="hero-bg-glow"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="badge fade-in-up" data-i18n="hero.badge">� Purpose-Built for Addiction Treatment Centers
+                    </div>
+                    <h1 class="fade-in-up" style="animation-delay: 0.1s" data-i18n="hero.title">
+                        Retain more citizens with <span class="text-gradient">friction-free</span> habit tracking
+                    </h1>
+                    <p class="hero-subtitle fade-in-up" style="animation-delay: 0.2s" data-i18n="hero.subtitle">
+                        Many citizens arrive at your center against their will — unmotivated and ready to drop out.
+                        SmokingTracker gives them a low-pressure way in: "just track what you're already doing."
+                        That alone creates awareness, builds trust, and keeps them in your program long enough to make a
+                        difference.
+                    </p>
+                    <div class="hero-cta fade-in-up" style="animation-delay: 0.3s">
+                        <a href="#cta" class="btn btn-primary btn-large" data-i18n="hero.ctaPrimary">Book a Demo</a>
+                        <a href="#features" class="btn btn-secondary btn-large" data-i18n="hero.ctaSecondary">See
+                            Features</a>
+                    </div>
+                </div>
+                <div class="hero-image fade-in" style="animation-delay: 0.4s">
+                    <div class="preview-stack">
+                        <div class="desktop-frame glass">
+                            <img src="/behandler-preview.png" alt="Behandler Dashboard — Borger overblik"
+                                class="desktop-screenshot" />
+                            <span class="preview-label preview-label--desktop">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect width="20" height="14" x="2" y="3" rx="2" />
+                                    <line x1="8" x2="16" y1="21" y2="21" />
+                                    <line x1="12" x2="12" y1="17" y2="21" />
+                                </svg>
+                                Behandler Dashboard
+                            </span>
+                        </div>
+                        <div class="mockup-frame glass">
+                            <img src="/app-preview.png" alt="SmokingTracker App — Kalender visning"
+                                class="mockup-screenshot" />
+                            <span class="preview-label preview-label--mobile">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+                                    <line x1="12" x2="12.01" y1="18" y2="18" />
+                                </svg>
+                                SmokingTracker App
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SOCIAL PROOF ──────────────────────────────────── -->
+        <section class="stats-strip">
+            <div class="container">
+                <div class="stats-row fade-in-up">
+                    <div class="stat-item">
+                        <span class="stat-number">12+</span>
+                        <span class="stat-label" data-i18n="hero.statsClients">Treatment Centers</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">35%</span>
+                        <span class="stat-label" data-i18n="hero.statsRetention">Avg. Retention Increase</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">850+</span>
+                        <span class="stat-label" data-i18n="hero.statsCitizens">Citizens Tracked</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── FEATURES ──────────────────────────────────────── -->
+        <section id="features" class="features-section">
+            <div class="container">
+                <div class="section-header text-center fade-in-up">
+                    <h2 class="section-title" data-i18n="featuresInfo.headerSectionTitle">Everything Your Team Needs
+                    </h2>
+                    <p class="section-desc" data-i18n="featuresInfo.headerSectionDesc">
+                        SmokingTracker bridges the gap between the citizen's daily reality and your clinical workflow —
+                        without compromising privacy.
+                    </p>
+                </div>
+
+                <div class="features-grid">
+                    <!-- Feature 1: Privacy by Design -->
+                    <div class="feature-card glass hover-lift fade-in-up" style="animation-delay: 0.1s">
+                        <div class="feature-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="text-primary">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="featuresInfo.f1_title">Privacy by Design</h3>
+                        <p data-i18n="featuresInfo.f1_desc">The citizen owns their data. Granular consent toggles let
+                            them choose what to share: session history, urge data, mood logs, or notes. Trust-first
+                            design means higher engagement.</p>
+                    </div>
+
+                    <!-- Feature 2: Traffic Light Dashboard -->
+                    <div class="feature-card glass hover-lift fade-in-up" style="animation-delay: 0.15s">
+                        <div class="feature-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="text-primary">
+                                <circle cx="12" cy="5" r="3" />
+                                <circle cx="12" cy="12" r="3" />
+                                <circle cx="12" cy="19" r="3" />
+                                <rect x="7" y="1" width="10" height="22" rx="2" ry="2" fill="none" />
+                            </svg>
+                        </div>
+                        <h3 data-i18n="featuresInfo.f2_title">Traffic Light Dashboard</h3>
+                        <p data-i18n="featuresInfo.f2_desc">See all your citizens at a glance. Green means active,
+                            Yellow means attention needed, Red means inactive. Click through for detailed charts,
+                            calendars, and session breakdowns.</p>
+                    </div>
+
+                    <!-- Feature 3: Smart Trigger Alarms -->
+                    <div class="feature-card glass hover-lift fade-in-up" style="animation-delay: 0.2s">
+                        <div class="feature-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="text-primary">
+                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="featuresInfo.f3_title">Smart Trigger Alarms</h3>
+                        <p data-i18n="featuresInfo.f3_desc">Set custom rules per citizen: 'alert me after 3 consecutive
+                            smoking days' or 'if inactive for 5 days.' Receive notifications in-app, by email, or via
+                            SMS.</p>
+                    </div>
+
+                    <!-- Feature 4: One-Click PDF Reports -->
+                    <div class="feature-card glass hover-lift fade-in-up" style="animation-delay: 0.25s">
+                        <div class="feature-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="text-primary">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="featuresInfo.f4_title">One-Click PDF Reports</h3>
+                        <p data-i18n="featuresInfo.f4_desc">Generate detailed monthly reports ready for KMD Nexus or
+                            Cura. All shared data — sessions, trends, and consent status — compiled automatically.</p>
+                    </div>
+
+                    <!-- Feature 5: Urge Surfing -->
+                    <div class="feature-card glass hover-lift fade-in-up" style="animation-delay: 0.3s">
+                        <div class="feature-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="text-primary">
+                                <path d="M2 12c2-3 4-5 6-5s4 4 6 4 4-4 6-4 2 2 2 5" />
+                                <path d="M2 20c2-3 4-5 6-5s4 4 6 4 4-4 6-4 2 2 2 5" />
+                            </svg>
+                        </div>
+                        <h3 data-i18n="featuresInfo.f5_title">Built-In Urge Surfing</h3>
+                        <p data-i18n="featuresInfo.f5_desc">When a citizen feels a craving, the app guides them through
+                            a 3-minute breathing exercise with distractions. If they resist, they earn achievements. If
+                            not, the session is logged without judgment.</p>
+                    </div>
+
+                    <!-- Feature 6: Achievements -->
+                    <div class="feature-card glass hover-lift fade-in-up" style="animation-delay: 0.35s">
+                        <div class="feature-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="text-primary">
+                                <circle cx="12" cy="8" r="6" />
+                                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+                            </svg>
+                        </div>
+                        <h3 data-i18n="featuresInfo.f6_title">Achievements & Motivation</h3>
+                        <p data-i18n="featuresInfo.f6_desc">Gamified milestones reward consistency: smoke-free days,
+                            reduction targets, logging streaks. The citizen stays motivated without clinical pressure.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── HOW IT WORKS ──────────────────────────────────── -->
+        <section id="how-it-works" class="how-it-works-section">
+            <div class="container">
+                <div class="section-header text-center fade-in-up">
+                    <h2 class="section-title" data-i18n="howItWorks.title">How It Works</h2>
+                    <p class="section-desc" data-i18n="howItWorks.subtitle">Three steps from onboarding to measurable
+                        results — no technical requirements for the citizen.</p>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="step-card glass fade-in-up" style="animation-delay: 0.1s">
+                        <div class="step-number" data-i18n="howItWorks.step1_num">01</div>
+                        <h3 data-i18n="howItWorks.step1_title">Invite the Citizen</h3>
+                        <p data-i18n="howItWorks.step1_desc">Create an invitation from the Behandler Dashboard. The
+                            citizen receives a link via email, SMS, or a manual handoff — whatever fits. No app
+                            downloads required.</p>
+                    </div>
+                    <div class="step-card glass fade-in-up" style="animation-delay: 0.2s">
+                        <div class="step-number" data-i18n="howItWorks.step2_num">02</div>
+                        <h3 data-i18n="howItWorks.step2_title">They Track at Their Own Pace</h3>
+                        <p data-i18n="howItWorks.step2_desc">The citizen logs sessions, moods, and locations when they
+                            want. Built-in Urge Surfing exercises help them resist cravings. They choose exactly what to
+                            share with you through granular consent toggles.</p>
+                    </div>
+                    <div class="step-card glass fade-in-up" style="animation-delay: 0.3s">
+                        <div class="step-number" data-i18n="howItWorks.step3_num">03</div>
+                        <h3 data-i18n="howItWorks.step3_title">You Get Actionable Insights</h3>
+                        <p data-i18n="howItWorks.step3_desc">Your dashboard shows real-time traffic lights, weekly
+                            comparisons, trend charts, and trigger alarms. Export PDF reports in one click for KMD
+                            Nexus, Cura, or case conferences.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── CTA ───────────────────────────────────────────── -->
+        <section id="cta" class="cta-section">
+            <div class="container text-center">
+                <div class="cta-box glass fade-in-up">
+                    <h2 data-i18n="ctaBottom.title">Ready to keep more citizens in treatment?</h2>
+                    <p data-i18n="ctaBottom.desc">Book a free demo and see how SmokingTracker fits into your
+                        municipality's existing workflow — typically up and running within a day.</p>
+                    <a href="mailto:demo@smokingtracker.dk" class="btn btn-primary btn-large cta-btn"
+                        data-i18n="ctaBottom.btn">Book a Free Demo</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="/" class="logo">
+                    <img src="/logo.png" alt="SmokingTracker Logo" class="logo-img">
+                    <span class="logo-text">SmokingTracker</span>
+                </a>
+                <p data-i18n="footer.desc">Helping treatment centers deliver proactive, data-driven support while fully
+                    respecting citizen privacy.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4 data-i18n="footer.product">Product</h4>
+                    <a href="#features" data-i18n="nav.features">Features</a>
+                    <a href="#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
+                    <a href="/blog.html" data-i18n="nav.blog">Blog</a>
+                </div>
+                <div class="link-group">
+                    <h4 data-i18n="footer.legal">Legal</h4>
+                    <a href="#" data-i18n="footer.privacy">Privacy Policy</a>
+                    <a href="#" data-i18n="footer.terms">Terms of Service</a>
+                </div>
+                <div class="link-group">
+                    <h4 data-i18n="footer.connect">Connect</h4>
+                    <a href="mailto:demo@smokingtracker.dk" data-i18n="footer.contact">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 SmokingTracker. All rights reserved.</p>
+        </div>
+    </footer>
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>

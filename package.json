@@ -1,0 +1,19 @@
+{
+  "name": "marketing",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node build-blog.js && vite",
+    "build": "node build-blog.js && vite build",
+    "blog": "node build-blog.js",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.3.1"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "marked": "^17.0.4"
+  }
+}

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog - SmokingTracker</title>
+    <meta name="description"
+        content="Indsigter i vaneregistrering som klinisk redskab til engagement, fastholdelse og kommunal dokumentation." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/logo.png" alt="SmokingTracker Logo" class="logo-img">
+                <span class="logo-text">SmokingTracker</span>
+            </a>
+            <div class="nav-links">
+                <a href="/#features" data-i18n="nav.features">Features</a>
+                <a href="/#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
+                <a href="/blog.html" data-i18n="nav.blog" class="active">Blog</a>
+            </div>
+            <div class="nav-actions">
+                <div class="lang-switch">
+                    <span class="lang-label">DA</span>
+                    <label class="switch">
+                        <input type="checkbox" id="lang-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="lang-label">EN</span>
+                </div>
+                <a href="/#cta" class="btn btn-primary" data-i18n="nav.bookDemo">Book a Demo</a>
+                <button class="mobile-menu-btn icon-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="4" x2="20" y1="12" y2="12" />
+                        <line x1="4" x2="20" y1="6" y2="6" />
+                        <line x1="4" x2="20" y1="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-header-spacing">
+        <section class="container">
+            <div class="section-header text-center fade-in-up">
+                <h1 class="page-title" data-i18n="blogList.title">Resources for Treatment Centers</h1>
+                <p class="section-desc" data-i18n="blogList.subtitle">Insights on habit tracking as a clinical tool for
+                    engagement, retention, and municipal compliance.</p>
+            </div>
+
+            <div class="blog-grid" id="blog-grid">
+                <!-- Posts are rendered dynamically from posts.json -->
+                <div class="blog-loading"
+                    style="text-align:center; padding:4rem 0; color: var(--color-text-secondary);">
+                    Indlæser artikler...
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="/" class="logo">
+                    <img src="/logo.png" alt="SmokingTracker Logo" class="logo-img">
+                    <span class="logo-text">SmokingTracker</span>
+                </a>
+                <p data-i18n="footer.desc">Helping treatment centers deliver proactive, data-driven support while fully
+                    respecting citizen privacy.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4 data-i18n="footer.product">Product</h4>
+                    <a href="/#features" data-i18n="nav.features">Features</a>
+                    <a href="/#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
+                    <a href="/blog.html" data-i18n="nav.blog">Blog</a>
+                </div>
+                <div class="link-group">
+                    <h4 data-i18n="footer.legal">Legal</h4>
+                    <a href="#" data-i18n="footer.privacy">Privacy Policy</a>
+                    <a href="#" data-i18n="footer.terms">Terms of Service</a>
+                </div>
+                <div class="link-group">
+                    <h4 data-i18n="footer.connect">Connect</h4>
+                    <a href="mailto:demo@smokingtracker.dk" data-i18n="footer.contact">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 SmokingTracker. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+    <script type="module">
+        // Dynamic blog listing with language filtering
+        const gradients = ['bg-gradient-1', 'bg-gradient-2', 'bg-gradient-3'];
+        let allPosts = [];
+
+        function getCurrentLang() {
+            return localStorage.getItem('lang') || 'da';
+        }
+
+        function renderPosts() {
+            const grid = document.getElementById('blog-grid');
+            const lang = getCurrentLang();
+            const posts = allPosts.filter(p => p.lang === lang);
+            const readMoreText = lang === 'da' ? 'Læs artikel' : 'Read article';
+            const emptyText = lang === 'da' ? 'Ingen artikler endnu.' : 'No articles yet.';
+
+            if (!posts.length) {
+                grid.innerHTML = `<p style="text-align:center; padding:4rem 0; color: var(--color-text-secondary);">${emptyText}</p>`;
+                return;
+            }
+
+            grid.innerHTML = '';
+
+            posts.forEach((post, i) => {
+                const isFeatured = i === 0;
+                const gradient = gradients[i % gradients.length];
+                const card = document.createElement('article');
+                card.className = `blog-card ${isFeatured ? 'featured' : ''} glass hover-lift fade-in-up`;
+                card.style.animationDelay = `${0.1 + i * 0.1}s`;
+
+                const headingTag = isFeatured ? 'h2' : 'h3';
+
+                const imageHTML = post.image
+                    ? `<img src="${post.image}" alt="${post.title}" class="placeholder-img" style="object-fit: cover;">`
+                    : `<div class="placeholder-img ${gradient}"></div>`;
+
+                card.innerHTML = `
+                    <div class="blog-image">
+                        ${imageHTML}
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">${post.category}</span>
+                            <span class="blog-date">${post.dateFormatted}</span>
+                            <span class="read-time">${post.readTime}</span>
+                        </div>
+                        <${headingTag}><a href="/posts/${post.slug}.html">${post.title}</a></${headingTag}>
+                        <p>${post.description}</p>
+                        <a href="/posts/${post.slug}.html" class="read-more">
+                            <span>${readMoreText}</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        async function loadPosts() {
+            const grid = document.getElementById('blog-grid');
+            try {
+                const res = await fetch('/posts.json');
+                allPosts = await res.json();
+                renderPosts();
+            } catch (err) {
+                grid.innerHTML = '<p style="text-align:center; padding:4rem 0; color: var(--color-text-secondary);">Could not load articles.</p>';
+                console.error('Failed to load posts:', err);
+            }
+        }
+
+        // Re-render when language is toggled
+        const langToggle = document.getElementById('lang-toggle');
+        if (langToggle) {
+            langToggle.addEventListener('change', () => {
+                // Small delay to let the main.js handler update localStorage first
+                setTimeout(renderPosts, 50);
+            });
+        }
+
+        loadPosts();
+    </script>
+</body>
+
+</html>
