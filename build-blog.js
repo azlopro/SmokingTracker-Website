@@ -71,7 +71,7 @@ function getPostTemplate() {
                     </label>
                     <span class="lang-label">EN</span>
                 </div>
-                <a href="/#cta" class="btn btn-primary" data-i18n="nav.bookDemo">Book a Demo</a>
+                <a href="/trial.html" class="btn btn-primary" data-i18n="nav.bookDemo">Book a Demo</a>
                 <button class="mobile-menu-btn icon-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -148,7 +148,7 @@ function getPostTemplate() {
                 </div>
                 <div class="link-group">
                     <h4 data-i18n="footer.connect">Connect</h4>
-                    <a href="mailto:demo@smokingtracker.dk" data-i18n="footer.contact">Contact Sales</a>
+                    <a href="mailto:support@smokingtracker.com" data-i18n="footer.contact">Contact Sales</a>
                 </div>
             </div>
         </div>

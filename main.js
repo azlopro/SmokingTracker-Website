@@ -49,12 +49,15 @@ function getNestedValue(obj, path) {
 // Setup scroll effects (Navbar background)
 function setupScrollEffects() {
     const navbar = document.querySelector('.navbar');
+    let _scrollTicking = false;
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+        if (!_scrollTicking) {
+            requestAnimationFrame(() => {
+                navbar.classList.toggle('scrolled', window.scrollY > 50);
+                _scrollTicking = false;
+            });
+            _scrollTicking = true;
         }
     });
 
@@ -80,10 +83,8 @@ function setupAnimations() {
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Add a class that triggers the animation defined in CSS
                 entry.target.style.animationPlayState = 'running';
-                // Optional: stop observing once animated
-                // observer.unobserve(entry.target);
+                observer.unobserve(entry.target); // Stop observing once animated — prevents memory leak
             }
         });
     }, observerOptions);
@@ -105,9 +106,46 @@ function setupAnimations() {
     });
 }
 
+// Mobile menu toggle
+function setupMobileMenu() {
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navbar = document.querySelector('.navbar');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (!menuBtn || !navbar || !navLinks) return;
+
+    menuBtn.setAttribute('aria-expanded', 'false');
+
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = navbar.classList.toggle('menu-open');
+        menuBtn.classList.toggle('is-open', isOpen);
+        menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Close on nav link click (e.g. anchor links to sections)
+    navLinks.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            navbar.classList.remove('menu-open');
+            menuBtn.classList.remove('is-open');
+            menuBtn.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // Close when clicking outside the navbar
+    document.addEventListener('click', (e) => {
+        if (!navbar.contains(e.target)) {
+            navbar.classList.remove('menu-open');
+            menuBtn.classList.remove('is-open');
+            menuBtn.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
+
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     setupTranslations();
     setupScrollEffects();
     setupAnimations();
+    setupMobileMenu();
 });
