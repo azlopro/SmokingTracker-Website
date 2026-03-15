@@ -61,6 +61,7 @@ function getPostTemplate() {
                 <a href="/#features" data-i18n="nav.features">Features</a>
                 <a href="/#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
                 <a href="/pricing.html" data-i18n="nav.pricing">Pricing</a>
+                <a href="/about.html" data-i18n="nav.about">About</a>
                 <a href="/blog.html" data-i18n="nav.blog">Blog</a>
             </div>
             <div class="nav-actions">

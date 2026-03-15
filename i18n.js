@@ -18,7 +18,10 @@ export const i18n = {
             ctaSecondary: "See Features",
             statsClients: "Treatment Centers",
             statsRetention: "Avg. Retention Increase",
-            statsCitizens: "Citizens Tracked"
+            statsCitizens: "Citizens Tracked",
+            statsGoals: "Treatment Goal Modes",
+            statsTrial: "Day Free Trial",
+            statsSetup: "Day to Get Started"
         },
         howItWorks: {
             title: "How It Works",
@@ -31,7 +34,7 @@ export const i18n = {
             step2_desc: "The citizen logs sessions, moods, and locations when they want. Built-in Urge Surfing exercises help them resist cravings. They choose exactly what to share with you through granular consent toggles.",
             step3_num: "03",
             step3_title: "You Get Actionable Insights",
-            step3_desc: "Your dashboard shows real-time traffic lights, weekly comparisons, trend charts, and trigger alarms. Export PDF reports in one click for KMD Nexus, Cura, or case conferences."
+            step3_desc: "Your dashboard shows real-time traffic lights, week-over-week comparisons, trend charts, and trigger alarms. Open a print-ready clinical report in one click for KMD Nexus, Cura, or case conferences."
         },
         featuresInfo: {
             headerSectionTitle: "Everything Your Team Needs",
@@ -41,19 +44,22 @@ export const i18n = {
             f1_desc: "The citizen owns their data. Granular consent toggles let them choose what to share: session history, urge data, mood logs, or notes. Trust-first design means higher engagement.",
 
             f2_title: "Traffic Light Dashboard",
-            f2_desc: "See all your citizens at a glance. Green means active, Yellow means attention needed, Red means inactive. Click through for detailed charts, calendars, and session breakdowns.",
+            f2_desc: "See all your citizens at a glance. Green is active, Yellow needs attention, Red is inactive. Click through for week-over-week comparisons, trend charts, calendars, and full session breakdowns.",
 
             f3_title: "Smart Trigger Alarms",
             f3_desc: "Set custom rules per citizen: 'alert me after 3 consecutive smoking days' or 'if inactive for 5 days.' Receive notifications in-app, by email, or via SMS.",
 
-            f4_title: "One-Click PDF Reports",
-            f4_desc: "Generate detailed monthly reports ready for KMD Nexus or Cura. All shared data — sessions, trends, and consent status — compiled automatically.",
+            f4_title: "One-Click Clinical Reports",
+            f4_desc: "Open a print-ready report in one click — save as PDF or print directly. All shared data — sessions, trends, and consent status — ready to attach in KMD Nexus or Cura.",
 
             f5_title: "Built-In Urge Surfing",
             f5_desc: "When a citizen feels a craving, the app guides them through a 3-minute breathing exercise with distractions. If they resist, they earn achievements. If not, the session is logged without judgment.",
 
             f6_title: "Achievements & Motivation",
-            f6_desc: "Gamified milestones reward consistency: smoke-free days, reduction targets, logging streaks. The citizen stays motivated without clinical pressure."
+            f6_desc: "Gamified milestones reward consistency: smoke-free days, reduction targets, logging streaks. The citizen stays motivated without clinical pressure.",
+
+            f7_title: "Three Treatment Goal Modes",
+            f7_desc: "Each citizen picks a goal that matches where they are: <strong>Reduce</strong> (daily session budget), <strong>Quit</strong> (smoke-free timer, cold turkey or gradual), or <strong>Awareness</strong> (just track, no pressure). The app adapts its entire experience to their goal."
         },
         ctaBottom: {
             title: "Ready to keep more citizens in treatment?",
@@ -76,19 +82,18 @@ export const i18n = {
         },
         about: {
             badge: "Our Story",
-            title: 'Built by practitioners, <span class="text-gradient">for practitioners</span>',
-            subtitle: "We started SmokingTracker after seeing first-hand how many citizens drop out of addiction treatment — not because they don't want help, but because the available tools make engagement too hard.",
-            missionTitle: "Our Mission",
-            missionDesc: "To help addiction treatment centers retain more citizens by removing friction from the tracking process — while keeping citizen privacy at the core of everything we build.",
-            value1_title: "Privacy by Design",
-            value1_desc: "Privacy isn't a feature — it's the foundation. Citizens own their data and control exactly what they share. No surprises, no workarounds.",
-            value2_title: "Evidence-Based",
-            value2_desc: "Every feature is grounded in harm reduction and motivational interviewing research. We build what works, not what sounds impressive.",
-            value3_title: "Practitioner-First",
-            value3_desc: "We work closely with treatment specialists to ensure SmokingTracker fits into real clinical workflows — not the other way around.",
-            value4_title: "Built for Denmark",
-            value4_desc: "Designed for the Danish municipal system. EAN invoicing, KMD Nexus and Cura compatibility, and full GDPR compliance from day one.",
-            ctaTitle: "Want to learn more?",
+            title: 'Built by smokers, <span class="text-gradient">for smokers</span>',
+            subtitle: "This didn't start in a boardroom. It started in an outpatient friend group that couldn't find their footing — and a realisation that getting an overview was what finally made it possible to get control.",
+            storyTitle: "How it started",
+            storyText: "I smoked myself, and was part of an outpatient friend group. We were good at a lot of things, but having an overview of our own habits wasn't one of them. No structure. No patterns. Nothing to hold on to. So I started coding — not for a startup, not for a pitch deck, but for myself. Something to track. Somewhere to see what was actually happening. And slowly, it worked.",
+            whyTitle: "Why treatment centers",
+            whyText: "I know what it feels like from the citizen's side. I know what it means to show up to a session with nothing to offer — and I know what happens when you finally start to see your own patterns. That's why I want to reach people right where they are: at treatment centers, through the people who work with them every day.",
+            practitionerTitle: "Practitioners deserve just as good an experience",
+            practitionerText: "The citizens are the reason this exists — but the practitioners are the ones who make it work. I'll do my best to make sure your experience is just as good as theirs. If something's missing or could be better, say so. It's taken seriously.",
+            creatorTitle: "Who built this?",
+            creatorText: "I'm not a company with a team of developers. I'm one person who coded their way out of a habit and wants to help others do the same. If you want to know more about me:",
+            creatorLink: "Visit azlo.pro",
+            ctaTitle: "Want to see it in action?",
             ctaDesc: "Book a free demo and see how SmokingTracker can support your treatment center.",
             ctaBtn: "Book a Free Demo"
         },
@@ -109,7 +114,7 @@ export const i18n = {
             q6: "Is SmokingTracker GDPR-compliant?",
             a6: "Yes. SmokingTracker is built Privacy by Design. We act as a data processor under your controller role. A full Data Processing Agreement (DPA) is included with all plans. All data is stored in the EU.",
             q7: "Does it integrate with KMD Nexus or Cura?",
-            a7: "Directly, no — but you can export one-click PDF reports ready to attach to case files in KMD Nexus, Cura, or any other case management system.",
+            a7: "Directly, no — but you can open a print-ready clinical report in one click and save it as PDF or print it directly. Ready to attach to case files in KMD Nexus, Cura, or any other system.",
             q8: "What browsers and devices are supported?",
             a8: "All modern browsers (Chrome, Firefox, Safari, Edge) on smartphones, tablets, and computers. No installation required for citizens or staff.",
             q9: "Can we cancel the trial?",
@@ -131,7 +136,7 @@ export const i18n = {
             tier1_f1: "Unlimited staff accounts",
             tier1_f2: "Traffic light dashboard",
             tier1_f3: "Smart trigger alarms",
-            tier1_f4: "One-click PDF reports",
+            tier1_f4: "One-click clinical reports",
             tier1_f5: "Built-in urge surfing",
             tier1_f6: "Citizen achievements",
             tier1_f7: "EAN / PDF invoicing",
@@ -226,12 +231,15 @@ export const i18n = {
         hero: {
             badge: "🏥 Udviklet specifikt til misbrugsbehandling",
             title: 'Fasthold flere borgere med <span class="text-gradient">friktion‑fri</span> registrering',
-            subtitle: "Mange borgere ankommer ufrivilligt — umotiverede og klar til at droppe ud. SmokingTracker giver dem en uforpligtende indgang: 'bare registrér det, du allerede gør.' Det alene skaber bevidsthed, opbygger tillid — og holder dem i forløbet længe nok til, at behandlingen kan virke.",
+            subtitle: "Mange borgere ankommer ufrivilligt — umotiverede og klar til at droppe ud. SmokingTracker giver dem en uforpligtende indgang: 'bare start med at registrér dit forbrug'. Det alene skaber bevidsthed, opbygger tillid — og holder dem i forløbet længe nok til, at behandlingen kan virke.",
             ctaPrimary: "Book en demo",
             ctaSecondary: "Se funktioner",
             statsClients: "Behandlingssteder",
             statsRetention: "Gns. fastholdelsesforøgelse",
-            statsCitizens: "Borgere registreret"
+            statsCitizens: "Borgere registreret",
+            statsGoals: "Behandlingsmål-modes",
+            statsTrial: "Dages gratis prøveperiode",
+            statsSetup: "Dag til opstart"
         },
         howItWorks: {
             title: "Sådan virker det",
@@ -244,7 +252,7 @@ export const i18n = {
             step2_desc: "Borgeren logger sessioner, humør og steder, når det passer dem. Har de trang, guider den indbyggede Urge Surfing-funktion dem igennem en 3-minutters vejrtrækningsøvelse. De bestemmer selv, hvad de deler med dig via granulerede samtykkeindstillinger.",
             step3_num: "03",
             step3_title: "I får handlingsbar indsigt",
-            step3_desc: "Jeres dashboard viser trafiklys i realtid, ugentlige sammenligninger, tendensgrafer og brugerdefinerede alarmer. Eksportér PDF-rapporter med ét klik til KMD Nexus, Cura eller til konferencebrug."
+            step3_desc: "Jeres dashboard viser trafiklys i realtid, uge-mod-uge-sammenligninger, tendensgrafer og brugerdefinerede alarmer. Åbn en udskriftsklar klinisk rapport med ét klik til KMD Nexus, Cura eller konferencebrug."
         },
         featuresInfo: {
             headerSectionTitle: "Alt jeres team har brug for",
@@ -254,19 +262,22 @@ export const i18n = {
             f1_desc: "Borgeren ejer sine egne data. Granulerede samtykkeknapper lader dem vælge præcis, hvad de vil dele: sessionshistorik, trangdata, humørlogninger eller noter. Et tillidsbaseret design giver højere engagement.",
 
             f2_title: "Trafiklys‑dashboard",
-            f2_desc: "Overblik over alle jeres borgere med ét blik. Grøn er aktiv, Gul kræver opmærksomhed, Rød er inaktiv. Klik igennem for detaljerede grafer, kalendere og sessionsanalyser.",
+            f2_desc: "Overblik over alle jeres borgere med ét blik. Grøn er aktiv, Gul kræver opmærksomhed, Rød er inaktiv. Klik igennem for uge-mod-uge-sammenligninger, tendensgrafer, kalendere og fulde sessionsanalyser.",
 
             f3_title: "Intelligente alarmer",
             f3_desc: "Opsæt individuelle regler per borger: 'advisér mig efter 3 sammenhængende rygedage' eller 'ved inaktivitet i 5 dage.' Modtag beskeder i appen, på e‑mail eller via SMS.",
 
-            f4_title: "PDF‑rapporter med ét klik",
-            f4_desc: "Generér udførlige månedsrapporter klar til KMD Nexus eller Cura. Alle delte data — sessioner, tendenser og samtykkestatus — samles automatisk.",
+            f4_title: "Kliniske rapporter med ét klik",
+            f4_desc: "Åbn en udskriftsklar rapport med ét klik — gem som PDF eller udskriv direkte. Alle delte data — sessioner, tendenser og samtykkestatus — klar til at vedhæfte i KMD Nexus eller Cura.",
 
             f5_title: "Indbygget Urge Surfing",
             f5_desc: "Når borgeren føler trang, guider appen dem igennem en 3-minutters vejrtrækningsøvelse med distraktioner. Modstår de trangen, optjener de præstationer. Giver de efter, logges sessionen uden dom.",
 
             f6_title: "Præstationer og motivation",
-            f6_desc: "Gamificerede milepæle belønner vedholdenhed: røgfri dage, reduktionsmål, registreringsstreaks. Borgeren forbliver motiveret — uden klinisk pres."
+            f6_desc: "Gamificerede milepæle belønner vedholdenhed: røgfri dage, reduktionsmål, registreringsstreaks. Borgeren forbliver motiveret — uden klinisk pres.",
+
+            f7_title: "Tre behandlingsmål-modes",
+            f7_desc: "Hver borger vælger det mål, der passer til dem: <strong>Reducer</strong> (dagligt sessionsbudget), <strong>Stop</strong> (røgfri-timer, koldt-kalkun eller gradvist), eller <strong>Bevidsthed</strong> (bare registrér, intet pres). Appen tilpasser hele oplevelsen til borgerens mål."
         },
         ctaBottom: {
             title: "Klar til at fastholde flere borgere i behandling?",
@@ -289,19 +300,18 @@ export const i18n = {
         },
         about: {
             badge: "Vores historie",
-            title: 'Bygget af behandlere, <span class="text-gradient">til behandlere</span>',
-            subtitle: "Vi startede SmokingTracker efter at have set på nært hold, hvor mange borgere dropper ud af misbrugsbehandling — ikke fordi de ikke ønsker hjælp, men fordi de tilgængelige redskaber gør engagement for svært.",
-            missionTitle: "Vores mission",
-            missionDesc: "At hjælpe misbrugsbehandlingssteder med at fastholde flere borgere ved at fjerne friktion fra registreringsprocessen — med borgerens privatliv som det centrale fundament i alt, vi bygger.",
-            value1_title: "Privatlivsbeskyttelse fra starten",
-            value1_desc: "Privatliv er ikke en funktion — det er fundamentet. Borgerne ejer deres egne data og kontrollerer præcis, hvad de deler. Ingen overraskelser, ingen genveje.",
-            value2_title: "Evidensbaseret",
-            value2_desc: "Alle funktioner er forankret i forskning inden for skadereduktion og motiverende samtale. Vi bygger det, der virker — ikke det, der lyder imponerende.",
-            value3_title: "Behandleren i centrum",
-            value3_desc: "Vi arbejder tæt med behandlingsspecialister for at sikre, at SmokingTracker passer ind i den virkelige kliniske arbejdsgang — ikke omvendt.",
-            value4_title: "Bygget til Danmark",
-            value4_desc: "Designet til det danske kommunale system. EAN-fakturering, kompatibilitet med KMD Nexus og Cura, og fuld GDPR-overholdelse fra dag ét.",
-            ctaTitle: "Vil du vide mere?",
+            title: 'Bygget af rygere, <span class="text-gradient">til rygere</span>',
+            subtitle: "Det startede ikke i et bestyrelseslokale. Det startede i en ambulant vennegruppe, der ikke kunne finde op og ned i det hele — og erkendelsen af, at det at få overblik var det, der endelig gjorde det muligt at få kontrol.",
+            storyTitle: "Hvordan det begyndte",
+            storyText: "Jeg røg selv og var en del af en ambulant vennegruppe. Vi var gode til mange ting, men overblik over vores egne vaner var ikke et af dem. Ingen struktur. Ingen mønstre. Intet at holde fast i. Så begyndte jeg at kode — ikke til en startup, ikke til et pitch deck, men til mig selv. Noget at tracke. Et sted at se, hvad der faktisk foregik. Og langsomt virkede det.",
+            whyTitle: "Hvorfor behandlingssteder",
+            whyText: "Jeg kender det fra borgerens side. Jeg ved, hvad det vil sige at møde op til en samtale uden noget at bidrage med — og jeg ved, hvad der sker, når man endelig begynder at se sine egne mønstre. Derfor vil jeg ramme folk der, hvor de er: på behandlingsstederne, gennem dem der arbejder med dem til hverdag.",
+            practitionerTitle: "Behandlerne fortjener det ligeså godt",
+            practitionerText: "Borgerne er grunden til, at dette findes — men behandlerne er dem, der får det til at virke. Jeg vil gøre mit bedste for, at jeres oplevelse er ligeså god som deres. Hvis der er noget der mangler, eller noget der kan gøres bedre — sig til. Det tages seriøst.",
+            creatorTitle: "Hvem har bygget det her?",
+            creatorText: "Jeg er ikke en virksomhed med et team af udviklere. Jeg er én person, der kodede sig ud af en vane og gerne vil hjælpe andre med det samme. Vil du vide mere om mig?",
+            creatorLink: "Besøg azlo.pro",
+            ctaTitle: "Vil du se det i praksis?",
             ctaDesc: "Book en gratis demo og se, hvordan SmokingTracker kan støtte dit behandlingssted.",
             ctaBtn: "Book en gratis demo"
         },
@@ -322,7 +332,7 @@ export const i18n = {
             q6: "Er SmokingTracker GDPR-compliant?",
             a6: "Ja. SmokingTracker er bygget med Privacy by Design. Vi agerer som databehandler under din rolle som dataansvarlig. En fuld Databehandleraftale (DPA) er inkluderet i alle planer. Alle data opbevares i EU.",
             q7: "Integrerer det med KMD Nexus eller Cura?",
-            a7: "Direkte, nej — men du kan eksportere PDF-rapporter med ét klik, klar til at vedhæfte i KMD Nexus, Cura eller ethvert andet journalsystem.",
+            a7: "Direkte, nej — men du kan åbne en udskriftsklar klinisk rapport med ét klik og gemme den som PDF eller udskrive direkte. Klar til at vedhæfte i KMD Nexus, Cura eller ethvert andet journalsystem.",
             q8: "Hvilke browsere og enheder understøttes?",
             a8: "Alle moderne browsere (Chrome, Firefox, Safari, Edge) på smartphones, tablets og computere. Ingen installation kræves for hverken borgere eller personale.",
             q9: "Kan vi afbryde prøveperioden?",
@@ -344,7 +354,7 @@ export const i18n = {
             tier1_f1: "Ubegrænsede medarbejderkonti",
             tier1_f2: "Trafiklys-dashboard",
             tier1_f3: "Intelligente alarmer",
-            tier1_f4: "PDF-rapporter med ét klik",
+            tier1_f4: "Kliniske rapporter med ét klik",
             tier1_f5: "Indbygget Urge Surfing",
             tier1_f6: "Præstationer til borgerne",
             tier1_f7: "EAN / PDF-fakturering",
