@@ -1,0 +1,862 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Features — SmokingTracker</title>
+    <meta name="description"
+        content="Complete overview of all SmokingTracker features — from the Urge Surfing panic button to the clinical traffic light dashboard." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        /* ── Top 5 cards ───────────────────────────────────── */
+        .fp-top5-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .fp-top5-card {
+            display: grid;
+            grid-template-columns: 4rem 1fr;
+            gap: 1.5rem;
+            padding: 2rem 2rem 2rem 1.75rem;
+            border-radius: 20px;
+            align-items: start;
+        }
+
+        .fp-rank {
+            font-size: 2.25rem;
+            font-weight: 800;
+            line-height: 1;
+            color: var(--color-primary, #4ade80);
+            opacity: 0.35;
+            padding-top: 0.15rem;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .fp-top5-content h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .fp-top5-content p {
+            opacity: 0.78;
+            line-height: 1.75;
+            font-size: 0.97rem;
+            margin-bottom: 0;
+        }
+
+        .fp-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.6rem;
+        }
+
+        .fp-badge-priority {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.2rem 0.65rem;
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            background: rgba(74, 222, 128, 0.15);
+            color: var(--color-primary, #4ade80);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+        }
+
+        .fp-badge-b2b {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.2rem 0.65rem;
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            background: rgba(96, 165, 250, 0.15);
+            color: #60a5fa;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+        }
+
+        /* ── Category grid ─────────────────────────────────── */
+        .fp-cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .fp-cat-card {
+            border-radius: 20px;
+            padding: 1.75rem;
+        }
+
+        .fp-cat-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .fp-cat-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(74, 222, 128, 0.1);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .fp-cat-icon svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--color-primary, #4ade80);
+        }
+
+        .fp-cat-header h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .fp-feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
+
+        .fp-feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 0.9rem;
+            line-height: 1.45;
+        }
+
+        .fp-feature-item svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--color-primary, #4ade80);
+            flex-shrink: 0;
+            margin-top: 0.18rem;
+        }
+
+        .fp-feature-item-inner {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .fp-chip-priority {
+            display: inline-block;
+            padding: 0.1rem 0.45rem;
+            border-radius: 100px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            background: rgba(74, 222, 128, 0.12);
+            color: var(--color-primary, #4ade80);
+            border: 1px solid rgba(74, 222, 128, 0.25);
+            white-space: nowrap;
+        }
+
+        /* ── Section spacing ───────────────────────────────── */
+        .fp-section {
+            padding: 3rem 0;
+        }
+
+        .fp-section + .fp-section {
+            padding-top: 0;
+        }
+
+        .fp-section-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .fp-section-header h2 {
+            font-size: clamp(1.4rem, 3vw, 1.9rem);
+            font-weight: 800;
+            margin-bottom: 0.6rem;
+        }
+
+        .fp-section-header p {
+            opacity: 0.7;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 600px) {
+            .fp-top5-card {
+                grid-template-columns: 3rem 1fr;
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+
+            .fp-rank {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/logo.png" alt="SmokingTracker Logo" class="logo-img">
+                <span class="logo-text">SmokingTracker</span>
+            </a>
+            <div class="nav-links">
+                <a href="/features.html" data-i18n="nav.features" class="active">Features</a>
+                <a href="/#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
+                <a href="/pricing.html" data-i18n="nav.pricing">Pricing</a>
+                <a href="/about.html" data-i18n="nav.about">About</a>
+                <a href="/blog.html" data-i18n="nav.blog">Blog</a>
+            </div>
+            <div class="nav-actions">
+                <div class="lang-switch">
+                    <span class="lang-label">DA</span>
+                    <label class="switch">
+                        <input type="checkbox" id="lang-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="lang-label">EN</span>
+                </div>
+                <a href="/trial.html" class="btn btn-primary" data-i18n="nav.bookDemo">Book a Demo</a>
+                <button class="mobile-menu-btn icon-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="4" x2="20" y1="12" y2="12" />
+                        <line x1="4" x2="20" y1="6" y2="6" />
+                        <line x1="4" x2="20" y1="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- ─── HERO ──────────────────────────────────────────── -->
+        <section class="hero">
+            <div class="hero-bg-glow"></div>
+            <div class="container hero-container"
+                style="grid-template-columns: 1fr; text-align: center; max-width: 800px;">
+                <div class="hero-content" style="align-items: center;">
+                    <div class="badge fade-in-up" data-i18n="featuresPage.badge">Komplet funktionsoversigt</div>
+                    <h1 class="fade-in-up" style="animation-delay: 0.1s" data-i18n="featuresPage.title">
+                        Alle værktøjer dit team har brug for — <span class="text-gradient">bygget til behandling</span>
+                    </h1>
+                    <p class="hero-subtitle fade-in-up" style="animation-delay: 0.2s"
+                        data-i18n="featuresPage.subtitle">
+                        SmokingTracker er designet specifikt til cannabisbehandling. Alle funktioner er bygget med ét
+                        mål: at fastholde borgere i behandlingen længe nok til, at det virker.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── TOP 5 ──────────────────────────────────────── -->
+        <section class="fp-section">
+            <div class="container">
+                <div class="fp-section-header fade-in-up">
+                    <div class="badge" style="margin: 0 auto 0.75rem" data-i18n="featuresPage.top5Badge">5
+                        kernefunktioner</div>
+                    <h2 data-i18n="featuresPage.top5Title">Funktionerne der gør forskellen</h2>
+                    <p data-i18n="featuresPage.top5Subtitle">Fem funktioner bygget direkte på klinisk evidens —
+                        designet til de sværeste øjeblikke i cannabisbehandling.</p>
+                </div>
+
+                <div class="fp-top5-grid">
+                    <!-- 1: Urge Surfing -->
+                    <div class="fp-top5-card glass hover-lift fade-in-up">
+                        <div class="fp-rank">01</div>
+                        <div class="fp-top5-content">
+                            <div class="fp-badges">
+                                <span class="fp-badge-priority" data-i18n="featuresPage.priorityBadge">Klinisk
+                                    prioritet</span>
+                            </div>
+                            <h3 data-i18n="featuresPage.f1_title">Urge Surfing (Panikknap)</h3>
+                            <p data-i18n="featuresPage.f1_desc">Aktiveres i cravingøjeblikket. En 3-minutters
+                                nedtælling, guidet vejrtrækning og distraksionsopgaver hjælper borgeren med at ride
+                                bølgen af. En 'Kan ikke vente'-knap sikrer ingen dom, hvis det ikke lykkes — og
+                                sessionen logges uanset hvad.</p>
+                        </div>
+                    </div>
+
+                    <!-- 2: Quit Timer -->
+                    <div class="fp-top5-card glass hover-lift fade-in-up" style="animation-delay: 0.05s">
+                        <div class="fp-rank">02</div>
+                        <div class="fp-top5-content">
+                            <div class="fp-badges">
+                                <span class="fp-badge-priority" data-i18n="featuresPage.priorityBadge">Klinisk
+                                    prioritet</span>
+                            </div>
+                            <h3 data-i18n="featuresPage.f2_title">Quit-timer</h3>
+                            <p data-i18n="featuresPage.f2_desc">En realtidstæller der viser dage, timer, minutter og
+                                sekunder siden sidste session. Kombineret med pengesparet-beregning og
+                                milestone-beskeder gør den ophøret til et dagligt identitetsritual — borgerne åbner
+                                appen hver morgen for at se tælleren.</p>
+                        </div>
+                    </div>
+
+                    <!-- 3: Traffic Light -->
+                    <div class="fp-top5-card glass hover-lift fade-in-up" style="animation-delay: 0.1s">
+                        <div class="fp-rank">03</div>
+                        <div class="fp-top5-content">
+                            <div class="fp-badges">
+                                <span class="fp-badge-priority" data-i18n="featuresPage.priorityBadge">Klinisk
+                                    prioritet</span>
+                                <span class="fp-badge-b2b" data-i18n="featuresPage.b2bBadge">B2B-highlight</span>
+                            </div>
+                            <h3 data-i18n="featuresPage.f3_title">Trafiklys-dashboard</h3>
+                            <p data-i18n="featuresPage.f3_desc">Farvekoder automatisk dine borgere: grøn (aktiv), gul
+                                (kræver opmærksomhed), rød (inaktiv). Borgere kan ikke blive tavse uden at du opdager
+                                det — selv med en fuld sagsportefølje. Klinisk triage uden ekstra administrativt
+                                arbejde.</p>
+                        </div>
+                    </div>
+
+                    <!-- 4: Achievement System -->
+                    <div class="fp-top5-card glass hover-lift fade-in-up" style="animation-delay: 0.15s">
+                        <div class="fp-rank">04</div>
+                        <div class="fp-top5-content">
+                            <div class="fp-badges">
+                                <span class="fp-badge-priority" data-i18n="featuresPage.priorityBadge">Klinisk
+                                    prioritet</span>
+                            </div>
+                            <h3 data-i18n="featuresPage.f4_title">Achievement-system</h3>
+                            <p data-i18n="featuresPage.f4_desc">Milepæle belønner konsekvens: første log, 7 røgfrie
+                                dage, streak-mål. Progress bars viser, hvad der venter — ikke bare hvad der er opnået.
+                                Afgørende: tilbagefald sletter ikke achievements, hvilket fjerner den skamspiral, der
+                                driver dropout.</p>
+                        </div>
+                    </div>
+
+                    <!-- 5: Smoke-Free Hours -->
+                    <div class="fp-top5-card glass hover-lift fade-in-up" style="animation-delay: 0.2s">
+                        <div class="fp-rank">05</div>
+                        <div class="fp-top5-content">
+                            <h3 data-i18n="featuresPage.f5_title">Røgfrie timer</h3>
+                            <p data-i18n="featuresPage.f5_desc">Borgeren definerer tidsvinduer, hvor de ikke vil ryge
+                                (fx 07:00–09:00). Sessionslogning blokeres i disse vinduer — med en override-knap.
+                                Friktionen alene reducerer impulsivt forbrug markant. Et indlejret samtalegrundlag for
+                                behandleren.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── FULL FEATURE GRID ─────────────────────────── -->
+        <section class="fp-section">
+            <div class="container">
+                <div class="fp-section-header fade-in-up">
+                    <div class="badge" style="margin: 0 auto 0.75rem" data-i18n="featuresPage.allBadge">Fuld liste
+                    </div>
+                    <h2 data-i18n="featuresPage.allTitle">Alle funktioner, opdelt på kategorier</h2>
+                    <p data-i18n="featuresPage.allSubtitle">Alle SmokingTracker-funktioner organiseret efter klinisk
+                        funktion.</p>
+                </div>
+
+                <div class="fp-cat-grid">
+
+                    <!-- ── Cat 1: Crisis ── -->
+                    <div class="fp-cat-card glass fade-in-up">
+                        <div class="fp-cat-header">
+                            <div class="fp-cat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                                    <line x1="12" y1="9" x2="12" y2="13" />
+                                    <line x1="12" y1="17" x2="12.01" y2="17" />
+                                </svg>
+                            </div>
+                            <h3 data-i18n="featuresPage.cat1">Krisesituationer</h3>
+                        </div>
+                        <ul class="fp-feature-list">
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <div class="fp-feature-item-inner">
+                                    <span data-i18n="featuresPage.c1f1">Panikknap / Urge Surfing Modal</span>
+                                    <span class="fp-chip-priority"
+                                        data-i18n="featuresPage.priorityBadge">Klinisk prioritet</span>
+                                </div>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <div class="fp-feature-item-inner">
+                                    <span data-i18n="featuresPage.c1f2">3-min nedtæller med 'Kan ikke vente'-mulighed</span>
+                                    <span class="fp-chip-priority"
+                                        data-i18n="featuresPage.priorityBadge">Klinisk prioritet</span>
+                                </div>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c1f3">Guidet vejrtrækning (16-sek cyklus)</span>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c1f4">Distraktions-quizzer</span>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c1f5">Craving-log med tidsstempel</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- ── Cat 2: Daily Retention ── -->
+                    <div class="fp-cat-card glass fade-in-up" style="animation-delay: 0.05s">
+                        <div class="fp-cat-header">
+                            <div class="fp-cat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <polyline points="12 6 12 12 16 14" />
+                                </svg>
+                            </div>
+                            <h3 data-i18n="featuresPage.cat2">Daglig fastholdelse</h3>
+                        </div>
+                        <ul class="fp-feature-list">
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <div class="fp-feature-item-inner">
+                                    <span data-i18n="featuresPage.c2f1">Quit-tæller (dage, timer, sekunder)</span>
+                                    <span class="fp-chip-priority"
+                                        data-i18n="featuresPage.priorityBadge">Klinisk prioritet</span>
+                                </div>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c2f2">Hjemmeskærm-chips — næste achievement synligt</span>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c2f3">Daglig sessions-budget progress bar
+                                    (Reducer-mål)</span>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c2f4">Røgfrie timer-blokering</span>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c2f5">Awareness-mode — kun registrering, intet pres</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- ── Cat 3: Self-Insight ── -->
+                    <div class="fp-cat-card glass fade-in-up" style="animation-delay: 0.1s">
+                        <div class="fp-cat-header">
+                            <div class="fp-cat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <line x1="18" y1="20" x2="18" y2="10" />
+                                    <line x1="12" y1="20" x2="12" y2="4" />
+                                    <line x1="6" y1="20" x2="6" y2="14" />
+                                </svg>
+                            </div>
+                            <h3 data-i18n="featuresPage.cat3">Selvindsigt &amp; refleksion</h3>
+                        </div>
+                        <ul class="fp-feature-list">
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c3f1">Ugentlige sammenligningsstatistikker</span>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c3f2">Kalendervisning af røgfrie dage</span>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <div class="fp-feature-item-inner">
+                                    <span data-i18n="featuresPage.c3f3">Stemnings-tracking per session</span>
+                                    <span class="fp-chip-priority"
+                                        data-i18n="featuresPage.priorityBadge">Klinisk prioritet</span>
+                                </div>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c3f4">Lokations-tracking per session</span>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c3f5">Pengesparet-beregning</span>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c3f6">Ugentlig cost-estimat</span>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c3f7">Top forbrugsmåde &amp; peak-dag rapport</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- ── Cat 4: Motivation ── -->
+                    <div class="fp-cat-card glass fade-in-up" style="animation-delay: 0.05s">
+                        <div class="fp-cat-header">
+                            <div class="fp-cat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </div>
+                            <h3 data-i18n="featuresPage.cat4">Motivation &amp; gamification</h3>
+                        </div>
+                        <ul class="fp-feature-list">
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <div class="fp-feature-item-inner">
+                                    <span data-i18n="featuresPage.c4f1">Achievement-badges med progress bars</span>
+                                    <span class="fp-chip-priority"
+                                        data-i18n="featuresPage.priorityBadge">Klinisk prioritet</span>
+                                </div>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c4f2">Manuel røgfri-dag-markering</span>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c4f3">Streak-tæller (Reducer-mål)</span>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c4f4">Milestone-beskeder (penge sparet, tid)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- ── Cat 5: Practitioner ── -->
+                    <div class="fp-cat-card glass fade-in-up" style="animation-delay: 0.1s">
+                        <div class="fp-cat-header">
+                            <div class="fp-cat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                    <circle cx="9" cy="7" r="4" />
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                </svg>
+                            </div>
+                            <h3 data-i18n="featuresPage.cat5">Behandler-relationen</h3>
+                        </div>
+                        <ul class="fp-feature-list">
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <div class="fp-feature-item-inner">
+                                    <span data-i18n="featuresPage.c5f1">Trafiklys-system (behandler-dashboard)</span>
+                                    <span class="fp-chip-priority"
+                                        data-i18n="featuresPage.priorityBadge">Klinisk prioritet</span>
+                                </div>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <div class="fp-feature-item-inner">
+                                    <span data-i18n="featuresPage.c5f2">Granulære samtykke-toggles (borgerstyret)</span>
+                                    <span class="fp-chip-priority"
+                                        data-i18n="featuresPage.priorityBadge">Klinisk prioritet</span>
+                                </div>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c5f3">Behandler-notifikationer ved triggere</span>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c5f4">Ét-klik PDF-klinisk rapport</span>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <div class="fp-feature-item-inner">
+                                    <span data-i18n="featuresPage.c5f5">Stemnings- og lokationsdata i
+                                        behandler-visning</span>
+                                    <span class="fp-chip-priority"
+                                        data-i18n="featuresPage.priorityBadge">Klinisk prioritet</span>
+                                </div>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c5f6">Invitations-flow (e-mail, SMS, manuelt)</span>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c5f7">Borger selvafmelding</span>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c5f8">Behandler notifikationspræferencer</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- ── Cat 6: Onboarding ── -->
+                    <div class="fp-cat-card glass fade-in-up" style="animation-delay: 0.05s">
+                        <div class="fp-cat-header">
+                            <div class="fp-cat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                                </svg>
+                            </div>
+                            <h3 data-i18n="featuresPage.cat6">Onboarding</h3>
+                        </div>
+                        <ul class="fp-feature-list">
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c6f1">7-trins onboarding-wizard</span>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c6f2">Valg af forbrugsmåde</span>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <div class="fp-feature-item-inner">
+                                    <span data-i18n="featuresPage.c6f3">Borger-defineret reduktionsmål</span>
+                                    <span class="fp-chip-priority"
+                                        data-i18n="featuresPage.priorityBadge">Klinisk prioritet</span>
+                                </div>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c6f4">Spring-knap — ingen blokering af ambivalente
+                                    borgere</span>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c6f5">Gentag onboarding fra profil</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- ── Cat 7: Infrastructure ── -->
+                    <div class="fp-cat-card glass fade-in-up" style="animation-delay: 0.1s">
+                        <div class="fp-cat-header">
+                            <div class="fp-cat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                </svg>
+                            </div>
+                            <h3 data-i18n="featuresPage.cat7">Infrastruktur</h3>
+                        </div>
+                        <ul class="fp-feature-list">
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c7f1">Rate-limiting på autentificering</span>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c7f2">Token-blocklist ved logout</span>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c7f3">Bulk JSON data-import / eksport</span>
+                            </li>
+                            <li class="fp-feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span data-i18n="featuresPage.c7f4">Sprogtoggle (dansk / engelsk)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── CTA ───────────────────────────────────────────── -->
+        <section class="cta-section">
+            <div class="container text-center">
+                <div class="cta-box glass fade-in-up">
+                    <h2 data-i18n="featuresPage.ctaTitle">Vil du se det hele i praksis?</h2>
+                    <p data-i18n="featuresPage.ctaDesc">Book en gratis demo og udforsk alle funktioner med en fra vores
+                        team.</p>
+                    <a href="/trial.html" class="btn btn-primary btn-large cta-btn"
+                        data-i18n="featuresPage.ctaBtn">Book en gratis demo</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="/" class="logo">
+                    <img src="/logo.png" alt="SmokingTracker Logo" class="logo-img">
+                    <span class="logo-text">SmokingTracker</span>
+                </a>
+                <p data-i18n="footer.desc">Vi hjælper behandlingssteder med at levere proaktiv, datadrevet støtte —
+                    med fuld respekt for borgerens privatliv.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4 data-i18n="footer.product">Produkt</h4>
+                    <a href="/features.html" data-i18n="nav.features" class="active">Funktioner</a>
+                    <a href="/#how-it-works" data-i18n="nav.howItWorks">Sådan virker det</a>
+                    <a href="/pricing.html" data-i18n="nav.pricing">Priser</a>
+                    <a href="/faq.html" data-i18n="nav.faq">FAQ</a>
+                    <a href="/about.html" data-i18n="nav.about">Om os</a>
+                    <a href="/blog.html" data-i18n="nav.blog">Vidensbank</a>
+                </div>
+                <div class="link-group">
+                    <h4 data-i18n="footer.legal">Juridisk</h4>
+                    <a href="/privacy.html" data-i18n="footer.privacy">Privatlivspolitik</a>
+                    <a href="/terms.html" data-i18n="footer.terms">Handelsbetingelser</a>
+                    <a href="/dpa.html" data-i18n="footer.dpa">Databehandleraftale</a>
+                    <a href="/security.html" data-i18n="footer.security">Sikkerhed</a>
+                </div>
+                <div class="link-group">
+                    <h4 data-i18n="footer.connect">Kontakt</h4>
+                    <a href="mailto:support@smokingtracker.com" data-i18n="footer.contact">Kontakt salg</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 SmokingTracker. All rights reserved.</p>
+        </div>
+    </footer>
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>
