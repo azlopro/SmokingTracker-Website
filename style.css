@@ -1711,3 +1711,26 @@ input[type="tel"]:invalid:not(:placeholder-shown) {
 
 html[lang="da"] .lang-en { display: none; }
 html[lang="en"] .lang-da { display: none; }
+
+/* Inline Feature Previews */
+.feature-image-preview {
+    margin-top: 1.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-base);
+}
+
+.feature-card:hover .feature-image-preview {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.inline-preview-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
