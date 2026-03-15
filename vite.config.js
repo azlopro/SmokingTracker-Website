@@ -21,9 +21,12 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main:  resolve(__dirname, 'index.html'),
-        blog:  resolve(__dirname, 'blog.html'),
-        trial: resolve(__dirname, 'trial.html'),
+        main:     resolve(__dirname, 'index.html'),
+        blog:     resolve(__dirname, 'blog.html'),
+        trial:    resolve(__dirname, 'trial.html'),
+        about:    resolve(__dirname, 'about.html'),
+        faq:      resolve(__dirname, 'faq.html'),
+        pricing:  resolve(__dirname, 'pricing.html'),
         ...getPostInputs(),
       },
     },

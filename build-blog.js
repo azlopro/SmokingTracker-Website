@@ -60,6 +60,7 @@ function getPostTemplate() {
             <div class="nav-links">
                 <a href="/#features" data-i18n="nav.features">Features</a>
                 <a href="/#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
+                <a href="/pricing.html" data-i18n="nav.pricing">Pricing</a>
                 <a href="/blog.html" data-i18n="nav.blog">Blog</a>
             </div>
             <div class="nav-actions">
@@ -139,6 +140,9 @@ function getPostTemplate() {
                     <h4 data-i18n="footer.product">Product</h4>
                     <a href="/#features" data-i18n="nav.features">Features</a>
                     <a href="/#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
+                    <a href="/pricing.html" data-i18n="nav.pricing">Pricing</a>
+                    <a href="/faq.html" data-i18n="nav.faq">FAQ</a>
+                    <a href="/about.html" data-i18n="nav.about">About</a>
                     <a href="/blog.html" data-i18n="nav.blog">Blog</a>
                 </div>
                 <div class="link-group">
