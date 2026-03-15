@@ -65,6 +65,7 @@ export const i18n = {
             privacy: "Privacy Policy",
             terms: "Terms of Service",
             dpa: "Data Processing Agreement",
+            security: "Security",
             contact: "Contact Sales"
         },
         blogList: {
@@ -187,6 +188,7 @@ export const i18n = {
             privacy: "Privatlivspolitik",
             terms: "Handelsbetingelser",
             dpa: "Databehandleraftale",
+            security: "Sikkerhed",
             contact: "Kontakt salg"
         },
         blogList: {
