@@ -682,19 +682,23 @@ input:checked+.slider:before {
 
 .showcase-phone {
     width: 100%;
-    max-width: 400px;
+    max-width: 480px;
     margin: 0 auto;
-    border-radius: 36px;
-    padding: 8px;
-    box-sizing: border-box;
+    border-radius: 24px;
+    padding: 6px;
+    box-sizing: border;
     overflow: hidden;
+    aspect-ratio: 2 / 3;
 }
 
 .showcase-phone img {
     width: 100%;
-    height: auto;
-    border-radius: 30px;
+    height: 100%;
+    border-radius: 20px;
     display: block;
+    object-fit: cover;
+    object-position: 39% top;
+
 }
 
 /* Features Section */
