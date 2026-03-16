@@ -61,6 +61,22 @@ export const i18n = {
             f7_title: "Three Treatment Goal Modes",
             f7_desc: "Each citizen picks a goal that matches where they are: <strong>Reduce</strong> (daily session budget), <strong>Quit</strong> (smoke-free timer, cold turkey or gradual), or <strong>Awareness</strong> (just track, no pressure). The app adapts its entire experience to their goal."
         },
+        showcase: {
+            behandler: {
+                title: 'Real-time overview of every citizen',
+                desc: 'See traffic-light status, week-over-week trends, trigger alarms, and one-click clinical reports — all in one place.',
+                bullet1: 'Traffic light status: Green, Yellow, or Red at a glance',
+                bullet2: 'Smart alarms — notify by in-app, email, or SMS',
+                bullet3: 'One-click PDF reports for KMD Nexus & Cura',
+            },
+            app: {
+                title: 'An app citizens actually use',
+                desc: 'No downloads, no complexity. Citizens log sessions, surf cravings, and set goals — entirely in the browser, on their own terms.',
+                bullet1: 'Three treatment goal modes: Reduce, Quit, or Awareness',
+                bullet2: 'Built-in Urge Surfing with 3-minute breathing exercises',
+                bullet3: 'Granular consent toggles — citizens choose what to share',
+            }
+        },
         ctaBottom: {
             title: "Ready to keep more citizens in treatment?",
             desc: "Book a free demo and see how SmokingTracker fits into your municipality's existing workflow — typically up and running within a day.",
@@ -349,6 +365,22 @@ export const i18n = {
 
             f7_title: "Tre behandlingsmål-modes",
             f7_desc: "Hver borger vælger det mål, der passer til dem: <strong>Reducer</strong> (dagligt sessionsbudget), <strong>Stop</strong> (røgfri-timer, koldt-kalkun eller gradvist), eller <strong>Bevidsthed</strong> (bare registrér, intet pres). Appen tilpasser hele oplevelsen til borgerens mål."
+        },
+        showcase: {
+            behandler: {
+                title: 'Realtids-overblik over alle jeres borgere',
+                desc: 'Se trafiklys-status, uge-mod-uge-tendenser, udløsningsalarmer og kliniske rapporter med ét klik — alt samlet ét sted.',
+                bullet1: 'Trafiklys-status: Grøn, Gul eller Rød med ét blik',
+                bullet2: 'Intelligente alarmer — via app, e-mail eller SMS',
+                bullet3: 'PDF-rapporter med ét klik til KMD Nexus og Cura',
+            },
+            app: {
+                title: 'En app borgerne faktisk bruger',
+                desc: 'Ingen downloads, ingen kompleksitet. Borgerne logger sessioner, surfer trang og sætter mål — direkte i browseren, på egne præmisser.',
+                bullet1: 'Tre behandlingsmål-modes: Reducer, Stop eller Bevidsthed',
+                bullet2: 'Indbygget Urge Surfing med 3-minutters vejrtrækningsøvelse',
+                bullet3: 'Granuleret samtykke — borgeren bestemmer, hvad der deles',
+            }
         },
         ctaBottom: {
             title: "Klar til at fastholde flere borgere i behandling?",
