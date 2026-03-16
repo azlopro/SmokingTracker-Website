@@ -1165,6 +1165,7 @@ input:checked+.slider:before {
     .hero-container,
     .footer-content {
         grid-template-columns: 1fr;
+        justify-items: center;
     }
 
     .hero {
@@ -1250,37 +1251,40 @@ input:checked+.slider:before {
         gap: 2rem;
     }
 
-    /* Preview stack: stack both dashboards vertically on mobile */
+    /* Preview stack: side-by-side, centered, filling full width */
+    .hero-image {
+        margin-top: 1rem;
+        overflow: visible;
+        width: 100%;
+    }
+
     .preview-stack {
         overflow: visible;
         min-height: auto;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-        padding-bottom: 1rem;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 1rem;
+        padding-bottom: 1.5rem;
+        width: 100%;
     }
 
     .preview-stack .desktop-frame {
-        width: 100%;
+        flex: 1;
+        min-width: 0;
     }
 
     .preview-stack .mockup-frame {
         display: block;
         position: static;
-        width: 160px;
+        flex: 0 0 38%;
+        max-width: 180px;
         box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
     }
 
     .preview-label--mobile {
         display: inline-flex;
-        bottom: -10px;
-    }
-
-    /* Ensure no horizontal overflow */
-    .hero-image {
-        margin-top: 1rem;
-        overflow: visible;
     }
 
     /* Section padding */
