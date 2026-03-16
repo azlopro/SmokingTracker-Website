@@ -585,13 +585,24 @@ input:checked+.slider:before {
 
 .showcase-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 4rem;
     align-items: center;
 }
 
+/* App section: image left, text right — use explicit placement */
+.showcase-grid--reverse {
+    grid-template-columns: 1.6fr 1fr;
+}
+
 .showcase-grid--reverse .showcase-media {
-    order: -1;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.showcase-grid--reverse .showcase-content {
+    grid-column: 2;
+    grid-row: 1;
 }
 
 .showcase-content {
@@ -671,7 +682,7 @@ input:checked+.slider:before {
 
 .showcase-phone {
     width: 100%;
-    max-width: 300px;
+    max-width: 400px;
     margin: 0 auto;
     border-radius: 36px;
     padding: 8px;
@@ -1281,17 +1292,27 @@ input:checked+.slider:before {
         padding-top: 120px;
     }
 
-    .showcase-grid {
+    .showcase-grid,
+    .showcase-grid--reverse {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.5rem;
     }
 
-    .showcase-grid--reverse .showcase-media {
-        order: 0;
+    /* Reset explicit column/row placement from desktop */
+    .showcase-grid--reverse .showcase-media,
+    .showcase-grid--reverse .showcase-content {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    /* Always show image above text on mobile */
+    .showcase-media {
+        order: -1;
     }
 
     .showcase-phone {
-        max-width: 220px;
+        width: min(85%, 360px);
+        max-width: unset;
     }
 
     .hero-subtitle {
