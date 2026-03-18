@@ -69,6 +69,13 @@ export const i18n = {
                 bullet2: 'Smart alarms — notify by in-app, email, or SMS',
                 bullet3: 'Print-ready PDF in one click — ready to attach in KMD Nexus & Cura',
             },
+            registrer: {
+                title: 'Everything a citizen logs — in one screen',
+                desc: 'Three taps is enough — but citizens can also add mood, location, notes, and end time. The more they log, the richer the data for the next session.',
+                bullet1: 'Amount in grams, date and start time — always',
+                bullet2: 'Optional: mood, location, notes, and "shared with friends"',
+                bullet3: 'Fast-use warning — citizen is informed in the moment',
+            },
             app: {
                 title: 'An app citizens actually use',
                 desc: 'No downloads, no complexity. Citizens log sessions, surf cravings, and set goals — entirely in the browser, on their own terms.',
@@ -392,6 +399,13 @@ export const i18n = {
                 bullet1: 'Trafiklys-status: Grøn, Gul eller Rød med ét blik',
                 bullet2: 'Intelligente alarmer — via app, e-mail eller SMS',
                 bullet3: 'Udskriftsklar PDF med ét klik — klar til at vedhæfte i KMD Nexus og Cura',
+            },
+            registrer: {
+                title: 'Alt borgeren registrerer — på ét skærmbillede',
+                desc: 'Tre klik er nok — men borgeren kan også tilføje humør, sted, noter og sluttidspunkt. Jo mere de registrerer, jo rigere data har behandleren til samtalen.',
+                bullet1: 'Mængde i gram, dato og starttidspunkt — altid',
+                bullet2: 'Valgfrit: humør, sted, noter og "delt med venner"',
+                bullet3: 'Advarsel ved hurtigt forbrug — borgeren informeres i øjeblikket',
             },
             app: {
                 title: 'En app borgerne faktisk bruger',
