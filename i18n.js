@@ -82,6 +82,27 @@ export const i18n = {
                 bullet1: 'Drei Behandlungsziel-Modi: Reduzieren, Aufhören oder Bewusstsein',
                 bullet2: 'Eingebautes Urge Surfing mit 3-minütiger Atemübung',
                 bullet3: 'Granulare Einwilligung — Klienten entscheiden, was geteilt wird',
+            },
+            indsigt: {
+                title: 'Konsummuster, die der Klient selbst versteht',
+                desc: 'Der Insights-Tab zeigt tägliche Durchschnittswerte, Ausgaben und wann der Klient am häufigsten konsumiert — alles in laufend aktualisierten Grafiken.',
+                bullet1: '14-Tage-Konsumgrafik mit Einheiten pro Tag',
+                bullet2: 'Kosteneffekt — was kostet es wöchentlich?',
+                bullet3: 'Tageszeitkurve, die Konsummuster aufdeckt',
+            },
+            praestationer: {
+                title: 'Motivation durch Meilensteine',
+                desc: 'Gamifizierte Erfolge belohnen Kontinuität ohne klinischen Druck. Der Klient sieht genau, was nötig ist, um den nächsten Meilenstein freizuschalten.',
+                bullet1: 'Meilensteine von der ersten Sitzung bis 50+ Protokollierungen',
+                bullet2: 'Monatsmeister, Reduzieren, Zielbezwinger und mehr',
+                bullet3: 'Klarer Fortschritt — der Klient weiß immer, wo er steht',
+            },
+            samtykke: {
+                title: 'Der Klient entscheidet, was geteilt wird',
+                desc: 'Granulare Einwilligung lässt den Klienten genau wählen, welche Daten der Behandler sieht. Vertrauen-zuerst-Design bedeutet höheres Engagement und geringere Abbruchquote.',
+                bullet1: 'Konsumverlauf, Verlangendaten, Stimmung und Notizen separat teilen',
+                bullet2: 'Mit deiner Behandlungsstelle per Klick verbinden',
+                bullet3: 'Einwilligung kann jederzeit geändert oder widerrufen werden',
             }
         },
         featureTeaser: {
@@ -97,6 +118,7 @@ export const i18n = {
             line: "Überblick schafft Kontrolle"
         },
         footer: {
+
             desc: "Behandlungsstellen einen klareren Einblick in die Gewohnheiten ihrer Klienten geben — während der Klient die Kontrolle über seine eigenen Daten behält.",
             product: "Produkt",
             legal: "Rechtliches",
@@ -153,6 +175,10 @@ export const i18n = {
             a9: "Ja. Du kannst jederzeit vor Ende der 14-tägigen Testphase kündigen — keine Fragen, keine Rechnung.",
             q10: "Wo werden die Daten gespeichert?",
             a10: "Alle Daten werden auf EU-basierten Servern gespeichert. Keine Übertragungen außerhalb der EU/des EWR.",
+            cat1: "Erste Schritte",
+            cat2: "Preise & Abrechnung",
+            cat3: "Datenschutz & Sicherheit",
+            cat4: "Technisches",
             cat5: "Für Behandler",
             q11: "Was trackt die App — Zigaretten oder Cannabis?",
             a11: "Cannabis. Die App unterstützt Joint, Vaporizer, Vape Pen, Edibles und Konzentrat — der Klient wählt seine Methode beim Onboarding. Der Name SmokingTracker ist historisch; die Plattform ist speziell für die Cannabisentwöhnung entwickelt.",
@@ -416,6 +442,27 @@ export const i18n = {
                 bullet1: 'Three treatment goal modes: Reduce, Quit, or Awareness',
                 bullet2: 'Built-in Urge Surfing with 3-minute breathing exercises',
                 bullet3: 'Granular consent toggles — citizens choose what to share',
+            },
+            indsigt: {
+                title: 'Usage patterns the client can understand themselves',
+                desc: 'The Insights tab shows daily averages, spending, and when during the day the client consumes most — all in continuously updated charts.',
+                bullet1: '14-day consumption chart with units per day',
+                bullet2: 'Wallet effect — what does it cost weekly?',
+                bullet3: 'Time-of-day curve that reveals consumption patterns',
+            },
+            praestationer: {
+                title: 'Motivation through milestones',
+                desc: 'Gamified achievements reward consistency without clinical pressure. The client can see exactly what it takes to unlock the next milestone.',
+                bullet1: 'Milestones from first session to 50+ logs',
+                bullet2: 'Monthly champion, Cut down, Goal crusher and more',
+                bullet3: 'Clear progress — the client always knows where they stand',
+            },
+            samtykke: {
+                title: 'The client decides what gets shared',
+                desc: 'Granular consent lets the client choose exactly which data the practitioner sees. Trust-first design means higher engagement and lower dropout.',
+                bullet1: 'Share session log, urge data, mood and notes separately',
+                bullet2: 'Connected to your treatment center with one click',
+                bullet3: 'Consent can be changed or withdrawn at any time',
             }
         },
         featureTeaser: {
@@ -487,6 +534,10 @@ export const i18n = {
             a9: "Yes. You can cancel at any time before the 14-day trial ends — no questions asked, no invoice sent.",
             q10: "Where is the data stored?",
             a10: "All data is stored on EU-based servers. No transfers outside the EU/EEA.",
+            cat1: "Getting Started",
+            cat2: "Pricing & Billing",
+            cat3: "Privacy & Security",
+            cat4: "Technical",
             cat5: "For Clinicians",
             q11: "What does the app track — cigarettes or cannabis?",
             a11: "Cannabis. The app supports joint, vaporizer, vape pen, edible, and concentrate — the citizen chooses their method during onboarding. The name SmokingTracker is historical; the platform is built specifically for cannabis addiction treatment.",
@@ -750,6 +801,27 @@ export const i18n = {
                 bullet1: 'Tre behandlingsmål-modes: Reducer, Stop eller Bevidsthed',
                 bullet2: 'Indbygget Urge Surfing med 3-minutters vejrtrækningsøvelse',
                 bullet3: 'Granuleret samtykke — borgeren bestemmer, hvad der deles',
+            },
+            indsigt: {
+                title: 'Forbrugsmønstre borgeren selv kan forstå',
+                desc: 'Indsigt-fanen viser dagligt gennemsnit, pengeforbrug og hvornår på dagen borgeren ryger mest — alt i grafer der opdateres løbende.',
+                bullet1: '14-dages forbrug-graf med enheder pr. dag',
+                bullet2: 'Pengepungseffekt — hvad koster det ugentligt?',
+                bullet3: 'Tidspunkt-kurve der afslører ryge-mønstre',
+            },
+            praestationer: {
+                title: 'Motivation gennem milepæle',
+                desc: 'Gamificerede achievements belønner kontinuitet uden klinisk pres. Borgeren kan se præcis hvad der skal til for at låse næste milepæl op.',
+                bullet1: 'Milepæle fra første session til 50+ registreringer',
+                bullet2: 'Månedsmester, Skær ned, Mål-knuser og flere',
+                bullet3: 'Tydelig progress — borgeren ved altid hvor de er',
+            },
+            samtykke: {
+                title: 'Borgeren bestemmer hvad der deles',
+                desc: 'Granuleret samtykke lader borgeren præcist vælge hvilke data behandleren ser. Tillid-første design betyder højere engagement og lavere frafald.',
+                bullet1: 'Del ryge-skema, urge-data, stemning og noter separat',
+                bullet2: 'Tilknyttet dit behandlingscenter med ét klik',
+                bullet3: 'Samtykke kan ændres eller trækkes tilbage når som helst',
             }
         },
         featureTeaser: {
@@ -821,6 +893,10 @@ export const i18n = {
             a9: "Ja. Du kan afbryde til enhver tid inden de 14 prøvedage er slut — ingen spørgsmål, ingen faktura.",
             q10: "Hvor opbevares dataene?",
             a10: "Alle data opbevares på EU-baserede servere — ingen overførsler uden for EU/EØS.",
+            cat1: "Kom i gang",
+            cat2: "Priser & fakturering",
+            cat3: "Privatliv & sikkerhed",
+            cat4: "Teknisk",
             cat5: "For behandlere",
             q11: "Hvad tracker appen — cigaretter eller hash?",
             a11: "Hash/cannabis. Appen understøtter joint, vaporizer, vape pen, edible og koncentrat — borgeren vælger selv metode under onboarding. Navnet SmokingTracker er historisk; platformen er bygget specifikt til cannabis-misbrugsbehandling.",
