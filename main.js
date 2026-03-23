@@ -2,19 +2,19 @@ import { i18n } from './i18n.js';
 
 // Setup Translation Management
 function setupTranslations() {
-    const langToggle = document.getElementById('lang-toggle');
-    const storedLang = localStorage.getItem('lang') || 'da'; // Default to Danish for B2B
+    const langSelect = document.getElementById('lang-toggle');
+    const storedLang = localStorage.getItem('lang') || 'de'; // Default to German
 
     document.documentElement.setAttribute('lang', storedLang);
-    if (langToggle) {
-        langToggle.checked = storedLang === 'en';
+    if (langSelect) {
+        langSelect.value = storedLang;
     }
 
     applyTranslations(storedLang);
 
-    if (langToggle) {
-        langToggle.addEventListener('change', (e) => {
-            const newLang = e.target.checked ? 'en' : 'da';
+    if (langSelect) {
+        langSelect.addEventListener('change', (e) => {
+            const newLang = e.target.value;
             document.documentElement.setAttribute('lang', newLang);
             localStorage.setItem('lang', newLang);
             applyTranslations(newLang);
@@ -26,16 +26,17 @@ function applyTranslations(lang) {
     const dictionary = i18n[lang];
     if (!dictionary) return;
 
-    const elements = document.querySelectorAll('[data-i18n]');
-    elements.forEach(el => {
-        const keyPath = el.getAttribute('data-i18n');
-        const translation = getNestedValue(dictionary, keyPath);
-        if (translation) {
-            if (el.tagName === 'INPUT' && el.type === 'placeholder') {
-                el.placeholder = translation;
-            } else {
-                el.innerHTML = translation; // Using innerHTML to allow things like colored spans
-            }
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const translation = getNestedValue(dictionary, el.getAttribute('data-i18n'));
+        if (translation !== undefined) {
+            el.innerHTML = translation; // Using innerHTML to allow things like colored spans
+        }
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const translation = getNestedValue(dictionary, el.getAttribute('data-i18n-placeholder'));
+        if (translation !== undefined) {
+            el.placeholder = translation;
         }
     });
 }

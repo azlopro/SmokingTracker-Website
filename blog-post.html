@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8" />
@@ -34,12 +34,11 @@
             </div>
             <div class="nav-actions">
                 <div class="lang-switch">
-                    <span class="lang-label">DA</span>
-                    <label class="switch">
-                        <input type="checkbox" id="lang-toggle">
-                        <span class="slider round"></span>
-                    </label>
-                    <span class="lang-label">EN</span>
+                    <select id="lang-toggle" class="lang-select" aria-label="Language">
+                        <option value="de">DE</option>
+                        <option value="da">DA</option>
+                        <option value="en">EN</option>
+                    </select>
                 </div>
                 <a href="/#download" class="btn btn-primary" data-i18n="nav.bookDemo">Book a Demo</a>
                 <button class="mobile-menu-btn icon-btn">
