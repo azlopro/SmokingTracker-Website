@@ -724,6 +724,25 @@ img {
     font-size: 0.95rem;
 }
 
+/* Philosophy Strip */
+.philosophy-strip {
+    padding: 4rem 0 3rem;
+    text-align: center;
+}
+
+.philosophy-line {
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    background: linear-gradient(120deg, var(--color-text-primary) 0%, var(--color-primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+}
+
 /* Social Proof Stats Strip */
 .stats-strip {
     padding: 3rem 0;

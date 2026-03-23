@@ -93,6 +93,9 @@ export const i18n = {
             desc: "Buche eine kostenlose Demo und sieh, wie SmokingTracker in deinen bestehenden Arbeitsablauf passt — typischerweise innerhalb eines Tages einsatzbereit.",
             btn: "Kostenlose Demo buchen"
         },
+        philosophy: {
+            line: "Überblick schafft Kontrolle"
+        },
         footer: {
             desc: "Behandlungsstellen einen klareren Einblick in die Gewohnheiten ihrer Klienten geben — während der Klient die Kontrolle über seine eigenen Daten behält.",
             product: "Produkt",
@@ -424,6 +427,9 @@ export const i18n = {
             desc: "Book a free demo and see how SmokingTracker fits into your municipality's existing workflow — typically up and running within a day.",
             btn: "Book a Free Demo"
         },
+        philosophy: {
+            line: "Clarity creates control"
+        },
         footer: {
             desc: "Giving treatment centers a clearer picture of their citizens' habits — while keeping the citizen in control of their own data.",
             product: "Product",
@@ -754,6 +760,9 @@ export const i18n = {
             title: "Klar til at fastholde flere borgere i behandling?",
             desc: "Book en gratis demo og se, hvordan SmokingTracker kan integreres i jeres kommunes eksisterende arbejdsgang — typisk kørende inden for én dag.",
             btn: "Book en gratis demo"
+        },
+        philosophy: {
+            line: "Overblik skaber kontrol"
         },
         footer: {
             desc: "Vi giver behandlingssteder et klarere billede af borgerens vaner — mens borgeren forbliver i kontrol over egne data.",
