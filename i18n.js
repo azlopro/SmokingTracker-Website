@@ -117,6 +117,18 @@ export const i18n = {
         philosophy: {
             line: "Überblick schafft Kontrolle"
         },
+        pillars: {
+            title: "Warum es funktioniert, wo andere Ansätze scheitern",
+            p1_label: "Drei Taps",
+            p1_title: "Entwickelt für eingeschränktes Arbeitsgedächtnis",
+            p1_desc: "Cannabis-Abhängigkeit beeinträchtigt das Arbeitsgedächtnis und die Exekutivfunktionen. Anwendungen mit hoher Einstiegshürde werden aufgegeben. Eine Sitzung wird in drei Taps erfasst — keine Entscheidungen, keine Hindernisse.",
+            p2_label: "Erst privat",
+            p2_title: "Entwickelt für Klienten, die noch kein Vertrauen haben",
+            p2_desc: "Viele Klienten kommen unfreiwillig oder ambivalent. Sie teilen nichts. Das ist in Ordnung — das Tool funktioniert zuerst für sie allein. Mit wachsendem Vertrauen entscheiden sie, was sie teilen: Sitzungen, Stimmungen, Trigger oder Notizen.",
+            p3_label: "Ein Klick",
+            p3_title: "Sitzungsbereit — ohne Vorbereitung",
+            p3_desc: "Klienten vergessen, rekonstruieren, minimieren. SmokingTracker erfasst Verhalten im Moment durch Ecological Momentary Assessment. Ein Klick öffnet einen druckfertigen Bericht für die nächste Sitzung — objektive Daten statt retrospektiver Erzählung.",
+        },
         footer: {
             desc: "Behandlungsstellen einen klareren Einblick in die Gewohnheiten ihrer Klienten geben – während der Klient die Kontrolle über seine eigenen Daten behält.",
             product: "Produkt",
@@ -381,7 +393,7 @@ export const i18n = {
         hero: {
             badge: "🧠 CBT Self-Monitoring for Cannabis Use Disorder",
             title: 'The <span class="text-gradient">Measurement-Based Care</span> platform for cannabis use disorder',
-            subtitle: "Most CBT and harm reduction programs rely on clients accurately recalling a week of use. They can't. SmokingTracker digitizes the self-monitoring component of CBT — capturing emotional triggers, consumption patterns, and cravings in the moment through Ecological Momentary Assessment. Your clients log in three taps. You get objective, session-ready data.",
+            subtitle: "Most CBT and harm reduction programs rely on clients accurately recalling a week of use. They can't. SmokingTracker digitizes the self-monitoring component of CBT — capturing emotional triggers, consumption patterns, and cravings in the moment through Ecological Momentary Assessment. Your clients log in three taps. You get objective, session-ready data. And for clients who aren't ready to share — the tool works for them alone first.",
             ctaPrimary: "Book a Demo",
             ctaSecondary: "See Features",
             statsClients: "Clinics & Practices",
@@ -438,9 +450,9 @@ export const i18n = {
                 bullet3: 'Print-ready PDF in one click — ready to attach to any EHR',
             },
             registrer: {
-                title: 'EMA in three taps — everything a client logs in one screen',
-                desc: 'Three taps captures the core session. Clients can also add mood, emotional triggers, location, and notes. The more they log, the richer the CBT data for the next session.',
-                bullet1: 'Amount, date, and start time — always',
+                title: 'Three taps. No decisions required.',
+                desc: 'Cannabis use disorder reduces working memory — the cognitive capacity needed to open an app, remember what to fill in, and follow through. A session logs in three taps. Everything else is optional, added when the client has the bandwidth.',
+                bullet1: 'Three required taps: open, add session, confirm',
                 bullet2: 'Optional: mood, emotional trigger, location, notes',
                 bullet3: 'Fast-use warning — client is informed in the moment',
             },
@@ -466,11 +478,11 @@ export const i18n = {
                 bullet3: 'Clear progress — the client always knows where they stand',
             },
             samtykke: {
-                title: 'The client decides what gets shared',
-                desc: 'Granular consent lets the client choose exactly which data the practitioner sees. Trust-first design means higher engagement and lower dropout.',
-                bullet1: 'Share session log, urge data, mood and notes separately',
-                bullet2: 'Connected to your treatment center with one click',
-                bullet3: 'Consent can be changed or withdrawn at any time',
+                title: 'Start private. Share when ready.',
+                desc: 'Many clients arrive skeptical or involuntary. They don\'t need to share anything to benefit from the tool. The data is theirs. As trust builds — over days or weeks — they choose exactly what to open up: sessions, moods, triggers, or notes.',
+                bullet1: 'Works as a private tool first — no sharing required',
+                bullet2: 'Share session log, mood, triggers, and notes independently',
+                bullet3: 'Consent can be extended or withdrawn at any time',
             }
         },
         featureTeaser: {
@@ -483,7 +495,19 @@ export const i18n = {
             btn: "Book a Free Demo"
         },
         philosophy: {
-            line: "Clarity creates control"
+            line: "The tool works for the client first. Sharing is their choice."
+        },
+        pillars: {
+            title: "Why it works where other tools fail",
+            p1_label: "Three taps",
+            p1_title: "Built for impaired working memory",
+            p1_desc: "Cannabis use disorder reduces working memory and executive function. High-friction tools get abandoned. A session logs in three taps — no decisions, no barriers. The less it asks, the more likely it happens.",
+            p2_label: "Private first",
+            p2_title: "Built for clients who don't trust you yet",
+            p2_desc: "Many clients arrive involuntary or ambivalent. They share nothing. That's fine — the tool works for them alone first. As trust builds, they choose what to share: sessions, moods, triggers, or notes. Most start private. Many share within weeks.",
+            p3_label: "One click",
+            p3_title: "Session-ready data, no prep work",
+            p3_desc: "Clients forget. They reconstruct. They minimize. SmokingTracker captures behavior in the moment through Ecological Momentary Assessment. One click opens a print-ready report for your next session — objective data, not retrospective narrative.",
         },
         footer: {
             desc: "Giving harm reduction clinics and CBT practitioners objective, real-time client data — while keeping the client in control of their own information.",
@@ -852,6 +876,18 @@ export const i18n = {
         },
         philosophy: {
             line: "Overblik skaber kontrol"
+        },
+        pillars: {
+            title: "Derfor virker det, hvor andre redskaber slår fejl",
+            p1_label: "Tre tryk",
+            p1_title: "Bygget til nedsat arbejdshukommelse",
+            p1_desc: "Cannabisafhængighed svækker arbejdshukommelsen og eksekutive funktioner. Apps med høj friktion opgives. En session registreres på tre tryk — ingen beslutninger, ingen barrierer.",
+            p2_label: "Privat først",
+            p2_title: "Bygget til borgere, der endnu ikke stoler på dig",
+            p2_desc: "Mange borgere ankommer ufrivilligt eller ambivalente. De deler ingenting. Det er fint — redskabet virker for dem alene først. Efterhånden som tilliden vokser, vælger de selv, hvad de vil dele: sessioner, stemninger, triggere eller noter.",
+            p3_label: "Ét klik",
+            p3_title: "Sessionsklar data — uden forberedelse",
+            p3_desc: "Borgere glemmer, rekonstruerer og minimerer. SmokingTracker fanger adfærd i øjeblikket via Ecological Momentary Assessment. Ét klik åbner en udskriftsklar rapport til næste session — objektive data frem for retrospektiv fortælling.",
         },
         footer: {
             desc: "Vi giver behandlingssteder et klarere billede af borgerens vaner — mens borgeren forbliver i kontrol over egne data.",
