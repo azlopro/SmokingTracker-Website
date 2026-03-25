@@ -16,7 +16,7 @@
     <style>
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
             max-width: 1100px;
             margin: 0 auto;
@@ -24,15 +24,24 @@
 
         .pricing-card {
             border-radius: 20px;
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
             position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(74, 222, 128, 0.3);
         }
 
         .pricing-card.popular {
-            border: 1.5px solid var(--color-primary, #4ade80);
+            border: 2px solid var(--color-primary, #4ade80);
+            box-shadow: 0 10px 30px rgba(74, 222, 128, 0.1);
         }
 
         .popular-badge {
@@ -50,25 +59,27 @@
         }
 
         .pricing-tier-name {
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: var(--color-primary, #4ade80);
         }
 
         .pricing-scope {
-            font-size: 0.85rem;
-            opacity: 0.6;
-            margin-top: 0.15rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 0.25rem;
+            min-height: 2.7rem;
         }
 
         .pricing-price-row {
             display: flex;
             align-items: baseline;
             gap: 0.25rem;
+            margin-top: 0.5rem;
         }
 
         .pricing-price {
-            font-size: 2.4rem;
+            font-size: 3rem;
             font-weight: 800;
             line-height: 1;
         }
@@ -78,15 +89,9 @@
             opacity: 0.6;
         }
 
-        .pricing-unit {
-            font-size: 0.85rem;
-            opacity: 0.65;
-            margin-top: 0.25rem;
-        }
-
         .pricing-desc {
-            font-size: 0.9rem;
-            opacity: 0.75;
+            font-size: 0.95rem;
+            opacity: 0.8;
             line-height: 1.6;
         }
 
@@ -96,14 +101,14 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            gap: 0.65rem;
+            gap: 0.75rem;
         }
 
         .pricing-features li {
             display: flex;
             align-items: center;
-            gap: 0.6rem;
-            font-size: 0.9rem;
+            gap: 0.75rem;
+            font-size: 0.95rem;
         }
 
         .pricing-features li svg {
@@ -113,6 +118,7 @@
 
         .pricing-cta {
             margin-top: auto;
+            padding-top: 1rem;
         }
 
         .pricing-active-note {
@@ -123,18 +129,153 @@
             margin: 1.5rem auto 0;
         }
 
-        .pricing-trial-badge {
-            display: inline-flex;
+        /* Billing Toggle */
+        .billing-toggle-container {
+            display: flex;
             align-items: center;
-            gap: 0.5rem;
-            background: rgba(74, 222, 128, 0.1);
-            border: 1px solid rgba(74, 222, 128, 0.3);
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .toggle-label {
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .toggle-label.active {
             color: var(--color-primary, #4ade80);
-            padding: 0.5rem 1.25rem;
-            border-radius: 100px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 2.5rem;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--color-primary, #4ade80);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+
+        /* Patient Banner */
+        .patient-banner {
+            max-width: 1100px;
+            margin: 4rem auto 0;
+            padding: 1.5rem 2rem;
+            border-radius: 16px;
+            background: rgba(74, 222, 128, 0.05);
+            border: 1px dashed rgba(74, 222, 128, 0.3);
+            text-align: center;
+        }
+
+        .patient-banner p {
+            margin: 0;
+            font-size: 1rem;
+            color: var(--color-primary, #4ade80);
+            font-weight: 500;
+        }
+
+        /* Comparison Table */
+        .comparison-section {
+            padding: 6rem 0;
+        }
+
+        .comparison-table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 3rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            min-width: 800px;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .comparison-table th {
+            font-weight: 700;
+            color: var(--color-primary, #4ade80);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 500;
+            width: 30%;
+        }
+
+        .comparison-table td:not(:first-child) {
+            text-align: center;
+            width: 23%;
+        }
+
+        .check-icon {
+            color: var(--color-primary, #4ade80);
+            font-weight: bold;
+        }
+
+        /* Value Prop Section */
+        .value-prop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-prop-card {
+            padding: 2rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .value-prop-card h3 {
+            color: var(--color-primary, #4ade80);
+            margin-bottom: 1rem;
         }
     </style>
 </head>
@@ -157,7 +298,6 @@
                 <div class="lang-switch">
                     <select id="lang-toggle" class="lang-select" aria-label="Language">
                         <option value="de">DE</option>
-                        <option value="da">DA</option>
                         <option value="en">EN</option>
                     </select>
                 </div>
@@ -178,14 +318,14 @@
         <!-- ─── HERO ──────────────────────────────────────────── -->
         <section class="hero">
             <div class="hero-bg-glow"></div>
-            <div class="container hero-container" style="grid-template-columns: 1fr; text-align: center; max-width: 800px;">
+            <div class="container hero-container" style="grid-template-columns: 1fr; text-align: center; max-width: 900px;">
                 <div class="hero-content" style="align-items: center;">
                     <div class="badge fade-in-up" data-i18n="pricing.badge">Transparent Pricing</div>
                     <h1 class="fade-in-up" style="animation-delay: 0.1s" data-i18n="pricing.title">
-                        Simple pricing, <span class="text-gradient">no surprises</span>
+                        Simple, Transparent Pricing for <span class="text-gradient">Modern Therapists</span>
                     </h1>
                     <p class="hero-subtitle fade-in-up" style="animation-delay: 0.2s" data-i18n="pricing.subtitle">
-                        Invoiced via EAN or PDF — the way Danish municipalities work. No automatic charges, no hidden fees.
+                        Equip your practice with low-friction CBT self-monitoring. Stop relying on flawed retrospective memory, and start making clinical decisions based on real-time data.
                     </p>
                 </div>
             </div>
@@ -194,151 +334,213 @@
         <!-- ─── PRICING ───────────────────────────────────────── -->
         <section class="features-section" style="padding-top: 0;">
             <div class="container">
-                <div class="text-center fade-in-up" style="margin-bottom: 2.5rem;">
-                    <div class="pricing-trial-badge">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        <span data-i18n="pricing.trial">14-day free trial — no payment required</span>
-                    </div>
+                <!-- Billing Toggle -->
+                <div class="billing-toggle-container fade-in-up" style="animation-delay: 0.2s">
+                    <span id="label-monthly" class="toggle-label active" data-i18n="pricing.billing_monthly">Billed Monthly</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="billing-checkbox">
+                        <span class="slider"></span>
+                    </label>
+                    <span id="label-annually" class="toggle-label" data-i18n="pricing.billing_annually">Billed Annually (Save 20%)</span>
                 </div>
 
-                <div class="pricing-grid fade-in-up" style="animation-delay: 0.1s;">
-                    <!-- Small center -->
+                <div class="pricing-grid fade-in-up" style="animation-delay: 0.3s;">
+                    <!-- Tier 1: Solo Practitioner -->
                     <div class="pricing-card glass">
                         <div>
-                            <div class="pricing-tier-name" data-i18n="pricing.tier1_name">Small center</div>
-                            <div class="pricing-scope" data-i18n="pricing.tier1_scope">1–3 practitioners</div>
+                            <div class="pricing-tier-name" data-i18n="pricing.tier1_name">Solo Practitioner</div>
+                            <div class="pricing-scope" data-i18n="pricing.tier1_scope">Perfect for independent therapists (LCSWs, Psychologists).</div>
                         </div>
                         <div>
                             <div class="pricing-price-row">
-                                <span class="pricing-price" data-i18n="pricing.tier1_price">199 €</span>
-                                <span class="pricing-period" data-i18n="pricing.tier1_period">/month</span>
+                                <span class="pricing-price" id="price-tier1" data-i18n="pricing.tier1_price_monthly">$79</span>
+                                <span class="pricing-period" id="period-tier1" data-i18n="pricing.tier1_period_monthly">/month</span>
                             </div>
                         </div>
-                        <p class="pricing-desc" data-i18n="pricing.tier1_desc">Everything you need to get started with a small team.</p>
+                        <p class="pricing-desc" data-i18n="pricing.tier1_desc">Everything you need to get started with your own practice.</p>
                         <ul class="pricing-features">
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier1_f1">Up to 3 practitioner accounts</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier1_f2">Traffic light dashboard</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier1_f3">Smart trigger alarms</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier1_f4">One-click clinical reports</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier1_f5">Built-in urge surfing</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier1_f6">Citizen achievements</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier1_f7">EAN / PDF invoicing</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier1_f8">Full GDPR + DPA included</span>
-                            </li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.tier1_f1">1 Therapist Seat</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.tier1_f2">Unlimited Active Patients</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.tier1_f3">Real-time tracking</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.tier1_f4">Free patient app</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.tier1_f8">Full GDPR + DPA included</span></li>
                         </ul>
                         <div class="pricing-cta">
-                            <a href="/trial.html" class="btn btn-secondary btn-large" style="width: 100%; text-align: center;" data-i18n="pricing.tier1_cta">Start free trial</a>
+                            <a id="cta-solo" href="https://buy.stripe.com/dRm28t5K4bVt1Qz29b0RG01" class="btn btn-primary btn-large" style="width: 100%; text-align: center;" data-i18n="pricing.tier1_cta">Start 14-Day Free Trial</a>
                         </div>
                     </div>
 
-                    <!-- Medium center -->
+                    <!-- Tier 2: Group Practice -->
                     <div class="pricing-card glass popular">
                         <div class="popular-badge" data-i18n="pricing.popular">Most popular</div>
                         <div>
-                            <div class="pricing-tier-name" data-i18n="pricing.tier2_name">Medium center</div>
-                            <div class="pricing-scope" data-i18n="pricing.tier2_scope">4–10 practitioners</div>
+                            <div class="pricing-tier-name" data-i18n="pricing.tier2_name">Group Practice</div>
+                            <div class="pricing-scope" data-i18n="pricing.tier2_scope">Built for Intensive Outpatient Programs (IOPs) and growing clinics.</div>
                         </div>
                         <div>
                             <div class="pricing-price-row">
-                                <span class="pricing-price" data-i18n="pricing.tier2_price">499 €</span>
-                                <span class="pricing-period" data-i18n="pricing.tier2_period">/month</span>
+                                <span class="pricing-price" id="price-tier2" data-i18n="pricing.tier2_price_monthly">$249</span>
+                                <span class="pricing-period" id="period-tier2" data-i18n="pricing.tier2_period_monthly">/month</span>
                             </div>
                         </div>
                         <p class="pricing-desc" data-i18n="pricing.tier2_desc">For growing centers with multiple practitioners.</p>
                         <ul class="pricing-features">
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier2_f1">Everything in Small center</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier2_f2">Up to 10 practitioner accounts</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier2_f3">Advanced reporting</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier2_f4">Priority support</span>
-                            </li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.tier2_f1">Everything in Solo Practitioner</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.tier2_f2">Up to 5 Therapist Seats</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.tier2_f3">1 Clinical Director Dashboard</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.tier2_f4">Centralized billing</span></li>
                         </ul>
                         <div class="pricing-cta">
-                            <a href="/trial.html" class="btn btn-primary btn-large" style="width: 100%; text-align: center;" data-i18n="pricing.tier2_cta">Start free trial</a>
+                            <a id="cta-group" href="https://buy.stripe.com/5kQ7sN2xS8JhfHpeVX0RG03" class="btn btn-primary btn-large" style="width: 100%; text-align: center;" data-i18n="pricing.tier2_cta">Get Started</a>
                         </div>
                     </div>
 
-                    <!-- Large center (Enterprise) -->
+                    <!-- Tier 3: Enterprise -->
                     <div class="pricing-card glass">
                         <div>
-                            <div class="pricing-tier-name" data-i18n="pricing.tier3_name">Large center</div>
-                            <div class="pricing-scope" data-i18n="pricing.tier3_scope">10+ practitioners</div>
+                            <div class="pricing-tier-name" data-i18n="pricing.tier3_name">Enterprise & Telehealth</div>
+                            <div class="pricing-scope" data-i18n="pricing.tier3_scope">For large-scale treatment networks and telehealth platforms.</div>
                         </div>
                         <div>
                             <div class="pricing-price-row">
-                                <span class="pricing-price" data-i18n="pricing.tier3_price">999 €</span>
-                                <span class="pricing-period" data-i18n="pricing.tier3_period">/month</span>
+                                <span class="pricing-price" data-i18n="pricing.tier3_price">Custom</span>
+                                <span class="pricing-period"></span>
                             </div>
                         </div>
                         <p class="pricing-desc" data-i18n="pricing.tier3_desc">Enterprise solution for large clinics and organizations.</p>
                         <ul class="pricing-features">
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier3_f1">Everything in Medium center</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier3_f2">Unlimited practitioner accounts</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier3_f3">Dedicated account manager</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier3_f4">Custom integrations</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier3_f5">SLA agreement</span>
-                            </li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.tier3_f2">Unlimited seats</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.tier3_f3">EHR Integration & API Access</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.tier3_f4">Dedicated Support</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.tier3_f5">HIPAA BAA</span></li>
                         </ul>
                         <div class="pricing-cta">
-                            <a href="/trial.html" class="btn btn-secondary btn-large" style="width: 100%; text-align: center;" data-i18n="pricing.tier3_cta">Book a demo</a>
+                            <a href="/trial.html" class="btn btn-secondary btn-large" style="width: 100%; text-align: center;" data-i18n="pricing.tier3_cta">Contact Sales</a>
                         </div>
                     </div>
                 </div>
 
-                <p class="pricing-active-note fade-in-up" style="animation-delay: 0.25s; margin-top: 1.5rem;">
+                <!-- Patient Banner -->
+                <div class="patient-banner fade-in-up" style="animation-delay: 0.4s">
+                    <p data-i18n="pricing.patientBanner">For Patients & Individual Users: SmokingTracker is 100% free when you are invited by a partnered therapist. Talk to your provider today.</p>
+                </div>
+
+                <p class="pricing-active-note fade-in-up" style="animation-delay: 0.45s; margin-top: 1.5rem;">
                     <span data-i18n="pricing.faqLink">Have questions? See our</span>
                     <a href="/faq.html" data-i18n="pricing.faqLinkText" style="color: var(--color-primary, #4ade80);">FAQ</a>
                 </p>
+            </div>
+        </section>
+
+        <!-- ─── COMPARISON TABLE ─────────────────────────────── -->
+        <section class="comparison-section">
+            <div class="container">
+                <div class="text-center fade-in-up">
+                    <h2 class="section-title">Compare Plans</h2>
+                </div>
+
+                <div class="comparison-table-container fade-in-up">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th data-i18n="pricing.tier1_name">Solo Practitioner</th>
+                                <th data-i18n="pricing.tier2_name">Group Practice</th>
+                                <th data-i18n="pricing.tier3_name">Enterprise</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Therapist Seats</td>
+                                <td>1</td>
+                                <td>Up to 5</td>
+                                <td>Unlimited</td>
+                            </tr>
+                            <tr>
+                                <td>Active Patients</td>
+                                <td>Unlimited</td>
+                                <td>Unlimited</td>
+                                <td>Unlimited</td>
+                            </tr>
+                            <tr>
+                                <td>Real-time Triggers</td>
+                                <td class="check-icon">✔</td>
+                                <td class="check-icon">✔</td>
+                                <td class="check-icon">✔</td>
+                            </tr>
+                            <tr>
+                                <td>Admin Oversight Dashboard</td>
+                                <td>—</td>
+                                <td class="check-icon">✔</td>
+                                <td class="check-icon">✔</td>
+                            </tr>
+                            <tr>
+                                <td>Custom Org Branding</td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td class="check-icon">✔</td>
+                            </tr>
+                            <tr>
+                                <td>EHR/API Integration</td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td class="check-icon">✔</td>
+                            </tr>
+                            <tr>
+                                <td>HIPAA BAA</td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td class="check-icon">✔</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── VALUE PROP ───────────────────────────────────── -->
+        <section class="features-section">
+            <div class="container">
+                <div class="text-center fade-in-up">
+                    <h2 class="section-title">Why SmokingTracker for your practice?</h2>
+                </div>
+                <div class="value-prop-grid">
+                    <div class="value-prop-card fade-in-up">
+                        <h3>Zero-Friction Patient Compliance</h3>
+                        <p>Our 3-click tracking method ensures your patients actually log their sessions, giving you the data you need for effective treatment.</p>
+                    </div>
+                    <div class="value-prop-card fade-in-up" style="animation-delay: 0.1s">
+                        <h3>Instant ROI</h3>
+                        <p>At $79/mo, SmokingTracker costs less than half of a single therapy session. Reclaim clinical time and improve outcomes instantly.</p>
+                    </div>
+                    <div class="value-prop-card fade-in-up" style="animation-delay: 0.2s">
+                        <h3>Built for Harm Reduction</h3>
+                        <p>Support for T-Breaks, Moderation Management, and Abstinence. We meet your patients exactly where they are in their journey.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── FAQ ──────────────────────────────────────────── -->
+        <section class="features-section" style="padding-top: 0;">
+            <div class="container">
+                <div class="text-center fade-in-up">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                </div>
+                <div class="value-prop-grid" style="grid-template-columns: 1fr; max-width: 800px; margin: 3rem auto 0;">
+                    <div class="value-prop-card fade-in-up">
+                        <h3 data-i18n="pricing.faq_q1">Do patients pay?</h3>
+                        <p data-i18n="pricing.faq_a1">No. SmokingTracker is 100% free for patients and individual users when they are invited by a partnered therapist or clinic. We believe the cost of clinical tools should never be a barrier to patient recovery.</p>
+                    </div>
+                    <div class="value-prop-card fade-in-up" style="animation-delay: 0.1s">
+                        <h3 data-i18n="pricing.faq_q2">Are there long-term contracts?</h3>
+                        <p data-i18n="pricing.faq_a2">No. You can cancel your subscription at any time. If you cancel, you will still have access to your dashboard until the end of your current billing period.</p>
+                    </div>
+                    <div class="value-prop-card fade-in-up" style="animation-delay: 0.2s">
+                        <h3 data-i18n="pricing.faq_q3">How does the free trial work?</h3>
+                        <p data-i18n="pricing.faq_a3">You get full access to all features in your chosen plan for 14 days. No credit card is required to start. At the end of the trial, you can choose to subscribe to keep your access.</p>
+                    </div>
+                </div>
             </div>
         </section>
 

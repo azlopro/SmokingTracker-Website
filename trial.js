@@ -2,6 +2,12 @@ import { i18n } from './i18n.js';
 
 const API_URL = import.meta.env.VITE_API_URL || '';
 
+// Currency derived from UI language
+function currencyForLang(lang) {
+    if (lang === 'de') return 'EUR';
+    return 'USD'; // en and fallback
+}
+
 // ─── i18n helpers (shared pattern from main.js) ───────────────────────────
 
 function getNestedValue(obj, path) {
@@ -26,22 +32,25 @@ function applyTranslations(lang) {
 }
 
 function setupTranslations() {
-    const langToggle = document.getElementById('lang-toggle');
-    const storedLang = localStorage.getItem('lang') || 'da';
+    const langSelect = document.getElementById('lang-toggle');
+    const raw = localStorage.getItem('lang');
+    const storedLang = (raw === 'en' || raw === 'de') ? raw : 'en'; // DA phased out — fall back to EN
 
     document.documentElement.setAttribute('lang', storedLang);
-    if (langToggle) langToggle.checked = storedLang === 'en';
+    if (langSelect) {
+        langSelect.value = storedLang;
+    }
 
     applyTranslations(storedLang);
-    updateDynamicLabels(storedLang, document.querySelector('input[name="tier"]:checked')?.value || 'small');
+    updateDynamicLabels(storedLang, document.querySelector('input[name="tier"]:checked')?.value || 'solo');
 
-    if (langToggle) {
-        langToggle.addEventListener('change', (e) => {
-            const newLang = e.target.checked ? 'en' : 'da';
+    if (langSelect) {
+        langSelect.addEventListener('change', (e) => {
+            const newLang = e.target.value;
             document.documentElement.setAttribute('lang', newLang);
             localStorage.setItem('lang', newLang);
             applyTranslations(newLang);
-            updateDynamicLabels(newLang, document.querySelector('input[name="tier"]:checked')?.value || 'small');
+            updateDynamicLabels(newLang, document.querySelector('input[name="tier"]:checked')?.value || 'solo');
         });
     }
 }
@@ -63,9 +72,10 @@ function updateDynamicLabels(lang, tier) {
 
     const submitBtn = document.getElementById('trial-submit');
     if (submitBtn) {
+        // Map new API tier names to existing i18n button keys
         let btnKey = 'trial.btnSmall';
-        if (tier === 'medium') btnKey = 'trial.btnMedium';
-        else if (tier === 'large') btnKey = 'trial.btnLarge';
+        if (tier === 'group') btnKey = 'trial.btnMedium';
+        else if (tier === 'enterprise') btnKey = 'trial.btnLarge';
         submitBtn.textContent = getNestedValue(dict, btnKey);
     }
 }
@@ -74,7 +84,8 @@ function setupTierSelection() {
     const radios = document.querySelectorAll('input[name="tier"]');
     radios.forEach(radio => {
         radio.addEventListener('change', () => {
-            const lang = localStorage.getItem('lang') || 'da';
+            const raw = localStorage.getItem('lang');
+            const lang = (raw === 'en' || raw === 'de') ? raw : 'en';
             updateDynamicLabels(lang, radio.value);
         });
     });
@@ -113,10 +124,12 @@ function setupForm() {
         _submitting = true;
         hideError();
 
-        const lang = localStorage.getItem('lang') || 'da';
+        const rawLang = localStorage.getItem('lang');
+        const lang = (rawLang === 'en' || rawLang === 'de') ? rawLang : 'en';
         const dict = i18n[lang];
 
-        const tier = document.querySelector('input[name="tier"]:checked')?.value || 'small';
+        const tier = document.querySelector('input[name="tier"]:checked')?.value || 'solo';
+        const currency = currencyForLang(lang);
         const contactName = document.getElementById('contact-name').value.trim();
         const adminEmail = document.getElementById('admin-email').value.trim();
         const orgName = document.getElementById('org-name').value.trim();
@@ -136,6 +149,7 @@ function setupForm() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     tier,
+                    currency,
                     org_name: orgName,
                     center_name: centerName,
                     contact_name: contactName,

@@ -33,7 +33,6 @@
                 <div class="lang-switch">
                     <select id="lang-toggle" class="lang-select" aria-label="Language">
                         <option value="de">DE</option>
-                        <option value="da">DA</option>
                         <option value="en">EN</option>
                     </select>
                 </div>
@@ -92,19 +91,19 @@
                         <!-- Tier selection -->
                         <div class="tier-cards" role="radiogroup" aria-label="Subscription tier">
                             <label class="tier-card">
-                                <input type="radio" name="tier" value="small" checked>
+                                <input type="radio" name="tier" value="solo" checked>
                                 <div class="tier-name" data-i18n="trial.tierSmall">Small center</div>
                                 <div class="tier-scope" data-i18n="trial.tierSmallScope">1–3 practitioners</div>
                                 <div class="tier-price" data-i18n="trial.tierSmallPrice">199 €/month</div>
                             </label>
                             <label class="tier-card">
-                                <input type="radio" name="tier" value="medium">
+                                <input type="radio" name="tier" value="group">
                                 <div class="tier-name" data-i18n="trial.tierMedium">Medium center</div>
                                 <div class="tier-scope" data-i18n="trial.tierMediumScope">4–10 practitioners</div>
                                 <div class="tier-price" data-i18n="trial.tierMediumPrice">499 €/month</div>
                             </label>
                             <label class="tier-card">
-                                <input type="radio" name="tier" value="large">
+                                <input type="radio" name="tier" value="enterprise">
                                 <div class="tier-name" data-i18n="trial.tierLarge">Large center</div>
                                 <div class="tier-scope" data-i18n="trial.tierLargeScope">10+ practitioners</div>
                                 <div class="tier-price" data-i18n="trial.tierLargePrice">999 €/month</div>
@@ -115,56 +114,65 @@
                             <!-- Row: name + email -->
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="contact-name" data-i18n="trial.labelContactName">Dit fulde navn</label>
+                                    <label for="contact-name" data-i18n="trial.labelContactName">Your full name</label>
                                     <input type="text" id="contact-name" name="contact_name" required
                                         autocomplete="name" data-i18n-placeholder="trial.placeholderContactName"
-                                        placeholder="Mette Hansen">
+                                        placeholder="Jane Smith">
                                 </div>
                                 <div class="form-group">
-                                    <label for="admin-email" data-i18n="trial.labelEmail">Arbejds-e-mail</label>
+                                    <label for="admin-email" data-i18n="trial.labelEmail">Work email</label>
                                     <input type="email" id="admin-email" name="admin_email" required
                                         autocomplete="email" data-i18n-placeholder="trial.placeholderEmail"
-                                        placeholder="mette@aarhus.dk">
+                                        placeholder="jane@clinic.com">
                                 </div>
                             </div>
 
-                            <!-- Org name -->
-                            <div class="form-group">
-                                <label for="org-name" data-i18n="trial.labelOrgName">Organisation / kommune</label>
-                                <input type="text" id="org-name" name="org_name" required
-                                    autocomplete="organization"
-                                    data-i18n-placeholder="trial.placeholderOrgName"
-                                    placeholder="Aarhus Kommune">
+                            <!-- Row: Role + Org name -->
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="role" data-i18n="trial.labelRole">Your Role</label>
+                                    <select id="role" name="role" required class="form-select">
+                                        <option value="solo" data-i18n="trial.roleSolo">Solo Therapist</option>
+                                        <option value="director" data-i18n="trial.roleDirector">Clinical Director</option>
+                                        <option value="other" data-i18n="trial.roleOther">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="org-name" data-i18n="trial.labelOrgName">Organisation / clinic</label>
+                                    <input type="text" id="org-name" name="org_name" required
+                                        autocomplete="organization"
+                                        data-i18n-placeholder="trial.placeholderOrgName"
+                                        placeholder="Integrative Health Associates">
+                                </div>
                             </div>
 
-                            <!-- Center name (label changes with tier) -->
+                            <!-- Center name (Clinic Name) -->
                             <div class="form-group">
                                 <label for="center-name" id="center-name-label"
-                                    data-i18n="trial.labelCenterName">Behandlingscenterets navn</label>
+                                    data-i18n="trial.labelCenterName">Clinic or practice name</label>
                                 <input type="text" id="center-name" name="center_name" required
                                     data-i18n-placeholder="trial.placeholderCenterName"
-                                    placeholder="Østcenter Misbrug">
+                                    placeholder="Outpatient Harm Reduction Center">
                             </div>
 
                             <!-- Optional fields -->
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="contact-phone">
-                                        <span data-i18n="trial.labelPhone">Telefon</span>
-                                        <span class="field-optional" data-i18n="trial.optional">(valgfrit)</span>
+                                        <span data-i18n="trial.labelPhone">Phone</span>
+                                        <span class="field-optional" data-i18n="trial.optional">(optional)</span>
                                     </label>
                                     <input type="tel" id="contact-phone" name="contact_phone"
                                         autocomplete="tel"
                                         data-i18n-placeholder="trial.placeholderPhone"
-                                        placeholder="12 34 56 78">
+                                        placeholder="+1 555 123 4567">
                                 </div>
                                 <div class="form-group">
                                     <label for="cvr-number">
-                                        <span data-i18n="trial.labelCVR">CVR-nummer</span>
-                                        <span class="field-optional" data-i18n="trial.optional">(valgfrit)</span>
+                                        <span data-i18n="trial.labelCVR">CVR / Tax ID</span>
+                                        <span class="field-optional" data-i18n="trial.optional">(optional)</span>
                                     </label>
                                     <input type="text" id="cvr-number" name="cvr_number"
-                                        pattern="[0-9]{8}" maxlength="8" inputmode="numeric"
                                         data-i18n-placeholder="trial.placeholderCVR"
                                         placeholder="12345678">
                                 </div>
@@ -172,12 +180,12 @@
 
                             <div class="form-group">
                                 <label for="municipality">
-                                    <span data-i18n="trial.labelMunicipality">Kommune</span>
-                                    <span class="field-optional" data-i18n="trial.optional">(valgfrit)</span>
+                                    <span data-i18n="trial.labelMunicipality">City / Region</span>
+                                    <span class="field-optional" data-i18n="trial.optional">(optional)</span>
                                 </label>
                                 <input type="text" id="municipality" name="municipality"
                                     data-i18n-placeholder="trial.placeholderMunicipality"
-                                    placeholder="Aarhus">
+                                    placeholder="New York">
                             </div>
 
                             <!-- Error -->

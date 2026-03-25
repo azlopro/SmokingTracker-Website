@@ -3,7 +3,8 @@ import { i18n } from './i18n.js';
 // Setup Translation Management
 function setupTranslations() {
     const langSelect = document.getElementById('lang-toggle');
-    const storedLang = localStorage.getItem('lang') || 'en'; // Default to English
+    const raw = localStorage.getItem('lang');
+    const storedLang = (raw === 'en' || raw === 'de') ? raw : 'en'; // DA phased out — fall back to EN
 
     document.documentElement.setAttribute('lang', storedLang);
     if (langSelect) {
@@ -143,10 +144,61 @@ function setupMobileMenu() {
     });
 }
 
+// Setup pricing toggle logic
+function setupPricingToggle() {
+    const checkbox = document.getElementById('billing-checkbox');
+    if (!checkbox) return;
+
+    const labelMonthly = document.getElementById('label-monthly');
+    const labelAnnually = document.getElementById('label-annually');
+    
+    checkbox.addEventListener('change', () => {
+        const isAnnual = checkbox.checked;
+        
+        // Update labels active state
+        labelMonthly.classList.toggle('active', !isAnnual);
+        labelAnnually.classList.toggle('active', isAnnual);
+        
+        // Update prices
+        const lang = localStorage.getItem('lang') || 'en';
+        const dictionary = i18n[lang];
+        if (!dictionary || !dictionary.pricing) return;
+
+        const priceTier1 = document.getElementById('price-tier1');
+        const periodTier1 = document.getElementById('period-tier1');
+        const priceTier2 = document.getElementById('price-tier2');
+        const periodTier2 = document.getElementById('period-tier2');
+
+        const ctaSolo  = document.getElementById('cta-solo');
+        const ctaGroup = document.getElementById('cta-group');
+        const SOLO_MONTHLY  = 'https://buy.stripe.com/dRm28t5K4bVt1Qz29b0RG01';
+        const SOLO_ANNUAL   = 'https://buy.stripe.com/aFacN73BW0cL3YHg010RG02';
+        const GROUP_MONTHLY = 'https://buy.stripe.com/5kQ7sN2xS8JhfHpeVX0RG03';
+        const GROUP_ANNUAL  = 'https://buy.stripe.com/28EaEZ8WgcZx7aTaFH0RG04';
+
+        if (isAnnual) {
+            if (priceTier1) priceTier1.innerHTML = dictionary.pricing.tier1_price_annually;
+            if (periodTier1) periodTier1.innerHTML = dictionary.pricing.tier1_period_annually;
+            if (priceTier2) priceTier2.innerHTML = dictionary.pricing.tier2_price_annually;
+            if (periodTier2) periodTier2.innerHTML = dictionary.pricing.tier2_period_annually;
+            if (ctaSolo)  ctaSolo.href  = SOLO_ANNUAL;
+            if (ctaGroup) ctaGroup.href = GROUP_ANNUAL;
+        } else {
+            if (priceTier1) priceTier1.innerHTML = dictionary.pricing.tier1_price_monthly;
+            if (periodTier1) periodTier1.innerHTML = dictionary.pricing.tier1_period_monthly;
+            if (priceTier2) priceTier2.innerHTML = dictionary.pricing.tier2_price_monthly;
+            if (periodTier2) periodTier2.innerHTML = dictionary.pricing.tier2_period_monthly;
+            if (ctaSolo)  ctaSolo.href  = SOLO_MONTHLY;
+            if (ctaGroup) ctaGroup.href = GROUP_MONTHLY;
+        }
+    });
+}
+
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     setupTranslations();
     setupScrollEffects();
     setupAnimations();
     setupMobileMenu();
+    setupPricingToggle();
 });
