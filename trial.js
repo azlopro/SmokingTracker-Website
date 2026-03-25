@@ -161,7 +161,17 @@ function setupForm() {
             });
 
             if (res.ok || res.status === 201) {
-                showSuccess();
+                const stripeLinks = {
+                    solo:       'https://buy.stripe.com/dRm28t5K4bVt1Qz29b0RG01',
+                    group:      'https://buy.stripe.com/5kQ7sN2xS8JhfHpeVX0RG03',
+                    enterprise: null,
+                };
+                const stripeBase = stripeLinks[tier];
+                if (stripeBase && adminEmail) {
+                    window.location.href = `${stripeBase}?prefilled_email=${encodeURIComponent(adminEmail)}`;
+                } else {
+                    showSuccess();
+                }
                 return;
             }
 
