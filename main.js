@@ -3,7 +3,7 @@ import { i18n } from './i18n.js';
 // Setup Translation Management
 function setupTranslations() {
     const langSelect = document.getElementById('lang-toggle');
-    const storedLang = localStorage.getItem('lang') || 'de'; // Default to German
+    const storedLang = localStorage.getItem('lang') || 'en'; // Default to English
 
     document.documentElement.setAttribute('lang', storedLang);
     if (langSelect) {
