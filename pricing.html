@@ -16,9 +16,9 @@
     <style>
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
-            max-width: 860px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
@@ -205,24 +205,23 @@
                 </div>
 
                 <div class="pricing-grid fade-in-up" style="animation-delay: 0.1s;">
-                    <!-- Standard -->
+                    <!-- Small center -->
                     <div class="pricing-card glass">
                         <div>
-                            <div class="pricing-tier-name" data-i18n="pricing.tier1_name">Standard</div>
-                            <div class="pricing-scope" data-i18n="pricing.tier1_scope">1 treatment center</div>
+                            <div class="pricing-tier-name" data-i18n="pricing.tier1_name">Small center</div>
+                            <div class="pricing-scope" data-i18n="pricing.tier1_scope">1–3 practitioners</div>
                         </div>
                         <div>
                             <div class="pricing-price-row">
-                                <span class="pricing-price" data-i18n="pricing.tier1_price">2,000 DKK</span>
+                                <span class="pricing-price" data-i18n="pricing.tier1_price">199 €</span>
                                 <span class="pricing-period" data-i18n="pricing.tier1_period">/month</span>
                             </div>
-                            <div class="pricing-unit" data-i18n="pricing.tier1_unit">+ 40 DKK per active citizen</div>
                         </div>
-                        <p class="pricing-desc" data-i18n="pricing.tier1_desc">Everything you need to get started with one treatment center.</p>
+                        <p class="pricing-desc" data-i18n="pricing.tier1_desc">Everything you need to get started with a small team.</p>
                         <ul class="pricing-features">
                             <li>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier1_f1">Unlimited staff accounts</span>
+                                <span data-i18n="pricing.tier1_f1">Up to 3 practitioner accounts</span>
                             </li>
                             <li>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -258,58 +257,85 @@
                         </div>
                     </div>
 
-                    <!-- Multi-site -->
+                    <!-- Medium center -->
                     <div class="pricing-card glass popular">
                         <div class="popular-badge" data-i18n="pricing.popular">Most popular</div>
                         <div>
-                            <div class="pricing-tier-name" data-i18n="pricing.tier2_name">Multi-site</div>
-                            <div class="pricing-scope" data-i18n="pricing.tier2_scope">Unlimited treatment centers</div>
+                            <div class="pricing-tier-name" data-i18n="pricing.tier2_name">Medium center</div>
+                            <div class="pricing-scope" data-i18n="pricing.tier2_scope">4–10 practitioners</div>
                         </div>
                         <div>
                             <div class="pricing-price-row">
-                                <span class="pricing-price" data-i18n="pricing.tier2_price">3,000 DKK</span>
+                                <span class="pricing-price" data-i18n="pricing.tier2_price">499 €</span>
                                 <span class="pricing-period" data-i18n="pricing.tier2_period">/month</span>
                             </div>
-                            <div class="pricing-unit" data-i18n="pricing.tier2_unit">+ 35 DKK per active citizen</div>
                         </div>
-                        <p class="pricing-desc" data-i18n="pricing.tier2_desc">For municipalities managing multiple treatment centers.</p>
+                        <p class="pricing-desc" data-i18n="pricing.tier2_desc">For growing centers with multiple practitioners.</p>
                         <ul class="pricing-features">
                             <li>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier2_f1">Everything in Standard</span>
+                                <span data-i18n="pricing.tier2_f1">Everything in Small center</span>
                             </li>
                             <li>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier2_f2">Unlimited treatment centers</span>
+                                <span data-i18n="pricing.tier2_f2">Up to 10 practitioner accounts</span>
                             </li>
                             <li>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier2_f3">Cross-site citizen overview</span>
+                                <span data-i18n="pricing.tier2_f3">Advanced reporting</span>
                             </li>
                             <li>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier2_f4">Central admin dashboard</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier2_f5">Volume discount on citizen seats</span>
-                            </li>
-                            <li>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span data-i18n="pricing.tier2_f6">Priority support</span>
+                                <span data-i18n="pricing.tier2_f4">Priority support</span>
                             </li>
                         </ul>
                         <div class="pricing-cta">
                             <a href="/trial.html" class="btn btn-primary btn-large" style="width: 100%; text-align: center;" data-i18n="pricing.tier2_cta">Start free trial</a>
                         </div>
                     </div>
+
+                    <!-- Large center (Enterprise) -->
+                    <div class="pricing-card glass">
+                        <div>
+                            <div class="pricing-tier-name" data-i18n="pricing.tier3_name">Large center</div>
+                            <div class="pricing-scope" data-i18n="pricing.tier3_scope">10+ practitioners</div>
+                        </div>
+                        <div>
+                            <div class="pricing-price-row">
+                                <span class="pricing-price" data-i18n="pricing.tier3_price">999 €</span>
+                                <span class="pricing-period" data-i18n="pricing.tier3_period">/month</span>
+                            </div>
+                        </div>
+                        <p class="pricing-desc" data-i18n="pricing.tier3_desc">Enterprise solution for large clinics and organizations.</p>
+                        <ul class="pricing-features">
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span data-i18n="pricing.tier3_f1">Everything in Medium center</span>
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span data-i18n="pricing.tier3_f2">Unlimited practitioner accounts</span>
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span data-i18n="pricing.tier3_f3">Dedicated account manager</span>
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span data-i18n="pricing.tier3_f4">Custom integrations</span>
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span data-i18n="pricing.tier3_f5">SLA agreement</span>
+                            </li>
+                        </ul>
+                        <div class="pricing-cta">
+                            <a href="/trial.html" class="btn btn-secondary btn-large" style="width: 100%; text-align: center;" data-i18n="pricing.tier3_cta">Book a demo</a>
+                        </div>
+                    </div>
                 </div>
 
-                <p class="pricing-active-note fade-in-up" style="animation-delay: 0.2s;" data-i18n="pricing.activeDesc">
-                    An active citizen is one who has logged at least one session in the current billing month.
-                </p>
-
-                <p class="pricing-active-note fade-in-up" style="animation-delay: 0.25s; margin-top: 0.75rem;">
+                <p class="pricing-active-note fade-in-up" style="animation-delay: 0.25s; margin-top: 1.5rem;">
                     <span data-i18n="pricing.faqLink">Have questions? See our</span>
                     <a href="/faq.html" data-i18n="pricing.faqLinkText" style="color: var(--color-primary, #4ade80);">FAQ</a>
                 </p>

@@ -33,7 +33,7 @@ function setupTranslations() {
     if (langToggle) langToggle.checked = storedLang === 'en';
 
     applyTranslations(storedLang);
-    updateDynamicLabels(storedLang, document.querySelector('input[name="tier"]:checked')?.value || 'standard');
+    updateDynamicLabels(storedLang, document.querySelector('input[name="tier"]:checked')?.value || 'small');
 
     if (langToggle) {
         langToggle.addEventListener('change', (e) => {
@@ -41,7 +41,7 @@ function setupTranslations() {
             document.documentElement.setAttribute('lang', newLang);
             localStorage.setItem('lang', newLang);
             applyTranslations(newLang);
-            updateDynamicLabels(newLang, document.querySelector('input[name="tier"]:checked')?.value || 'standard');
+            updateDynamicLabels(newLang, document.querySelector('input[name="tier"]:checked')?.value || 'small');
         });
     }
 }
@@ -61,18 +61,12 @@ function updateDynamicLabels(lang, tier) {
     const dict = i18n[lang];
     if (!dict) return;
 
-    const centerLabel = document.getElementById('center-name-label');
     const submitBtn = document.getElementById('trial-submit');
-
-    if (centerLabel) {
-        centerLabel.textContent = tier === 'multisite'
-            ? getNestedValue(dict, 'trial.labelCenterNameMulti')
-            : getNestedValue(dict, 'trial.labelCenterName');
-    }
     if (submitBtn) {
-        submitBtn.textContent = tier === 'multisite'
-            ? getNestedValue(dict, 'trial.btnMultisite')
-            : getNestedValue(dict, 'trial.btnStandard');
+        let btnKey = 'trial.btnSmall';
+        if (tier === 'medium') btnKey = 'trial.btnMedium';
+        else if (tier === 'large') btnKey = 'trial.btnLarge';
+        submitBtn.textContent = getNestedValue(dict, btnKey);
     }
 }
 
@@ -122,7 +116,7 @@ function setupForm() {
         const lang = localStorage.getItem('lang') || 'da';
         const dict = i18n[lang];
 
-        const tier = document.querySelector('input[name="tier"]:checked')?.value || 'standard';
+        const tier = document.querySelector('input[name="tier"]:checked')?.value || 'small';
         const contactName = document.getElementById('contact-name').value.trim();
         const adminEmail = document.getElementById('admin-email').value.trim();
         const orgName = document.getElementById('org-name').value.trim();
