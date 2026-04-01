@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getting Started Guide — SmokingTracker Pilot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ─── Reset ─────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --c-primary:       #10b981;
+      --c-primary-dark:  #059669;
+      --c-primary-deep:  #047857;
+      --c-primary-faint: rgba(16,185,129,0.07);
+      --c-primary-border:rgba(16,185,129,0.22);
+      --c-amber:         #f59e0b;
+      --c-amber-faint:   rgba(245,158,11,0.08);
+      --c-amber-border:  rgba(245,158,11,0.3);
+      --c-red:           #ef4444;
+      --c-bg:            #ffffff;
+      --c-surface:       #f8fafc;
+      --c-surface-2:     #f1f5f9;
+      --c-border:        #e2e8f0;
+      --c-border-dark:   #cbd5e1;
+      --c-text:          #0f172a;
+      --c-text-2:        #1e293b;
+      --c-muted:         #64748b;
+      --c-muted-2:       #94a3b8;
+      --font-body:       'Inter', system-ui, sans-serif;
+      --font-display:    'Fraunces', Georgia, serif;
+      --page-width:      1060px;
+      --pad:             56px;
+      --radius-sm:       6px;
+      --radius:          10px;
+      --radius-lg:       16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--c-text);
+      background: #d1d6de;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      font-size: 15.5px;
+    }
+
+    /* ─── Page ──────────────────────────────────────────────────────── */
+    .page {
+      max-width: var(--page-width);
+      margin: 32px auto 64px;
+      background: var(--c-bg);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.13), 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    .page-body {
+      padding: 52px var(--pad) 68px;
+    }
+
+    /* ─── Cover ─────────────────────────────────────────────────────── */
+    .cover {
+      position: relative;
+      height: 230px;
+      background: linear-gradient(145deg, #020c07 0%, #041510 45%, #072914 100%);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 var(--pad) 36px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Geometric shapes */
+    .shape { position: absolute; }
+    .s1 { width:110px; height:110px; border-radius:50%; background:#14b8a6;   top:-28px; left:48%;    opacity:.8; }
+    .s2 { width: 75px; height: 75px; border-radius:50%; background:#f59e0b;   bottom:22px; right:148px; opacity:.9; }
+    .s3 { width: 65px; height: 52px; border-radius:5px; background:#ef4444;   top:24px;  right:52px;   opacity:.85; }
+    .s4 { width: 44px; height: 44px; border-radius:5px; background:#10b981;   bottom:28px; left:118px; opacity:.65; }
+    .s5 { width: 82px; height: 82px; border-radius:50%; background:#1d4ed8;   top:54px;  left:-16px;   opacity:.55; }
+    .s6 { width: 46px; height: 62px; border-radius:5px; background:#0d9488;   top:14px;  left:76px;    opacity:.6; }
+    .s7 { width: 36px; height: 36px; border-radius:50%; background:#f97316;   bottom:16px; right:288px; opacity:.7; }
+    .s8 { width:120px; height:120px; border-radius:50%; background:#059669;   top:-18px; right:-8px;   opacity:.45; }
+
+    .cover-eyebrow {
+      position: relative; z-index:10;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(167,243,208,0.75);
+      margin-bottom: 9px;
+    }
+    .cover-title {
+      position: relative; z-index:10;
+      font-family: var(--font-display);
+      font-size: 2.9rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+    }
+
+    /* ─── Intro ─────────────────────────────────────────────────────── */
+    .intro {
+      padding: 40px 0 36px;
+      border-bottom: 1px solid var(--c-border);
+      margin-bottom: 52px;
+    }
+    .intro-heading {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--c-text);
+      margin-bottom: 10px;
+    }
+    .intro p {
+      color: var(--c-muted);
+      font-size: 1rem;
+      max-width: 580px;
+      line-height: 1.7;
+    }
+
+    /* guide nav / TOC */
+    .toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--c-muted);
+    }
+    .toc-item .toc-num {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--c-primary);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ─── Part header ───────────────────────────────────────────────── */
+    .part {
+      margin-bottom: 60px;
+    }
+    .part-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 32px;
+      padding-bottom: 18px;
+      border-bottom: 2px solid var(--c-primary);
+    }
+    .part-num {
+      font-family: var(--font-display);
+      font-size: 3.2rem;
+      font-weight: 300;
+      color: var(--c-primary);
+      line-height: 1;
+      opacity: 0.5;
+      min-width: 44px;
+      flex-shrink: 0;
+      padding-top: 10px;
+    }
+    .part-kicker {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--c-primary);
+      margin-bottom: 4px;
+    }
+    .part-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--c-text);
+      line-height: 1.2;
+    }
+
+    /* ─── Sub-section ───────────────────────────────────────────────── */
+    .sub {
+      margin-bottom: 48px;
+    }
+    .sub + .sub {
+      border-top: 1px solid var(--c-border);
+      padding-top: 32px;
+    }
+    .sub-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--c-text);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .sub-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 24px; height: 24px;
+      padding: 0 7px;
+      border-radius: var(--radius-sm);
+      background: var(--c-primary-faint);
+      border: 1px solid var(--c-primary-border);
+      color: var(--c-primary-dark);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+    }
+
+    p { margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+
+    strong { font-weight: 700; }
+    em { font-style: italic; }
+
+    /* ─── Callout boxes ─────────────────────────────────────────────── */
+    .callout {
+      border-left: 3px solid var(--c-primary);
+      background: var(--c-primary-faint);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px;
+      margin: 18px 0;
+      break-inside: avoid;
+    }
+    .callout-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--c-primary-dark);
+      margin-bottom: 7px;
+    }
+    .callout p { font-size: 0.9rem; margin-bottom: 8px; }
+    .callout p:last-child { margin-bottom: 0; }
+
+    .callout-amber {
+      border-left-color: var(--c-amber);
+      background: var(--c-amber-faint);
+    }
+    .callout-amber .callout-label { color: #92400e; }
+
+    .callout-neutral {
+      border-left-color: var(--c-border-dark);
+      background: var(--c-surface);
+    }
+    .callout-neutral .callout-label { color: var(--c-muted); }
+
+    /* ─── Pull quote ────────────────────────────────────────────────── */
+    .pull-quote {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--c-primary-dark);
+      line-height: 1.35;
+      padding: 22px 0 22px 26px;
+      border-left: 4px solid var(--c-primary);
+      margin: 28px 0;
+    }
+
+    /* ─── Steps ─────────────────────────────────────────────────────── */
+    .steps { list-style: none; margin: 20px 0; }
+    .steps li {
+      display: flex;
+      gap: 14px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--c-border);
+      align-items: flex-start;
+    }
+    .steps li:last-child { border-bottom: none; }
+    .step-n {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: var(--c-primary);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .step-body { font-size: 0.92rem; }
+    .step-body small { display: block; color: var(--c-muted); font-size: 0.82rem; margin-top: 2px; }
+
+    /* ─── Two-col grid ──────────────────────────────────────────────── */
+    .col2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 18px 0;
+      break-inside: avoid;
+    }
+    .col2-uneven {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 20px;
+      margin: 18px 0;
+      align-items: start;
+    }
+    .col2-uneven-r {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 20px;
+      margin: 18px 0;
+      align-items: start;
+    }
+
+    /* ─── Card ──────────────────────────────────────────────────────── */
+    .card {
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      background: var(--c-surface);
+      break-inside: avoid;
+    }
+    .card-title {
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--c-text);
+      margin-bottom: 8px;
+    }
+    .card p { font-size: 0.87rem; margin-bottom: 6px; }
+    .card p:last-child { margin-bottom: 0; }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 7px;
+      border-radius: 4px;
+      margin-bottom: 7px;
+    }
+    .tag-green { background: rgba(16,185,129,0.1); color: var(--c-primary-deep); }
+    .tag-red   { background: rgba(239,68,68,0.08); color: #b91c1c; }
+    .tag-amber { background: rgba(245,158,11,0.1); color: #92400e; }
+    .tag-slate { background: var(--c-surface-2); color: var(--c-muted); }
+
+    /* ─── Bullets ───────────────────────────────────────────────────── */
+    ul.bul { list-style: none; margin: 12px 0; }
+    ul.bul li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 8px;
+      font-size: 0.91rem;
+    }
+    ul.bul li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 7px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--c-primary);
+    }
+
+    /* ─── Visibility table ──────────────────────────────────────────── */
+    .vis-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.87rem; }
+    .vis-table th {
+      text-align: left;
+      padding: 10px 14px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--c-muted);
+      background: var(--c-surface-2);
+      border-bottom: 1px solid var(--c-border);
+    }
+    .vis-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--c-border);
+      vertical-align: top;
+    }
+    .vis-table tr:last-child td { border-bottom: none; }
+    .vis-yes { color: var(--c-primary-dark); font-weight: 600; }
+    .vis-no  { color: var(--c-muted-2); }
+    .vis-cond { color: #92400e; font-weight: 600; }
+
+    /* ─── Status dots ───────────────────────────────────────────────── */
+    .dot-row { display: flex; gap: 20px; margin: 12px 0; flex-wrap: wrap; }
+    .dot-item { display: flex; align-items: center; gap: 7px; font-size: 0.83rem; color: var(--c-text-2); }
+    .dot {
+      width: 11px; height: 11px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .dot-g { background: #22c55e; }
+    .dot-a { background: #f59e0b; }
+    .dot-r { background: #ef4444; }
+
+    /* ─── Screenshots ───────────────────────────────────────────────── */
+    /* Desktop screenshots */
+    .ss-desktop {
+      width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid var(--c-border);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.09);
+      display: block;
+      margin: 18px 0;
+    }
+    /* Mobile screenshots */
+    .ss-phone {
+      border-radius: 20px;
+      border: 1px solid var(--c-border);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+      display: block;
+      max-height: 360px;
+      width: auto;
+      margin: 0 auto;
+    }
+    .phone-row {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 20px 0;
+    }
+    .phone-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+    }
+    .phone-caption {
+      font-size: 0.75rem;
+      color: var(--c-muted);
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* Caption for real screenshots */
+    .ss-caption {
+      font-size: 0.73rem;
+      color: var(--c-muted-2);
+      text-align: center;
+      margin-top: -10px;
+      margin-bottom: 16px;
+    }
+
+    /* ─── Script block ──────────────────────────────────────────────── */
+    .script {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-left: 3px solid var(--c-primary);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-style: italic;
+      font-size: 0.91rem;
+      color: var(--c-text-2);
+      line-height: 1.6;
+      break-inside: avoid;
+    }
+    .script-label {
+      font-style: normal;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--c-primary-dark);
+      margin-bottom: 8px;
+    }
+
+    /* ─── Divider ───────────────────────────────────────────────────── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--c-border);
+      margin: 52px 0;
+    }
+
+    /* ─── Footer ────────────────────────────────────────────────────── */
+    .guide-footer {
+      margin-top: 52px;
+      padding-top: 24px;
+      border-top: 1px solid var(--c-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--c-primary-dark);
+    }
+    .footer-meta { font-size: 0.73rem; color: var(--c-muted); }
+
+    /* ─── Anchor navigation ────────────────────────────────────────── */
+    html { scroll-behavior: smooth; }
+
+    a.toc-item {
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    a.toc-item:hover {
+      background: var(--c-primary-faint);
+      border-color: var(--c-primary-border);
+      color: var(--c-primary-dark);
+    }
+
+    /* ─── Quick Start block ────────────────────────────────────────── */
+    .qs {
+      background: linear-gradient(135deg, #020c07 0%, #041510 55%, #072914 100%);
+      border-radius: var(--radius-lg);
+      padding: 36px 40px 32px;
+      margin: 36px 0 52px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .qs-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(167,243,208,0.7);
+      margin-bottom: 6px;
+    }
+    .qs-heading {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+    .qs-sub {
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 26px;
+    }
+    .qs-steps {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .qs-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .qs-n {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: var(--c-primary);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .qs-step-body {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .qs-step-body strong {
+      font-size: 0.88rem;
+      color: #fff;
+      font-weight: 600;
+    }
+    .qs-step-body small {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.48);
+      line-height: 1.45;
+    }
+    .qs-step-body a {
+      color: rgba(167,243,208,0.8);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .qs-step-body a:hover { color: #a7f3d0; }
+    .qs-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin: 0 0 20px;
+    }
+    .qs-when {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .qs-when-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 999px;
+      padding: 5px 12px 5px 8px;
+      font-size: 0.74rem;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+    }
+    .qs-when-item:hover { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.85); }
+    .qs-when-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ─── Print ─────────────────────────────────────────────────────── */
+    @media print {
+      @page { size: A4 landscape; margin: 14mm 16mm; }
+      body { background: #fff; }
+      .page { margin: 0; max-width: 100%; box-shadow: none; }
+      .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .callout, .callout-amber, .qs { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      /* Only avoid breaks inside small atomic blocks — not large containers */
+      .callout, .card, .script, .steps li { break-inside: avoid; }
+      /* Keep sub-title glued to its first paragraph */
+      .sub-title { break-after: avoid; }
+      /* Keep part header together */
+      .part-header { break-inside: avoid; break-after: avoid; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ═══ COVER ════════════════════════════════════════════════════════ -->
+  <div class="cover">
+    <div class="shape s1"></div><div class="shape s2"></div>
+    <div class="shape s3"></div><div class="shape s4"></div>
+    <div class="shape s5"></div><div class="shape s6"></div>
+    <div class="shape s7"></div><div class="shape s8"></div>
+    <p class="cover-eyebrow">SmokingTracker &nbsp;·&nbsp; Pilot Programme &nbsp;·&nbsp; For Counsellors</p>
+    <h1 class="cover-title">Getting Started Guide</h1>
+  </div>
+
+  <!-- ═══ BODY ══════════════════════════════════════════════════════════ -->
+  <div class="page-body">
+
+    <!-- ─── Intro ─────────────────────────────────────────────────── -->
+    <div class="intro">
+      <h2 class="intro-heading">Welcome to the SmokingTracker Pilot.</h2>
+      <p>This guide walks you through how to integrate real-time usage data into your CBT or Harm Reduction sessions — from inviting your first client to reading the analytics together in session.</p>
+      <div class="toc">
+        <a class="toc-item" href="#quick-start" style="background: var(--c-primary-faint); border-color: var(--c-primary-border); color: var(--c-primary-dark); font-weight: 700;">⚡ Quick Start</a>
+        <a class="toc-item" href="#part-1"><span class="toc-num">1</span> Before the pilot</a>
+        <a class="toc-item" href="#part-2"><span class="toc-num">2</span> Getting your client started</a>
+        <a class="toc-item" href="#part-3"><span class="toc-num">3</span> Between sessions</a>
+        <a class="toc-item" href="#part-4"><span class="toc-num">4</span> In session — reading the data</a>
+        <a class="toc-item" href="#part-5"><span class="toc-num">5</span> What to celebrate</a>
+        <a class="toc-item" href="#part-6"><span class="toc-num">6</span> Support &amp; feedback</a>
+      </div>
+    </div>
+
+    <!-- ═══ QUICK START ══════════════════════════════════════════════ -->
+    <div class="qs" id="quick-start">
+      <p class="qs-eyebrow">Pilot Quick Start &nbsp;·&nbsp; If you read nothing else, do this</p>
+      <h2 class="qs-heading">Five steps to your first session with data.</h2>
+      <p class="qs-sub">Everything else in this guide is here when you need it — but these five steps are all you need to get started. <em style="color:rgba(255,255,255,0.4);">Takes about 10–15 minutes total. You can't break anything — feel free to explore.</em></p>
+
+      <ol class="qs-steps">
+        <li class="qs-step">
+          <span class="qs-n">1</span>
+          <div class="qs-step-body">
+            <strong>Activate your account</strong>
+            <small>Open the setup link from your email, choose a password, and you're in. <a href="#part-1">→ Part 1 if you need help</a></small>
+          </div>
+        </li>
+        <li class="qs-step">
+          <span class="qs-n">2</span>
+          <div class="qs-step-body">
+            <strong>Set up notifications</strong>
+            <small>In your dashboard, open <strong style="color:rgba(255,255,255,0.7);">Settings → Notification Settings</strong>. Choose how you want to hear about quiet clients — five minutes now saves a missed signal later.</small>
+          </div>
+        </li>
+        <li class="qs-step">
+          <span class="qs-n">3</span>
+          <div class="qs-step-body">
+            <strong>Invite one client</strong>
+            <small>Click <strong style="color:rgba(255,255,255,0.7);">+</strong> in the top-right of your client list. Enter an alias (only you see it), choose how to deliver the link, and send. <a href="#part-2">→ Part 2 for the full client flow</a></small>
+          </div>
+        </li>
+        <li class="qs-step">
+          <span class="qs-n">4</span>
+          <div class="qs-step-body">
+            <strong>Have the data-sharing conversation</strong>
+            <small><em style="color:rgba(255,255,255,0.55);">"This app lets me see your patterns — but only what you're comfortable sharing. You control it, and you can change it any time."</em> That's it. <a href="#part-2">→ Full script in Part 2D</a></small>
+          </div>
+        </li>
+        <li class="qs-step">
+          <span class="qs-n">5</span>
+          <div class="qs-step-body">
+            <strong>Glance at their record before the next session</strong>
+            <small>Check the calendar and Overview tab beforehand — so you're not seeing it for the first time in the room. <a href="#part-4">→ Part 4 on reading the data together</a></small>
+          </div>
+        </li>
+      </ol>
+
+      <hr class="qs-divider">
+
+      <div class="qs-when">
+        <span style="font-size: 0.74rem; color: rgba(255,255,255,0.35); align-self: center; margin-right: 4px;">Read more when you need it →</span>
+        <a class="qs-when-item" href="#part-3"><span class="qs-when-dot" style="background:#f59e0b;"></span>If a client stops logging</a>
+        <a class="qs-when-item" href="#part-4"><span class="qs-when-dot" style="background:#10b981;"></span>Your first session using the data</a>
+        <a class="qs-when-item" href="#part-4"><span class="qs-when-dot" style="background:#3b82f6;"></span>When you want deeper insights</a>
+        <a class="qs-when-item" href="#part-5"><span class="qs-when-dot" style="background:#a78bfa;"></span>How to celebrate progress</a>
+        <a class="qs-when-item" href="#part-6"><span class="qs-when-dot" style="background:#ef4444;"></span>If something breaks</a>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         PART 1 — BEFORE THE PILOT
+    ════════════════════════════════════════════════════════════════ -->
+    <div class="part" id="part-1">
+      <div class="part-header">
+        <span class="part-num">1</span>
+        <div class="part-titles">
+          <p class="part-kicker">Before the pilot</p>
+          <h2 class="part-title">What you have access to — and what you don't</h2>
+        </div>
+      </div>
+
+      <p>SmokingTracker is a <strong>client-controlled data tool</strong>. Your clients decide what you can see, and they can change their mind at any time. Understanding this upfront will shape how you introduce the tool.</p>
+
+      <p style="font-weight:600;font-size:0.95rem;margin-bottom:16px;">You will always see whether a client logged. Everything else depends on what they choose to share.</p>
+
+      <table class="vis-table">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>You can see it?</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Whether the client logged <em>something</em> today</td>
+            <td class="vis-yes">✓ Always</td>
+            <td>Even if all sharing is off, you can see activity vs. silence.</td>
+          </tr>
+          <tr>
+            <td>Daily usage count &amp; trend</td>
+            <td class="vis-cond">Client's choice</td>
+            <td>Off by default — the client enables it in Settings → My Counsellor.</td>
+          </tr>
+          <tr>
+            <td>Session details (mood, location, method)</td>
+            <td class="vis-cond">Client's choice</td>
+            <td>Each data type has its own toggle in the client's settings. All off by default.</td>
+          </tr>
+          <tr>
+            <td>Notes clients write when logging a session or craving</td>
+            <td class="vis-cond">Client's choice</td>
+            <td>Visible in the Analytics → Notes tab when the client has enabled note sharing. Off by default.</td>
+          </tr>
+          <tr>
+            <td>Calendar heatmap &amp; Analytics</td>
+            <td class="vis-cond">Client's choice</td>
+            <td>The more a client shares, the richer the analytics become.</td>
+          </tr>
+          <tr>
+            <td>Your alias for the client</td>
+            <td class="vis-no">✗ Never</td>
+            <td>The label you set is only visible in your dashboard — never shown to the client.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-amber">
+        <div class="callout-label">Clinical note</div>
+        <p>The goal of this pilot is <strong>not</strong> to maximise data access. A client sharing only "logged today / didn't log" is still valuable — it tells you they are engaging. Gradually building trust around data sharing is itself a therapeutic process.</p>
+      </div>
+
+      <!-- Getting your account set up -->
+      <div class="sub">
+        <h3 class="sub-title">Getting your account set up</h3>
+        <p>Before you can invite clients or review data, you need to activate your account. You'll receive a personal setup link by email from the SmokingTracker team — here's what to expect.</p>
+
+        <div class="col2-uneven" style="margin-top: 20px;">
+          <div>
+            <ol class="steps">
+              <li>
+                <span class="step-n">1</span>
+                <div class="step-body">
+                  <strong>Open the link from the email</strong>
+                  <small>It's single-use and expires in 72 hours.</small>
+                </div>
+              </li>
+              <li>
+                <span class="step-n">2</span>
+                <div class="step-body">
+                  <strong>Choose a display name &amp; password</strong>
+                  <small>Your email is pre-filled and read-only. Your password must include uppercase, lowercase, a number, and a special character.</small>
+                </div>
+              </li>
+              <li>
+                <span class="step-n">3</span>
+                <div class="step-body">
+                  <strong>You're in</strong>
+                  <small>Account created, you're automatically logged in, and your counsellor dashboard is ready. No further setup needed.</small>
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div>
+            <img src="images/en_admin_center_setup.png" alt="Counsellor account setup page" class="ss-desktop" style="margin-top: 0; max-width: 320px; margin-left: auto; margin-right: auto;">
+            <p class="ss-caption">The setup page — pre-filled email, choose your password</p>
+          </div>
+        </div>
+
+        <div class="callout callout-amber" style="margin-top: 4px;">
+          <div class="callout-label">If the link has expired</div>
+          <p>Just get in touch with us and we'll send a fresh one straight away — it only takes a moment on our end.</p>
+        </div>
+      </div>
+
+      <!-- Notification settings -->
+      <div class="sub">
+        <h3 class="sub-title">Set up your notifications before you invite anyone</h3>
+        <p>Your dashboard can alert you when a client's activity drops — but only if you've configured how you want to be notified. Go to <strong>Settings → Notification Settings</strong> in your dashboard.</p>
+
+        <img src="images/en_behandler_notification_settings.png" alt="Notification Settings screen" class="ss-desktop">
+        <p class="ss-caption">Counsellor dashboard · Settings → Notification Settings</p>
+
+        <div class="col2" style="margin-top: 4px;">
+          <div class="card">
+            <div class="card-title">In-app alerts</div>
+            <p>Shows as a badge in your dashboard. Useful if you check the dashboard daily.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Email &amp; SMS alerts</div>
+            <p>Pushes a notification directly to you. Recommended if you won't open the dashboard between sessions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         PART 2 — GETTING YOUR CLIENT STARTED
+    ════════════════════════════════════════════════════════════════ -->
+    <div class="part" id="part-2">
+      <div class="part-header">
+        <span class="part-num">2</span>
+        <div class="part-titles">
+          <p class="part-kicker">Session 1</p>
+          <h2 class="part-title">Getting your client onboard</h2>
+        </div>
+      </div>
+
+      <!-- 2A — Sending the invite -->
+      <div class="sub">
+        <h3 class="sub-title"><span class="sub-badge">A</span> Send the invite from your dashboard</h3>
+
+        <p>From your counsellor dashboard, click the <strong>+</strong> button in the top-right of the client list to open the <em>Add Client</em> modal.</p>
+
+        <div class="col2-uneven-r">
+          <div>
+            <p>You'll be asked for three things:</p>
+            <ol class="steps" style="margin-top: 14px;">
+              <li>
+                <span class="step-n">1</span>
+                <div class="step-body">
+                  <strong>Alias / name</strong>
+                  <small>This label is <em>only shown in your dashboard</em> — the client never sees it, and it is never shared outside your account. Use whatever helps you identify them internally.</small>
+                </div>
+              </li>
+              <li>
+                <span class="step-n">2</span>
+                <div class="step-body">
+                  <strong>Delivery method</strong>
+                  <small>Email, SMS, or copy the link manually and share it yourself.</small>
+                </div>
+              </li>
+              <li>
+                <span class="step-n">3</span>
+                <div class="step-body">
+                  <strong>Click "Create Invitation"</strong>
+                  <small>The invite link is single-use and expires. If it expires, you can resend from the client's profile.</small>
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div>
+            <img src="images/en_behandler_invite_patient_modal.png" alt="Add Client modal" class="ss-desktop" style="margin-top: 0;">
+            <p class="ss-caption">The Add Client modal</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2B — What the client experiences -->
+      <div class="sub">
+        <h3 class="sub-title"><span class="sub-badge">B</span> What your client experiences</h3>
+        <p>Understanding the client flow will help you explain it confidently in session — and prevent confusion when they open the link.</p>
+
+        <div class="phone-row">
+          <div class="phone-col">
+            <img src="images/en_tracker_accept_invite.png" alt="Accept invite screen" class="ss-phone">
+            <p class="phone-caption">They open the link &amp;<br>create an account</p>
+          </div>
+          <div class="phone-col">
+            <img src="images/en_tracker_onboarding_step1_methods.png" alt="Onboarding step 1" class="ss-phone">
+            <p class="phone-caption">They select what<br>they consume</p>
+          </div>
+          <div class="phone-col">
+            <img src="images/en_tracker_onboarding_step2_goal.png" alt="Onboarding step 2" class="ss-phone">
+            <p class="phone-caption">They set a goal<br>(Reduce / Awareness / Quit)</p>
+          </div>
+          <div class="phone-col">
+            <img src="images/en_tracker_onboarding_step3_limit.png" alt="Onboarding step 3 — daily limit" class="ss-phone">
+            <p class="phone-caption">Reduce / Quit only:<br>set a starting daily limit</p>
+          </div>
+        </div>
+
+        <div class="callout callout-neutral">
+          <div class="callout-label">Worth discussing together</div>
+          <p>The goal shapes their home screen and what achievements they unlock — worth a brief conversation before they tap through. Clients who choose <strong>Reduce</strong> or <strong>Quit</strong> will also be asked to set a daily limit. This is what the app uses to flag overuse, so it matters clinically. <em>Start where they actually are</em>, not where they want to be — an over-ambitious limit in week one is demoralising. Clients choosing <strong>Track for Awareness</strong> skip this step entirely.</p>
+        </div>
+      </div>
+
+      <!-- 2C — How they log a session -->
+      <div class="sub">
+        <h3 class="sub-title"><span class="sub-badge">C</span> How clients log a session</h3>
+        <p>After onboarding, the client lands on a <strong>calendar heatmap</strong>. Each coloured day represents logged usage. Tapping <strong>Log Session</strong> opens a quick modal.</p>
+
+        <div class="col2-uneven">
+          <div>
+            <p>The session modal captures:</p>
+            <ul class="bul" style="margin-top: 10px;">
+              <li><strong>Count</strong> — number of units (e.g. 1 joint ≈ 0.5g, 1 blunt ≈ 1.5g, 1 bowl varies by pipe type)</li>
+              <li><strong>Date &amp; time</strong> — can be backdated if they forgot</li>
+              <li><strong>Shared with friends?</strong> — social context toggle</li>
+              <li><strong>Mood</strong> (optional) — 1–10 scale at time of use</li>
+              <li><strong>Location</strong> (optional) — where they were</li>
+              <li><strong>Notes</strong> (optional) — free-text, what was going through their mind</li>
+            </ul>
+            <div class="callout" style="margin-top: 16px;">
+              <div class="callout-label">Tip</div>
+              <p>Encourage clients to log <em>at the moment</em>, not in retrospect. Even a quick log without mood/location is more valuable than a detailed one added two days later.</p>
+            </div>
+          </div>
+          <div>
+            <img src="images/en_tracker_log_session_modal.png" alt="Log Session modal" class="ss-phone" style="max-height: 420px; margin: 0 auto; display: block;">
+            <p class="phone-caption" style="margin-top: 8px;">The Log Session modal (client view)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2D — The alliance conversation -->
+      <div class="sub">
+        <h3 class="sub-title"><span class="sub-badge">D</span> The alliance conversation — before you hand them the phone</h3>
+
+        <div class="pull-quote">"Be a collaborator, not a monitor."</div>
+
+        <p>Introducing a tracking tool can feel sensitive, and some clients will <strong>"fake-track"</strong> — logging what they think you want to see rather than what actually happened. This is common and not a problem to solve immediately. Have the sharing conversation proactively, and the data will become more honest over time.</p>
+
+        <div class="col2-uneven">
+          <div>
+            <p>Clients control their data sharing in <strong>Settings → My Counsellor</strong>. They can toggle each category independently. This is a good thing — it puts them in the driver's seat.</p>
+            <p style="margin-top: 10px;"><em style="font-style: normal; text-decoration: underline; text-underline-offset: 3px; font-weight: 600;">You can always see whether the client logged that day</em>, regardless of sharing settings. That alone is enough to open a conversation.</p>
+          </div>
+          <div>
+            <img src="images/en_tracker_settings_my_counselor.png" alt="My Counsellor settings" class="ss-phone" style="max-height: 320px; margin: 0 auto; display: block;">
+            <p class="phone-caption" style="margin-top: 8px;">Client view: Settings → My Counsellor</p>
+          </div>
+        </div>
+
+        <div class="script">
+          <div class="script-label">Suggested language</div>
+          "This app lets me see your patterns between our sessions — but <em>only what you're comfortable sharing</em>. You control exactly what I can see, and you can change it at any time. A lot of people start with just the basics and share more once they've seen how it feels. There's no wrong answer."
+        </div>
+
+        <div class="callout callout-amber">
+          <div class="callout-label">Watch out for</div>
+          <p>Clients who say <em>"sure, share everything"</em> immediately may not have fully processed what that means. Give them a moment. The goal is informed consent, not maximum access.</p>
+          <p style="margin-top: 6px;">Clients who are reluctant to share anything are still engaged — they accepted the invite and showed up. Start there.</p>
+        </div>
+      </div>
+
+      <!-- 2E — Smoke-free hours -->
+      <div class="sub">
+        <h3 class="sub-title"><span class="sub-badge">E</span> Smoke-free hours — a harm reduction tool</h3>
+        <p>In <strong>Settings → Smoke-free hours</strong>, clients can block out a time window each day during which they commit to not using. This is useful for clients working toward reduction rather than cessation.</p>
+
+        <div class="col2-uneven">
+          <div>
+            <p>Suggested use in session: <em>"What time of day do you feel most in control? Let's protect that window."</em></p>
+            <p style="margin-top: 10px;">Even a one-hour commitment (e.g. 8:00–09:00 AM, before work) creates a positive habit anchor. Review whether the window was kept when you look at the Calendar together next session.</p>
+          </div>
+          <div>
+            <img src="images/en_tracker_settings_smoke_free_hours.png" alt="Smoke-free hours settings" class="ss-phone" style="max-height: 280px; margin: 0 auto; display: block;">
+            <p class="phone-caption" style="margin-top: 8px;">Client view: Settings → Smoke-free hours</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="divider">
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         PART 3 — BETWEEN SESSIONS
+    ════════════════════════════════════════════════════════════════ -->
+    <div class="part" id="part-3">
+      <div class="part-header">
+        <span class="part-num">3</span>
+        <div class="part-titles">
+          <p class="part-kicker">Between sessions</p>
+          <h2 class="part-title">The 48-hour rule</h2>
+        </div>
+      </div>
+
+      <p>SmokingTracker is most valuable when data is captured <strong>"in the moment"</strong> — but life happens, and people forget. Your job between sessions is not to police engagement; it's to notice silence and respond with curiosity, not judgement.</p>
+
+      <div class="sub">
+        <h3 class="sub-title">Reading the priority view</h3>
+        <p>Your dashboard opens on a client list sorted by <strong>Priority</strong> by default. Clients who haven't logged recently appear at the top, flagged by colour.</p>
+
+        <img src="images/en_behandler_patient_list.png" alt="Counsellor dashboard — patient list" class="ss-desktop">
+        <p class="ss-caption">Counsellor dashboard · Client list in Priority view</p>
+
+        <div class="dot-row" style="margin: 4px 0 20px;">
+          <div class="dot-item"><div class="dot dot-g"></div> Active — logged within 24 hrs</div>
+          <div class="dot-item"><div class="dot dot-a"></div> Quiet — inactive 24–48 hrs</div>
+          <div class="dot-item"><div class="dot dot-r"></div> Needs attention — inactive 48+ hrs</div>
+        </div>
+
+        <div class="callout">
+          <div class="callout-label">48 hours = a clinical opportunity, not a failure</div>
+          <p>If a client hasn't logged in 48 hours, treat it as a moment to reach out — not as non-compliance. For example: a client who was logging daily and suddenly stops may have had a difficult week — not lost motivation. A brief, non-judgemental message ("Noticed it's been a few days — no pressure, just checking in") can re-engage a client who quietly drifted.</p>
+        </div>
+      </div>
+
+      <div class="sub">
+        <h3 class="sub-title">Why the <em>"It's Okay to Forget"</em> approach works</h3>
+
+        <div class="col2">
+          <div class="card">
+            <span class="tag tag-green">Reduces shame</span>
+            <div class="card-title">Lowers the re-entry barrier</div>
+            <p>Clients often stop logging because they "messed up" and feel too guilty to start again. By explicitly naming that forgetting is normal, you make it safe to pick back up.</p>
+          </div>
+          <div class="card">
+            <span class="tag tag-green">Strengthens alliance</span>
+            <div class="card-title">Shows you're a collaborator</div>
+            <p>The data exists to serve <em>them</em>, not to hold them accountable. Framing inactivity as a conversation opener — not a red flag — reinforces that dynamic.</p>
+          </div>
+        </div>
+
+        <div class="script">
+          <div class="script-label">Suggested script — after a gap in logging</div>
+          "I can see there were a few days without any logs — that's completely fine, life gets in the way. I'm more curious about what those days were like for you. Were you using less and it felt pointless to log? Or were things busy and you just forgot? Either is useful to know."
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="divider">
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         PART 4 — IN SESSION: READING THE DATA
+    ════════════════════════════════════════════════════════════════ -->
+    <div class="part" id="part-4">
+      <div class="part-header">
+        <span class="part-num">4</span>
+        <div class="part-titles">
+          <p class="part-kicker">In session</p>
+          <h2 class="part-title">Reading the data together</h2>
+        </div>
+      </div>
+
+      <p>A brief review before the session helps you arrive with a hypothesis rather than reading data cold in the room. But the most valuable moments come when you open the record <strong>together</strong> — let the client see what you're seeing, and ask them to make sense of it. They are always the expert on their own behaviour; the data is the prompt, not the conclusion.</p>
+
+      <!-- Overview tab -->
+      <div class="sub">
+        <h3 class="sub-title"><span class="sub-badge">Overview</span> Headline metrics &amp; Insights cards</h3>
+        <p>The Overview tab (the first tab in the top navigation of any client record) leads with a single headline metric — typically a percentage change week-on-week — and a set of auto-generated <strong>Insights cards</strong> that summarise patterns the system has detected.</p>
+
+        <img src="images/en_behandler_patient_detail.png" alt="Patient detail — Overview tab" class="ss-desktop">
+        <p class="ss-caption">Client detail view · Overview tab — showing a 43% decrease week-on-week and an auto-generated Insight card</p>
+
+        <div class="callout">
+          <div class="callout-label">How to use Insights cards in session</div>
+          <p>Don't read the card aloud — show it to the client and ask <em>them</em> to respond: <strong>"Does that match how it feels to you?"</strong> This prevents the data from feeling like a verdict and invites the client to be curious about their own patterns.</p>
+        </div>
+      </div>
+
+      <!-- Calendar & Notes tab -->
+      <div class="sub">
+        <h3 class="sub-title"><span class="sub-badge">Calendar &amp; Notes</span> Your private clinical workspace</h3>
+
+        <p>The <strong>Calendar &amp; Notes</strong> tab sits between the Overview and Analytics tabs in every client record. The left side shows the same activity heatmap from Part 3 — green days logged, gaps flagged in amber or red. The right side is entirely yours: a rich-text notes field that <strong>only you can see</strong>.</p>
+
+        <img src="images/en_behandler_patient_calendar.png" alt="Calendar &amp; Notes tab" class="ss-desktop">
+        <p class="ss-caption">Counsellor dashboard · Calendar &amp; Notes tab — heatmap left, your private notes right</p>
+
+        <div class="callout" style="margin: 18px 0;">
+          <div class="callout-label">Before you open the analytics</div>
+          <p>Write one sentence first: <em>"What am I expecting to see this week, and why?"</em> The gap between what you expected and what you actually find is often where the clinical work is. The notes field is the right place for that sentence.</p>
+        </div>
+
+        <p style="font-weight: 600; font-size: 0.88rem; margin-bottom: 12px;">Four ways to use it:</p>
+
+        <div class="col2" style="margin-bottom: 18px;">
+          <div class="card">
+            <span class="tag tag-green">Before the session</span>
+            <div class="card-title">Write your hypotheses first</div>
+            <p>Before you open the data, note what you expect to see and why. This protects you from anchoring on the first chart — and helps you notice when the data genuinely surprises you.</p>
+          </div>
+          <div class="card">
+            <span class="tag tag-green">After the session</span>
+            <div class="card-title">Capture what the data won't show</div>
+            <p>What did the client say in session that the numbers can't capture? What shifted in the room? Note it while it's fresh — before your next client.</p>
+          </div>
+          <div class="card">
+            <span class="tag tag-amber">Between sessions</span>
+            <div class="card-title">Note what the pattern raises</div>
+            <p>When you check in mid-week, don't just read the data — respond to it. "Usage spiked Wednesday — worth exploring whether that was the conflict they mentioned." Those micro-observations shape your next session.</p>
+          </div>
+          <div class="card">
+            <span class="tag tag-slate">Over time</span>
+            <div class="card-title">Track your own thinking</div>
+            <p>Your notes become a longitudinal record of your clinical reasoning. Where have your hypotheses shifted? What have you been wrong about? That's valuable clinical supervision material.</p>
+          </div>
+        </div>
+
+        <div class="callout callout-neutral">
+          <div class="callout-label">Prompts worth keeping in your notes</div>
+          <ul class="bul" style="margin: 6px 0 0;">
+            <li><em>"What hypothesis am I testing this session?"</em></li>
+            <li><em>"What would change my mind about this client's main trigger?"</em></li>
+            <li><em>"What's the client not saying — and what in the data hints at it?"</em></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sub">
+        <h3 class="sub-title"><span class="sub-badge">Analytics</span> Going deeper — five views of behaviour</h3>
+        <p>Once your client has logged for at least a week, the <strong>Analytics</strong> tab unlocks the detail behind the headline. Each sub-tab focuses on a different dimension of the behaviour.</p>
+      </div>
+
+      <!-- A — Social Context -->
+      <div class="sub">
+        <h3 class="sub-title"><span class="sub-badge">A</span> Social Context — alone or with others?</h3>
+        <p>Shows the split between sessions where the client was <strong>with friends</strong> versus <strong>alone</strong>. This directly informs whether social pressure is a clinically relevant factor.</p>
+
+        <div class="col2-uneven">
+          <div>
+            <div class="card" style="margin-bottom: 14px;">
+              <span class="tag tag-green">If mostly solo</span>
+              <div class="card-title">Internal triggers dominate</div>
+              <p>Shift focus to boredom, loneliness, habit-loops at home. Refusal skills for parties are less relevant — but emotional regulation strategies are.</p>
+            </div>
+            <div class="card">
+              <span class="tag tag-amber">If mostly social</span>
+              <div class="card-title">External pressure is a factor</div>
+              <p>Explore peer influence, social identity, and rehearse polite refusal. Consider whether their social environment actively enables use.</p>
+            </div>
+          </div>
+          <div>
+            <img src="images/en_behandler_analytics_social.png" alt="Analytics — Social Context" class="ss-desktop">
+          </div>
+        </div>
+      </div>
+
+      <!-- B — Time of Day -->
+      <div class="sub">
+        <h3 class="sub-title"><span class="sub-badge">B</span> Time of Day — finding the "danger zone"</h3>
+        <p>Shows when during the day usage is highest. Peak usage hours often correspond to specific habit loops or emotional states — not just general desire.</p>
+
+        <img src="images/en_behandler_analytics_time_of_day.png" alt="Analytics — Time of Day" class="ss-desktop">
+
+        <div class="callout">
+          <div class="callout-label">CBT intervention — Behavioural Activation</div>
+          <p>If usage peaks at 1:00 PM, this is a midday "rut" — a habitual break pattern rather than stress-driven use. Work with the client to schedule a specific, non-drug activity (a walk, a phone call, a chore) at <strong>12:45 PM</strong> to interrupt the pattern before the urge fully forms.</p>
+          <p>Ask: <em>"What would have to be true about your Tuesday afternoons for you not to need that session?"</em></p>
+        </div>
+      </div>
+
+      <!-- C — Mood -->
+      <div class="sub">
+        <h3 class="sub-title"><span class="sub-badge">C</span> Mood — what emotional states drive use?</h3>
+        <p>Shows how mood is distributed across all logged sessions. Clients rate their mood on a <strong>1–10 scale</strong> at the time of logging (1 = very low, 10 = very positive). Because mood is optional, coverage varies — but even partial data is clinically significant.</p>
+
+        <div class="col2-uneven">
+          <div>
+            <img src="images/en_behandler_analytics_mood.png" alt="Analytics — Mood" class="ss-desktop">
+          </div>
+          <div>
+            <div class="card">
+              <span class="tag tag-red">Mood 1–4 (low)</span>
+              <div class="card-title">Cannabis as an anxiolytic</div>
+              <p>Sessions logged at low mood suggest use as emotional relief. Explore whether it's providing genuine short-term help — and what the long-term cost is. Introduce alternatives: TIPP skills, physical exercise, behavioural activation.</p>
+            </div>
+            <div class="card" style="margin-top: 12px;">
+              <span class="tag tag-amber">Mood 5–6 (neutral)</span>
+              <div class="card-title">Habit-loop without emotional distress</div>
+              <p>Not driven by distress — more likely boredom or habit. Behavioural activation (structured evenings, new activities) is often more effective than emotion-focused approaches here.</p>
+            </div>
+            <div class="card" style="margin-top: 12px;">
+              <span class="tag tag-green">Mood 7–10 (positive)</span>
+              <div class="card-title">Celebratory or reward-seeking use</div>
+              <p>Use during good moments can be easy to overlook — it doesn't feel like a problem. But it often signals reward-pairing: the behaviour becomes part of how the client marks enjoyment or socialising. Worth naming without pathologising.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- D — Methods -->
+      <div class="sub">
+        <h3 class="sub-title"><span class="sub-badge">D</span> Methods — how they use it</h3>
+        <p>Breaks down sessions by consumption method: joints, blunts, hand pipe / bong / bubbler, dry herb vape, vape pen, edibles, concentrates, etc. This is particularly relevant for <strong>harm reduction</strong> conversations.</p>
+
+        <img src="images/en_behandler_analytics_methods.png" alt="Analytics — Methods" class="ss-desktop">
+
+        <div class="col2">
+          <div class="card">
+            <span class="tag tag-amber">Escalation signal</span>
+            <div class="card-title">Shift toward faster delivery</div>
+            <p>A move from edibles → smoking, or from joints → vaping, may indicate <strong>increasing urgency</strong> — the client is chasing a faster onset. Worth exploring without alarmism.</p>
+          </div>
+          <div class="card">
+            <span class="tag tag-amber">Escalation signal</span>
+            <div class="card-title">Joints → blunts, or bongs</div>
+            <p>Blunts hold 3–4× more cannabis per session than a standard joint (~1.5g vs ~0.5g). A shift toward blunts or bongs can signal a <strong>tolerance increase</strong> or a move toward heavier social use — even if the session count stays the same. The grams tracked will reflect this automatically.</p>
+          </div>
+          <div class="card">
+            <span class="tag tag-green">Harm reduction success</span>
+            <div class="card-title">Shift away from smoking</div>
+            <p>A move toward vaporizing or edibles is clinically meaningful, even if the amount is unchanged. Name it as a win: <em>"You've changed how you use it — that took something."</em></p>
+          </div>
+          <div class="card">
+            <span class="tag tag-amber">Multiple methods in use</span>
+            <div class="card-title">Set a consolidation goal</div>
+            <p>Clients using several methods simultaneously often have less conscious control over their use — each method has its own trigger and context, making patterns harder to interrupt. A concrete, achievable goal: <em>pick one method and stick to it for two weeks</em>. Reducing variety is itself a form of reduction, and it makes the data — and the behaviour — much easier to work with together.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- E — Notes -->
+      <div class="sub">
+        <h3 class="sub-title"><span class="sub-badge">E</span> Notes — what clients write in the moment</h3>
+        <p>When clients log a session, they can leave a short free-text note. These are captured verbatim in the <strong>Notes</strong> tab and are often the most clinically raw data available to you.</p>
+
+        <img src="images/en_behandler_analytics_notes.png" alt="Analytics — Notes" class="ss-desktop">
+
+        <ul class="bul">
+          <li>Notes capture automatic thoughts <em>in the moment</em> — before they've been edited by reflection or anticipation of the session.</li>
+          <li>Recurring themes often surface core beliefs or chronic stressors the client hasn't yet articulated in session.</li>
+          <li>Use them as direct conversation starters: <em>"Last Tuesday you wrote 'couldn't stop thinking about work' — what was going on that day?"</em></li>
+        </ul>
+
+        <div class="callout callout-amber">
+          <div class="callout-label">Important</div>
+          <p>Some notes may contain content that warrants immediate clinical attention. Reading them before a session — rather than live in the room — gives you space to consider how to respond.</p>
+          <p style="margin-top: 8px;">These are the client's own words — distinct from the notes <em>you</em> write in the Calendar &amp; Notes tab, which the client cannot see.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="divider">
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         PART 5 — WHAT TO CELEBRATE
+    ════════════════════════════════════════════════════════════════ -->
+    <div class="part" id="part-5">
+      <div class="part-header">
+        <span class="part-num">5</span>
+        <div class="part-titles">
+          <p class="part-kicker">Motivation &amp; tools</p>
+          <h2 class="part-title">What to celebrate — and what to track</h2>
+        </div>
+      </div>
+
+      <!-- Achievements -->
+      <div class="sub">
+        <h3 class="sub-title">Achievements &amp; milestones</h3>
+        <div class="col2-uneven-r">
+          <div>
+            <p>The client app has an <strong>Awards</strong> tab that unlocks achievements for consistency, streaks, and goal-related milestones. These aren't just badges — they create <strong>concrete evidence of change</strong> that you can anchor a conversation to.</p>
+            <div class="script" style="margin-top: 16px;">
+              <div class="script-label">Using achievements in session</div>
+              "I see you hit a new milestone this week — 'First Step'. I know that might feel small to you, but logging consistently for a week when you're trying to change something is genuinely hard. What made this week different?"
+            </div>
+          </div>
+          <div>
+            <img src="images/en_tracker_achievements.png" alt="Achievements tab" class="ss-phone" style="max-height: 300px;">
+            <p class="phone-caption" style="margin-top: 8px;">Client view · Awards tab</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Distraction exercises -->
+      <div class="sub">
+        <h3 class="sub-title">Distraction exercises &amp; urge tracking</h3>
+        <div class="col2-uneven">
+          <div class="phone-row" style="margin: 0;">
+            <div class="phone-col">
+              <img src="images/en_tracker_urge_surfing_modal.png" alt="Urge tracking modal" class="ss-phone" style="max-height: 320px;">
+              <p class="phone-caption" style="margin-top: 8px;">Log an urge — intensity &amp; outcome</p>
+            </div>
+            <div class="phone-col">
+              <img src="images/en_tracker_distraction_exercise_1.png" alt="Distraction exercise" class="ss-phone" style="max-height: 320px;">
+              <p class="phone-caption" style="margin-top: 8px;">Distraction exercise</p>
+            </div>
+          </div>
+          <div>
+            <p>The app includes a <strong>guided distraction exercise</strong> — a short, scenario-based activity available when a craving hits. Clients can also log an urge directly, recording its intensity and whether they acted on it.</p>
+            <p style="margin-top: 10px;">In practice, most clients log after the fact — and that's fine. <strong>The act of recording the urge is itself the clinically valuable part.</strong> It creates awareness of the craving as a separate event from the decision to use, which is the first step toward creating space between the two.</p>
+            <div class="callout" style="margin-top: 14px;">
+              <div class="callout-label">How to use urge data in session</div>
+              <p>Ask: <em>"You logged three urges on Wednesday but only used once — what made the difference those other two times?"</em> Clients are often surprised they already have more control than they thought. The data makes that visible.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="divider">
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         PART 6 — SUPPORT & FEEDBACK
+    ════════════════════════════════════════════════════════════════ -->
+    <div class="part" id="part-6" style="margin-bottom: 0;">
+      <div class="part-header">
+        <span class="part-num">6</span>
+        <div class="part-titles">
+          <p class="part-kicker">During the pilot</p>
+          <h2 class="part-title">Support &amp; feedback</h2>
+        </div>
+      </div>
+
+      <p>This is a pilot — things will not be perfect. Your observations and your clients' reactions are the most valuable data we have. Please do share them.</p>
+
+      <div class="col2">
+        <div class="card">
+          <div class="card-title">Technical issues</div>
+          <p>If something breaks — for you or your client — drop us an email:</p>
+          <p style="margin-top: 8px;"><a href="mailto:support@smokingtracker.com" style="color: var(--c-primary-dark); font-weight: 600;">support@smokingtracker.com</a></p>
+        </div>
+        <div class="card">
+          <div class="card-title">Feedback &amp; suggestions</div>
+          <p>What's missing? What's confusing? What would make this more useful in your sessions?</p>
+          <p style="margin-top: 8px;"><a href="mailto:support@smokingtracker.com" style="color: var(--c-primary-dark); font-weight: 600;">support@smokingtracker.com</a></p>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top: 20px;">
+        <div class="callout-label">One ask from us</div>
+        <p>If a client gives you unsolicited feedback about the app — positive or negative — please note it and share it with us. The most useful insights are the ones you didn't go looking for.</p>
+      </div>
+    </div>
+
+    <!-- ─── Footer ─────────────────────────────────────────────────── -->
+    <div class="guide-footer">
+      <span class="footer-brand">SmokingTracker</span>
+      <span class="footer-meta">Pilot Programme · Counsellor Guide · 2026</span>
+    </div>
+
+  </div><!-- /page-body -->
+</div><!-- /page -->
+</body>
+</html>

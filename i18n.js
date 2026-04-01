@@ -408,30 +408,24 @@ export const i18n = {
             bookDemo: "Book a Demo"
         },
         hero: {
-            badge: "🧠 CBT Self-Monitoring for Cannabis Use Disorder",
-            title: 'The <span class="text-gradient">Measurement-Based Care</span> platform for cannabis use disorder',
-            subtitle: "Most CBT and harm reduction programs rely on clients accurately recalling a week of use. They can't. SmokingTracker digitizes the self-monitoring component of CBT — capturing emotional triggers, consumption patterns, and cravings in the moment through Ecological Momentary Assessment. Your clients log in three taps. You get objective, session-ready data. And for clients who aren't ready to share — the tool works for them alone first.",
+            badge: "🌿 Built for outpatient cannabis use disorder treatment",
+            title: 'Your clients can\'t accurately recall a week of use. <span class="text-gradient">Now they don\'t have to.</span>',
+            subtitle: "SmokingTracker captures consumption, mood, and cravings the moment they happen — not reconstructed in session days later. Three taps to log. One click to get session-ready data. And for clients who aren't ready to share anything yet — the tool works for them alone first.",
             ctaPrimary: "Book a Demo",
-            ctaSecondary: "See Features",
-            statsClients: "Clinics & Practices",
-            statsRetention: "Avg. Retention Increase",
-            statsCitizens: "Clients Tracked",
-            statsGoals: "Goal modes — one for every client",
-            statsTrial: "Days full access, no payment",
-            statsSetup: "Day from signup to first client"
+            ctaSecondary: "See Features"
         },
         howItWorks: {
             title: "How It Works",
-            subtitle: "Three steps from onboarding to session-ready clinical data — eliminating recall bias between sessions.",
+            subtitle: "Three steps from invitation to session-ready clinical data — no technical requirements for the client.",
             step1_num: "01",
             step1_title: "Invite the Client",
             step1_desc: "Create an invitation from the Practitioner Dashboard. The client receives a link via email, SMS, or a manual handoff — whatever fits. No app downloads required.",
             step2_num: "02",
-            step2_title: "They Log Triggers in Real Time",
-            step2_desc: "The client logs sessions, mood, and emotional triggers the moment they happen — not days later in a clinical setting. This is Ecological Momentary Assessment (EMA): capturing behavior in the natural environment. Built-in Urge Surfing guides them through craving moments with a 3-minute breathing exercise. They control what to share through granular consent settings.",
+            step2_title: "They Track Between Sessions — in the Moment, Not From Memory",
+            step2_desc: "The client logs sessions, mood, and emotional triggers when they happen — not reconstructed in a clinical setting days later. That's Ecological Momentary Assessment: behaviour captured in the real world. Built-in Urge Surfing guides them through craving moments with a 3-minute breathing exercise. They control what to share through granular consent settings. Clients who share nothing are still giving you something: engagement data.",
             step3_num: "03",
-            step3_title: "You Get Objective Clinical Data",
-            step3_desc: "Your dashboard delivers real-time Measurement-Based Care: traffic light status, week-over-week trends, and trigger pattern analysis. Open a print-ready clinical report in one click — ready for your next CBT or harm reduction session."
+            step3_title: "You See Patterns Before the Next Session",
+            step3_desc: "Your dashboard flags who needs attention — traffic light status, week-over-week trends, and trigger alarms — before clients walk through the door. Open a print-ready clinical report in one click. Objective data for better CBT interventions. No prep work, no reconstructing."
         },
         featuresInfo: {
             headerSectionTitle: "Everything Your Team Needs",
@@ -460,18 +454,18 @@ export const i18n = {
         },
         showcase: {
             behandler: {
-                title: 'Real-time Measurement-Based Care for every client',
-                desc: 'See traffic-light status, week-over-week trends, trigger alarms, and one-click clinical reports — all in one place.',
+                title: 'Know which clients need you before they tell you.',
+                desc: 'The traffic light dashboard gives you Routine Outcome Monitoring at a glance — without extra admin work. Spot disengagement early, act before sessions, and go in with objective data instead of asking "how has your week been?"',
                 bullet1: 'Traffic light status: Green, Yellow, or Red at a glance',
-                bullet2: 'Smart alarms — notify by in-app, email, or SMS',
-                bullet3: 'Print-ready PDF in one click — ready to attach to any EHR',
+                bullet2: 'Custom trigger alarms — notify by app, email, or SMS',
+                bullet3: 'Print-ready PDF in one click — attach to any EHR system',
             },
             registrer: {
-                title: 'Three taps. No decisions required.',
-                desc: 'Cannabis use disorder reduces working memory — the cognitive capacity needed to open an app, remember what to fill in, and follow through. A session logs in three taps. Everything else is optional, added when the client has the bandwidth.',
-                bullet1: 'Three required taps: open, add session, confirm',
-                bullet2: 'Optional: mood, emotional trigger, location, notes',
-                bullet3: 'Fast-use warning — client is informed in the moment',
+                title: 'Three taps. No cognitive load required.',
+                desc: 'Cannabis use disorder reduces working memory — the exact capacity a logging form usually demands. A session is down to three taps: open, tap +, confirm. Everything else — mood, trigger, location, notes — is optional, added when the client has the bandwidth. The less it asks for in a bad moment, the more likely it gets used.',
+                bullet1: 'Three required taps — nothing more',
+                bullet2: 'Optional: mood, trigger, location, and notes',
+                bullet3: 'Fast-use warning — client is notified in the moment',
             },
             app: {
                 title: 'An app clients actually use',
@@ -496,19 +490,19 @@ export const i18n = {
             },
             samtykke: {
                 title: 'Start private. Share when ready.',
-                desc: 'Many clients arrive skeptical or involuntary. They don\'t need to share anything to benefit from the tool. The data is theirs. As trust builds — over days or weeks — they choose exactly what to open up: sessions, moods, triggers, or notes.',
-                bullet1: 'Works as a private tool first — no sharing required',
+                desc: 'Many clients arrive skeptical or involuntary. They don\'t need to share anything to benefit. The data is theirs. As trust builds — over days or weeks — they choose exactly what to open up: session logs, moods, triggers, or notes. Gradually extending data sharing is itself a therapeutic process.',
+                bullet1: 'Works as a private self-monitoring tool first — no sharing required',
                 bullet2: 'Share session log, mood, triggers, and notes independently',
                 bullet3: 'Consent can be extended or withdrawn at any time',
             }
         },
         featureTeaser: {
-            desc: "SmokingTracker is built around features that actually get used in outpatient CBT and harm reduction programs. From 3-tap EMA logging to the Measurement-Based Care dashboard — see the full picture on the features page.",
+            desc: "From 3-tap EMA logging to the Measurement-Based Care dashboard — SmokingTracker is built around the features outpatient CBT and harm reduction programs actually use. See the full picture on the features page.",
             btn: "See all features"
         },
         ctaBottom: {
-            title: "Ready to add Measurement-Based Care to your harm reduction program?",
-            desc: "Book a free demo and see how SmokingTracker fits into your CBT or harm reduction workflow — typically up and running within a day.",
+            title: "Ready to stop relying on what clients remember?",
+            desc: "Book a free 20-minute demo. See how SmokingTracker fits your existing CBT or harm reduction workflow — most clinics are up and running within a day.",
             btn: "Book a Free Demo"
         },
         philosophy: {
@@ -518,13 +512,13 @@ export const i18n = {
             title: "Why it works where other tools fail",
             p1_label: "Three taps",
             p1_title: "Built for impaired working memory",
-            p1_desc: "Cannabis use disorder reduces working memory and executive function. High-friction tools get abandoned. A session logs in three taps — no decisions, no barriers. The less it asks, the more likely it happens.",
+            p1_desc: "Cannabis use disorder reduces working memory and executive function — the exact capacity an app usually demands. A session logs in three taps: open, add, confirm. No decisions, no barriers. The less it asks for, the more likely it happens.",
             p2_label: "Private first",
             p2_title: "Built for clients who don't trust you yet",
             p2_desc: "Many clients arrive involuntary or ambivalent. They share nothing. That's fine — the tool works for them alone first. As trust builds, they choose what to share: sessions, moods, triggers, or notes. Most start private. Many share within weeks.",
             p3_label: "One click",
             p3_title: "Session-ready data, no prep work",
-            p3_desc: "Clients forget. They reconstruct. They minimize. SmokingTracker captures behavior in the moment through Ecological Momentary Assessment. One click opens a print-ready report for your next session — objective data, not retrospective narrative.",
+            p3_desc: "Clients forget. They reconstruct. They minimise. SmokingTracker captures behaviour in the moment through Ecological Momentary Assessment — before memory rewrites it. One click opens a print-ready clinical report: objective data, not retrospective narrative.",
         },
         footer: {
             desc: "Giving harm reduction clinics and CBT practitioners objective, real-time client data — while keeping the client in control of their own information.",
