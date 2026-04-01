@@ -1340,7 +1340,18 @@ img {
     }
 
     .hero {
-        padding-top: 120px;
+        min-height: unset;
+        padding-top: 100px;
+        padding-bottom: 3rem;
+    }
+
+    .hero-container {
+        max-width: 100%;
+    }
+
+    .showcase-desktop {
+        margin-top: 2rem;
+        border-radius: 12px;
     }
 
     .showcase-grid,
