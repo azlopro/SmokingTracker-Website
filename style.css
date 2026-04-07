@@ -652,6 +652,68 @@ img {
     display: block;
 }
 
+/* ── Hero Carousel ─────────────────────────────────────── */
+.hero-carousel {
+    width: 100%;
+}
+
+.hero-carousel-track {
+    display: grid;
+}
+
+.hero-carousel-slide {
+    grid-area: 1 / 1;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    pointer-events: none;
+}
+
+.hero-carousel-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.hero-carousel-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.hero-carousel-caption {
+    font-size: 0.78rem;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.2px;
+}
+
+.hero-carousel-dots {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.hero-carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-border);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.hero-carousel-dot.active {
+    background: var(--color-primary);
+    transform: scale(1.35);
+}
+
+.hero-carousel-dot:hover:not(.active) {
+    background: var(--color-text-secondary);
+}
+
 .showcase-phone {
     width: 100%;
     max-width: 360px;

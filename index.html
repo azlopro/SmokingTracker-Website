@@ -83,8 +83,46 @@
                 </div>
             </div>
             <div class="container fade-in-up" style="animation-delay: 0.4s; padding-top: 3rem; padding-bottom: 1rem;">
-                <div class="showcase-desktop glass">
-                    <img src="/images/en_behandler_patient_calendar.png" alt="SmokingTracker Practitioner Dashboard — client calendar view" />
+                <div class="hero-carousel">
+                    <div class="hero-carousel-track">
+                        <div class="showcase-desktop glass hero-carousel-slide active">
+                            <img src="/images/en_behandler_patient_calendar.png" alt="Practitioner Dashboard — client session timeline" />
+                        </div>
+                        <div class="showcase-desktop glass hero-carousel-slide">
+                            <img src="/images/en_behandler_analytics_time_of_day.png" alt="Practitioner Dashboard — time of day patterns" />
+                        </div>
+                        <div class="showcase-desktop glass hero-carousel-slide">
+                            <img src="/images/en_behandler_analytics_social.png" alt="Practitioner Dashboard — social context analytics" />
+                        </div>
+                        <div class="showcase-desktop glass hero-carousel-slide">
+                            <img src="/images/en_behandler_patient_list.png" alt="Practitioner Dashboard — client list with traffic light status" />
+                        </div>
+                        <div class="showcase-desktop glass hero-carousel-slide">
+                            <img src="/images/en_behandler_patient_detail.png" alt="Practitioner Dashboard — individual client detail view" />
+                        </div>
+                        <div class="showcase-desktop glass hero-carousel-slide">
+                            <img src="/images/en_behandler_analytics_mood.png" alt="Practitioner Dashboard — mood analytics over time" />
+                        </div>
+                        <div class="showcase-desktop glass hero-carousel-slide">
+                            <img src="/images/en_behandler_analytics_methods.png" alt="Practitioner Dashboard — consumption method breakdown" />
+                        </div>
+                        <div class="showcase-desktop glass hero-carousel-slide">
+                            <img src="/images/en_behandler_analytics_notes.png" alt="Practitioner Dashboard — session notes overview" />
+                        </div>
+                    </div>
+                    <div class="hero-carousel-footer">
+                        <span class="hero-carousel-caption">Practitioner Dashboard · Client list & traffic light status</span>
+                        <div class="hero-carousel-dots">
+                            <button class="hero-carousel-dot active" aria-label="Slide 1"></button>
+                            <button class="hero-carousel-dot" aria-label="Slide 2"></button>
+                            <button class="hero-carousel-dot" aria-label="Slide 3"></button>
+                            <button class="hero-carousel-dot" aria-label="Slide 4"></button>
+                            <button class="hero-carousel-dot" aria-label="Slide 5"></button>
+                            <button class="hero-carousel-dot" aria-label="Slide 6"></button>
+                            <button class="hero-carousel-dot" aria-label="Slide 7"></button>
+                            <button class="hero-carousel-dot" aria-label="Slide 8"></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -171,7 +209,24 @@
                     </div>
                     <div class="showcase-media">
                         <div class="showcase-phone glass">
-                            <img src="/images/en_tracker_home_calendar.png" alt="SmokingTracker App — Home screen with daily limit and streak" />
+                            <div class="hero-carousel app-carousel">
+                                <div class="hero-carousel-track">
+                                    <div class="hero-carousel-slide active">
+                                        <img src="/images/en_tracker_log_session_modal.png" alt="SmokingTracker App — log session modal" />
+                                    </div>
+                                    <div class="hero-carousel-slide">
+                                        <img src="/images/en_tracker_home_calendar.png" alt="SmokingTracker App — home calendar view" />
+                                    </div>
+                                    <div class="hero-carousel-slide">
+                                        <img src="/images/en_tracker_statistics.png" alt="SmokingTracker App — statistics view" />
+                                    </div>
+                                </div>
+                                <div class="hero-carousel-dots" style="margin-top: 0.6rem; margin-bottom: 0.25rem;">
+                                    <button class="hero-carousel-dot active" aria-label="Slide 1"></button>
+                                    <button class="hero-carousel-dot" aria-label="Slide 2"></button>
+                                    <button class="hero-carousel-dot" aria-label="Slide 3"></button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -307,6 +362,71 @@
         </div>
     </footer>
     <script type="module" src="/main.js"></script>
+    <script>
+        // App showcase carousel
+        (function () {
+            const el = document.querySelector('.app-carousel');
+            if (!el) return;
+            const slides = Array.from(el.querySelectorAll('.hero-carousel-slide'));
+            const dots   = Array.from(el.querySelectorAll('.hero-carousel-dot'));
+            let current = 0, timer;
+
+            function goTo(n) {
+                slides[current].classList.remove('active');
+                dots[current].classList.remove('active');
+                current = (n + slides.length) % slides.length;
+                slides[current].classList.add('active');
+                dots[current].classList.add('active');
+            }
+
+            function start() { timer = setInterval(() => goTo(current + 1), 5000); }
+            function stop()  { clearInterval(timer); }
+
+            dots.forEach((d, i) => d.addEventListener('click', () => { stop(); goTo(i); start(); }));
+            el.addEventListener('mouseenter', stop);
+            el.addEventListener('mouseleave', start);
+            start();
+        })();
+
+        // Hero carousel
+        (function () {
+            const slides = Array.from(document.querySelectorAll('.hero-carousel-slide'));
+            const dots = Array.from(document.querySelectorAll('.hero-carousel-dot'));
+            const caption = document.querySelector('.hero-carousel-caption');
+            const captions = [
+                'Practitioner Dashboard · Client session timeline',
+                'Practitioner Dashboard · Time of day patterns',
+                'Practitioner Dashboard · Social context analytics',
+                'Practitioner Dashboard · Client list & traffic light status',
+                'Practitioner Dashboard · Individual client detail',
+                'Practitioner Dashboard · Mood analytics over time',
+                'Practitioner Dashboard · Consumption method breakdown',
+                'Practitioner Dashboard · Session notes overview',
+            ];
+            let current = 0;
+            let timer;
+
+            function goTo(n) {
+                slides[current].classList.remove('active');
+                dots[current].classList.remove('active');
+                current = (n + slides.length) % slides.length;
+                slides[current].classList.add('active');
+                dots[current].classList.add('active');
+                caption.textContent = captions[current];
+            }
+
+            function start() { timer = setInterval(() => goTo(current + 1), 5000); }
+            function stop() { clearInterval(timer); }
+
+            dots.forEach((dot, i) => dot.addEventListener('click', () => { stop(); goTo(i); start(); }));
+
+            const carousel = document.querySelector('.hero-carousel');
+            carousel.addEventListener('mouseenter', stop);
+            carousel.addEventListener('mouseleave', start);
+
+            start();
+        })();
+    </script>
 </body>
 
 </html>

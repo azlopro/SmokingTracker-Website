@@ -57,8 +57,7 @@ SmokingTracker's Privacy by Design model is built precisely for this situation:
 
 1. **The client controls everything**: They choose what to share with the counselor via granular consent toggles
 2. **No judgment**: The app logs without moralizing. There are no "you failed" messages
-3. **Urge Surfing**: When clients feel an urge, the app guides them through a 3-minute wave exercise — regardless of whether they give in or not
-4. **Counselors see only what's shared**: The traffic light dashboard shows activity level, not details, unless the client has given consent
+3. **Counselors see only what's shared**: The traffic light dashboard shows activity level, not details, unless the client has given consent
 
 ## Conclusion
 

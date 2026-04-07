@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Features — SmokingTracker</title>
     <meta name="description"
-        content="Complete overview of all SmokingTracker features — from the Urge Surfing panic button to the clinical traffic light dashboard." />
+        content="Complete overview of all SmokingTracker features — from friction-free session logging to the clinical traffic light dashboard." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
@@ -206,6 +206,63 @@
             line-height: 1.7;
         }
 
+        /* ── Card carousel ─────────────────────────────────── */
+        .fp-carousel {
+            margin-top: 1.25rem;
+            max-width: 320px;
+        }
+
+        .fp-carousel-track {
+            display: grid;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .fp-carousel-slide {
+            grid-area: 1 / 1;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            pointer-events: none;
+        }
+
+        .fp-carousel-slide.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .fp-carousel-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .fp-carousel-dots {
+            display: flex;
+            gap: 0.4rem;
+            justify-content: center;
+            margin-top: 0.75rem;
+        }
+
+        .fp-carousel-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-border);
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .fp-carousel-dot.active {
+            background: var(--color-primary);
+            transform: scale(1.4);
+        }
+
+        .fp-carousel-dot:hover:not(.active) {
+            background: var(--color-text-secondary);
+        }
+
         @media (max-width: 600px) {
             .fp-top5-card {
                 grid-template-columns: 3rem 1fr;
@@ -216,18 +273,22 @@
             .fp-rank {
                 font-size: 1.75rem;
             }
+
+            .fp-carousel {
+                max-width: 100%;
+            }
         }
     </style>
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="SmokingTracker">
     <meta property="og:title" content="Features — SmokingTracker">
-    <meta property="og:description" content="Complete overview of all SmokingTracker features — from the Urge Surfing tool to the clinical traffic light dashboard.">
+    <meta property="og:description" content="Complete overview of all SmokingTracker features — from friction-free session logging to the clinical traffic light dashboard.">
     <meta property="og:image" content="https://smokingtracker.com/logo.png">
     <meta property="og:url" content="https://smokingtracker.com/features.html">
     <link rel="canonical" href="https://smokingtracker.com/features.html">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Features — SmokingTracker">
-    <meta name="twitter:description" content="Complete overview of all SmokingTracker features — from the Urge Surfing tool to the clinical traffic light dashboard.">
+    <meta name="twitter:description" content="Complete overview of all SmokingTracker features — from friction-free session logging to the clinical traffic light dashboard.">
     <meta name="twitter:image" content="https://smokingtracker.com/logo.png">
 </head>
 
@@ -307,25 +368,9 @@
                         </div>
                     </div>
 
-                    <!-- 2: Urge Surfing -->
+                    <!-- 2: Consumption Overview -->
                     <div class="fp-top5-card glass hover-lift fade-in-up" style="animation-delay: 0.05s">
                         <div class="fp-rank">02</div>
-                        <div class="fp-top5-content">
-                            <div class="fp-badges">
-                                <span class="fp-badge-priority" data-i18n="featuresPage.priorityBadge">Klinisk
-                                    prioritet</span>
-                            </div>
-                            <h3 data-i18n="featuresPage.f2_title">Urge Surfing (Panikknap)</h3>
-                            <p data-i18n="featuresPage.f2_desc">Aktiveres i cravingøjeblikket. En 3-minutters
-                                nedtælling, guidet vejrtrækning og distraksionsopgaver hjælper borgeren med at ride
-                                bølgen af. En 'Kan ikke vente'-knap sikrer ingen dom, hvis det ikke lykkes — og
-                                sessionen logges uanset hvad.</p>
-                        </div>
-                    </div>
-
-                    <!-- 3: Consumption Overview -->
-                    <div class="fp-top5-card glass hover-lift fade-in-up" style="animation-delay: 0.1s">
-                        <div class="fp-rank">03</div>
                         <div class="fp-top5-content">
                             <div class="fp-badges">
                                 <span class="fp-badge-priority" data-i18n="featuresPage.priorityBadge">Klinisk
@@ -336,9 +381,9 @@
                         </div>
                     </div>
 
-                    <!-- 4: Traffic Light -->
-                    <div class="fp-top5-card glass hover-lift fade-in-up" style="animation-delay: 0.15s">
-                        <div class="fp-rank">04</div>
+                    <!-- 3: Traffic Light -->
+                    <div class="fp-top5-card glass hover-lift fade-in-up" style="animation-delay: 0.1s">
+                        <div class="fp-rank">03</div>
                         <div class="fp-top5-content">
                             <div class="fp-badges">
                                 <span class="fp-badge-priority" data-i18n="featuresPage.priorityBadge">Klinisk
@@ -353,9 +398,9 @@
                         </div>
                     </div>
 
-                    <!-- 5: Achievement System -->
-                    <div class="fp-top5-card glass hover-lift fade-in-up" style="animation-delay: 0.2s">
-                        <div class="fp-rank">05</div>
+                    <!-- 4: Achievement System -->
+                    <div class="fp-top5-card glass hover-lift fade-in-up" style="animation-delay: 0.15s">
+                        <div class="fp-rank">04</div>
                         <div class="fp-top5-content">
                             <div class="fp-badges">
                                 <span class="fp-badge-priority" data-i18n="featuresPage.priorityBadge">Klinisk
@@ -385,66 +430,6 @@
                 </div>
 
                 <div class="fp-cat-grid">
-
-                    <!-- ── Cat 1: Crisis ── -->
-                    <div class="fp-cat-card glass fade-in-up">
-                        <div class="fp-cat-header">
-                            <div class="fp-cat-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-                                    <line x1="12" y1="9" x2="12" y2="13" />
-                                    <line x1="12" y1="17" x2="12.01" y2="17" />
-                                </svg>
-                            </div>
-                            <h3 data-i18n="featuresPage.cat1">Krisesituationer</h3>
-                        </div>
-                        <ul class="fp-feature-list">
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <div class="fp-feature-item-inner">
-                                    <span data-i18n="featuresPage.c1f1">Panikknap / Urge Surfing Modal</span>
-                                    <span class="fp-chip-priority"
-                                        data-i18n="featuresPage.priorityBadge">Klinisk prioritet</span>
-                                </div>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <div class="fp-feature-item-inner">
-                                    <span data-i18n="featuresPage.c1f2">3-min nedtæller med 'Kan ikke vente'-mulighed</span>
-                                    <span class="fp-chip-priority"
-                                        data-i18n="featuresPage.priorityBadge">Klinisk prioritet</span>
-                                </div>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c1f3">Guidet vejrtrækning (16-sek cyklus)</span>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c1f4">Distraktions-quizzer</span>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c1f5">Craving-log med tidsstempel</span>
-                            </li>
-                        </ul>
-                    </div>
 
                     <!-- ── Cat 2: Daily Retention ── -->
                     <div class="fp-cat-card glass fade-in-up" style="animation-delay: 0.05s">

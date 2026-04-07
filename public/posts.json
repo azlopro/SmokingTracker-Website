@@ -91,19 +91,6 @@
     "featured": true
   },
   {
-    "slug": "urge-surfing-data-points",
-    "title": "Urge Surfing: Turning Cravings Into Data Points",
-    "description": "How a 3-minute breathing exercise built into the app creates both clinical insights and genuine client engagement.",
-    "image": "/urge-surfing.webp",
-    "category": "Methodology",
-    "date": "2026-10-18",
-    "dateFormatted": "Oct 18, 2026",
-    "author": "SmokingTracker Team",
-    "readTime": "5 min",
-    "lang": "en",
-    "featured": false
-  },
-  {
     "slug": "gdpr-consent-addiction-data",
     "title": "HIPAA, 42 CFR Part 2, and Client-Owned Addiction Data",
     "description": "Why giving clients full control over their substance use data isn't just legally required under HIPAA and Part 2 — it's clinically superior.",

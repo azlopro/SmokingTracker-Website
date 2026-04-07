@@ -4,7 +4,7 @@
 
 ## What it does
 
-SmokingTracker helps licensed therapists, LCSWs, psychologists, and Intensive Outpatient Programs (IOPs) track client cannabis consumption in real time, without relying on client recall during sessions. Clients log usage, mood, and cravings directly from a free mobile app. Practitioners see a live clinical dashboard with traffic-light indicators, session frequency trends, and urge surfing completion data.
+SmokingTracker helps licensed therapists, LCSWs, psychologists, and Intensive Outpatient Programs (IOPs) track client cannabis consumption in real time, without relying on client recall during sessions. Clients log usage, mood, and cravings directly from a free mobile app. Practitioners see a live clinical dashboard with traffic-light indicators, session frequency trends, and mood analytics.
 
 ## Who it's for
 
@@ -17,7 +17,6 @@ SmokingTracker helps licensed therapists, LCSWs, psychologists, and Intensive Ou
 
 - **Real-time consumption tracking** — Clients log cannabis sessions as they happen, capturing product type, amount, mood, and cravings
 - **Traffic light dashboard** — Practitioners see at a glance which clients are improving, stable, or at risk
-- **Urge surfing module** — 3-minute guided breathing exercise triggered when clients feel a craving; completion data feeds into the clinical dashboard
 - **Alarm system** — Automatic alerts when a client's usage pattern deviates significantly from their baseline
 - **Clinical reports** — Exportable session summaries for treatment planning and progress documentation
 - **Multi-practitioner support** — Group plans include up to 5 counselor seats and a clinical director overview dashboard
@@ -58,5 +57,4 @@ SmokingTracker publishes peer-reviewed-informed clinical content for cannabis tr
 - Cannabis and Sleep: https://smokingtracker.com/posts/cannabis-and-sleep.html
 - Nicotine and Cannabis: https://smokingtracker.com/posts/nicotine-and-cannabis.html
 - Friction-Free Tracking Case Study: https://smokingtracker.com/posts/friction-free-tracking-case.html
-- Urge Surfing Data Points: https://smokingtracker.com/posts/urge-surfing-data-points.html
 - GDPR and Addiction Data: https://smokingtracker.com/posts/gdpr-consent-addiction-data.html

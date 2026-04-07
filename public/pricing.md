@@ -12,7 +12,6 @@ All plans include a 14-day free trial. No automatic payments without consent.
   - Real-time cannabis consumption tracking
   - Free patient mobile app (iOS + Android)
   - Traffic light clinical dashboard
-  - Urge surfing module
   - Clinical session reports (exportable)
   - Full GDPR compliance + Data Processing Agreement (DPA) included
 - Trial: 14-day free trial, no credit card required

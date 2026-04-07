@@ -73,7 +73,6 @@ Instead of "share everything or nothing," the client can precisely control what 
 |---|---|
 | Daily activity (is the client active?) | Required for enrollment |
 | Smoking sessions and history | On/Off |
-| Urge Surfing data | On/Off |
 | Mood registrations | On/Off |
 | Personal notes | On/Off |
 
