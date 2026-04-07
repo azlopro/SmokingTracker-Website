@@ -662,11 +662,9 @@ img {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #fff;
+    background: #fff;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -677,13 +675,15 @@ img {
     align-items: center;
     justify-content: center;
     z-index: 2;
-    transition: background 0.2s, transform 0.2s;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
     padding: 0;
     user-select: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 .hero-carousel-arrow:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: var(--color-primary);
+    color: #fff;
     transform: translateY(-50%) scale(1.08);
 }
 
@@ -695,9 +695,6 @@ img {
     width: 30px;
     height: 30px;
     font-size: 1rem;
-    background: rgba(0, 0, 0, 0.18);
-    border-color: rgba(0, 0, 0, 0.12);
-    color: #fff;
     top: 45%;
 }
 

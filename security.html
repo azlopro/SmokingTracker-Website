@@ -3,15 +3,15 @@
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="icon" type="image/webp" href="/logo.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sikkerhed & Transparens / Security & Transparency — SmokingTracker</title>
     <meta name="description"
         content="SmokingTracker's security architecture — how we protect client health data at substance use treatment centers." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"></noscript>
     <link rel="stylesheet" href="/style.css">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="SmokingTracker">
@@ -30,7 +30,7 @@
     <nav class="navbar glass">
         <div class="nav-container">
             <a href="/" class="logo">
-                <img src="/logo.png" alt="SmokingTracker Logo" class="logo-img">
+                <img src="/logo.webp" alt="SmokingTracker Logo" class="logo-img" width="32" height="32">
                 <span class="logo-text">SmokingTracker</span>
             </a>
             <div class="nav-links">
@@ -303,7 +303,7 @@
         <div class="container footer-content">
             <div class="footer-brand">
                 <a href="/" class="logo">
-                    <img src="/logo.png" alt="SmokingTracker Logo" class="logo-img">
+                    <img src="/logo.webp" alt="SmokingTracker Logo" class="logo-img" width="32" height="32">
                     <span class="logo-text">SmokingTracker</span>
                 </a>
                 <p data-i18n="footer.desc">Helping treatment centers deliver proactive, data-driven support while fully
