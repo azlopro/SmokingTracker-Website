@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog - SmokingTracker</title>
     <meta name="description"
-        content="Indsigter i vaneregistrering som klinisk redskab til engagement, fastholdelse og kommunal dokumentation." />
+        content="Insights on habit tracking as a clinical tool for engagement, retention, and documentation." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
@@ -30,12 +30,6 @@
                 <a href="/blog.html" data-i18n="nav.blog" class="active">Blog</a>
             </div>
             <div class="nav-actions">
-                <div class="lang-switch">
-                    <select id="lang-toggle" class="lang-select" aria-label="Language">
-                        <option value="de">DE</option>
-                        <option value="en">EN</option>
-                    </select>
-                </div>
                 <a href="/trial.html" class="btn btn-primary" data-i18n="nav.bookDemo">Book a Demo</a>
                 <button class="mobile-menu-btn icon-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -54,14 +48,14 @@
             <div class="section-header text-center fade-in-up">
                 <h1 class="page-title" data-i18n="blogList.title">Resources for Treatment Centers</h1>
                 <p class="section-desc" data-i18n="blogList.subtitle">Insights on habit tracking as a clinical tool for
-                    engagement, retention, and municipal compliance.</p>
+                    engagement, retention, and compliance.</p>
             </div>
 
             <div class="blog-grid" id="blog-grid">
                 <!-- Posts are rendered dynamically from posts.json -->
                 <div class="blog-loading"
                     style="text-align:center; padding:4rem 0; color: var(--color-text-secondary);">
-                    Indlæser artikler...
+                    Loading articles...
                 </div>
             </div>
         </section>
@@ -75,7 +69,7 @@
                     <span class="logo-text">SmokingTracker</span>
                 </a>
                 <p data-i18n="footer.desc">Helping treatment centers deliver proactive, data-driven support while fully
-                    respecting citizen privacy.</p>
+                    respecting client privacy.</p>
             </div>
             <div class="footer-links">
                 <div class="link-group">
@@ -113,16 +107,11 @@
         let _postsLoaded = false;
         let _fetchController = null;
 
-        function getCurrentLang() {
-            return localStorage.getItem('lang') || 'da';
-        }
-
         function renderPosts() {
             const grid = document.getElementById('blog-grid');
-            const lang = getCurrentLang();
-            const posts = allPosts.filter(p => p.lang === lang);
-            const readMoreText = lang === 'da' ? 'Læs artikel' : 'Read article';
-            const emptyText = lang === 'da' ? 'Ingen artikler endnu.' : 'No articles yet.';
+            const posts = allPosts.filter(p => p.lang === 'en');
+            const readMoreText = 'Read article';
+            const emptyText = 'No articles yet.';
 
             if (!posts.length) {
                 grid.innerHTML = `<p style="text-align:center; padding:4rem 0; color: var(--color-text-secondary);">${emptyText}</p>`;
@@ -186,15 +175,6 @@
                 grid.innerHTML = '<p style="text-align:center; padding:4rem 0; color: var(--color-text-secondary);">Could not load articles.</p>';
                 console.error('Failed to load posts:', err);
             }
-        }
-
-        // Re-render when language is toggled — only after posts are loaded
-        // (main.js updates localStorage synchronously before this fires)
-        const langToggle = document.getElementById('lang-toggle');
-        if (langToggle) {
-            langToggle.addEventListener('change', () => {
-                if (_postsLoaded) renderPosts();
-            });
         }
 
         loadPosts();

@@ -1,9 +1,9 @@
 ---
-title: "GDPR, Consent, and Citizen-Owned Addiction Data"
+title: "HIPAA, 42 CFR Part 2, and Client-Owned Addiction Data"
 category: "Compliance"
 date: "2026-10-12"
 author: "SmokingTracker Team"
-description: "Why giving citizens full control over their data isn't just legally safer — it's clinically superior."
+description: "Why giving clients full control over their substance use data isn't just legally required under HIPAA and Part 2 — it's clinically superior."
 readTime: "7 min"
 lang: "en"
 featured: false
@@ -11,92 +11,99 @@ pair: "gdpr-samtykke-misbrugsdata"
 image: "/gdpr-samtykke-borger.webp"
 ---
 
-Handling addiction data is one of the most sensitive disciplines under GDPR. Records of substance abuse are classified as **special categories of personal data** (Article 9), and mishandling can result in fines of up to 4% of annual revenue.
+Handling addiction data is one of the most legally sensitive areas in behavioral health. Substance use disorder (SUD) records are governed by **two overlapping federal frameworks** — HIPAA and 42 CFR Part 2 — and mishandling can result in civil penalties, criminal charges, and the loss of program funding.
 
-But GDPR compliance isn't just about avoiding fines. It's about building the foundation of trust that every effective treatment relationship rests on.
+But compliance isn't just about avoiding fines. It's about building the foundation of trust that every effective treatment relationship rests on.
 
 ## The Legal Landscape
 
-### What Does GDPR Say About Addiction Data?
+### HIPAA and Substance Use Data
 
-Article 9 categorizes health data — including addiction data — as "special categories of personal data." Processing requires an explicit legal basis, typically:
+Under HIPAA, substance use records are Protected Health Information (PHI). Treatment centers must implement appropriate administrative, physical, and technical safeguards — and clients have rights to access, amend, and receive an accounting of disclosures of their records.
 
-1. **Explicit consent** (Art. 9(2)(a))
-2. **Healthcare provision** (Art. 9(2)(h)) — under appropriate safeguards
+Penalties for HIPAA violations range from **$100 to $50,000 per violation**, with annual caps up to $1.9 million per violation category — enforced by the HHS Office for Civil Rights (OCR).
 
-Most municipal treatment centers operate under the healthcare exception, but this **does not exempt** them from ensuring transparency and data minimization.
+### 42 CFR Part 2: The Stricter Standard
 
-### Regulatory Guidance
+For programs that specialize in SUD treatment, **42 CFR Part 2** (Confidentiality of Substance Use Disorder Patient Records) imposes requirements *stricter* than HIPAA:
 
-Data protection authorities have repeatedly emphasized that:
+1. **Written consent is required** before disclosing any SUD records — even to other healthcare providers, unless specific exceptions apply
+2. **General authorizations don't work** — consent must name the specific recipient, describe the information disclosed, and state its purpose
+3. **Re-disclosure is prohibited** without a new written consent from the client
 
-- Citizens must have clear insight into what is being recorded
+Most treatment centers must comply with both frameworks simultaneously. When they conflict, the more protective rule applies — which is usually Part 2.
+
+### Regulatory Enforcement
+
+The Substance Abuse and Mental Health Services Administration (SAMHSA) has repeatedly emphasized that:
+
+- Clients must have clear visibility into what is being recorded and who can access it
 - Purpose limitation must be strictly observed
-- Data minimization is not optional — only necessary data may be processed
+- Only the minimum necessary information should be collected and shared
 
 ## The Problem With Traditional Systems
 
-Most electronic health record systems (such as KMD Nexus, Cura, and similar) operate on an **all-or-nothing** model:
+Most EHR systems (such as Epic, Cerner, and similar) operate on an **all-or-nothing** model:
 
-- The counselor creates journal notes
-- The citizen has the right to access, but no direct control
+- The counselor creates clinical notes
+- The client has legal rights to access, but no direct control over what is shared or with whom
 - All data is collected in one system, managed by the institution
 
-This is legally permissible under the healthcare exception, but it creates a **trust deficit**:
+This is legally permissible under existing frameworks, but it creates a **trust deficit**:
 
 > "I don't know what they're writing about me. I don't know who can see it."
 
-For citizens who are already skeptical — especially involuntary referrals — this worsens dropout risk.
+For clients who are already skeptical — especially court-referred clients — this worsens dropout risk and undermines the therapeutic alliance.
 
 ## SmokingTracker's Privacy by Design Model
 
-SmokingTracker flips the model on its head with **citizen-owned data and granular consent**:
+SmokingTracker flips the model on its head with **client-owned data and granular consent**:
 
-### 1. The Citizen Owns Their Data
+### 1. The Client Owns Their Data
 
-All records (sessions, mood, notes, urge data) belong to the citizen. They are stored encrypted and can be permanently deleted by the citizen at any time.
+All records (sessions, mood, notes, urge data) belong to the client. They are stored encrypted and can be permanently deleted by the client at any time — separate from the center's clinical record system.
 
 ### 2. Granular Consent Toggles
 
-Instead of "share everything or nothing," the citizen can precisely control what the counselor can see:
+Instead of "share everything or nothing," the client can precisely control what the counselor can see:
 
-| Data Category | Citizen Control |
+| Data Category | Client Control |
 |---|---|
-| Daily activity (is the citizen active?) | Required for enrollment |
+| Daily activity (is the client active?) | Required for enrollment |
 | Smoking sessions and history | On/Off |
 | Urge Surfing data | On/Off |
 | Mood registrations | On/Off |
 | Personal notes | On/Off |
 
-The citizen can change these settings **at any time** — without needing to ask the counselor.
+The client can change these settings **at any time** — without needing to ask the counselor.
 
 ### 3. The Traffic Light Dashboard
 
-The counselor sees at minimum a traffic light (Green/Yellow/Red) indicating the citizen's activity level. Detailed data is shown **only** if the citizen has actively given consent.
+The counselor sees at minimum a traffic light (Green/Yellow/Red) indicating the client's activity level. Detailed data is shown **only** if the client has actively given consent.
 
 This means the treatment relationship is built up gradually:
 
-1. The citizen starts with minimal sharing → counselor sees only activity level
-2. Trust builds over time → the citizen opens more data categories
+1. The client starts with minimal sharing → counselor sees only activity level
+2. Trust builds over time → the client opens more data categories
 3. Treatment is enriched → the counselor gets a more complete picture
 
-## Export and Documentation
+## Documentation and Audit Trail
 
-When the counselor generates a PDF report for the electronic health record system, the report automatically includes a **consent overview**:
+When the counselor generates a PDF report for the EHR system, the report automatically includes a **consent overview**:
 
-- Which data categories the citizen has shared
-- When consent was given/changed
+- Which data categories the client has shared
+- When consent was given or changed
 - What the report is based on
 
-This provides a documentation chain that would satisfy any regulatory authority.
+This creates a documented consent chain that satisfies both HIPAA's accounting-of-disclosures requirements and Part 2's written consent standards.
 
 ## Conclusion
 
-GDPR compliance in addiction treatment isn't just a legal requirement — it's a clinical opportunity. By giving the citizen control:
+Compliance with HIPAA and 42 CFR Part 2 in addiction treatment isn't just a legal obligation — it's a clinical opportunity. By giving the client genuine control:
 
-- **Legally**: You fulfill the data minimization principle and have documented consent
-- **Clinically**: The citizen feels ownership, which increases engagement and retention
-- **Practically**: You still get the data you need — just with the citizen's active acceptance
+- **Legally**: You fulfill data minimization principles and maintain documented, specific consent in line with Part 2
+- **Clinically**: The client feels ownership, which increases engagement and retention
+- **Practically**: You still get the data you need — just with the client's active acceptance
 
 ---
 

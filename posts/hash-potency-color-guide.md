@@ -1,9 +1,9 @@
 ---
-title: "Beyond THC: What Hash Color Tells You About a Citizen's High"
+title: "Beyond THC: What Hash Color Tells You About a Client's High"
 category: "Insights"
 date: "2026-11-02"
 author: "SmokingTracker Team"
-description: "Understand the connection between hash color, trichomes, and the chemical profile — and why dark hash often means a heavy, sedative experience."
+description: "Understand the connection between hash color, trichomes, and the chemical profile — and why dark hash often means a heavy, sedative experience for clients."
 readTime: "6 min"
 lang: "en"
 featured: false
@@ -11,11 +11,11 @@ pair: "hash-potens-farve-guide"
 image: "/hash-trichomes.png"
 ---
 
-In substance abuse treatment, we often talk with citizens about *how much* they smoke, but less frequently about the specific characteristics of the substance. However, understanding the origin and appearance of hashish can provide crucial clinical insights.
+In substance abuse treatment, we often talk with clients about *how much* they smoke, but less frequently about the specific characteristics of the substance. However, understanding the origin and appearance of hashish can provide crucial clinical insights.
 
 The secret to hash making all comes down to the **trichomes** — the tiny, crystal-like resin glands on the cannabis flower. As a cannabis plant matures through the flowering stage, the trichomes change color, acting as a natural indicator of the plant's chemical profile.
 
-Here is how harvesting at the "milky" stage versus the "dark/amber" stage changes the hash and the citizen's experience.
+Here is how harvesting at the "milky" stage versus the "dark/amber" stage changes the hash and the client's experience.
 
 ## The "Milky" Harvest (Peak Maturity)
 
@@ -23,7 +23,7 @@ When a grower harvests while the trichomes are mostly cloudy or "milky" white, t
 
 *   **Color of the Hash:** Hash made from milky trichomes is typically lighter in color. It usually takes on a blonde, golden, or light sandy appearance. *(Note: The extraction method, like dry sifting vs. ice water extraction, can also affect the final color, but the baseline resin is lighter).*
 *   **Chemical Profile:** At the milky stage, the resin glands are swollen with maximum levels of THCA (which becomes THC when heated) and peak terpene profiles.
-*   **Potency & Effects:** Because THC is at its highest concentration, milky hash delivers a much more cerebral, energetic, and psychoactive high. It is often described as an uplifting "head high" rather than a heavy body stone. Citizens using this type typically experience increased alertness and racing thoughts.
+*   **Potency & Effects:** Because THC is at its highest concentration, milky hash delivers a much more cerebral, energetic, and psychoactive high. It is often described as an uplifting "head high" rather than a heavy body stone. Clients using this type typically experience increased alertness and racing thoughts.
 
 ## The Late Harvest (Dark/Amber Trichomes)
 
@@ -44,7 +44,7 @@ If a grower waits to harvest until late in the flowering stage, the trichomes be
 
 ## Why It Matters to Counselors
 
-When a citizen discusses their consumption, the appearance of the hash and the nature of the high can give you insights into their underlying needs.
+When a client discusses their consumption, the appearance of the hash and the nature of the high can give you insights into their underlying needs.
 
 Are they self-medicating for anxiety, racing thoughts, or insomnia (often drawn to dark, CBN-rich hash), or are they seeking an escape characterized by energy and stimulation (often drawn to lighter, THC-rich hash)?
 
@@ -52,4 +52,4 @@ Are they self-medicating for anxiety, racing thoughts, or insomnia (often drawn 
 
 ---
 
-*In SmokingTracker, citizens don't just log **that** they smoke, but also the specific consumption methods — and over time, precise tracking of timing and urge patterns can help you facilitate a deeper conversation about the substance's function.*
+*In SmokingTracker, clients don't just log **that** they smoke, but also the specific consumption methods — and over time, precise tracking of timing and urge patterns can help you facilitate a deeper conversation about the substance's function.*

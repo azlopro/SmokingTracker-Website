@@ -2,25 +2,8 @@ import { i18n } from './i18n.js';
 
 // Setup Translation Management
 function setupTranslations() {
-    const langSelect = document.getElementById('lang-toggle');
-    const raw = localStorage.getItem('lang');
-    const storedLang = (raw === 'en' || raw === 'de') ? raw : 'en'; // DA phased out — fall back to EN
-
-    document.documentElement.setAttribute('lang', storedLang);
-    if (langSelect) {
-        langSelect.value = storedLang;
-    }
-
-    applyTranslations(storedLang);
-
-    if (langSelect) {
-        langSelect.addEventListener('change', (e) => {
-            const newLang = e.target.value;
-            document.documentElement.setAttribute('lang', newLang);
-            localStorage.setItem('lang', newLang);
-            applyTranslations(newLang);
-        });
-    }
+    document.documentElement.setAttribute('lang', 'en');
+    applyTranslations('en');
 }
 
 function applyTranslations(lang) {
@@ -160,8 +143,7 @@ function setupPricingToggle() {
         labelAnnually.classList.toggle('active', isAnnual);
         
         // Update prices
-        const lang = localStorage.getItem('lang') || 'en';
-        const dictionary = i18n[lang];
+        const dictionary = i18n['en'];
         if (!dictionary || !dictionary.pricing) return;
 
         const priceTier1 = document.getElementById('price-tier1');

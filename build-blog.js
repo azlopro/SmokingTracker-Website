@@ -65,14 +65,6 @@ function getPostTemplate() {
                 <a href="/blog.html" data-i18n="nav.blog">Blog</a>
             </div>
             <div class="nav-actions">
-                <div class="lang-switch">
-                    <span class="lang-label">DA</span>
-                    <label class="switch">
-                        <input type="checkbox" id="lang-toggle">
-                        <span class="slider round"></span>
-                    </label>
-                    <span class="lang-label">EN</span>
-                </div>
                 <a href="/trial.html" class="btn btn-primary" data-i18n="nav.bookDemo">Book a Demo</a>
                 <button class="mobile-menu-btn icon-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -134,7 +126,7 @@ function getPostTemplate() {
                     <img src="/logo.png" alt="SmokingTracker Logo" class="logo-img">
                     <span class="logo-text">SmokingTracker</span>
                 </a>
-                <p data-i18n="footer.desc">Helping treatment centers deliver proactive, data-driven support while fully respecting citizen privacy.</p>
+                <p data-i18n="footer.desc">Helping treatment centers deliver proactive, data-driven support while fully respecting client privacy.</p>
             </div>
             <div class="footer-links">
                 <div class="link-group">
@@ -171,29 +163,19 @@ function getPostTemplate() {
             document.getElementById("myBar").style.width = scrolled + "%";
         }
 
-        // Redirect to paired post on language toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            var pair = '{{pair}}';
-            var toggle = document.getElementById('lang-toggle');
-            if (toggle && pair) {
-                toggle.addEventListener('change', function() {
-                    // Let main.js update localStorage first, then redirect
-                    setTimeout(function() {
-                        window.location.href = '/posts/' + pair + '.html';
-                    }, 100);
-                });
-            }
-        });
     </script>
 </body>
 </html>`;
 }
 
 /**
- * Format a date string like "2026-10-24" to "24. okt 2026"
+ * Format a date string like "2026-10-24" to "24. okt 2026" (DA) or "Oct 24, 2026" (EN)
  */
-function formatDate(dateStr) {
+function formatDate(dateStr, lang = 'da') {
     const d = new Date(dateStr + 'T00:00:00');
+    if (lang === 'en') {
+        return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+    }
     const months = ['jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'];
     return `${d.getDate()}. ${months[d.getMonth()]} ${d.getFullYear()}`;
 }
@@ -225,7 +207,7 @@ for (const file of mdFiles) {
 
     const slug = slugFromFilename(file);
     const htmlContent = marked.parse(mdContent);
-    const dateFormatted = formatDate(front.date);
+    const dateFormatted = formatDate(front.date, front.lang);
 
     // Build the individual post HTML page
     const isEn = front.lang === 'en';

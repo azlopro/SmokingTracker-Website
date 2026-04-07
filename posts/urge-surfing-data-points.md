@@ -3,7 +3,7 @@ title: "Urge Surfing: Turning Cravings Into Data Points"
 category: "Methodology"
 date: "2026-10-18"
 author: "SmokingTracker Team"
-description: "How a 3-minute breathing exercise built into the app creates both clinical insights and genuine citizen engagement."
+description: "How a 3-minute breathing exercise built into the app creates both clinical insights and genuine client engagement."
 readTime: "5 min"
 lang: "en"
 featured: false
@@ -31,18 +31,18 @@ The crucial point: **this wave typically lasts 3-5 minutes**. After that, the bi
 
 ## How SmokingTracker Uses It
 
-When a citizen feels an urge, they can tap "🌊 I feel like smoking..." directly in the app. This starts a guided Urge Surfing session:
+When a client feels an urge, they can tap "🌊 I feel like smoking..." directly in the app. This starts a guided Urge Surfing session:
 
 1. **Breathing animation**: A visual guide that helps regulate breathing
-2. **3-minute timer**: The citizen is encouraged to ride out the wave
+2. **3-minute timer**: The client is encouraged to ride out the wave
 3. **Distraction suggestions**: The app suggests activities from its built-in distraction page
-4. **Freedom of choice**: The citizen can always choose "I can't wait — log session" without judgment
+4. **Freedom of choice**: The client can always choose "I can't wait — log session" without judgment
 
 ### What Happens After 3 Minutes?
 
 The app celebrates the success: *"You've surfed the craving wave for 3 minutes. The urge should be weaker now."*
 
-The citizen gets two choices:
+The client gets two choices:
 - **"No, I'm fine!"** → The urge is recorded as defeated (+1 toward achievements)
 - **"Yes, unfortunately"** → The session is logged normally, without moral judgment
 
@@ -50,7 +50,7 @@ The citizen gets two choices:
 
 ### Neuroplasticity in Practice
 
-Every time a citizen successfully "surfs" a craving without giving in, it weakens the neural connections linking stress to nicotine relief. Over time, the waves become:
+Every time a client successfully "surfs" a craving without giving in, it weakens the neural connections linking stress to nicotine relief. Over time, the waves become:
 
 - Less intense
 - Less frequent
@@ -58,7 +58,7 @@ Every time a citizen successfully "surfs" a craving without giving in, it weaken
 
 ### Data Points for the Counselor
 
-If the citizen has consented to share urge data, the counselor can see:
+If the client has consented to share urge data, the counselor can see:
 
 - **Number of urge surfing sessions** — how often cravings occur
 - **Success rate** — how many cravings were resisted vs. surrendered to
@@ -70,7 +70,7 @@ This gives the counselor a far more nuanced picture than "are you still smoking?
 
 Urge Surfing doesn't replace cognitive behavioral therapy — it complements it. The digital tool is available 24/7, at the exact moment the craving hits — not just during the weekly session.
 
-For treatment centers using SmokingTracker, the citizen's daily experience becomes a data source that enriches clinical work.
+For treatment centers using SmokingTracker, the client's daily experience becomes a data source that enriches clinical work.
 
 ---
 
