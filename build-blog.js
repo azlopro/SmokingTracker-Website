@@ -37,10 +37,37 @@ function getPostTemplate() {
 <html lang="{{lang}}">
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{title}} - SmokingTracker</title>
     <meta name="description" content="{{description}}" />
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="SmokingTracker">
+    <meta property="og:title" content="{{title}}">
+    <meta property="og:description" content="{{description}}">
+    <meta property="og:image" content="https://smokingtracker.com{{image}}">
+    <meta property="og:url" content="https://smokingtracker.com/posts/{{slug}}.html">
+    <link rel="canonical" href="https://smokingtracker.com/posts/{{slug}}.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{title}}">
+    <meta name="twitter:description" content="{{description}}">
+    <meta name="twitter:image" content="https://smokingtracker.com{{image}}">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "{{title}}",
+      "description": "{{description}}",
+      "datePublished": "{{date}}",
+      "author": { "@type": "Organization", "name": "SmokingTracker Team" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "SmokingTracker",
+        "logo": { "@type": "ImageObject", "url": "https://smokingtracker.com/logo.png" }
+      },
+      "image": "https://smokingtracker.com{{image}}"
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -62,7 +89,7 @@ function getPostTemplate() {
                 <a href="/#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
                 <a href="/pricing.html" data-i18n="nav.pricing">Pricing</a>
                 <a href="/about.html" data-i18n="nav.about">About</a>
-                <a href="/blog.html" data-i18n="nav.blog">Blog</a>
+                <a href="/knowledge-base.html" data-i18n="nav.blog">Knowledge Base</a>
             </div>
             <div class="nav-actions">
                 <a href="/trial.html" class="btn btn-primary" data-i18n="nav.bookDemo">Book a Demo</a>
@@ -82,7 +109,7 @@ function getPostTemplate() {
         <article class="post-container">
             <header class="post-header fade-in-up">
                 <div class="post-meta">
-                    <a href="/blog.html" class="back-link"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                    <a href="/knowledge-base.html" class="back-link"><svg xmlns="http://www.w3.org/2000/svg" width="16"
                             height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
                             <line x1="19" y1="12" x2="5" y2="12"></line>
@@ -136,7 +163,7 @@ function getPostTemplate() {
                     <a href="/pricing.html" data-i18n="nav.pricing">Pricing</a>
                     <a href="/faq.html" data-i18n="nav.faq">FAQ</a>
                     <a href="/about.html" data-i18n="nav.about">About</a>
-                    <a href="/blog.html" data-i18n="nav.blog">Blog</a>
+                    <a href="/knowledge-base.html" data-i18n="nav.blog">Knowledge Base</a>
                 </div>
                 <div class="link-group">
                     <h4 data-i18n="footer.legal">Legal</h4>
@@ -221,12 +248,15 @@ for (const file of mdFiles) {
         .replace(/\{\{author\}\}/g, front.author || 'SmokingTracker Team')
         .replace(/\{\{lang\}\}/g, front.lang || 'da')
         .replace(/\{\{pair\}\}/g, front.pair || '')
-        .replace(/\{\{backText\}\}/g, isEn ? 'Back to blog' : 'Tilbage til blog')
+        .replace(/\{\{backText\}\}/g, isEn ? 'Back to Knowledge Base' : 'Back to Knowledge Base')
         .replace(/\{\{shareText\}\}/g, isEn ? 'Share this article' : 'Del denne artikel')
         .replace(/\{\{copyText\}\}/g, isEn ? 'Copy link' : 'Kopiér link')
         .replace(/\{\{copiedText\}\}/g, isEn ? 'Copied!' : 'Kopieret!')
         .replace(/\{\{imageHTML\}\}/g, imageHTML)
-        .replace(/\{\{content\}\}/g, htmlContent);
+        .replace(/\{\{content\}\}/g, htmlContent)
+        .replace(/\{\{slug\}\}/g, slug)
+        .replace(/\{\{date\}\}/g, front.date || '')
+        .replace(/\{\{image\}\}/g, front.image || '');
 
     const outFile = path.join(OUTPUT_DIR, `${slug}.html`);
     fs.writeFileSync(outFile, page);

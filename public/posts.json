@@ -1,5 +1,57 @@
 [
   {
+    "slug": "nicotine-and-cannabis",
+    "title": "Nicotine and Cannabis: When You're Treating Two Addictions at Once",
+    "description": "When a client rolls cannabis with tobacco, you're not treating one addiction — you're treating two. Most treatment plans only address one of them.",
+    "image": "/polysubstance-tracking.webp",
+    "category": "Insights",
+    "date": "2026-12-01",
+    "dateFormatted": "Dec 1, 2026",
+    "author": "SmokingTracker Team",
+    "readTime": "7 min",
+    "lang": "en",
+    "featured": false
+  },
+  {
+    "slug": "cannabis-and-sleep",
+    "title": "Cannabis and Sleep: Which Comes First?",
+    "description": "Almost every cannabis client will tell you they need it to sleep. They're not wrong — and that's exactly the problem. A clinical breakdown of the sleep-cannabis dependency loop.",
+    "image": "/cannabis-sleep.webp",
+    "category": "Insights",
+    "date": "2026-11-24",
+    "dateFormatted": "Nov 24, 2026",
+    "author": "SmokingTracker Team",
+    "readTime": "5 min",
+    "lang": "en",
+    "featured": false
+  },
+  {
+    "slug": "cannabis-withdrawal-timeline",
+    "title": "Cannabis Withdrawal Timeline: What to Tell Your Clients",
+    "description": "Cannabis withdrawal is a recognized DSM-5 diagnosis with a predictable timeline. Here's what to expect week by week — and how to use that knowledge in treatment.",
+    "image": "/cannabis-withdrawal.webp",
+    "category": "Insights",
+    "date": "2026-11-17",
+    "dateFormatted": "Nov 17, 2026",
+    "author": "SmokingTracker Team",
+    "readTime": "6 min",
+    "lang": "en",
+    "featured": false
+  },
+  {
+    "slug": "cannabis-use-disorder-vs-casual-use",
+    "title": "Signs of Cannabis Use Disorder vs. Casual Use: A Clinical Guide",
+    "description": "Most clients will tell you they're casual users. The DSM-5 disagrees with at least some of them. Here's how to apply the criteria in a real clinical conversation.",
+    "image": "/cannabis-use-disorder.webp",
+    "category": "Insights",
+    "date": "2026-11-10",
+    "dateFormatted": "Nov 10, 2026",
+    "author": "SmokingTracker Team",
+    "readTime": "6 min",
+    "lang": "en",
+    "featured": false
+  },
+  {
     "slug": "skunk-strains-guide-en",
     "title": "Flower vs. Hash: What Counselors Should Know About Cannabis Forms",
     "description": "A deep dive into cannabis flower (bud), the difference between Indica and Sativa, and how different terpenes affect the client's experience.",

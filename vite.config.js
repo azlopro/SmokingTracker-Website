@@ -23,7 +23,7 @@ export default defineConfig({
       input: {
         main:     resolve(__dirname, 'index.html'),
         features: resolve(__dirname, 'features.html'),
-        blog:     resolve(__dirname, 'blog.html'),
+        'knowledge-base': resolve(__dirname, 'knowledge-base.html'),
         trial:    resolve(__dirname, 'trial.html'),
         about:    resolve(__dirname, 'about.html'),
         faq:      resolve(__dirname, 'faq.html'),

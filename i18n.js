@@ -403,7 +403,7 @@ export const i18n = {
             pricing: "Pricing",
             faq: "FAQ",
             about: "About",
-            blog: "Blog",
+            blog: "Knowledge Base",
             login: "Login",
             bookDemo: "Book a Demo"
         },
