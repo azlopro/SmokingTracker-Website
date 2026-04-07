@@ -11,7 +11,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"></noscript>
-    <link rel="preload" as="image" href="/images/en_behandler_patient_calendar.webp" type="image/webp">
+    <link rel="preload" as="image" href="/images/en_behandler_patient_calendar-mobile.webp" type="image/webp" media="(max-width: 900px)">
+    <link rel="preload" as="image" href="/images/en_behandler_patient_calendar.webp" type="image/webp" media="(min-width: 901px)">
     <link rel="stylesheet" href="/style.css">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="SmokingTracker">
@@ -39,7 +40,7 @@
     <nav class="navbar glass">
         <div class="nav-container">
             <a href="/" class="logo">
-                <img src="/logo.webp" alt="SmokingTracker Logo" class="logo-img" width="32" height="32">
+                <img src="/logo-icon.webp" alt="SmokingTracker Logo" class="logo-img" width="32" height="32">
                 <span class="logo-text">SmokingTracker</span>
             </a>
             <div class="nav-links">
@@ -90,49 +91,49 @@
                     <div class="hero-carousel-track">
                         <div class="showcase-desktop glass hero-carousel-slide active">
                             <picture>
-                                <source srcset="/images/en_behandler_patient_calendar.webp" type="image/webp">
+                                <source srcset="/images/en_behandler_patient_calendar-mobile.webp 1280w, /images/en_behandler_patient_calendar.webp 1920w" sizes="(max-width: 900px) 1280px, 1920px" type="image/webp">
                                 <img src="/images/en_behandler_patient_calendar.png" alt="Practitioner Dashboard — client session timeline" width="1920" height="1080" fetchpriority="high" />
                             </picture>
                         </div>
                         <div class="showcase-desktop glass hero-carousel-slide">
                             <picture>
-                                <source srcset="/images/en_behandler_analytics_time_of_day.webp" type="image/webp">
+                                <source srcset="/images/en_behandler_analytics_time_of_day-mobile.webp 1280w, /images/en_behandler_analytics_time_of_day.webp 1920w" sizes="(max-width: 900px) 1280px, 1920px" type="image/webp">
                                 <img src="/images/en_behandler_analytics_time_of_day.png" alt="Practitioner Dashboard — time of day patterns" width="1920" height="1080" loading="lazy" />
                             </picture>
                         </div>
                         <div class="showcase-desktop glass hero-carousel-slide">
                             <picture>
-                                <source srcset="/images/en_behandler_analytics_social.webp" type="image/webp">
+                                <source srcset="/images/en_behandler_analytics_social-mobile.webp 1280w, /images/en_behandler_analytics_social.webp 1920w" sizes="(max-width: 900px) 1280px, 1920px" type="image/webp">
                                 <img src="/images/en_behandler_analytics_social.png" alt="Practitioner Dashboard — social context analytics" width="1920" height="1080" loading="lazy" />
                             </picture>
                         </div>
                         <div class="showcase-desktop glass hero-carousel-slide">
                             <picture>
-                                <source srcset="/images/en_behandler_patient_list.webp" type="image/webp">
+                                <source srcset="/images/en_behandler_patient_list-mobile.webp 1280w, /images/en_behandler_patient_list.webp 1920w" sizes="(max-width: 900px) 1280px, 1920px" type="image/webp">
                                 <img src="/images/en_behandler_patient_list.png" alt="Practitioner Dashboard — client list with traffic light status" width="1920" height="1080" loading="lazy" />
                             </picture>
                         </div>
                         <div class="showcase-desktop glass hero-carousel-slide">
                             <picture>
-                                <source srcset="/images/en_behandler_patient_detail.webp" type="image/webp">
+                                <source srcset="/images/en_behandler_patient_detail-mobile.webp 1280w, /images/en_behandler_patient_detail.webp 1920w" sizes="(max-width: 900px) 1280px, 1920px" type="image/webp">
                                 <img src="/images/en_behandler_patient_detail.png" alt="Practitioner Dashboard — individual client detail view" width="1920" height="1080" loading="lazy" />
                             </picture>
                         </div>
                         <div class="showcase-desktop glass hero-carousel-slide">
                             <picture>
-                                <source srcset="/images/en_behandler_analytics_mood.webp" type="image/webp">
+                                <source srcset="/images/en_behandler_analytics_mood-mobile.webp 1280w, /images/en_behandler_analytics_mood.webp 1920w" sizes="(max-width: 900px) 1280px, 1920px" type="image/webp">
                                 <img src="/images/en_behandler_analytics_mood.png" alt="Practitioner Dashboard — mood analytics over time" width="1920" height="1080" loading="lazy" />
                             </picture>
                         </div>
                         <div class="showcase-desktop glass hero-carousel-slide">
                             <picture>
-                                <source srcset="/images/en_behandler_analytics_methods.webp" type="image/webp">
+                                <source srcset="/images/en_behandler_analytics_methods-mobile.webp 1280w, /images/en_behandler_analytics_methods.webp 1920w" sizes="(max-width: 900px) 1280px, 1920px" type="image/webp">
                                 <img src="/images/en_behandler_analytics_methods.png" alt="Practitioner Dashboard — consumption method breakdown" width="1920" height="1080" loading="lazy" />
                             </picture>
                         </div>
                         <div class="showcase-desktop glass hero-carousel-slide">
                             <picture>
-                                <source srcset="/images/en_behandler_analytics_notes.webp" type="image/webp">
+                                <source srcset="/images/en_behandler_analytics_notes-mobile.webp 1280w, /images/en_behandler_analytics_notes.webp 1920w" sizes="(max-width: 900px) 1280px, 1920px" type="image/webp">
                                 <img src="/images/en_behandler_analytics_notes.png" alt="Practitioner Dashboard — session notes overview" width="1920" height="1080" loading="lazy" />
                             </picture>
                         </div>
@@ -369,7 +370,7 @@
         <div class="container footer-content">
             <div class="footer-brand">
                 <a href="/" class="logo">
-                    <img src="/logo.webp" alt="SmokingTracker Logo" class="logo-img" width="32" height="32">
+                    <img src="/logo-icon.webp" alt="SmokingTracker Logo" class="logo-img" width="32" height="32">
                     <span class="logo-text">SmokingTracker</span>
                 </a>
                 <p data-i18n="footer.desc">Helping treatment centers deliver proactive, data-driven support while fully
