@@ -11,6 +11,8 @@ pair: "gdpr-samtykke-misbrugsdata"
 image: "/gdpr-samtykke-borger.webp"
 ---
 
+**HIPAA and 42 CFR Part 2** are the two federal frameworks governing substance use disorder (SUD) records in the United States. HIPAA applies to all Protected Health Information; **42 CFR Part 2 imposes stricter requirements** specific to SUD treatment programs, requiring written, specific consent before any disclosure — even to other healthcare providers. HIPAA violations carry civil penalties of **$100–$50,000 per violation**, with annual caps up to $1.9 million per violation category. When the two frameworks conflict, the more protective rule (usually Part 2) applies.
+
 Handling addiction data is one of the most legally sensitive areas in behavioral health. Substance use disorder (SUD) records are governed by **two overlapping federal frameworks** — HIPAA and 42 CFR Part 2 — and mishandling can result in civil penalties, criminal charges, and the loss of program funding.
 
 But compliance isn't just about avoiding fines. It's about building the foundation of trust that every effective treatment relationship rests on.
@@ -104,6 +106,27 @@ Compliance with HIPAA and 42 CFR Part 2 in addiction treatment isn't just a lega
 - **Legally**: You fulfill data minimization principles and maintain documented, specific consent in line with Part 2
 - **Clinically**: The client feels ownership, which increases engagement and retention
 - **Practically**: You still get the data you need — just with the client's active acceptance
+
+## Frequently Asked Questions
+
+**What is 42 CFR Part 2?**
+42 CFR Part 2 (Confidentiality of Substance Use Disorder Patient Records) is a federal regulation specifically protecting SUD treatment records. It requires written consent before any disclosure — more restrictive than HIPAA's general authorization framework. Consent must name the specific recipient, describe the information to be disclosed, and state its purpose. Re-disclosure without new written client consent is prohibited.
+
+**How is 42 CFR Part 2 different from HIPAA?**
+HIPAA is a broad health information privacy framework covering all Protected Health Information. 42 CFR Part 2 is a stricter, narrower regulation specifically for SUD treatment records. Key differences: Part 2 requires explicit written consent for disclosures that HIPAA might permit with a general authorization; Part 2 prohibits re-disclosure without new client consent; Part 2 applies even to disclosures to other treating providers who would normally receive information under HIPAA's treatment exception.
+
+**Can a treatment center share a client's addiction data with other providers?**
+Under 42 CFR Part 2, sharing SUD records — even with other healthcare providers — requires written, specific consent from the client. This is more restrictive than HIPAA's treatment exception. There are limited exceptions for medical emergencies, court orders, and certain research purposes, but routine care coordination requires client authorization. The consent must name the specific receiving entity, not just a general category.
+
+**What are the penalties for HIPAA violations in SUD treatment?**
+Civil penalties range from $100 to $50,000 per violation depending on culpability, with annual caps up to $1.9 million per violation category. Criminal penalties (for willful disclosures) can reach $250,000 and 10 years imprisonment. Violations of 42 CFR Part 2 carry separate criminal penalties. The HHS Office for Civil Rights (OCR) enforces HIPAA; SAMHSA oversees Part 2 compliance.
+
+**What is Privacy by Design in the context of addiction treatment?**
+Privacy by Design means building privacy controls directly into the product architecture rather than applying them as an add-on or compliance layer. For SUD treatment, this means clients have direct control over what data is collected and who can see it — rather than the institution holding all data with clients having access rights on request. This approach satisfies both Part 2's consent specificity requirements and SAMHSA's guidance on minimum necessary disclosure, while also improving therapeutic alliance with resistant clients.
+
+---
+
+*This article was written by the SmokingTracker clinical team. SmokingTracker's privacy architecture is designed to meet the requirements of both HIPAA and 42 CFR Part 2. SmokingTracker is used by outpatient treatment centers and counselors across Europe and the US. This article is informational and does not constitute legal advice.*
 
 ---
 

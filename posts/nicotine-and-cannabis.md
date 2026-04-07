@@ -10,6 +10,8 @@ featured: false
 image: "/polysubstance-tracking.webp"
 ---
 
+**Polysubstance use of cannabis and tobacco** — smoked together in spliffs or blunts — is more common than standard intake assessments capture. Studies estimate that **35–70% of cannabis users** in the US regularly combine cannabis with tobacco (Amos et al., 2004; Schauer et al., 2016), yet most treatment plans address only the cannabis dependency. When both are present, clients face two overlapping withdrawal timelines that compound each other and significantly increase early dropout risk.
+
 When a client rolls cannabis with tobacco, you're not looking at one substance problem. You're looking at two — with separate neurological dependencies, separate withdrawal timelines, and often separate emotional functions.
 
 Most treatment plans only address one of them.
@@ -66,9 +68,30 @@ When you separate the two streams, something clarifying happens. Clients start t
 
 **Psychoeducation early:** Name the two dependencies explicitly. Most clients haven't thought about it this way, and many find the framework genuinely clarifying rather than overwhelming. "You've been managing two habits simultaneously — that's more complex than most people realize, and it explains why cutting back has felt harder than it should."
 
-**Consider NRT proactively:** If the client is open to addressing the nicotine component, NRT can be introduced as support for the "all-green" transition, not as a smoking cessation intervention per se. Framing matters: this isn't about quitting tobacco for health reasons (which triggers resistance in many clients) — it's about removing one variable so the cannabis work can actually work.
+**Consider NRT proactively:** If the client is open to addressing the nicotine component, NRT can be introduced as support for the "all-green" transition, not as a smoking cessation intervention per se. Framing matters: this isn't about quitting tobacco for health reasons (which triggers resistance in many clients) — it's about removing one variable so the cannabis work can actually work. A Cochrane meta-analysis (Stead et al., 2012) found that **NRT approximately doubles quit success rates** compared to willpower alone across all forms of tobacco use.
 
 **Set "all-green" as an early milestone:** Before talking about reducing cannabis quantity, establish the form of use. A week or two of cannabis-only sessions is an achievable early goal that changes the dependency landscape meaningfully.
+
+## Frequently Asked Questions
+
+**How common is mixing cannabis with tobacco?**
+Estimates range from 35–70% of cannabis users in the US, depending on the population and region. The undercount in treatment settings happens because clients don't self-identify as tobacco users. The intake question that catches it is specific: "When you smoke cannabis, do you mix it with tobacco or use tobacco wraps?" The standard "do you smoke cigarettes?" misses most of them.
+
+**What is the difference between a spliff and a blunt?**
+A spliff is cannabis mixed directly with loose tobacco and rolled in a paper. A blunt is cannabis rolled in a tobacco leaf wrap (such as a cigar shell or blunt wrap) without loose tobacco mixed in. Both deliver nicotine alongside THC. Clinically, both create co-occurring nicotine dependence, even in clients who do not consider themselves tobacco users.
+
+**Does mixing tobacco with cannabis affect withdrawal?**
+Yes, significantly. Nicotine withdrawal peaks within 24–72 hours and largely resolves within two to three weeks. Cannabis withdrawal peaks around days 4–10 and the mood disruption can persist for weeks. When a client stops both simultaneously, these timelines overlap and compound: the client experiences a longer, more intense, more continuous discomfort that often exceeds their capacity to tolerate it. This is a major driver of early dropout that often goes unexamined.
+
+**Should clients quit cannabis and tobacco at the same time?**
+Not necessarily. Addressing nicotine first — transitioning to "all green" (cannabis only) before beginning cannabis reduction — reduces the withdrawal burden, allows NRT to be deployed, and often reduces cannabis use incidentally as the habit structure changes. It also provides an early concrete win that builds self-efficacy. The clinical logic for sequential rather than simultaneous cessation is strong for most mixed-use clients.
+
+**What is Nicotine Replacement Therapy (NRT) and does it help?**
+NRT includes patches, gum, lozenges, inhalers, and nasal sprays that deliver controlled doses of nicotine without tobacco smoke. Cochrane meta-analysis data (Stead et al., 2012) shows NRT approximately doubles quit success rates compared to willpower alone. For mixed cannabis-tobacco clients, NRT is most effectively framed as a tool for separating the two habits rather than as a smoking cessation intervention, which reduces resistance.
+
+---
+
+*This article was written by the SmokingTracker clinical team, drawing on peer-reviewed research in cannabis use disorder treatment. SmokingTracker is used by outpatient treatment centers and counselors across Europe and the US.*
 
 ---
 

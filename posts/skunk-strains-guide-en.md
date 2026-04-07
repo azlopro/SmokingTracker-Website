@@ -11,6 +11,8 @@ pair: "skunk-strains-guide"
 image: "/skunk-flower.png"
 ---
 
+**Cannabis flower** (also called bud, herb, or weed) refers to the dried, cured female buds of the cannabis plant — as distinct from concentrates like hash or oils. Modern cultivated flower is significantly more potent than historical baselines: average THC content in seized cannabis samples has risen from approximately **4% in the early 1990s to over 12% by 2014** (ElSohly et al., 2016, *Biological Psychiatry*), with many retail strains now testing at 20–30% THC. This increase is clinically significant for tolerance development and withdrawal severity.
+
 In substance abuse treatment, we often meet clients who specifically choose **flower** (also called bud, herb, or weed) over concentrates or hash. For outsiders, it might all seem like the same substance, but the reality is significantly different — especially regarding the experience, potency, and patterns of habituation.
 
 Perhaps the biggest advantage of flower, as highlighted by many clients, is the ability to smoke it without mixing it with tobacco. This eliminates the nicotine addiction, which often keeps clients trapped in substance abuse long after they actually want to quit cannabis.
@@ -49,6 +51,27 @@ In the modern cannabis market, practically all flower is named after its exact l
 If you want to understand *why* a client smokes the exact type they do, it can be enormously rewarding to look up their preferred strain. Websites like [Leafly.com](https://www.leafly.com/) function as a complete encyclopedia of cannabis strains.
 
 When the client tells you they smoke *Blue Dream*, you can look it up and see: "Ah, Leafly says it primarily helps with stress and depression, but can cause dry mouth and anxiety in large quantities." This provides an entirely new starting point for the therapeutic conversation about self-medication.
+
+## Frequently Asked Questions
+
+**What is the difference between cannabis flower and hash?**
+Cannabis flower is the dried and cured female bud of the plant, containing the full range of terpenes and cannabinoids in their natural form. Hash (hashish) is a concentrate made by extracting and compressing the trichomes — the resin glands — from the plant material. Hash generally has a higher cannabinoid density per gram, but flower's intact terpene profile can produce intense effects through the entourage effect.
+
+**What is the entourage effect?**
+The entourage effect refers to the way that cannabinoids (THC, CBD, CBN, etc.) and terpenes (aromatic compounds in the plant) interact synergistically to produce effects that are different from — and often more intense than — any single compound alone. In cannabis flower, the intact terpene profile means that a joint with lower total THC percentage may feel more intense than an isolated THC concentrate at higher percentage.
+
+**What does Indica vs Sativa mean?**
+Indica and Sativa are botanical classifications that clients use to describe expected effects: Sativa-dominant strains are typically associated with energetic, cerebral "head highs"; Indica-dominant strains with relaxing, sedative "body stones." In practice, most modern cannabis is genetically hybrid, and the Indica/Sativa classification is a poor predictor of effect. The actual driver is terpene composition — specifically, high-myrcene strains tend to be sedating regardless of Indica/Sativa label.
+
+**Has cannabis potency really increased over time?**
+Yes. Research tracking US cannabis samples shows average THC content increased from approximately 4% in the early 1990s to over 12% by 2014, with many retail products now marketed at 20–30% THC. This potency increase is clinically significant: clients who began using cannabis a decade ago may be consuming substantially more THC per session than they realize, contributing to faster tolerance development and more pronounced withdrawal.
+
+**Why does the specific strain matter clinically?**
+Modern flower strains have well-documented effects linked to their terpene and cannabinoid profiles. Resources like Leafly catalog thousands of strains with reported effects and potential side effects. When a client tells you they smoke Blue Dream or Granddaddy Purple, that information tells you something about what function the cannabis is serving — relaxation, anxiety relief, social stimulation, sleep. That's a more precise entry point to the therapeutic conversation than asking about quantity alone.
+
+---
+
+*This article was written by the SmokingTracker clinical team to help cannabis treatment professionals understand the substances their clients use. SmokingTracker is used by outpatient treatment centers and counselors across Europe and the US.*
 
 ---
 

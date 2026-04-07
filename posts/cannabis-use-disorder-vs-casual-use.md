@@ -10,6 +10,8 @@ featured: false
 image: "/cannabis-use-disorder.webp"
 ---
 
+**Cannabis Use Disorder (CUD)** is a DSM-5 clinical diagnosis requiring at least 2 of 11 criteria within a 12-month period, including failed attempts to cut down, continued use despite problems, and withdrawal symptoms. An estimated **9% of people who try cannabis develop CUD**, rising to **17% of those who start in adolescence** (NIDA, 2020). As of 2022, approximately 4.3 million Americans met diagnostic criteria (SAMHSA NSDUH, 2022).
+
 Most clients who end up in your office because of cannabis will tell you the same thing: they're not addicted, they just like it. It's not like alcohol. It's not like meth. They can stop whenever they want — they just don't want to right now.
 
 That framing isn't entirely dishonest. But it's also not the full picture. Cannabis Use Disorder (CUD) is a recognized DSM-5 diagnosis, and the line between heavy casual use and a clinical disorder is more concrete than most clients — or some clinicians — realize.
@@ -17,6 +19,8 @@ That framing isn't entirely dishonest. But it's also not the full picture. Canna
 The challenge isn't the diagnostic criteria themselves. It's applying them in a conversation where the client has already decided the answer is "no."
 
 ## The 11 DSM-5 Criteria — What They Actually Look Like
+
+Despite its prevalence, CUD is significantly undertreated: only about **10% of people** who meet the diagnostic criteria for CUD receive any form of treatment in a given year (SAMHSA NSDUH, 2022). This gap is partly explained by client denial — but also by the clinical challenge of applying criteria in a conversation where the client has already decided the answer is "no."
 
 DSM-5 requires at least 2 of the following 11 criteria within a 12-month period to meet the threshold for Cannabis Use Disorder. Mild: 2–3 criteria. Moderate: 4–5. Severe: 6 or more.
 
@@ -83,6 +87,27 @@ High-tolerance clients present a specific clinical challenge: they've adapted so
 The tell is often in the quantities. A client who has gone from a gram a week to an eighth a day over three years without noticing the escalation has profound tolerance — and almost certainly physical dependence — even if their daily functioning looks intact from the outside.
 
 This is worth exploring explicitly: *"When you first started, how much did it take to feel the effect? And how much does it take now?"* The math of tolerance is often the first objective evidence that cuts through the "casual user" framing.
+
+## Frequently Asked Questions
+
+**What is Cannabis Use Disorder?**
+Cannabis Use Disorder is a DSM-5 clinical diagnosis (code 304.30) characterized by a problematic pattern of cannabis use causing significant impairment or distress. It requires at least 2 of 11 criteria within 12 months, including tolerance, withdrawal, failed attempts to cut down, and continued use despite social or health problems.
+
+**How is Cannabis Use Disorder different from heavy cannabis use?**
+The distinction is functional, not quantitative. Heavy use describes how much or how often someone uses cannabis. CUD describes what the use is doing to the person's life — whether it's impairing their relationships, obligations, or health, and whether they've lost control over the pattern. A person can use heavily without having CUD, and can have CUD with less frequent use.
+
+**How common is Cannabis Use Disorder?**
+Approximately 9% of people who try cannabis develop CUD at some point. The rate is higher among daily users (estimated 25–50%) and among those who start in adolescence (up to 17%). In the US, about 4.3 million people met criteria for CUD in 2022, making it the most common illicit drug use disorder after alcohol.
+
+**Can you have Cannabis Use Disorder if cannabis is legal in your state?**
+Yes. Legal status is clinically irrelevant to the diagnosis. Alcohol is legal and Alcohol Use Disorder is a recognized condition with the same DSM-5 framework. The criteria assess functional impairment and loss of control — not legality. Many clients use the legalization argument as part of the "casual user" defense; the clinical response is to redirect to function rather than engage the legal question.
+
+**What's the first step in diagnosing CUD in a resistant client?**
+The most productive approach is exploring the 11 DSM-5 criteria through open-ended questions rather than presenting the checklist directly. Asking "Have you ever tried to cut back and found it harder than you expected?" often opens more than any direct diagnostic framing. The goal in early sessions is to plant curiosity, not deliver a verdict.
+
+---
+
+*This article was written by the SmokingTracker clinical team, drawing on peer-reviewed research in cannabis use disorder treatment. SmokingTracker is used by outpatient treatment centers and counselors across Europe and the US.*
 
 ---
 

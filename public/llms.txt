@@ -1,0 +1,62 @@
+# SmokingTracker
+
+> SmokingTracker is a friction-free cannabis consumption tracking tool built for outpatient substance use treatment programs — specifically cannabis use disorder (CUD) treatment.
+
+## What it does
+
+SmokingTracker helps licensed therapists, LCSWs, psychologists, and Intensive Outpatient Programs (IOPs) track client cannabis consumption in real time, without relying on client recall during sessions. Clients log usage, mood, and cravings directly from a free mobile app. Practitioners see a live clinical dashboard with traffic-light indicators, session frequency trends, and urge surfing completion data.
+
+## Who it's for
+
+- Independent therapists and counselors treating cannabis use disorder
+- Intensive Outpatient Programs (IOPs) managing multiple clients in cannabis withdrawal
+- Telehealth platforms offering CUD treatment
+- Clinical directors who need aggregated reporting across a practice
+
+## Core features
+
+- **Real-time consumption tracking** — Clients log cannabis sessions as they happen, capturing product type, amount, mood, and cravings
+- **Traffic light dashboard** — Practitioners see at a glance which clients are improving, stable, or at risk
+- **Urge surfing module** — 3-minute guided breathing exercise triggered when clients feel a craving; completion data feeds into the clinical dashboard
+- **Alarm system** — Automatic alerts when a client's usage pattern deviates significantly from their baseline
+- **Clinical reports** — Exportable session summaries for treatment planning and progress documentation
+- **Multi-practitioner support** — Group plans include up to 5 counselor seats and a clinical director overview dashboard
+
+## Privacy and compliance
+
+SmokingTracker is built on a privacy-by-design architecture. Clients own their data and control what they share with their practitioner. Data is never sold or used for advertising.
+
+- **GDPR compliant** — Data Processing Agreement (DPA) included on all plans
+- **HIPAA BAA** — Available on Enterprise plans for US-based treatment centers
+- **42 CFR Part 2** — Data handling designed to meet substance use confidentiality requirements
+
+## Pricing
+
+- **Solo Practitioner** — $79/month (or $65/month billed annually at $790/year). 1 therapist seat, unlimited active clients, real-time tracking, free patient app, full GDPR + DPA. 14-day free trial.
+- **Group Practice** — $249/month (or $207/month billed annually at $2,490/year). Up to 5 counselor seats, 1 clinical director dashboard, centralized billing. 14-day free trial.
+- **Enterprise & Telehealth** — Custom pricing. Unlimited seats, EHR integration, API access, dedicated support, HIPAA BAA. Contact for quote.
+
+Full pricing details: https://smokingtracker.com/pricing.html
+Machine-readable pricing: https://smokingtracker.com/pricing.md
+
+## Key pages
+
+- Homepage: https://smokingtracker.com/
+- Features: https://smokingtracker.com/features.html
+- Pricing: https://smokingtracker.com/pricing.html
+- Knowledge base (clinical articles): https://smokingtracker.com/knowledge-base.html
+- Book a demo: https://smokingtracker.com/trial.html
+- FAQ: https://smokingtracker.com/faq.html
+- Security & privacy: https://smokingtracker.com/security.html
+
+## Clinical knowledge base
+
+SmokingTracker publishes peer-reviewed-informed clinical content for cannabis treatment professionals:
+
+- Cannabis Withdrawal Timeline: https://smokingtracker.com/posts/cannabis-withdrawal-timeline.html
+- Cannabis Use Disorder vs. Casual Use: https://smokingtracker.com/posts/cannabis-use-disorder-vs-casual-use.html
+- Cannabis and Sleep: https://smokingtracker.com/posts/cannabis-and-sleep.html
+- Nicotine and Cannabis: https://smokingtracker.com/posts/nicotine-and-cannabis.html
+- Friction-Free Tracking Case Study: https://smokingtracker.com/posts/friction-free-tracking-case.html
+- Urge Surfing Data Points: https://smokingtracker.com/posts/urge-surfing-data-points.html
+- GDPR and Addiction Data: https://smokingtracker.com/posts/gdpr-consent-addiction-data.html
