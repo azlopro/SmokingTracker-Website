@@ -84,6 +84,8 @@
             </div>
             <div class="container fade-in-up" style="animation-delay: 0.4s; padding-top: 3rem; padding-bottom: 1rem;">
                 <div class="hero-carousel">
+                    <button class="hero-carousel-arrow hero-carousel-prev" aria-label="Previous slide">&#8249;</button>
+                    <button class="hero-carousel-arrow hero-carousel-next" aria-label="Next slide">&#8250;</button>
                     <div class="hero-carousel-track">
                         <div class="showcase-desktop glass hero-carousel-slide active">
                             <img src="/images/en_behandler_patient_calendar.png" alt="Practitioner Dashboard — client session timeline" />
@@ -210,6 +212,8 @@
                     <div class="showcase-media">
                         <div class="showcase-phone glass">
                             <div class="hero-carousel app-carousel">
+                                <button class="hero-carousel-arrow hero-carousel-prev" aria-label="Previous slide">&#8249;</button>
+                                <button class="hero-carousel-arrow hero-carousel-next" aria-label="Next slide">&#8250;</button>
                                 <div class="hero-carousel-track">
                                     <div class="hero-carousel-slide active">
                                         <img src="/images/en_tracker_log_session_modal.png" alt="SmokingTracker App — log session modal" />
@@ -369,6 +373,8 @@
             if (!el) return;
             const slides = Array.from(el.querySelectorAll('.hero-carousel-slide'));
             const dots   = Array.from(el.querySelectorAll('.hero-carousel-dot'));
+            const prevBtn = el.querySelector('.hero-carousel-prev');
+            const nextBtn = el.querySelector('.hero-carousel-next');
             let current = 0, timer;
 
             function goTo(n) {
@@ -383,6 +389,8 @@
             function stop()  { clearInterval(timer); }
 
             dots.forEach((d, i) => d.addEventListener('click', () => { stop(); goTo(i); start(); }));
+            prevBtn.addEventListener('click', () => { stop(); goTo(current - 1); start(); });
+            nextBtn.addEventListener('click', () => { stop(); goTo(current + 1); start(); });
             el.addEventListener('mouseenter', stop);
             el.addEventListener('mouseleave', start);
             start();
@@ -390,9 +398,12 @@
 
         // Hero carousel
         (function () {
-            const slides = Array.from(document.querySelectorAll('.hero-carousel-slide'));
-            const dots = Array.from(document.querySelectorAll('.hero-carousel-dot'));
-            const caption = document.querySelector('.hero-carousel-caption');
+            const carousel = document.querySelector('.hero-carousel:not(.app-carousel)');
+            const slides = Array.from(carousel.querySelectorAll('.hero-carousel-slide'));
+            const dots = Array.from(carousel.querySelectorAll('.hero-carousel-dot'));
+            const caption = carousel.querySelector('.hero-carousel-caption');
+            const prevBtn = carousel.querySelector('.hero-carousel-prev');
+            const nextBtn = carousel.querySelector('.hero-carousel-next');
             const captions = [
                 'Practitioner Dashboard · Client session timeline',
                 'Practitioner Dashboard · Time of day patterns',
@@ -419,8 +430,9 @@
             function stop() { clearInterval(timer); }
 
             dots.forEach((dot, i) => dot.addEventListener('click', () => { stop(); goTo(i); start(); }));
+            prevBtn.addEventListener('click', () => { stop(); goTo(current - 1); start(); });
+            nextBtn.addEventListener('click', () => { stop(); goTo(current + 1); start(); });
 
-            const carousel = document.querySelector('.hero-carousel');
             carousel.addEventListener('mouseenter', stop);
             carousel.addEventListener('mouseleave', start);
 

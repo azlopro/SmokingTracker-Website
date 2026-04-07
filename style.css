@@ -655,7 +655,54 @@ img {
 /* ── Hero Carousel ─────────────────────────────────────── */
 .hero-carousel {
     width: 100%;
+    position: relative;
 }
+
+.hero-carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.25rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: background 0.2s, transform 0.2s;
+    padding: 0;
+    user-select: none;
+}
+
+.hero-carousel-arrow:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.hero-carousel-prev { left: 0.75rem; }
+.hero-carousel-next { right: 0.75rem; }
+
+/* Smaller arrows for the phone app carousel */
+.app-carousel .hero-carousel-arrow {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.18);
+    border-color: rgba(0, 0, 0, 0.12);
+    color: #fff;
+    top: 45%;
+}
+
+.app-carousel .hero-carousel-prev { left: 0.35rem; }
+.app-carousel .hero-carousel-next { right: 0.35rem; }
 
 .hero-carousel-track {
     display: grid;
