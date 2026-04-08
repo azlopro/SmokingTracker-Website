@@ -209,6 +209,40 @@
             font-weight: 500;
         }
 
+        .patient-banner a.cud-link {
+            color: var(--color-primary, #4ade80);
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 2px solid var(--color-primary, #4ade80);
+            padding-bottom: 1px;
+            transition: all 0.2s ease;
+            display: inline-block;
+            margin-top: 0.25rem;
+        }
+
+        .patient-banner a.cud-link:hover {
+            color: var(--color-text-primary, #ecfdf5);
+            border-bottom-color: var(--color-text-primary, #ecfdf5);
+            transform: translateY(-1px);
+        }
+
+        .patient-banner a.cud-link {
+            color: var(--color-primary, #4ade80);
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 2px solid var(--color-primary, #4ade80);
+            padding-bottom: 1px;
+            transition: all 0.2s ease;
+            display: inline-block;
+            margin-top: 0.25rem;
+        }
+
+        .patient-banner a.cud-link:hover {
+            color: var(--color-text-primary, #ecfdf5);
+            border-bottom-color: var(--color-text-primary, #ecfdf5);
+            transform: translateY(-1px);
+        }
+
         /* Comparison Table */
         .comparison-section {
             padding: 6rem 0;
@@ -425,6 +459,7 @@
                 <!-- Patient Banner -->
                 <div class="patient-banner fade-in-up" style="animation-delay: 0.4s">
                     <p data-i18n="pricing.patientBanner">For Patients & Individual Users: SmokingTracker is 100% free when you are invited by a partnered therapist. Talk to your provider today.</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;" data-i18n="pricing.cudApplyLink">Don't have a counselor? If you have Cannabis Use Disorder (CUD), you can <a href='/cud-application.html'>apply for free individual access here</a>.</p>
                 </div>
 
                 <p class="pricing-active-note fade-in-up" style="animation-delay: 0.45s; margin-top: 1.5rem;">

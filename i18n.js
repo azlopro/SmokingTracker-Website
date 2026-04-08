@@ -247,8 +247,10 @@ export const i18n = {
             tier3_f5: "HIPAA BAA / DSGVO-Compliance",
             tier3_cta: "Vertrieb kontaktieren",
             popular: "Am beliebtesten",
-            patientBanner: "Für Patienten & Einzelnutzer: SmokingTracker ist zu 100% kostenlos, wenn Sie von einem Partner-Therapeuten eingeladen werden. Sprechen Sie noch heute mit Ihrem Behandler.",
+            patientBanner: "For Patients & Einzelnutzer: SmokingTracker ist zu 100% kostenlos, wenn Sie von einem Partner-Therapeuten eingeladen werden. Sprechen Sie noch heute mit Ihrem Behandler.",
+            cudApplyLink: "Haben Sie keinen Behandler? Wenn Sie eine Cannabis-Gebrauchsstörung (CUD) haben, können Sie hier <a href='/cud-application.html' class='cud-link'>einen kostenlosen individuellen Zugang beantragen</a>.",
             faqLink: "Noch Fragen? Schau in unsere",
+
             faqLinkText: "FAQ",
             faq_q1: "Zahlen Patienten etwas?",
             faq_a1: "Nein. SmokingTracker ist für Patienten und Einzelnutzer zu 100% kostenlos, wenn sie von einem Partner-Therapeuten oder einer Klinik eingeladen werden. Wir glauben, dass die Kosten für klinische Werkzeuge niemals ein Hindernis für die Genesung der Patienten sein sollten.",
@@ -259,6 +261,22 @@ export const i18n = {
             ctaTitle: "Nicht sicher, welcher Plan der richtige ist?",
             ctaDesc: "Buche eine kostenlose Demo – wir helfen dir, die passende Lösung für deine Einrichtung zu finden.",
             ctaBtn: "Kostenlose Demo buchen"
+        },
+        cud: {
+            title: "Kostenlosen individuellen Zugang beantragen",
+            subtitle: "Wir glauben, dass finanzielle Hürden niemals die Genesung behindern sollten. Wenn Sie eine Cannabis-Gebrauchsstörung (CUD) haben und sich derzeit nicht in einem Behandlungsprogramm befinden, können Sie einen kostenlosen individuellen Zugang zu SmokingTracker beantragen.",
+            formTitle: "Antrag auf kostenlosen individuellen Zugang",
+            formSubtitle: "Bitte erzählen Sie uns ein wenig über Ihre Situation. Anträge werden in der Regel innerhalb von 24-48 Stunden bearbeitet.",
+            labelName: "Ihr Name",
+            labelEmail: "Ihre E-Mail",
+            labelStory: "Beschreiben Sie kurz Ihre Situation und warum Sie einen kostenlosen Zugang suchen",
+            placeholderName: "Max Müller",
+            placeholderEmail: "max@beispiel.de",
+            placeholderStory: "Ich kämpfe seit X Jahren mit meinem Cannabiskonsum und möchte mit dem Tracking beginnen, um die Kontrolle zu gewinnen...",
+            btnSubmit: "Antrag absenden",
+            successTitle: "Antrag erhalten!",
+            successText: "Vielen Dank für Ihre Nachricht. Wir werden Ihren Antrag prüfen und uns innerhalb von 48 Stunden unter der angegebenen E-Mail-Adresse bei Ihnen melden.",
+            errorGeneric: "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder kontaktieren Sie den Support."
         },
         blogList: {
             title: "Ressourcen für Behandlungsstellen",
@@ -627,11 +645,29 @@ export const i18n = {
             tier3_cta: "Contact Sales",
             popular: "Most popular",
             patientBanner: "For Clients: SmokingTracker is 100% free for clients enrolled by their counselor. No downloads, no account setup on your end.",
+            cudApplyLink: "Don't have a counselor? If you have Cannabis Use Disorder (CUD), you can <a href='/cud-application.html' class='cud-link'>apply for free individual access here</a>.",
             faqLink: "Have questions? See our",
+
             faqLinkText: "FAQ",
             ctaTitle: "Not sure which plan fits your program?",
             ctaDesc: "Book a free demo and we'll help you find the right setup for your counseling program or treatment center.",
             ctaBtn: "Book a Free Demo"
+        },
+        cud: {
+            title: "Apply for Free Individual Access",
+            subtitle: "We believe financial barriers should never stop recovery. If you have Cannabis Use Disorder (CUD) and aren't currently in a treatment program, you can apply for free individual access to SmokingTracker.",
+            formTitle: "Free Individual Access Application",
+            formSubtitle: "Please tell us a bit about your situation. Applications are typically processed within 24-48 hours.",
+            labelName: "Your Name",
+            labelEmail: "Your Email",
+            labelStory: "Briefly describe your situation and why you're seeking free access",
+            placeholderName: "John Doe",
+            placeholderEmail: "john@example.com",
+            placeholderStory: "I've been struggling with cannabis use for X years and want to start tracking to gain control...",
+            btnSubmit: "Submit Application",
+            successTitle: "Application Received!",
+            successText: "Thank you for sharing. We'll review your application and get back to you at the email provided within 48 hours.",
+            errorGeneric: "Something went wrong. Please try again or contact support."
         },
         blogList: {
             title: "Resources for Clinics & Practices",

@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/webp" href="/logo.webp" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CUD Free Access Application — SmokingTracker</title>
+    <meta name="description" content="Apply for free individual access to SmokingTracker if you have Cannabis Use Disorder (CUD)." />
+    <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .trial-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 992px) {
+            .trial-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        .trial-form-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+        }
+
+        @media (max-width: 576px) {
+            .trial-form-card {
+                padding: 1.5rem;
+            }
+        }
+
+        .form-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .form-header h2 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            opacity: 0.7;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+            color: white;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary, #4ade80);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .success-message, .error-message {
+            display: none;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .success-message.visible {
+            display: block;
+            background: rgba(74, 222, 128, 0.1);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+        }
+
+        .error-message.visible {
+            display: block;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            margin-bottom: 1.5rem;
+        }
+
+        .success-message h3 {
+            color: var(--color-primary, #4ade80);
+            margin-bottom: 1rem;
+        }
+
+        .trust-list {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .trust-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(74, 222, 128, 0.1);
+            color: var(--color-primary, #4ade80);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/logo-icon.webp" alt="SmokingTracker Logo" class="logo-img" width="32" height="32">
+                <span class="logo-text">SmokingTracker</span>
+            </a>
+            <div class="nav-links">
+                <a href="/features.html" data-i18n="nav.features">Features</a>
+                <a href="/#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
+                <a href="/pricing.html" data-i18n="nav.pricing">Pricing</a>
+                <a href="/about.html" data-i18n="nav.about">About</a>
+                <a href="/knowledge-base.html" data-i18n="nav.blog">Blog</a>
+            </div>
+            <div class="nav-actions">
+                <a href="/trial.html" class="btn btn-primary" data-i18n="nav.bookDemo">Book a Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-bg-glow"></div>
+            <div class="container">
+                <div class="trial-grid">
+                    <div class="hero-content">
+                        <div class="badge fade-in-up" data-i18n="cud.title">Apply for Free Individual Access</div>
+                        <h1 class="fade-in-up" style="animation-delay: 0.1s" data-i18n="cud.title">
+                            Recovery should be <span class="text-gradient">accessible to everyone.</span>
+                        </h1>
+                        <p class="hero-subtitle fade-in-up" style="animation-delay: 0.2s" data-i18n="cud.subtitle">
+                            We believe financial barriers should never stop recovery. If you have Cannabis Use Disorder (CUD) and aren't currently in a treatment program, you can apply for free individual access to SmokingTracker.
+                        </p>
+
+                        <div class="trust-list fade-in-up" style="animation-delay: 0.3s">
+                            <div class="trust-item">
+                                <div class="trust-icon">✔</div>
+                                <div>
+                                    <strong>100% Free</strong>
+                                    <p style="font-size: 0.9rem; opacity: 0.7;">No hidden costs, no credit card required.</p>
+                                </div>
+                            </div>
+                            <div class="trust-item">
+                                <div class="trust-icon">✔</div>
+                                <div>
+                                    <strong>Fully Private</strong>
+                                    <p style="font-size: 0.9rem; opacity: 0.7;">Your data is yours. We don't sell it or share it.</p>
+                                </div>
+                            </div>
+                            <div class="trust-item">
+                                <div class="trust-icon">✔</div>
+                                <div>
+                                    <strong>Clinical Grade Tools</strong>
+                                    <p style="font-size: 0.9rem; opacity: 0.7;">Access the same features used by professional clinics.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="trial-form-card glass fade-in-up" style="animation-delay: 0.2s">
+                        <div id="application-form-wrap">
+                            <div class="form-header">
+                                <h2 data-i18n="cud.formTitle">Free Individual Access Application</h2>
+                                <p data-i18n="cud.formSubtitle">Please tell us a bit about your situation. Applications are typically processed within 24-48 hours.</p>
+                            </div>
+
+                            <div id="application-error" class="error-message" data-i18n="cud.errorGeneric">Something went wrong. Please try again or contact support.</div>
+
+                            <form id="application-form">
+                                <div class="form-group">
+                                    <label for="name" data-i18n="cud.labelName">Your Name</label>
+                                    <input type="text" id="name" name="name" required data-i18n-placeholder="cud.placeholderName" placeholder="John Doe">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email" data-i18n="cud.labelEmail">Your Email</label>
+                                    <input type="email" id="email" name="email" required data-i18n-placeholder="cud.placeholderEmail" placeholder="john@example.com">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="story" data-i18n="cud.labelStory">Briefly describe your situation and why you're seeking free access</label>
+                                    <textarea id="story" name="story" required data-i18n-placeholder="cud.placeholderStory" placeholder="I've been struggling with cannabis use for X years and want to start tracking to gain control..."></textarea>
+                                </div>
+
+                                <button type="submit" id="application-submit" class="btn btn-primary btn-large" style="width: 100%;" data-i18n="cud.btnSubmit">Submit Application</button>
+                            </form>
+                        </div>
+
+                        <div id="application-success" class="success-message">
+                            <h3 data-i18n="cud.successTitle">Application Received!</h3>
+                            <p data-i18n="cud.successText">Thank you for sharing. We'll review your application and get back to you at the email provided within 48 hours.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-bottom">
+            <p>&copy; 2026 SmokingTracker. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="/cud-application.js"></script>
+</body>
+
+</html>
