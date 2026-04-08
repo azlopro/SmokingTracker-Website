@@ -15,7 +15,7 @@ All plans include a 14-day free trial. No automatic payments without consent.
   - Clinical session reports (exportable)
   - Full GDPR compliance + Data Processing Agreement (DPA) included
 - Trial: 14-day free trial, no credit card required
-- Signup: https://smokingtracker.com/pricing.html
+- Signup: https://www.smokingtracker.com/pricing.html
 
 ## Group Practice
 
@@ -29,7 +29,7 @@ All plans include a 14-day free trial. No automatic payments without consent.
   - Centralized billing for the practice
   - Aggregate reporting across all counselors
 - Trial: 14-day free trial
-- Signup: https://smokingtracker.com/pricing.html
+- Signup: https://www.smokingtracker.com/pricing.html
 
 ## Enterprise & Telehealth
 
@@ -44,7 +44,7 @@ All plans include a 14-day free trial. No automatic payments without consent.
   - HIPAA Business Associate Agreement (BAA)
   - Custom onboarding
 - Target: Large treatment networks, multi-site clinics, telehealth platforms
-- Contact: https://smokingtracker.com/trial.html
+- Contact: https://www.smokingtracker.com/trial.html
 
 ## Notes
 

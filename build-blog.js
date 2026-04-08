@@ -45,13 +45,13 @@ function getPostTemplate() {
     <meta property="og:site_name" content="SmokingTracker">
     <meta property="og:title" content="{{title}}">
     <meta property="og:description" content="{{description}}">
-    <meta property="og:image" content="https://smokingtracker.com{{image}}">
-    <meta property="og:url" content="https://smokingtracker.com/posts/{{slug}}.html">
-    <link rel="canonical" href="https://smokingtracker.com/posts/{{slug}}.html">
+    <meta property="og:image" content="https://www.smokingtracker.com{{image}}">
+    <meta property="og:url" content="https://www.smokingtracker.com/posts/{{slug}}.html">
+    <link rel="canonical" href="https://www.smokingtracker.com/posts/{{slug}}.html">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{title}}">
     <meta name="twitter:description" content="{{description}}">
-    <meta name="twitter:image" content="https://smokingtracker.com{{image}}">
+    <meta name="twitter:image" content="https://www.smokingtracker.com{{image}}">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -63,9 +63,9 @@ function getPostTemplate() {
       "publisher": {
         "@type": "Organization",
         "name": "SmokingTracker",
-        "logo": { "@type": "ImageObject", "url": "https://smokingtracker.com/logo.png" }
+        "logo": { "@type": "ImageObject", "url": "https://www.smokingtracker.com/logo.png" }
       },
-      "image": "https://smokingtracker.com{{image}}"
+      "image": "https://www.smokingtracker.com{{image}}"
     }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">

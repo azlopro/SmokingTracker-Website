@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://smokingtracker.com/sitemap.xml
+Sitemap: https://www.smokingtracker.com/sitemap.xml
