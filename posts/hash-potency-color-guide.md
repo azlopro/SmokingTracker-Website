@@ -1,7 +1,7 @@
 ---
 title: "Beyond THC: What Hash Color Tells You About a Client's High"
 category: "Insights"
-date: "2026-11-02"
+date: "2025-11-02"
 author: "SmokingTracker Team"
 description: "Understand the connection between hash color, trichomes, and the chemical profile — and why dark hash often means a heavy, sedative experience for clients."
 readTime: "6 min"

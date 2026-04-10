@@ -1,7 +1,7 @@
 ---
 title: "Cannabis and Sleep: Which Comes First?"
 category: "Insights"
-date: "2026-11-24"
+date: "2025-11-24"
 author: "SmokingTracker Team"
 description: "Almost every cannabis client will tell you they need it to sleep. They're not wrong — and that's exactly the problem. A clinical breakdown of the sleep-cannabis dependency loop."
 readTime: "5 min"

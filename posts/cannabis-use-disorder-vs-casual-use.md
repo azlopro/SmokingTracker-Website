@@ -1,7 +1,7 @@
 ---
 title: "Signs of Cannabis Use Disorder vs. Casual Use: A Clinical Guide"
 category: "Insights"
-date: "2026-11-10"
+date: "2025-11-10"
 author: "SmokingTracker Team"
 description: "Most clients will tell you they're casual users. The DSM-5 disagrees with at least some of them. Here's how to apply the criteria in a real clinical conversation."
 readTime: "6 min"

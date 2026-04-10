@@ -1,7 +1,7 @@
 ---
 title: "Cannabis Withdrawal Timeline: What to Tell Your Clients"
 category: "Insights"
-date: "2026-11-17"
+date: "2025-11-17"
 author: "SmokingTracker Team"
 description: "Cannabis withdrawal is a recognized DSM-5 diagnosis with a predictable timeline. Here's what to expect week by week — and how to use that knowledge in treatment."
 readTime: "6 min"

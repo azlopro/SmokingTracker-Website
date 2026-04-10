@@ -1,7 +1,7 @@
 ---
 title: "HIPAA, 42 CFR Part 2, and Client-Owned Addiction Data"
 category: "Compliance"
-date: "2026-10-12"
+date: "2026-01-12"
 author: "SmokingTracker Team"
 description: "Why giving clients full control over their substance use data isn't just legally required under HIPAA and Part 2 — it's clinically superior."
 readTime: "7 min"

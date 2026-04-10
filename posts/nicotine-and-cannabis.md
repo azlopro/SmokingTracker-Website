@@ -1,7 +1,7 @@
 ---
 title: "Nicotine and Cannabis: When You're Treating Two Addictions at Once"
 category: "Insights"
-date: "2026-12-01"
+date: "2025-12-01"
 author: "SmokingTracker Team"
 description: "When a client rolls cannabis with tobacco, you're not treating one addiction — you're treating two. Most treatment plans only address one of them."
 readTime: "7 min"

@@ -1,7 +1,7 @@
 ---
 title: "Flower vs. Hash: What Counselors Should Know About Cannabis Forms"
 category: "Insights"
-date: "2026-11-03"
+date: "2025-11-03"
 author: "SmokingTracker Team"
 description: "A deep dive into cannabis flower (bud), the difference between Indica and Sativa, and how different terpenes affect the client's experience."
 readTime: "7 min"

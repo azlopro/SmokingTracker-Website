@@ -6,7 +6,7 @@ author: "SmokingTracker Team"
 description: "Clinicians who rely on memory and in-session self-report are flying blind between appointments. Here's what the evidence says about MBC in addiction treatment — and how to actually implement it."
 readTime: "8 min"
 lang: "en"
-featured: false
+featured: true
 pair: measurement-based-care
 image: "/measurement-based-care.webp"
 ---

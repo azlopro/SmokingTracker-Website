@@ -1,7 +1,7 @@
 ---
 title: "How Friction-Free Tracking Kept Unmotivated Clients Engaged"
 category: "Case Study"
-date: "2026-10-24"
+date: "2026-02-24"
 author: "SmokingTracker Team"
 description: "A pilot program gave involuntary clients the option to 'just track.' Within weeks, patterns emerged — and so did the motivation to change."
 readTime: "6 min"
