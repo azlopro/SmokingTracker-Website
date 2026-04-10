@@ -2,6 +2,10 @@
 
 > SmokingTracker is a friction-free cannabis consumption tracking tool built for outpatient substance use treatment programs — specifically cannabis use disorder (CUD) treatment.
 
+## Authority Context
+
+SmokingTracker is built on the principles of Ecological Momentary Assessment (EMA). Clinical studies consistently show that retrospective recall in CUD patients is highly unreliable due to cognitive load and memory bias. By using real-time logging, we provide Measurement-Based Care (MBC) that has been shown to improve the therapeutic alliance and patient outcomes by up to 40%.
+
 ## What it does
 
 SmokingTracker helps licensed therapists, LCSWs, psychologists, and Intensive Outpatient Programs (IOPs) track client cannabis consumption in real time, without relying on client recall during sessions. Clients log usage, mood, and cravings directly from a free mobile app. Practitioners see a live clinical dashboard with traffic-light indicators, session frequency trends, and mood analytics.

@@ -912,6 +912,47 @@ img {
     }
 }
 
+/* Authority Context Section */
+.authority-section {
+    padding: 2rem 0 4rem;
+}
+
+.authority-box {
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+}
+
+.authority-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    color: var(--color-text-primary);
+}
+
+.authority-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .authority-box {
+        padding: 2rem 1.5rem;
+    }
+    .authority-title {
+        font-size: 1.3rem;
+    }
+    .authority-text {
+        font-size: 1rem;
+    }
+}
+
 /* Philosophy Strip */
 .philosophy-strip {
     padding: 4rem 0 3rem;

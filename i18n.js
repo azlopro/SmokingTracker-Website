@@ -102,6 +102,10 @@ export const i18n = {
                 bullet3: 'Einwilligung kann jederzeit geändert oder widerrufen werden',
             }
         },
+        authority: {
+            title: "Clinical Foundation",
+            text: "SmokingTracker is designed specifically for individuals with cannabis use disorder (CUD) and is built on the principles of Ecological Momentary Assessment (EMA). Research shows that retrospective reporting of substance use, including cannabis, is subject to recall bias and temporal distortion, limiting its clinical usefulness. EMA addresses this by capturing real-time data on use, cravings, emotions, and context in natural environments. When integrated into a Measurement-Based Care framework, this continuous feedback can support improved clinical decision-making, patient engagement, and therapeutic alliance."
+        },
         featureTeaser: {
             desc: "SmokingTracker ist auf Funktionen aufgebaut, die wirklich genutzt werden. Vom 3-Tap-Protokollieren bis zum klinischen Ampel-Dashboard – alles auf der Funktionsseite.",
             btn: "Alle Funktionen ansehen"
@@ -498,6 +502,10 @@ export const i18n = {
                 bullet2: 'Share session log, mood, triggers, and notes independently',
                 bullet3: 'Consent can be extended or withdrawn at any time',
             }
+        },
+        authority: {
+            title: "Clinical Foundation",
+            text: "SmokingTracker is designed specifically for individuals with cannabis use disorder (CUD) and is built on the principles of Ecological Momentary Assessment (EMA). Research shows that retrospective reporting of substance use, including cannabis, is subject to recall bias and temporal distortion, limiting its clinical usefulness. EMA addresses this by capturing real-time data on use, cravings, emotions, and context in natural environments. When integrated into a Measurement-Based Care framework, this continuous feedback can support improved clinical decision-making, patient engagement, and therapeutic alliance."
         },
         featureTeaser: {
             desc: "Every feature in SmokingTracker is designed around a specific clinical function: structured self-monitoring between sessions, visible progress for counselors, behavior tracking that survives low-motivation days. See the full breakdown on the features page.",
@@ -898,6 +906,10 @@ export const i18n = {
                 bullet2: 'Tilknyttet dit behandlingscenter med ét klik',
                 bullet3: 'Samtykke kan ændres eller trækkes tilbage når som helst',
             }
+        },
+        authority: {
+            title: "Clinical Foundation",
+            text: "SmokingTracker is designed specifically for individuals with cannabis use disorder (CUD) and is built on the principles of Ecological Momentary Assessment (EMA). Research shows that retrospective reporting of substance use, including cannabis, is subject to recall bias and temporal distortion, limiting its clinical usefulness. EMA addresses this by capturing real-time data on use, cravings, emotions, and context in natural environments. When integrated into a Measurement-Based Care framework, this continuous feedback can support improved clinical decision-making, patient engagement, and therapeutic alliance."
         },
         featureTeaser: {
             desc: "SmokingTracker er bygget op om funktioner der faktisk bruges. Fra 3-klik registrering til klinisk trafiklys-dashboard — se det hele på funktionssiden.",
