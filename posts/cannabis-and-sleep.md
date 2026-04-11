@@ -2,7 +2,7 @@
 title: "Cannabis and Sleep: Which Comes First?"
 category: "Insights"
 date: "2025-11-24"
-author: "SmokingTracker Team"
+author: "SmokingTracker"
 description: "Almost every cannabis client will tell you they need it to sleep. They're not wrong — and that's exactly the problem. A clinical breakdown of the sleep-cannabis dependency loop."
 readTime: "5 min"
 lang: "en"
@@ -71,7 +71,7 @@ CBT-I is the evidence-based first-line treatment for chronic insomnia and is hig
 
 ---
 
-*This article was written by the SmokingTracker clinical team, drawing on peer-reviewed research in cannabis use disorder treatment. SmokingTracker is used by outpatient treatment centers and counselors across Europe and the US.*
+*This article was written by SmokingTracker, drawing on peer-reviewed research in cannabis use disorder treatment.*
 
 ---
 

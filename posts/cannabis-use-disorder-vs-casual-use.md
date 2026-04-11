@@ -2,7 +2,7 @@
 title: "Signs of Cannabis Use Disorder vs. Casual Use: A Clinical Guide"
 category: "Insights"
 date: "2025-11-10"
-author: "SmokingTracker Team"
+author: "SmokingTracker"
 description: "Most clients will tell you they're casual users. The DSM-5 disagrees with at least some of them. Here's how to apply the criteria in a real clinical conversation."
 readTime: "6 min"
 lang: "en"
@@ -107,7 +107,7 @@ The most productive approach is exploring the 11 DSM-5 criteria through open-end
 
 ---
 
-*This article was written by the SmokingTracker clinical team, drawing on peer-reviewed research in cannabis use disorder treatment. SmokingTracker is used by outpatient treatment centers and counselors across Europe and the US.*
+*This article was written by SmokingTracker, drawing on peer-reviewed research in cannabis use disorder treatment.*
 
 ---
 

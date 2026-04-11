@@ -2,7 +2,7 @@
 title: "Nicotine and Cannabis: When You're Treating Two Addictions at Once"
 category: "Insights"
 date: "2025-12-01"
-author: "SmokingTracker Team"
+author: "SmokingTracker"
 description: "When a client rolls cannabis with tobacco, you're not treating one addiction — you're treating two. Most treatment plans only address one of them."
 readTime: "7 min"
 lang: "en"
@@ -91,7 +91,7 @@ NRT includes patches, gum, lozenges, inhalers, and nasal sprays that deliver con
 
 ---
 
-*This article was written by the SmokingTracker clinical team, drawing on peer-reviewed research in cannabis use disorder treatment. SmokingTracker is used by outpatient treatment centers and counselors across Europe and the US.*
+*This article was written by SmokingTracker, drawing on peer-reviewed research in cannabis use disorder treatment.*
 
 ---
 

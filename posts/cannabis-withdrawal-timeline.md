@@ -2,7 +2,7 @@
 title: "Cannabis Withdrawal Timeline: What to Tell Your Clients"
 category: "Insights"
 date: "2025-11-17"
-author: "SmokingTracker Team"
+author: "SmokingTracker"
 description: "Cannabis withdrawal is a recognized DSM-5 diagnosis with a predictable timeline. Here's what to expect week by week — and how to use that knowledge in treatment."
 readTime: "6 min"
 lang: "en"
@@ -83,7 +83,7 @@ PAWS refers to a prolonged phase of sub-acute symptoms — low motivation, diffi
 
 ---
 
-*This article was written by the SmokingTracker clinical team, drawing on peer-reviewed research in cannabis use disorder treatment. SmokingTracker is used by outpatient treatment centers and counselors across Europe and the US.*
+*This article was written by SmokingTracker, drawing on peer-reviewed research in cannabis use disorder treatment.*
 
 ---
 

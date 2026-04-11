@@ -2,7 +2,7 @@
 title: "Flower vs. Hash: What Counselors Should Know About Cannabis Forms"
 category: "Insights"
 date: "2025-11-03"
-author: "SmokingTracker Team"
+author: "SmokingTracker"
 description: "A deep dive into cannabis flower (bud), the difference between Indica and Sativa, and how different terpenes affect the client's experience."
 readTime: "7 min"
 lang: "en"
@@ -71,7 +71,7 @@ Modern flower strains have well-documented effects linked to their terpene and c
 
 ---
 
-*This article was written by the SmokingTracker clinical team to help cannabis treatment professionals understand the substances their clients use. SmokingTracker is used by outpatient treatment centers and counselors across Europe and the US.*
+*This article was written by SmokingTracker to help cannabis treatment professionals understand the substances their clients use.*
 
 ---
 

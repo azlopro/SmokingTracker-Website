@@ -2,7 +2,7 @@
 title: "Beyond THC: What Hash Color Tells You About a Client's High"
 category: "Insights"
 date: "2025-11-02"
-author: "SmokingTracker Team"
+author: "SmokingTracker"
 description: "Understand the connection between hash color, trichomes, and the chemical profile — and why dark hash often means a heavy, sedative experience for clients."
 readTime: "6 min"
 lang: "en"
@@ -71,7 +71,7 @@ Trichome color (and thus hash color) is a useful baseline, but processing matter
 
 ---
 
-*This article was written by the SmokingTracker clinical team to help cannabis treatment professionals understand the substances their clients use. SmokingTracker is used by outpatient treatment centers and counselors across Europe and the US.*
+*This article was written by SmokingTracker to help cannabis treatment professionals understand the substances their clients use.*
 
 ---
 

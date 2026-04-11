@@ -2,7 +2,7 @@
 title: "Measurement-Based Care for Addiction: What It Is, Why It Works, and How to Actually Use It"
 category: "Insights"
 date: "2026-04-10"
-author: "SmokingTracker Team"
+author: "SmokingTracker"
 description: "Clinicians who rely on memory and in-session self-report are flying blind between appointments. Here's what the evidence says about MBC in addiction treatment — and how to actually implement it."
 readTime: "8 min"
 lang: "en"

@@ -29,13 +29,13 @@ SmokingTracker helps licensed therapists, LCSWs, psychologists, and Intensive Ou
 
 SmokingTracker is built on a privacy-by-design architecture. Clients own their data and control what they share with their practitioner. Data is never sold or used for advertising.
 
-- **GDPR compliant** — Data Processing Agreement (DPA) included on all plans
 - **HIPAA BAA** — Available on Enterprise plans for US-based treatment centers
 - **42 CFR Part 2** — Data handling designed to meet substance use confidentiality requirements
+- **GDPR compliant** — Data Processing Agreement (DPA) included on all plans
 
 ## Pricing
 
-- **Solo Practitioner** — $79/month (or $65/month billed annually at $790/year). 1 therapist seat, unlimited active clients, real-time tracking, free patient app, full GDPR + DPA. 14-day free trial.
+- **Solo Practitioner** — $79/month (or $65/month billed annually at $790/year). 1 therapist seat, unlimited active clients, real-time tracking, free patient app. 14-day free trial.
 - **Group Practice** — $249/month (or $207/month billed annually at $2,490/year). Up to 5 counselor seats, 1 clinical director dashboard, centralized billing. 14-day free trial.
 - **Enterprise & Telehealth** — Custom pricing. Unlimited seats, EHR integration, API access, dedicated support, HIPAA BAA. Contact for quote.
 
@@ -61,4 +61,4 @@ SmokingTracker publishes peer-reviewed-informed clinical content for cannabis tr
 - Cannabis and Sleep: https://www.smokingtracker.com/posts/cannabis-and-sleep.html
 - Nicotine and Cannabis: https://www.smokingtracker.com/posts/nicotine-and-cannabis.html
 - Friction-Free Tracking Case Study: https://www.smokingtracker.com/posts/friction-free-tracking-case.html
-- GDPR and Addiction Data: https://www.smokingtracker.com/posts/gdpr-consent-addiction-data.html
+- HIPAA, 42 CFR Part 2, and Client-Owned Addiction Data: https://www.smokingtracker.com/posts/gdpr-consent-addiction-data.html

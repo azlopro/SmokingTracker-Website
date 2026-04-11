@@ -2,7 +2,7 @@
 title: "HIPAA, 42 CFR Part 2, and Client-Owned Addiction Data"
 category: "Compliance"
 date: "2026-01-12"
-author: "SmokingTracker Team"
+author: "SmokingTracker"
 description: "Why giving clients full control over their substance use data isn't just legally required under HIPAA and Part 2 — it's clinically superior."
 readTime: "7 min"
 lang: "en"
@@ -125,7 +125,7 @@ Privacy by Design means building privacy controls directly into the product arch
 
 ---
 
-*This article was written by the SmokingTracker clinical team. SmokingTracker's privacy architecture is designed to meet the requirements of both HIPAA and 42 CFR Part 2. SmokingTracker is used by outpatient treatment centers and counselors across Europe and the US. This article is informational and does not constitute legal advice.*
+*This article was written by SmokingTracker. SmokingTracker's privacy architecture is designed to meet the requirements of both HIPAA and 42 CFR Part 2. This article is informational and does not constitute legal advice.*
 
 ---
 

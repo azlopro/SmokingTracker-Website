@@ -62,6 +62,7 @@ function getPostTemplate() {
       "author": { "@type": "Organization", "name": "SmokingTracker Team" },
       "publisher": {
         "@type": "Organization",
+        "@id": "https://www.smokingtracker.com/#organization",
         "name": "SmokingTracker",
         "logo": { "@type": "ImageObject", "url": "https://www.smokingtracker.com/logo.png" }
       },
