@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "smokingtracker.com"
+        }
+      ],
+      "destination": "https://www.smokingtracker.com/:path*",
+      "permanent": true
+    }
+  ]
+}
