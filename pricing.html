@@ -191,56 +191,54 @@
             transform: translateX(24px);
         }
 
-        /* Patient Banner */
-        .patient-banner {
-            max-width: 1100px;
-            margin: 4rem auto 0;
-            padding: 1.5rem 2rem;
-            border-radius: 16px;
-            background: rgba(74, 222, 128, 0.05);
-            border: 1px dashed rgba(74, 222, 128, 0.3);
+        /* Individual / B2C Section */
+        .section-divider {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            margin: 4rem 0 3.5rem;
+        }
+
+        .individual-card-wrap {
+            display: flex;
+            justify-content: center;
+            margin-top: 2.5rem;
+        }
+
+        .individual-card {
+            max-width: 420px;
+            width: 100%;
+        }
+
+        .individual-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: transparent;
+            color: var(--color-primary, #4ade80);
+            border: 1.5px solid var(--color-primary, #4ade80);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 1rem;
+            border-radius: 100px;
+            white-space: nowrap;
+        }
+
+        .b2c-free-link {
             text-align: center;
+            margin-top: 1rem;
+            font-size: 0.85rem;
         }
 
-        .patient-banner p {
-            margin: 0;
-            font-size: 1rem;
+        .b2c-free-link a {
             color: var(--color-primary, #4ade80);
-            font-weight: 500;
-        }
-
-        .patient-banner a.cud-link {
-            color: var(--color-primary, #4ade80);
+            opacity: 0.75;
             text-decoration: none;
-            font-weight: 700;
-            border-bottom: 2px solid var(--color-primary, #4ade80);
-            padding-bottom: 1px;
-            transition: all 0.2s ease;
-            display: inline-block;
-            margin-top: 0.25rem;
+            transition: opacity 0.2s;
         }
 
-        .patient-banner a.cud-link:hover {
-            color: var(--color-text-primary, #ecfdf5);
-            border-bottom-color: var(--color-text-primary, #ecfdf5);
-            transform: translateY(-1px);
-        }
-
-        .patient-banner a.cud-link {
-            color: var(--color-primary, #4ade80);
-            text-decoration: none;
-            font-weight: 700;
-            border-bottom: 2px solid var(--color-primary, #4ade80);
-            padding-bottom: 1px;
-            transition: all 0.2s ease;
-            display: inline-block;
-            margin-top: 0.25rem;
-        }
-
-        .patient-banner a.cud-link:hover {
-            color: var(--color-text-primary, #ecfdf5);
-            border-bottom-color: var(--color-text-primary, #ecfdf5);
-            transform: translateY(-1px);
+        .b2c-free-link a:hover {
+            opacity: 1;
         }
 
         /* Comparison Table */
@@ -370,6 +368,11 @@
         <!-- ─── PRICING ───────────────────────────────────────── -->
         <section class="features-section" style="padding-top: 0;">
             <div class="container">
+                <!-- B2B Section Header -->
+                <div class="text-center fade-in-up" style="margin-bottom: 2rem;">
+                    <h2 class="section-title" data-i18n="pricing.b2bSectionTitle">For Treatment Centers & Clinics</h2>
+                </div>
+
                 <!-- Billing Toggle -->
                 <div class="billing-toggle-container fade-in-up" style="animation-delay: 0.2s">
                     <span id="label-monthly" class="toggle-label active" data-i18n="pricing.billing_monthly">Billed Monthly</span>
@@ -456,16 +459,45 @@
                     </div>
                 </div>
 
-                <!-- Patient Banner -->
-                <div class="patient-banner fade-in-up" style="animation-delay: 0.4s">
-                    <p data-i18n="pricing.patientBanner">For Patients & Individual Users: SmokingTracker is 100% free when you are invited by a partnered therapist. Talk to your provider today.</p>
-                    <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;" data-i18n="pricing.cudApplyLink">Don't have a counselor? If you have Cannabis Use Disorder (CUD), you can <a href='/cud-application.html'>apply for free individual access here</a>.</p>
-                </div>
-
-                <p class="pricing-active-note fade-in-up" style="animation-delay: 0.45s; margin-top: 1.5rem;">
+                <p class="pricing-active-note fade-in-up" style="animation-delay: 0.4s; margin-top: 1.5rem;">
                     <span data-i18n="pricing.faqLink">Have questions? See our</span>
                     <a href="/faq.html" data-i18n="pricing.faqLinkText" style="color: var(--color-primary, #4ade80);">FAQ</a>
                 </p>
+
+                <!-- Individual / B2C Section -->
+                <div class="fade-in-up" style="animation-delay: 0.5s">
+                    <hr class="section-divider">
+                    <div class="text-center">
+                        <h2 class="section-title" data-i18n="pricing.individualSectionTitle">For Individuals</h2>
+                        <p class="section-desc" style="margin-top: 0.75rem;" data-i18n="pricing.individualSectionDesc">No counsellor needed. Start tracking on your own terms.</p>
+                    </div>
+                    <div class="individual-card-wrap">
+                        <div class="pricing-card glass individual-card">
+                            <div class="individual-badge" data-i18n="pricing.b2cBadge">For Individuals</div>
+                            <div>
+                                <div class="pricing-tier-name" data-i18n="pricing.b2cTierName">Individual Access</div>
+                                <div class="pricing-scope" data-i18n="pricing.b2cScope">Standalone patient app — no counsellor required.</div>
+                            </div>
+                            <div>
+                                <div class="pricing-price-row">
+                                    <span class="pricing-price" data-i18n="pricing.b2cPrice">$1</span>
+                                    <span class="pricing-period" data-i18n="pricing.b2cPeriod">/month</span>
+                                </div>
+                            </div>
+                            <p class="pricing-desc" data-i18n="pricing.b2cDesc">A symbolic commitment to your recovery. Full access to the same tools used in professional clinics.</p>
+                            <ul class="pricing-features">
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.b2cF1">Full patient app access</span></li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.b2cF2">Habit tracking & analytics</span></li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.b2cF3">Privacy by Design</span></li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.b2cF4">No counsellor needed</span></li>
+                            </ul>
+                            <div class="pricing-cta">
+                                <a href="https://buy.stripe.com/eVqbJ3goIaRpeDlcNP0RG05" class="btn btn-primary btn-large" style="width: 100%; text-align: center;" data-i18n="pricing.b2cCta">Get Started — $1 / month</a>
+                                <p class="b2c-free-link"><a href="/cud-application.html" data-i18n="pricing.b2cFreeLink">Can't afford it? Apply for free access →</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -566,8 +598,8 @@
                 </div>
                 <div class="value-prop-grid" style="grid-template-columns: 1fr; max-width: 800px; margin: 3rem auto 0;">
                     <div class="value-prop-card fade-in-up">
-                        <h3 data-i18n="pricing.faq_q1">Do patients pay?</h3>
-                        <p data-i18n="pricing.faq_a1">No. SmokingTracker is 100% free for patients and individual users when they are invited by a partnered therapist or clinic. We believe the cost of clinical tools should never be a barrier to patient recovery.</p>
+                        <h3 data-i18n="pricing.faq_q1">Do individual users pay?</h3>
+                        <p data-i18n="pricing.faq_a1">Individual users pay $1/month — a symbolic commitment to their own recovery journey. If that's out of reach, free access is available with no questions asked. <a href='/cud-application.html' style='color: var(--color-primary)'>Apply here</a>.</p>
                     </div>
                     <div class="value-prop-card fade-in-up" style="animation-delay: 0.1s">
                         <h3 data-i18n="pricing.faq_q2">Are there long-term contracts?</h3>

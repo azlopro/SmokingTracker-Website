@@ -1,6 +1,6 @@
 import { i18n } from './i18n.js';
 
-const API_URL = import.meta.env.VITE_API_URL || '';
+const STRIPE_API_URL = import.meta.env.VITE_STRIPE_API_URL || '';
 
 // Currency derived from UI language
 function currencyForLang(lang) {
@@ -144,7 +144,7 @@ function setupForm() {
         submitBtn.textContent = '...';
 
         try {
-            const res = await fetch(`${API_URL}/api/trial/signup`, {
+            const res = await fetch(`${STRIPE_API_URL}/trial-signup`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -161,21 +161,16 @@ function setupForm() {
             });
 
             if (res.ok || res.status === 201) {
-                const stripeLinks = {
-                    solo:       'https://buy.stripe.com/dRm28t5K4bVt1Qz29b0RG01',
-                    group:      'https://buy.stripe.com/5kQ7sN2xS8JhfHpeVX0RG03',
-                    enterprise: null,
-                };
-                const stripeBase = stripeLinks[tier];
-                if (stripeBase && adminEmail) {
-                    window.location.href = `${stripeBase}?prefilled_email=${encodeURIComponent(adminEmail)}`;
+                const data = await res.json();
+                if (data.redirect_url) {
+                    window.location.href = data.redirect_url;
                 } else {
                     showSuccess();
                 }
                 return;
             }
 
-            // Try to parse error message from backend
+            // Try to parse error message from stripe-api
             let errMsg = getNestedValue(dict, 'trial.errorGeneric');
             try {
                 const body = await res.json();
