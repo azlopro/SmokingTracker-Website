@@ -1,5 +1,16 @@
 import { i18n } from './i18n.js';
 
+// Apollo.io website tracker
+(function initApollo() {
+    var n = Math.random().toString(36).substring(7);
+    var o = document.createElement('script');
+    o.src = 'https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=' + n;
+    o.async = true;
+    o.defer = true;
+    o.onload = function () { window.trackingFunctions.onLoad({ appId: '69d065a06cfa3d000d673689' }); };
+    document.head.appendChild(o);
+}());
+
 // Setup Translation Management
 function setupTranslations() {
     document.documentElement.setAttribute('lang', 'en');
