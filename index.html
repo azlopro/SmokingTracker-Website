@@ -178,6 +178,7 @@
             </a>
             <div class="nav-links">
                 <a href="/features.html" data-i18n="nav.features">Features</a>
+                <a href="/for-individuals.html">For Individuals</a>
                 <a href="#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
                 <a href="/pricing.html" data-i18n="nav.pricing">Pricing</a>
                 <a href="/about.html" data-i18n="nav.about">About</a>
@@ -211,9 +212,19 @@
                     <p class="hero-subtitle fade-in-up" style="animation-delay: 0.2s" data-i18n="hero.subtitle">
                         SmokingTracker captures consumption, mood, and cravings the moment they happen - not reconstructed in session days later. Three taps to log. One click to get session-ready data. And for clients who aren't ready to share anything yet - the tool works for them alone first.
                     </p>
-                    <div class="hero-cta fade-in-up" style="animation-delay: 0.3s">
-                        <a href="/trial.html" class="btn btn-primary btn-large" data-i18n="hero.ctaPrimary">Book a Demo</a>
-                        <a href="/features.html" class="btn btn-secondary btn-large" data-i18n="hero.ctaSecondary">See Features</a>
+                    <div class="hero-fork fade-in-up" style="animation-delay: 0.3s">
+                        <a href="/trial.html" class="fork-card glass">
+                            <span class="fork-icon">🏥</span>
+                            <strong class="fork-title">I run a treatment center</strong>
+                            <span class="fork-desc">Book a free demo — see how it fits your clinical workflow</span>
+                            <span class="btn btn-primary fork-btn">Book a Demo →</span>
+                        </a>
+                        <a href="/for-individuals.html" class="fork-card glass">
+                            <span class="fork-icon">🌿</span>
+                            <strong class="fork-title">I want to track my own habits</strong>
+                            <span class="fork-desc">Get a clear picture of when, how often, and why you smoke</span>
+                            <span class="btn btn-secondary fork-btn">Get Started Free →</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -299,6 +310,30 @@
 
         <!-- ─── RESEARCH-BASED CONTEXT ────────────────────────────── -->
   <style>
+    .hero-fork {
+        display: flex;
+        gap: 1.25rem;
+        margin-top: 1rem;
+        width: 100%;
+        max-width: 720px;
+    }
+    .fork-card {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 1.5rem 1.75rem;
+        border-radius: 20px;
+        text-decoration: none;
+        transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .fork-card:hover { transform: translateY(-4px); border-color: rgba(74,222,128,0.35); }
+    .fork-icon { font-size: 1.6rem; line-height: 1; }
+    .fork-title { font-size: 1rem; font-weight: 700; color: var(--color-text-primary, #fff); line-height: 1.3; }
+    .fork-desc { font-size: 0.85rem; opacity: 0.7; line-height: 1.5; flex: 1; }
+    .fork-btn { margin-top: 0.75rem; font-size: 0.875rem; padding: 0.5rem 1.1rem; }
+    @media (max-width: 600px) { .hero-fork { flex-direction: column; } }
 
     .research-section {
       max-width: 880px;

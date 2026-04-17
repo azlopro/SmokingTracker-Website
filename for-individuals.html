@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/webp" href="/logo.webp" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cannabis Habit Tracker for Individuals — SmokingTracker</title>
+    <meta name="description" content="Track your cannabis use in seconds. See when, how often, and why you smoke — no counsellor needed. Private by design. Free to start." />
+    <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .pricing-card {
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .pricing-card:hover { transform: translateY(-5px); border-color: rgba(74, 222, 128, 0.3); }
+        .pricing-tier-name { font-size: 1.25rem; font-weight: 700; color: var(--color-primary, #4ade80); }
+        .pricing-scope { font-size: 0.9rem; opacity: 0.7; margin-top: 0.25rem; }
+        .pricing-price-row { display: flex; align-items: baseline; gap: 0.25rem; margin-top: 0.5rem; flex-wrap: wrap; }
+        .pricing-price-free { font-size: 3rem; font-weight: 800; line-height: 1; color: var(--color-primary, #4ade80); }
+        .pricing-price-original { font-size: 1.4rem; font-weight: 600; opacity: 0.45; text-decoration: line-through; margin-right: 0.35rem; }
+        .pricing-desc { font-size: 0.95rem; opacity: 0.8; line-height: 1.6; }
+        .pricing-features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+        .pricing-features li { display: flex; align-items: center; gap: 0.75rem; font-size: 0.95rem; }
+        .pricing-features li svg { flex-shrink: 0; color: var(--color-primary, #4ade80); }
+        .pricing-cta { margin-top: auto; padding-top: 1rem; }
+        .individual-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: transparent;
+            color: var(--color-primary, #4ade80);
+            border: 1.5px solid var(--color-primary, #4ade80);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 1rem;
+            border-radius: 100px;
+            white-space: nowrap;
+        }
+        .b2c-free-link { text-align: center; margin-top: 1rem; font-size: 0.85rem; }
+        .b2c-free-link a { color: var(--color-primary, #4ade80); opacity: 0.75; text-decoration: none; transition: opacity 0.2s; }
+        .b2c-free-link a:hover { opacity: 1; }
+        .individual-card-wrap { display: flex; justify-content: center; margin-top: 2.5rem; }
+        .individual-card { max-width: 420px; width: 100%; }
+    </style>
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="SmokingTracker">
+    <meta property="og:title" content="Cannabis Habit Tracker for Individuals — SmokingTracker">
+    <meta property="og:description" content="Track your cannabis use in seconds. See frequency, timing, and triggers build into a clear picture. Private. No counsellor needed. Free to start.">
+    <meta property="og:image" content="https://www.smokingtracker.com/logo.png">
+    <meta property="og:url" content="https://www.smokingtracker.com/for-individuals.html">
+    <link rel="canonical" href="https://www.smokingtracker.com/for-individuals.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cannabis Habit Tracker for Individuals — SmokingTracker">
+    <meta name="twitter:description" content="Three taps to log a session. See frequency, timing, and triggers. Private by design. No counsellor needed. Free to start.">
+    <meta name="twitter:image" content="https://www.smokingtracker.com/logo.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SmokingTracker",
+      "url": "https://www.smokingtracker.com/for-individuals.html",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "description": "SmokingTracker helps individuals understand their cannabis habits through real-time session logging, mood tracking, and trigger analysis. Three taps to log. Statistics update automatically. Privacy by design.",
+      "featureList": [
+        "Real-time cannabis session logging",
+        "Mood and craving tracking",
+        "Time-of-day usage patterns",
+        "Trigger frequency analysis",
+        "Smoke-free streak tracking",
+        "Achievement milestones",
+        "Privacy by Design",
+        "No app download required"
+      ],
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Individual cannabis users seeking self-awareness and habit tracking"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "0",
+        "description": "Free during pilot period until October 2026"
+      }
+    }
+    </script>
+</head>
+
+<body>
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/logo-icon.webp" alt="SmokingTracker Logo" class="logo-img" width="32" height="32">
+                <span class="logo-text">SmokingTracker</span>
+            </a>
+            <div class="nav-links">
+                <a href="/features.html" data-i18n="nav.features">Features</a>
+                <a href="/for-individuals.html" style="color: var(--color-primary, #4ade80);">For Individuals</a>
+                <a href="/pricing.html" data-i18n="nav.pricing">Pricing</a>
+                <a href="/about.html" data-i18n="nav.about">About</a>
+                <a href="/knowledge-base.html" data-i18n="nav.blog">Blog</a>
+            </div>
+            <div class="nav-actions">
+                <a href="/individual-signup.html" class="btn btn-primary">Get Started Free</a>
+                <button class="mobile-menu-btn icon-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="4" x2="20" y1="12" y2="12" />
+                        <line x1="4" x2="20" y1="6" y2="6" />
+                        <line x1="4" x2="20" y1="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- ─── HERO ──────────────────────────────────────────── -->
+        <section class="hero">
+            <div class="hero-bg-glow"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="badge fade-in-up">🌿 For individuals who smoke cannabis</div>
+                    <h1 class="fade-in-up" style="animation-delay: 0.1s">
+                        Finally know <span class="text-gradient">exactly how much you smoke</span> — and why.
+                    </h1>
+                    <p class="hero-subtitle fade-in-up" style="animation-delay: 0.2s">
+                        Three taps to log a session. See your frequency, timing, mood, and triggers build into a real picture over days and weeks. No guesswork. No counsellor needed. Your data stays private — always.
+                    </p>
+                    <div class="hero-cta fade-in-up" style="animation-delay: 0.3s">
+                        <a href="/individual-signup.html" class="btn btn-primary btn-large">Start Free — No Card Needed</a>
+                        <a href="#how-it-works-individual" class="btn btn-secondary btn-large">See How It Works</a>
+                    </div>
+                </div>
+            </div>
+            <div class="container fade-in-up" style="animation-delay: 0.4s; padding-top: 3rem; padding-bottom: 1rem; max-width: 340px;">
+                <div class="showcase-phone glass">
+                    <div class="hero-carousel app-carousel">
+                        <button class="hero-carousel-arrow hero-carousel-prev" aria-label="Previous slide">&#8249;</button>
+                        <button class="hero-carousel-arrow hero-carousel-next" aria-label="Next slide">&#8250;</button>
+                        <div class="hero-carousel-track">
+                            <div class="hero-carousel-slide active">
+                                <picture>
+                                    <source srcset="/images/en_tracker_log_session_modal.webp" type="image/webp">
+                                    <img src="/images/en_tracker_log_session_modal.png" alt="SmokingTracker — log a session" width="390" height="844" fetchpriority="high" />
+                                </picture>
+                            </div>
+                            <div class="hero-carousel-slide">
+                                <picture>
+                                    <source srcset="/images/en_tracker_home_calendar.webp" type="image/webp">
+                                    <img src="/images/en_tracker_home_calendar.png" alt="SmokingTracker — calendar overview" width="390" height="844" loading="lazy" />
+                                </picture>
+                            </div>
+                            <div class="hero-carousel-slide">
+                                <picture>
+                                    <source srcset="/images/en_tracker_statistics.webp" type="image/webp">
+                                    <img src="/images/en_tracker_statistics.png" alt="SmokingTracker — statistics and insights" width="390" height="844" loading="lazy" />
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="hero-carousel-dots" style="margin-top: 0.6rem; margin-bottom: 0.25rem;">
+                            <button class="hero-carousel-dot active" aria-label="Slide 1"></button>
+                            <button class="hero-carousel-dot" aria-label="Slide 2"></button>
+                            <button class="hero-carousel-dot" aria-label="Slide 3"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── THREE PILLARS ─────────────────────────────────── -->
+        <section class="pillars-section">
+            <div class="container">
+                <h2 class="pillars-title fade-in-up">Why people use SmokingTracker on their own</h2>
+                <div class="pillars-grid">
+                    <div class="pillar-card fade-in-up">
+                        <span class="pillar-label">Three taps</span>
+                        <h3>Log in the moment, not from memory</h3>
+                        <p>Most people wildly underestimate how much they smoke because memory fills in the gaps. Logging in real time gives you numbers you can actually trust.</p>
+                    </div>
+                    <div class="pillar-card fade-in-up" style="animation-delay: 0.1s">
+                        <span class="pillar-label">Private first</span>
+                        <h3>Your data is yours — full stop</h3>
+                        <p>Your logs are visible only to you unless you explicitly connect to a counsellor and choose to share. No sharing required, ever.</p>
+                    </div>
+                    <div class="pillar-card fade-in-up" style="animation-delay: 0.2s">
+                        <span class="pillar-label">See patterns</span>
+                        <h3>Spot what you'd never notice alone</h3>
+                        <p>Frequency, time of day, mood, triggers — they accumulate into a picture week over week that you'd never piece together from memory alone.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── HOW IT WORKS ──────────────────────────────────── -->
+        <section id="how-it-works-individual" class="how-it-works-section">
+            <div class="container">
+                <div class="section-header text-center fade-in-up">
+                    <h2 class="section-title">How It Works</h2>
+                    <p class="section-desc">Up and running in under a minute — no app download, no referral needed.</p>
+                </div>
+                <div class="steps-grid">
+                    <div class="step-card glass fade-in-up" style="animation-delay: 0.1s">
+                        <div class="step-number">01</div>
+                        <h3>Sign Up</h3>
+                        <p>Works in any browser on any phone. No app store, no download. Just open the link and you're in.</p>
+                    </div>
+                    <div class="step-card glass fade-in-up" style="animation-delay: 0.2s">
+                        <div class="step-number">02</div>
+                        <h3>Log Sessions in the Moment</h3>
+                        <p>Three taps each time you smoke. Optionally add mood, craving level, or a short note. Takes about five seconds.</p>
+                    </div>
+                    <div class="step-card glass fade-in-up" style="animation-delay: 0.3s">
+                        <div class="step-number">03</div>
+                        <h3>Watch Patterns Emerge</h3>
+                        <p>Your Statistics tab builds a real picture over days and weeks — daily average, time-of-day curve, triggers, and streaks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── APP PREVIEW: LOG A SESSION ───────────────────── -->
+        <section class="product-showcase">
+            <div class="container">
+                <div class="showcase-grid fade-in-up">
+                    <div class="showcase-content">
+                        <span class="showcase-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M12 5v14M5 12l7 7 7-7"/>
+                            </svg>
+                            SmokingTracker App · Logging
+                        </span>
+                        <h2 class="showcase-title">Three taps. Done.</h2>
+                        <p class="showcase-desc">The minimum required to log is three taps — method, quantity, and confirm. That's it. No friction means you'll actually do it every time.</p>
+                        <ul class="showcase-highlights">
+                            <li>Three required taps — nothing more</li>
+                            <li>Optional: mood, craving level, location, and notes</li>
+                            <li>Fast-use warning if you've logged recently</li>
+                        </ul>
+                    </div>
+                    <div class="showcase-media">
+                        <div class="showcase-phone glass">
+                            <picture>
+                                <source srcset="/images/en_tracker_log_session_modal.webp" type="image/webp">
+                                <img src="/images/en_tracker_log_session_modal.png" alt="SmokingTracker App — log session" width="390" height="844" loading="lazy" />
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── APP PREVIEW: CALENDAR ─────────────────────────── -->
+        <section class="product-showcase">
+            <div class="container">
+                <div class="showcase-grid showcase-grid--reverse fade-in-up">
+                    <div class="showcase-content">
+                        <span class="showcase-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            SmokingTracker App · Calendar
+                        </span>
+                        <h2 class="showcase-title">See which days you smoked — and which you didn't.</h2>
+                        <p class="showcase-desc">The calendar view gives you an honest picture of your week at a glance. No-smoke days accumulate automatically. Streaks build without you having to track them.</p>
+                        <ul class="showcase-highlights">
+                            <li>Colour-coded daily overview</li>
+                            <li>Smoke-free days and streaks tracked automatically</li>
+                            <li>Goal mode visible at a glance — Reduce, Quit, or Awareness</li>
+                        </ul>
+                    </div>
+                    <div class="showcase-media">
+                        <div class="showcase-phone glass">
+                            <picture>
+                                <source srcset="/images/en_tracker_home_calendar.webp" type="image/webp">
+                                <img src="/images/en_tracker_home_calendar.png" alt="SmokingTracker App — calendar view" width="390" height="844" loading="lazy" />
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── PHILOSOPHY STRIP ──────────────────────────────── -->
+        <section class="philosophy-strip">
+            <div class="container">
+                <p class="philosophy-line fade-in-up">Your data is never shared, never sold. Log for yourself — share only if and when you choose.</p>
+            </div>
+        </section>
+
+        <!-- ─── APP PREVIEW: STATISTICS ──────────────────────── -->
+        <section class="product-showcase">
+            <div class="container">
+                <div class="showcase-grid fade-in-up">
+                    <div class="showcase-content">
+                        <span class="showcase-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <line x1="18" y1="20" x2="18" y2="10"></line>
+                                <line x1="12" y1="20" x2="12" y2="4"></line>
+                                <line x1="6" y1="20" x2="6" y2="14"></line>
+                            </svg>
+                            SmokingTracker App · Statistics
+                        </span>
+                        <h2 class="showcase-title">Numbers you can actually act on.</h2>
+                        <p class="showcase-desc">The Statistics tab builds week over week — you don't need to do anything. Just keep logging and the patterns reveal themselves.</p>
+                        <ul class="showcase-highlights">
+                            <li>14-day chart of sessions per day</li>
+                            <li>Time-of-day patterns — when do you actually smoke most?</li>
+                            <li>Trigger frequency breakdown</li>
+                        </ul>
+                    </div>
+                    <div class="showcase-media">
+                        <div class="showcase-phone glass">
+                            <picture>
+                                <source srcset="/images/en_tracker_statistics.webp" type="image/webp">
+                                <img src="/images/en_tracker_statistics.png" alt="SmokingTracker App — statistics" width="390" height="844" loading="lazy" />
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── APP PREVIEW: ACHIEVEMENTS ────────────────────── -->
+        <section class="product-showcase">
+            <div class="container">
+                <div class="showcase-grid showcase-grid--reverse fade-in-up">
+                    <div class="showcase-content">
+                        <span class="showcase-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="8" r="6"></circle>
+                                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+                            </svg>
+                            SmokingTracker App · Milestones
+                        </span>
+                        <h2 class="showcase-title">Progress you can see.</h2>
+                        <p class="showcase-desc">Smoke-free streaks, reduction milestones, and goal achievements unlock as you go. No clinical pressure — just honest recognition of the work you're putting in.</p>
+                        <ul class="showcase-highlights">
+                            <li>Streaks and smoke-free milestones</li>
+                            <li>Reduction achievements as your average drops</li>
+                            <li>No judgement — progress at your own pace</li>
+                        </ul>
+                    </div>
+                    <div class="showcase-media">
+                        <div class="showcase-phone glass">
+                            <img src="/images/en_tracker_achievements.png" alt="SmokingTracker App — achievements" width="390" height="844" loading="lazy" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── PRICING ───────────────────────────────────────── -->
+        <section class="features-section">
+            <div class="container">
+                <div class="text-center fade-in-up">
+                    <h2 class="section-title">Pricing</h2>
+                    <p class="section-desc" style="margin-top: 0.75rem;">Free during our pilot period. After October 2026 — $1/month.</p>
+                </div>
+                <div class="individual-card-wrap fade-in-up">
+                    <div class="pricing-card glass individual-card">
+                        <div class="individual-badge">For Individuals</div>
+                        <div>
+                            <div class="pricing-tier-name">Personal Tracker</div>
+                            <div class="pricing-scope">Understand your smoking patterns on your own terms.</div>
+                        </div>
+                        <div>
+                            <div class="pricing-price-row">
+                                <span class="pricing-price-free">Free</span>
+                                <span class="pricing-price-original">$1<span style="font-size:0.9rem">/mo</span></span>
+                            </div>
+                            <div style="font-size: 0.8rem; opacity: 0.55; margin-top: 0.35rem;">Until October 2026 — then $1/month</div>
+                        </div>
+                        <p class="pricing-desc">Log your sessions in seconds and get a real overview of your habits — frequency, timing, triggers. See the patterns you'd otherwise never notice.</p>
+                        <ul class="pricing-features">
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Full overview of your smoking habits</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Insights into frequency, timing &amp; triggers</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Your data stays private — Privacy by Design</span></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>No counsellor or referral needed</span></li>
+                        </ul>
+                        <div class="pricing-cta">
+                            <a href="/individual-signup.html" class="btn btn-primary btn-large" style="width: 100%; text-align: center;">Get Started — Free</a>
+                            <p class="b2c-free-link"><a href="/cud-application.html">Can't afford it? Apply for free access →</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── FAQ ───────────────────────────────────────────── -->
+        <section class="features-section" style="padding-top: 0;">
+            <div class="container">
+                <div class="section-header text-center fade-in-up">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                </div>
+                <div class="faq-list fade-in-up" style="max-width: 780px; margin: 0 auto;">
+
+                    <details class="faq-item glass">
+                        <summary>
+                            <span>Do I need to be in treatment to use this?</span>
+                            <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </summary>
+                        <div class="faq-body">No. SmokingTracker is for anyone curious about their own cannabis habits, whether or not they're working with a counsellor. You can use it completely independently — no referral, no clinical connection required.</div>
+                    </details>
+
+                    <details class="faq-item glass">
+                        <summary>
+                            <span>Is my data private?</span>
+                            <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </summary>
+                        <div class="faq-body">Yes. Your logs are visible only to you. If you ever work with a counsellor who also uses SmokingTracker, you can choose to connect and share specific data categories — but sharing is always your decision, and you can withdraw it at any time. Your data is never sold and never used for advertising.</div>
+                    </details>
+
+                    <details class="faq-item glass">
+                        <summary>
+                            <span>Does it require an app download?</span>
+                            <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </summary>
+                        <div class="faq-body">No. SmokingTracker runs in the browser on any smartphone, tablet, or computer. Nothing to install — just open the link and you're ready to log.</div>
+                    </details>
+
+                    <details class="faq-item glass">
+                        <summary>
+                            <span>What's the difference between the individual plan and the clinical version?</span>
+                            <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </summary>
+                        <div class="faq-body">The individual plan is standalone — just you and your data. The clinical version adds a practitioner dashboard that a counsellor can use to monitor your progress if you're in treatment and choose to share. The tracking app itself is identical either way.</div>
+                    </details>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── CTA ───────────────────────────────────────────── -->
+        <section class="cta-section">
+            <div class="container text-center">
+                <div class="cta-box glass fade-in-up">
+                    <h2>Ready to see the full picture?</h2>
+                    <p>Takes 30 seconds to sign up. Start logging today and have your first week of data by Sunday.</p>
+                    <a href="/individual-signup.html" class="btn btn-primary btn-large cta-btn">Start Free</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="/" class="logo">
+                    <img src="/logo-icon.webp" alt="SmokingTracker Logo" class="logo-img" width="32" height="32">
+                    <span class="logo-text">SmokingTracker</span>
+                </a>
+                <p data-i18n="footer.desc">Helping treatment centers deliver proactive, data-driven support while fully
+                    respecting citizen privacy.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4 data-i18n="footer.product">Product</h4>
+                    <a href="/features.html" data-i18n="nav.features">Features</a>
+                    <a href="/for-individuals.html">For Individuals</a>
+                    <a href="/pricing.html" data-i18n="nav.pricing">Pricing</a>
+                    <a href="/faq.html" data-i18n="nav.faq">FAQ</a>
+                    <a href="/about.html" data-i18n="nav.about">About</a>
+                    <a href="/knowledge-base.html" data-i18n="nav.blog">Blog</a>
+                </div>
+                <div class="link-group">
+                    <h4 data-i18n="footer.legal">Legal</h4>
+                    <a href="/privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+                    <a href="/terms.html" data-i18n="footer.terms">Terms of Service</a>
+                    <a href="/dpa.html" data-i18n="footer.dpa">Data Processing Agreement</a>
+                    <a href="/security.html" data-i18n="footer.security">Security</a>
+                </div>
+                <div class="link-group">
+                    <h4 data-i18n="footer.connect">Connect</h4>
+                    <a href="mailto:support@smokingtracker.com" data-i18n="footer.contact">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 SmokingTracker. All rights reserved.</p>
+        </div>
+    </footer>
+    <script type="module" src="/main.js"></script>
+    <script>
+        // App showcase carousel
+        (function () {
+            const el = document.querySelector('.app-carousel');
+            if (!el) return;
+            const slides = Array.from(el.querySelectorAll('.hero-carousel-slide'));
+            const dots   = Array.from(el.querySelectorAll('.hero-carousel-dot'));
+            const prevBtn = el.querySelector('.hero-carousel-prev');
+            const nextBtn = el.querySelector('.hero-carousel-next');
+            let current = 0, timer;
+
+            function goTo(n) {
+                slides[current].classList.remove('active');
+                dots[current].classList.remove('active');
+                current = (n + slides.length) % slides.length;
+                slides[current].classList.add('active');
+                dots[current].classList.add('active');
+            }
+
+            function start() { timer = setInterval(() => goTo(current + 1), 5000); }
+            function stop()  { clearInterval(timer); }
+
+            dots.forEach((d, i) => d.addEventListener('click', () => { stop(); goTo(i); start(); }));
+            prevBtn.addEventListener('click', () => { stop(); goTo(current - 1); start(); });
+            nextBtn.addEventListener('click', () => { stop(); goTo(current + 1); start(); });
+            el.addEventListener('mouseenter', stop);
+            el.addEventListener('mouseleave', start);
+            start();
+        })();
+    </script>
+</body>
+
+</html>

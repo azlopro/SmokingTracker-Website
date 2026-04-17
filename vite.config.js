@@ -25,6 +25,8 @@ export default defineConfig({
         features: resolve(__dirname, 'features.html'),
         'knowledge-base': resolve(__dirname, 'knowledge-base.html'),
         trial:    resolve(__dirname, 'trial.html'),
+        'for-individuals': resolve(__dirname, 'for-individuals.html'),
+        'individual-signup': resolve(__dirname, 'individual-signup.html'),
         about:    resolve(__dirname, 'about.html'),
         faq:      resolve(__dirname, 'faq.html'),
         pricing:  resolve(__dirname, 'pricing.html'),

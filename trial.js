@@ -1,6 +1,6 @@
 import { i18n } from './i18n.js';
 
-const STRIPE_API_URL = import.meta.env.VITE_STRIPE_API_URL || '';
+const APP_API_URL = 'https://app.smokingtracker.com';
 
 // Currency derived from UI language
 function currencyForLang(lang) {
@@ -144,7 +144,7 @@ function setupForm() {
         submitBtn.textContent = '...';
 
         try {
-            const res = await fetch(`${STRIPE_API_URL}/trial-signup`, {
+            const res = await fetch(`${APP_API_URL}/api/trial/signup`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

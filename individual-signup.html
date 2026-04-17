@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/webp" href="/logo.webp" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Your Account — SmokingTracker</title>
+    <meta name="description" content="Create your free SmokingTracker account. We'll email you a setup link — takes 30 seconds." />
+    <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="canonical" href="https://www.smokingtracker.com/individual-signup.html">
+    <meta name="robots" content="noindex">
+</head>
+
+<body>
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/logo-icon.webp" alt="SmokingTracker Logo" class="logo-img" width="32" height="32">
+                <span class="logo-text">SmokingTracker</span>
+            </a>
+            <div class="nav-links">
+                <a href="/features.html" data-i18n="nav.features">Features</a>
+                <a href="/for-individuals.html">For Individuals</a>
+                <a href="/#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
+                <a href="/pricing.html" data-i18n="nav.pricing">Pricing</a>
+                <a href="/about.html" data-i18n="nav.about">About</a>
+                <a href="/knowledge-base.html" data-i18n="nav.blog">Blog</a>
+            </div>
+            <div class="nav-actions">
+                <a href="/for-individuals.html" class="btn btn-primary">Get Started Free</a>
+                <button class="mobile-menu-btn icon-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="4" x2="20" y1="12" y2="12" />
+                        <line x1="4" x2="20" y1="6" y2="6" />
+                        <line x1="4" x2="20" y1="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="trial-hero">
+            <div class="hero-bg-glow"></div>
+            <div class="container trial-container" style="grid-template-columns: 1fr; justify-items: center;">
+
+                <div class="trial-form-card glass fade-in" style="max-width: 480px; width: 100%;">
+
+                    <!-- Success state -->
+                    <div class="trial-success" id="signup-success" style="display: none;">
+                        <div class="trial-success-icon">✓</div>
+                        <h2>Check your inbox!</h2>
+                        <p>We've sent a setup link to your email. Follow the link to create your password and start tracking.</p>
+                        <p style="margin-top: 0.75rem; font-size: 0.85rem; opacity: 0.6;">Check your spam folder if you don't see it within a couple of minutes.</p>
+                    </div>
+
+                    <!-- Form state -->
+                    <div id="signup-form-wrap">
+                        <div class="badge" style="margin-bottom: 1.25rem;">🌿 Free until October 2026</div>
+                        <h2>Create your account</h2>
+                        <p class="form-subtitle">We'll send a setup link to your email. Takes 30 seconds.</p>
+
+                        <form class="trial-form" id="individual-signup-form" novalidate style="margin-top: 1.5rem;">
+                            <div class="form-group">
+                                <label for="contact-name">Your name</label>
+                                <input type="text" id="contact-name" name="contact_name" required
+                                    autocomplete="name" placeholder="Jane Smith">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="admin-email">Email address</label>
+                                <input type="email" id="admin-email" name="admin_email" required
+                                    autocomplete="email" placeholder="jane@example.com">
+                            </div>
+
+                            <div class="form-error" id="signup-error" role="alert"></div>
+
+                            <button type="submit" class="btn btn-primary btn-large btn-full" id="signup-submit">
+                                Create Account — Free
+                            </button>
+
+                            <p class="form-legal">
+                                By signing up you agree to our <a href="/terms.html" style="color: var(--color-primary)">Terms of Service</a> and <a href="/privacy.html" style="color: var(--color-primary)">Privacy Policy</a>.
+                            </p>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-bottom">
+            <p>&copy; 2026 SmokingTracker. All rights reserved.</p>
+        </div>
+    </footer>
+    <script type="module" src="/individual-signup.js"></script>
+</body>
+
+</html>

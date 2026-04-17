@@ -11,7 +11,7 @@ export const i18n = {
             bookDemo: "Demo buchen"
         },
         hero: {
-            badge: "🌿 Speziell für die Cannabisentwöhnung",
+            badge: "🌿 Cannabis-Tracking — für Kliniken und Einzelpersonen",
             title: 'Mehr Klienten in der Behandlung halten – mit <span class="text-gradient">reibungslosem</span> Konsumtracking',
             subtitle: "Viele Klienten kommen unfreiwillig – unmotiviert, skeptisch, kurz vor dem Abbruch. SmokingTracker gibt ihnen einen Einstieg, der sich nicht wie Therapie anfühlt: Einfach tracken, was du sowieso tust. Das allein schafft Bewusstsein, baut Vertrauen auf – und hält sie lang genug im Programm, damit es wirkt.",
             ctaPrimary: "Demo buchen",
@@ -437,7 +437,7 @@ export const i18n = {
             bookDemo: "Book a Demo"
         },
         hero: {
-            badge: "🌿 Self-monitoring tool for cannabis counselors",
+            badge: "🌿 Cannabis habit tracking — for clinics and individuals",
             title: 'Make client behavior <span class="text-gradient">visible between sessions.</span>',
             subtitle: "SmokingTracker is a structured self-monitoring tool for cannabis counselors. Clients log consumption, mood, and triggers in the moment — between sessions, not from memory. You see patterns and engagement data before the next appointment. One click generates a print-ready clinical report.",
             ctaPrimary: "Book a Demo",
@@ -853,7 +853,7 @@ export const i18n = {
             bookDemo: "Book en demo"
         },
         hero: {
-            badge: "🌿 Bygget til cannabis-misbrugsbehandling",
+            badge: "🌿 Cannabis-sporing — til klinikker og enkeltpersoner",
             title: 'Fasthold flere borgere med <span class="text-gradient">friktion‑fri</span> registrering',
             subtitle: "Mange borgere ankommer ufrivilligt — umotiverede, skeptiske og klar til at give op. SmokingTracker giver dem en indgang, der ikke føles som behandling: bare registrér det du allerede gør. Det alene skaber bevidsthed, opbygger tillid — og holder dem i forløbet længe nok til, at det virker.",
             ctaPrimary: "Book en demo",
