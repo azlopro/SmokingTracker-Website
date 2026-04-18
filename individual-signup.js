@@ -11,16 +11,11 @@ function hideError() {
     document.getElementById('signup-error')?.classList.remove('visible');
 }
 
-function showSuccess(emailSent) {
+function showSuccess() {
     document.getElementById('signup-form-wrap').style.display = 'none';
     const successEl = document.getElementById('signup-success');
     successEl.style.display = '';
     successEl.classList.add('visible');
-
-    if (!emailSent) {
-        const p = successEl.querySelector('p');
-        if (p) p.textContent = 'Your account was created but we had trouble sending the setup email. Please contact us at support@smokingtracker.com and we\'ll sort it out.';
-    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -37,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const name = document.getElementById('contact-name').value.trim();
         const email = document.getElementById('admin-email').value.trim();
+        const password = document.getElementById('password').value;
         const btn = document.getElementById('signup-submit');
 
         btn.disabled = true;
@@ -44,22 +40,18 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.textContent = '...';
 
         try {
-            const res = await fetch(`${APP_API_URL}/api/trial/signup`, {
+            const res = await fetch(`${APP_API_URL}/api/auth/register`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    tier: 'solo',
-                    currency: 'USD',
-                    contact_name: name,
-                    admin_email: email,
-                    org_name: name,
-                    center_name: name,
+                    display_name: name,
+                    email,
+                    password,
                 }),
             });
 
-            if (res.ok || res.status === 201) {
-                const data = await res.json().catch(() => ({}));
-                showSuccess(data.email_sent !== false);
+            if (res.status === 201) {
+                showSuccess();
                 return;
             }
 
