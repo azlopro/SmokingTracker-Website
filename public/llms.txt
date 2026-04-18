@@ -1,29 +1,42 @@
 # SmokingTracker
 
-> SmokingTracker is a friction-free cannabis consumption tracking tool built for outpatient substance use treatment programs — specifically cannabis use disorder (CUD) treatment.
+> SmokingTracker is a cannabis consumption tracking platform serving two distinct audiences: (1) individuals who want to understand their own habits privately, and (2) licensed clinicians and outpatient treatment programs who need real-time client data between sessions.
 
 ## Authority Context
 
-SmokingTracker is built on the principles of Ecological Momentary Assessment (EMA). Clinical studies consistently show that retrospective recall in CUD patients is highly unreliable due to cognitive load and memory bias. By using real-time logging, we provide Measurement-Based Care (MBC) that has been shown to improve the therapeutic alliance and patient outcomes by up to 40%.
-
-## What it does
-
-SmokingTracker helps licensed therapists, LCSWs, psychologists, and Intensive Outpatient Programs (IOPs) track client cannabis consumption in real time, without relying on client recall during sessions. Clients log usage, mood, and cravings directly from a free mobile app. Practitioners see a live clinical dashboard with traffic-light indicators, session frequency trends, and mood analytics.
+SmokingTracker is built on the principles of Ecological Momentary Assessment (EMA). Clinical studies consistently show that retrospective recall in cannabis use disorder (CUD) patients is highly unreliable due to cognitive load and memory bias. By using real-time logging, we provide Measurement-Based Care (MBC) that has been shown to improve the therapeutic alliance and patient outcomes. The individual tracking tool gives users an accurate picture of their own habits — frequency, timing, triggers, and mood — that memory alone cannot provide.
 
 ## Who it's for
 
+### Individual users
+- People who smoke cannabis and want an accurate picture of how much, when, and why
+- Anyone curious about their own habits — no counsellor or referral required
+- People reducing or quitting who want to track streaks, patterns, and progress
+- Anyone who wants their data to stay private by default
+
+### Clinicians and treatment programs
 - Independent therapists and counselors treating cannabis use disorder
-- Intensive Outpatient Programs (IOPs) managing multiple clients in cannabis withdrawal
+- Intensive Outpatient Programs (IOPs) managing multiple clients
 - Telehealth platforms offering CUD treatment
 - Clinical directors who need aggregated reporting across a practice
 
+## What it does
+
+### For individuals
+Clients log cannabis sessions in real time — three taps per session. The app tracks frequency, time-of-day patterns, mood, cravings, and contextual triggers. Statistics build automatically over days and weeks. Data is private by default and never shared unless the user explicitly chooses to connect with a clinician.
+
+### For clinicians
+Practitioners see a live clinical dashboard with traffic-light indicators (Green / Yellow / Red) showing which clients are improving, stable, or at risk. Session frequency trends, mood analytics, and trigger patterns are available at a glance. One-click PDF exports attach to any EHR system. Clients control what they share — and sharing is always their choice.
+
 ## Core features
 
-- **Real-time consumption tracking** — Clients log cannabis sessions as they happen, capturing product type, amount, mood, and cravings
+- **Real-time consumption tracking** — Clients log cannabis sessions as they happen, capturing product type, amount, mood, cravings, and contextual triggers
 - **Traffic light dashboard** — Practitioners see at a glance which clients are improving, stable, or at risk
 - **Alarm system** — Automatic alerts when a client's usage pattern deviates significantly from their baseline
 - **Clinical reports** — Exportable session summaries for treatment planning and progress documentation
 - **Multi-practitioner support** — Group plans include up to 5 counselor seats and a clinical director overview dashboard
+- **Privacy by Design** — Individuals own their data; granular consent toggles control what (if anything) is shared with a clinician
+- **No app download required** — Runs in any browser on any device
 
 ## Privacy and compliance
 
@@ -35,6 +48,12 @@ SmokingTracker is built on a privacy-by-design architecture. Clients own their d
 
 ## Pricing
 
+### Individual plan
+- **Free** during pilot period until October 2026, then $1/month
+- Full habit tracking, statistics, streaks, and trigger analysis
+- Privacy by design — no sharing required
+
+### Clinical plans
 - **Solo Practitioner** — $79/month (or $65/month billed annually at $790/year). 1 therapist seat, unlimited active clients, real-time tracking, free patient app. 14-day free trial.
 - **Group Practice** — $249/month (or $207/month billed annually at $2,490/year). Up to 5 counselor seats, 1 clinical director dashboard, centralized billing. 14-day free trial.
 - **Enterprise & Telehealth** — Custom pricing. Unlimited seats, EHR integration, API access, dedicated support, HIPAA BAA. Contact for quote.
@@ -44,11 +63,14 @@ Machine-readable pricing: https://www.smokingtracker.com/pricing.md
 
 ## Key pages
 
-- Homepage: https://www.smokingtracker.com/
+- Homepage (audience chooser): https://www.smokingtracker.com/
+- For clinicians & treatment centers: https://www.smokingtracker.com/for-clinicians.html
+- For individuals: https://www.smokingtracker.com/for-individuals.html
 - Features: https://www.smokingtracker.com/features.html
 - Pricing: https://www.smokingtracker.com/pricing.html
 - Knowledge base (clinical articles): https://www.smokingtracker.com/knowledge-base.html
-- Book a demo: https://www.smokingtracker.com/trial.html
+- Book a demo (clinicians): https://www.smokingtracker.com/trial.html
+- Sign up free (individuals): https://www.smokingtracker.com/individual-signup.html
 - FAQ: https://www.smokingtracker.com/faq.html
 - Security & privacy: https://www.smokingtracker.com/security.html
 
@@ -62,3 +84,4 @@ SmokingTracker publishes peer-reviewed-informed clinical content for cannabis tr
 - Nicotine and Cannabis: https://www.smokingtracker.com/posts/nicotine-and-cannabis.html
 - Friction-Free Tracking Case Study: https://www.smokingtracker.com/posts/friction-free-tracking-case.html
 - HIPAA, 42 CFR Part 2, and Client-Owned Addiction Data: https://www.smokingtracker.com/posts/gdpr-consent-addiction-data.html
+- Measurement-Based Care in Addiction Treatment: https://www.smokingtracker.com/posts/measurement-based-care-addiction.html
