@@ -162,27 +162,16 @@ function setupPricingToggle() {
         const priceTier2 = document.getElementById('price-tier2');
         const periodTier2 = document.getElementById('period-tier2');
 
-        const ctaSolo  = document.getElementById('cta-solo');
-        const ctaGroup = document.getElementById('cta-group');
-        const SOLO_MONTHLY  = 'https://buy.stripe.com/dRm28t5K4bVt1Qz29b0RG01';
-        const SOLO_ANNUAL   = 'https://buy.stripe.com/aFacN73BW0cL3YHg010RG02';
-        const GROUP_MONTHLY = 'https://buy.stripe.com/5kQ7sN2xS8JhfHpeVX0RG03';
-        const GROUP_ANNUAL  = 'https://buy.stripe.com/28EaEZ8WgcZx7aTaFH0RG04';
-
         if (isAnnual) {
             if (priceTier1) priceTier1.innerHTML = dictionary.pricing.tier1_price_annually;
             if (periodTier1) periodTier1.innerHTML = dictionary.pricing.tier1_period_annually;
             if (priceTier2) priceTier2.innerHTML = dictionary.pricing.tier2_price_annually;
             if (periodTier2) periodTier2.innerHTML = dictionary.pricing.tier2_period_annually;
-            if (ctaSolo)  ctaSolo.href  = SOLO_ANNUAL;
-            if (ctaGroup) ctaGroup.href = GROUP_ANNUAL;
         } else {
             if (priceTier1) priceTier1.innerHTML = dictionary.pricing.tier1_price_monthly;
             if (periodTier1) periodTier1.innerHTML = dictionary.pricing.tier1_period_monthly;
             if (priceTier2) priceTier2.innerHTML = dictionary.pricing.tier2_price_monthly;
             if (periodTier2) periodTier2.innerHTML = dictionary.pricing.tier2_period_monthly;
-            if (ctaSolo)  ctaSolo.href  = SOLO_MONTHLY;
-            if (ctaGroup) ctaGroup.href = GROUP_MONTHLY;
         }
     });
 }
