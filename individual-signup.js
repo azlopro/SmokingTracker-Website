@@ -11,11 +11,16 @@ function hideError() {
     document.getElementById('signup-error')?.classList.remove('visible');
 }
 
-function showSuccess() {
+function showSuccess(emailSent) {
     document.getElementById('signup-form-wrap').style.display = 'none';
     const successEl = document.getElementById('signup-success');
     successEl.style.display = '';
     successEl.classList.add('visible');
+
+    if (!emailSent) {
+        const p = successEl.querySelector('p');
+        if (p) p.textContent = 'Your account was created but we had trouble sending the setup email. Please contact us at support@smokingtracker.com and we\'ll sort it out right away.';
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -46,7 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (res.ok) {
-                showSuccess();
+                const data = await res.json().catch(() => ({}));
+                showSuccess(data.email_sent !== false);
                 return;
             }
 
