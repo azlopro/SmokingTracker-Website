@@ -13,7 +13,9 @@ function hideError() {
 
 function showSuccess() {
     document.getElementById('signup-form-wrap').style.display = 'none';
-    document.getElementById('signup-success').classList.add('visible');
+    const successEl = document.getElementById('signup-success');
+    successEl.style.display = '';   // remove inline display:none so CSS class can take over
+    successEl.classList.add('visible');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
