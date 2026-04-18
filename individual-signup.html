@@ -52,11 +52,9 @@
                     <!-- Success state -->
                     <div class="trial-success" id="signup-success" style="display: none;">
                         <div class="trial-success-icon">✓</div>
-                        <h2>You're in!</h2>
-                        <p>Your account is ready. Log in and start tracking.</p>
-                        <a href="https://app.smokingtracker.com" class="btn btn-primary btn-large" style="margin-top: 1.5rem; display: inline-block;">
-                            Go to the app
-                        </a>
+                        <h2>Check your inbox!</h2>
+                        <p>We've sent a setup link to your email. Follow the link to create your password and start tracking.</p>
+                        <p style="margin-top: 0.75rem; font-size: 0.85rem; opacity: 0.6;">Check your spam folder if you don't see it within a couple of minutes.</p>
                     </div>
 
                     <!-- Form state -->
@@ -75,12 +73,6 @@
                                 <label for="admin-email">Email address</label>
                                 <input type="email" id="admin-email" name="admin_email" required
                                     autocomplete="email" placeholder="jane@example.com">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" id="password" name="password" required
-                                    autocomplete="new-password" placeholder="Min. 8 characters">
                             </div>
 
                             <div class="form-error" id="signup-error" role="alert"></div>

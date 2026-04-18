@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const name = document.getElementById('contact-name').value.trim();
         const email = document.getElementById('admin-email').value.trim();
-        const password = document.getElementById('password').value;
         const btn = document.getElementById('signup-submit');
 
         btn.disabled = true;
@@ -40,17 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.textContent = '...';
 
         try {
-            const res = await fetch(`${APP_API_URL}/api/auth/register`, {
+            const res = await fetch(`${APP_API_URL}/api/individual/signup`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    display_name: name,
-                    email,
-                    password,
-                }),
+                body: JSON.stringify({ display_name: name, email }),
             });
 
-            if (res.status === 201) {
+            if (res.ok) {
                 showSuccess();
                 return;
             }
