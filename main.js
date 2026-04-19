@@ -180,7 +180,12 @@ function setupPricingToggle() {
 document.addEventListener('DOMContentLoaded', () => {
     setupTranslations();
     setupScrollEffects();
-    setupAnimations();
     setupMobileMenu();
     setupPricingToggle();
+});
+
+// setupAnimations calls getBoundingClientRect(), which forces layout.
+// Defer to window.load so stylesheets are fully applied first.
+window.addEventListener('load', () => {
+    setupAnimations();
 });
