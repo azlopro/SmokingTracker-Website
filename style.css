@@ -2206,6 +2206,22 @@ html[lang="en"] .lang-da { display: none; }
     border-right: 1px solid rgba(52, 211, 153, 0.12);
 }
 
+.chooser-panel--left::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(52, 211, 153, 0.18) 1px, transparent 1px);
+    background-size: 28px 28px;
+    opacity: 0.45;
+    transition: opacity 0.45s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.chooser-page.hovered-left .chooser-panel--left::before {
+    opacity: 0.75;
+}
+
 .chooser-panel--right {
     background: linear-gradient(225deg, #020c07 0%, #051610 60%, #0a1f12 100%);
 }
