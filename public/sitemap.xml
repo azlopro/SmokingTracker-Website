@@ -132,6 +132,18 @@
     <priority>0.5</priority>
   </url>
 
+  <url>
+    <loc>https://www.smokingtracker.com/posts/trump-psychedelics-eo-harm-reduction-cannabis.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.smokingtracker.com/posts/measurement-based-care.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   <!-- Legal & compliance -->
   <url>
     <loc>https://www.smokingtracker.com/security.html</loc>
