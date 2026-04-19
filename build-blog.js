@@ -41,14 +41,22 @@ function getPostTemplate() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{title}} - SmokingTracker</title>
     <meta name="description" content="{{description}}" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="author" content="{{author}}">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="SmokingTracker">
     <meta property="og:title" content="{{title}}">
     <meta property="og:description" content="{{description}}">
     <meta property="og:image" content="https://www.smokingtracker.com{{image}}">
+    <meta property="og:image:alt" content="{{title}}">
+    <meta property="og:image:type" content="image/webp">
     <meta property="og:url" content="https://www.smokingtracker.com/posts/{{slug}}.html">
+    <meta property="og:locale" content="{{ogLocale}}">
+    <meta property="article:published_time" content="{{date}}">
+    <meta property="article:section" content="{{category}}">
     <link rel="canonical" href="https://www.smokingtracker.com/posts/{{slug}}.html">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@smokingtracker">
     <meta name="twitter:title" content="{{title}}">
     <meta name="twitter:description" content="{{description}}">
     <meta name="twitter:image" content="https://www.smokingtracker.com{{image}}">
@@ -56,17 +64,34 @@ function getPostTemplate() {
     {
       "@context": "https://schema.org",
       "@type": "Article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.smokingtracker.com/posts/{{slug}}.html"
+      },
       "headline": "{{title}}",
       "description": "{{description}}",
       "datePublished": "{{date}}",
-      "author": { "@type": "Organization", "name": "SmokingTracker Team" },
+      "dateModified": "{{date}}",
+      "inLanguage": "{{lang}}",
+      "articleSection": "{{category}}",
+      "author": {
+        "@type": "Organization",
+        "name": "SmokingTracker",
+        "url": "https://www.smokingtracker.com"
+      },
       "publisher": {
         "@type": "Organization",
         "@id": "https://www.smokingtracker.com/#organization",
         "name": "SmokingTracker",
+        "url": "https://www.smokingtracker.com",
         "logo": { "@type": "ImageObject", "url": "https://www.smokingtracker.com/logo.png" }
       },
-      "image": "https://www.smokingtracker.com{{image}}"
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://www.smokingtracker.com{{image}}",
+        "width": 1200,
+        "height": 630
+      }
     }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -259,7 +284,8 @@ for (const file of mdFiles) {
         .replace(/\{\{content\}\}/g, htmlContent)
         .replace(/\{\{slug\}\}/g, slug)
         .replace(/\{\{date\}\}/g, front.date || '')
-        .replace(/\{\{image\}\}/g, front.image || '');
+        .replace(/\{\{image\}\}/g, front.image || '')
+        .replace(/\{\{ogLocale\}\}/g, front.lang === 'en' ? 'en_US' : 'da_DK');
 
     const outFile = path.join(OUTPUT_DIR, `${slug}.html`);
     fs.writeFileSync(outFile, page);
