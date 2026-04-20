@@ -71,6 +71,13 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://www.smokingtracker.com/resources.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
   <!-- Knowledge Base posts — SEO-targeted clinical content -->
   <url>
     <loc>https://www.smokingtracker.com/posts/cannabis-use-disorder-vs-casual-use.html</loc>

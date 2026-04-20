@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<style>html{visibility:hidden}</style>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/webp" href="/logo.webp" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clinical Resources — Cannabis Addiction Treatment | SmokingTracker</title>
+    <meta name="description" content="Curated North American clinical resources for cannabis use disorder treatment — SAMHSA guidelines, ASAM criteria, Health Canada data, and professional organizations." />
+    <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        :root {
+            --cat-clinical: #10b981;
+            --cat-government: #38bdf8;
+            --cat-research: #a78bfa;
+            --cat-patient: #fbbf24;
+            --cat-orgs: #fb7185;
+        }
+
+        .filter-bar-wrapper {
+            position: sticky;
+            top: 72px;
+            z-index: 50;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(2, 12, 7, 0.88);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem 0;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .filter-bar::-webkit-scrollbar { display: none; }
+
+        .filter-pill {
+            flex-shrink: 0;
+            border-radius: 9999px;
+            padding: 0.4rem 1.1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid var(--color-border);
+            background: var(--color-surface);
+            color: var(--color-text-secondary);
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .filter-pill:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        .filter-pill.active {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        .filter-pill[data-category="government"].active { background: var(--cat-government); border-color: var(--cat-government); color: #020c07; }
+        .filter-pill[data-category="research"].active { background: var(--cat-research); border-color: var(--cat-research); }
+        .filter-pill[data-category="patient"].active { background: var(--cat-patient); border-color: var(--cat-patient); color: #020c07; }
+        .filter-pill[data-category="orgs"].active { background: var(--cat-orgs); border-color: var(--cat-orgs); }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .resources-grid { grid-template-columns: 1fr; }
+        }
+
+        .resource-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+            border-radius: 14px;
+            border-left-width: 4px;
+            border-left-style: solid;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .resource-card:hover { transform: translateY(-3px); }
+
+        .resource-card[data-category="clinical"]   { border-left-color: var(--cat-clinical); }
+        .resource-card[data-category="government"] { border-left-color: var(--cat-government); }
+        .resource-card[data-category="research"]   { border-left-color: var(--cat-research); }
+        .resource-card[data-category="patient"]    { border-left-color: var(--cat-patient); }
+        .resource-card[data-category="orgs"]       { border-left-color: var(--cat-orgs); }
+
+        .resource-card-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 0.75rem;
+        }
+
+        .resource-icon {
+            font-size: 1.4rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .resource-cat-badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            padding: 0.2rem 0.6rem;
+            border-radius: 9999px;
+            border: 1px solid;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .resource-cat-badge[data-category="clinical"]   { color: var(--cat-clinical);   border-color: rgba(16, 185, 129, 0.3);  background: rgba(16, 185, 129, 0.08); }
+        .resource-cat-badge[data-category="government"] { color: var(--cat-government); border-color: rgba(56, 189, 248, 0.3);  background: rgba(56, 189, 248, 0.08); }
+        .resource-cat-badge[data-category="research"]   { color: var(--cat-research);   border-color: rgba(167, 139, 250, 0.3); background: rgba(167, 139, 250, 0.08); }
+        .resource-cat-badge[data-category="patient"]    { color: var(--cat-patient);    border-color: rgba(251, 191, 36, 0.3);  background: rgba(251, 191, 36, 0.08); }
+        .resource-cat-badge[data-category="orgs"]       { color: var(--cat-orgs);       border-color: rgba(251, 113, 133, 0.3); background: rgba(251, 113, 133, 0.08); }
+
+        .resource-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .resource-desc {
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .resource-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            margin-top: 0.25rem;
+        }
+
+        .resource-source {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.3);
+            font-weight: 500;
+        }
+
+        .resource-link {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            flex-shrink: 0;
+            transition: gap 0.2s ease;
+        }
+
+        .resource-link:hover { gap: 0.5rem; }
+
+        .resources-summary {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .resource-card[hidden] { display: none; }
+    </style>
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="SmokingTracker">
+    <meta property="og:title" content="Clinical Resources — Cannabis Addiction Treatment | SmokingTracker">
+    <meta property="og:description" content="Curated North American clinical resources for cannabis use disorder treatment — SAMHSA guidelines, ASAM criteria, Health Canada data, and professional organizations.">
+    <meta property="og:image" content="https://www.smokingtracker.com/logo.png">
+    <meta property="og:url" content="https://www.smokingtracker.com/resources.html">
+    <link rel="canonical" href="https://www.smokingtracker.com/resources.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Clinical Resources — Cannabis Addiction Treatment | SmokingTracker">
+    <meta name="twitter:description" content="Curated North American clinical resources for cannabis use disorder treatment — SAMHSA guidelines, ASAM criteria, Health Canada data, and professional organizations.">
+    <meta name="twitter:image" content="https://www.smokingtracker.com/logo.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Clinical Resources — Cannabis Addiction Treatment",
+      "description": "Curated North American clinical resources for cannabis use disorder treatment providers.",
+      "url": "https://www.smokingtracker.com/resources.html",
+      "publisher": { "@id": "https://www.smokingtracker.com/#organization" }
+    }
+    </script>
+</head>
+
+<body>
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/logo-icon.webp" alt="SmokingTracker Logo" class="logo-img" width="32" height="32">
+                <span class="logo-text">SmokingTracker</span>
+            </a>
+            <div class="nav-links">
+                <a href="/features.html">Features</a>
+                <a href="/for-clinicians.html">For Clinicians</a>
+                <a href="/for-individuals.html">For Individuals</a>
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/pricing.html">Pricing</a>
+                <a href="/about.html">About</a>
+                <a href="/knowledge-base.html">Blog</a>
+                <a href="/resources.html">Resources</a>
+            </div>
+            <div class="nav-actions">
+                <a href="/trial.html" class="btn btn-primary">Book a Demo</a>
+                <button class="mobile-menu-btn icon-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="4" x2="20" y1="12" y2="12" />
+                        <line x1="4" x2="20" y1="6" y2="6" />
+                        <line x1="4" x2="20" y1="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- ─── HERO ──────────────────────────────────────────── -->
+        <section class="hero" style="min-height: 38vh; padding-bottom: 0;">
+            <div class="hero-bg-glow"></div>
+            <div class="container hero-container" style="grid-template-columns: 1fr; text-align: center; max-width: 760px;">
+                <div class="hero-content" style="align-items: center;">
+                    <div class="badge fade-in-up">Resource Directory</div>
+                    <h1 class="fade-in-up" style="animation-delay: 0.1s">
+                        North American <span class="text-gradient">Clinical Resources</span>
+                    </h1>
+                    <p class="hero-subtitle fade-in-up" style="animation-delay: 0.2s; max-width: 600px;">
+                        Curated guidelines, government data, and professional tools for addiction treatment providers in the US and Canada.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── FILTER BAR ─────────────────────────────────────── -->
+        <div class="filter-bar-wrapper">
+            <div class="container">
+                <div class="filter-bar" role="tablist" aria-label="Filter resources by category">
+                    <button class="filter-pill active" data-category="all" role="tab" aria-selected="true">All Resources</button>
+                    <button class="filter-pill" data-category="clinical" role="tab" aria-selected="false">Clinical Guidelines</button>
+                    <button class="filter-pill" data-category="government" role="tab" aria-selected="false">Government &amp; Data</button>
+                    <button class="filter-pill" data-category="research" role="tab" aria-selected="false">Research</button>
+                    <button class="filter-pill" data-category="patient" role="tab" aria-selected="false">Patient Education</button>
+                    <button class="filter-pill" data-category="orgs" role="tab" aria-selected="false">Professional Orgs</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── RESOURCES ──────────────────────────────────────── -->
+        <section class="features-section" style="padding-top: 3rem;">
+            <div class="container">
+                <p class="resources-summary fade-in-up"><span id="resource-count">20</span> resources across 5 categories</p>
+                <div class="resources-grid" id="resources-grid">
+
+                    <!-- Clinical Guidelines -->
+                    <article class="resource-card glass fade-in-up" data-category="clinical">
+                        <div class="resource-card-top">
+                            <span class="resource-icon">📋</span>
+                            <span class="resource-cat-badge" data-category="clinical">Clinical</span>
+                        </div>
+                        <h3 class="resource-title">ASAM Clinical Practice Guidelines</h3>
+                        <p class="resource-desc">Evidence-based clinical practice guidelines from America's leading addiction medicine society — includes CUD assessment protocols and treatment recommendations.</p>
+                        <div class="resource-footer">
+                            <span class="resource-source">American Society of Addiction Medicine</span>
+                            <a href="https://www.asam.org/quality-care/clinical-guidelines" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                Visit resource
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="resource-card glass fade-in-up" data-category="clinical" style="animation-delay:0.05s">
+                        <div class="resource-card-top">
+                            <span class="resource-icon">📖</span>
+                            <span class="resource-cat-badge" data-category="clinical">Clinical</span>
+                        </div>
+                        <h3 class="resource-title">DSM-5-TR Cannabis Use Disorder Criteria</h3>
+                        <p class="resource-desc">Official APA diagnostic criteria for Cannabis Use Disorder (mild, moderate, severe) — the standard used in clinical assessment across North America.</p>
+                        <div class="resource-footer">
+                            <span class="resource-source">American Psychiatric Association</span>
+                            <a href="https://www.psychiatry.org/psychiatrists/practice/dsm" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                Visit resource
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="resource-card glass fade-in-up" data-category="clinical" style="animation-delay:0.1s">
+                        <div class="resource-card-top">
+                            <span class="resource-icon">💬</span>
+                            <span class="resource-cat-badge" data-category="clinical">Clinical</span>
+                        </div>
+                        <h3 class="resource-title">SAMHSA TIP 35: Enhancing Motivation for Change</h3>
+                        <p class="resource-desc">Practical counseling approaches for motivational interviewing in substance use treatment — directly applicable to cannabis use disorder programs.</p>
+                        <div class="resource-footer">
+                            <span class="resource-source">SAMHSA</span>
+                            <a href="https://store.samhsa.gov/product/tip-35-enhancing-motivation-change-substance-use-disorder-treatment/pep19-02-01-003" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                Visit resource
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="resource-card glass fade-in-up" data-category="clinical" style="animation-delay:0.15s">
+                        <div class="resource-card-top">
+                            <span class="resource-icon">🍁</span>
+                            <span class="resource-cat-badge" data-category="clinical">Clinical</span>
+                        </div>
+                        <h3 class="resource-title">CAMH Cannabis Policy Framework</h3>
+                        <p class="resource-desc">Canada's leading mental health center's evidence-based framework for cannabis policy, clinical practice, and treatment center guidelines.</p>
+                        <div class="resource-footer">
+                            <span class="resource-source">Centre for Addiction and Mental Health</span>
+                            <a href="https://www.camh.ca/en/camh-news-and-stories/cannabis-policy-framework" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                Visit resource
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Government & Data -->
+                    <article class="resource-card glass fade-in-up" data-category="government" style="animation-delay:0.05s">
+                        <div class="resource-card-top">
+                            <span class="resource-icon">📊</span>
+                            <span class="resource-cat-badge" data-category="government">Government</span>
+                        </div>
+                        <h3 class="resource-title">NSDUH — National Survey on Drug Use and Health</h3>
+                        <p class="resource-desc">Annual U.S. national survey covering substance use prevalence, treatment need, and mental health data — the primary epidemiological reference for U.S. treatment planning.</p>
+                        <div class="resource-footer">
+                            <span class="resource-source">SAMHSA</span>
+                            <a href="https://www.samhsa.gov/data/data-we-collect/nsduh-national-survey-drug-use-and-health" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                Visit resource
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="resource-card glass fade-in-up" data-category="government" style="animation-delay:0.1s">
+                        <div class="resource-card-top">
+                            <span class="resource-icon">🇨🇦</span>
+                            <span class="resource-cat-badge" data-category="government">Government</span>
+                        </div>
+                        <h3 class="resource-title">Canadian Cannabis Survey</h3>
+                        <p class="resource-desc">Annual tracking survey of Canadian cannabis use patterns, reasons for use, and health outcomes — essential reference for Canadian treatment programs.</p>
+                        <div class="resource-footer">
+                            <span class="resource-source">Health Canada</span>
+                            <a href="https://www.canada.ca/en/health-canada/services/drugs-medication/cannabis/research-data/canadian-cannabis-survey.html" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                Visit resource
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="resource-card glass fade-in-up" data-category="government" style="animation-delay:0.15s">
+                        <div class="resource-card-top">
+                            <span class="resource-icon">🏛️</span>
+                            <span class="resource-cat-badge" data-category="government">Government</span>
+                        </div>
+                        <h3 class="resource-title">CDC Cannabis &amp; Public Health</h3>
+                        <p class="resource-desc">Public health data on cannabis use rates, health effects, and state-level trend information — key reference for U.S. prevalence data and risk communication.</p>
+                        <div class="resource-footer">
+                            <span class="resource-source">Centers for Disease Control and Prevention</span>
+                            <a href="https://www.cdc.gov/marijuana/index.html" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                Visit resource
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="resource-card glass fade-in-up" data-category="government" style="animation-delay:0.2s">
+                        <div class="resource-card-top">
+                            <span class="resource-icon">🔬</span>
+                            <span class="resource-cat-badge" data-category="government">Government</span>
+                        </div>
+                        <h3 class="resource-title">NIDA Drug Facts: Cannabis (Marijuana)</h3>
+                        <p class="resource-desc">Research-backed overview of cannabis pharmacology, use patterns, addiction potential, and treatment evidence — authoritative federal reference.</p>
+                        <div class="resource-footer">
+                            <span class="resource-source">National Institute on Drug Abuse</span>
+                            <a href="https://nida.nih.gov/publications/drugfacts/cannabis-marijuana" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                Visit resource
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Research -->
+                    <article class="resource-card glass fade-in-up" data-category="research" style="animation-delay:0.05s">
+                        <div class="resource-card-top">
+                            <span class="resource-icon">🧪</span>
+                            <span class="resource-cat-badge" data-category="research">Research</span>
+                        </div>
+                        <h3 class="resource-title">NIDA Research Report: Cannabis (Marijuana)</h3>
+                        <p class="resource-desc">Comprehensive research summaries on cannabis addiction, health effects, and treatment outcomes — regularly updated with the latest NIH-funded findings.</p>
+                        <div class="resource-footer">
+                            <span class="resource-source">National Institute on Drug Abuse</span>
+                            <a href="https://nida.nih.gov/research-topics/cannabis-marijuana" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                Visit resource
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="resource-card glass fade-in-up" data-category="research" style="animation-delay:0.1s">
+                        <div class="resource-card-top">
+                            <span class="resource-icon">📄</span>
+                            <span class="resource-cat-badge" data-category="research">Research</span>
+                        </div>
+                        <h3 class="resource-title">Journal of Addiction Medicine</h3>
+                        <p class="resource-desc">Peer-reviewed research on addiction medicine — including cannabis use disorder treatment studies, pharmacotherapy trials, and behavioral intervention outcomes.</p>
+                        <div class="resource-footer">
+                            <span class="resource-source">American Society of Addiction Medicine</span>
+                            <a href="https://journals.lww.com/journaladdictionmedicine/" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                Visit resource
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="resource-card glass fade-in-up" data-category="research" style="animation-delay:0.15s">
+                        <div class="resource-card-top">
+                            <span class="resource-icon">🍁</span>
+                            <span class="resource-cat-badge" data-category="research">Research</span>
+                        </div>
+                        <h3 class="resource-title">CAMH Research: Cannabis</h3>
+                        <p class="resource-desc">Canadian research on cannabis use, mental health impacts, and population-level treatment data from North America's largest addiction research center.</p>
+                        <div class="resource-footer">
+                            <span class="resource-source">Centre for Addiction and Mental Health</span>
+                            <a href="https://www.camh.ca/en/science-and-research/institutes-and-centres/institute-for-mental-health-policy-research/key-areas-of-research/cannabis" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                Visit resource
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="resource-card glass fade-in-up" data-category="research" style="animation-delay:0.2s">
+                        <div class="resource-card-top">
+                            <span class="resource-icon">📚</span>
+                            <span class="resource-cat-badge" data-category="research">Research</span>
+                        </div>
+                        <h3 class="resource-title">Substance Use &amp; Misuse Journal</h3>
+                        <p class="resource-desc">International peer-reviewed journal covering addiction research, harm reduction strategies, and cannabis treatment outcomes across diverse populations.</p>
+                        <div class="resource-footer">
+                            <span class="resource-source">Taylor &amp; Francis</span>
+                            <a href="https://www.tandfonline.com/journals/isum20" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                Visit resource
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Patient Education -->
+                    <article class="resource-card glass fade-in-up" data-category="patient" style="animation-delay:0.05s">
+                        <div class="resource-card-top">
+                            <span class="resource-icon">🫂</span>
+                            <span class="resource-cat-badge" data-category="patient">Patient Ed</span>
+                        </div>
+                        <h3 class="resource-title">Know the Risks of Marijuana</h3>
+                        <p class="resource-desc">Plain-language patient resources on cannabis risks, dependency signs, and how to find treatment — suitable for sharing directly with clients in your program.</p>
+                        <div class="resource-footer">
+                            <span class="resource-source">SAMHSA</span>
+                            <a href="https://www.samhsa.gov/marijuana" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                Visit resource
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="resource-card glass fade-in-up" data-category="patient" style="animation-delay:0.1s">
+                        <div class="resource-card-top">
+                            <span class="resource-icon">🇨🇦</span>
+                            <span class="resource-cat-badge" data-category="patient">Patient Ed</span>
+                        </div>
+                        <h3 class="resource-title">Cannabis and Your Health</h3>
+                        <p class="resource-desc">Official Canadian patient-facing information on cannabis health effects, risks, and dependency — available in English and French for bilingual programs.</p>
+                        <div class="resource-footer">
+                            <span class="resource-source">Health Canada</span>
+                            <a href="https://www.canada.ca/en/health-canada/services/drugs-medication/cannabis/health-effects.html" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                Visit resource
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="resource-card glass fade-in-up" data-category="patient" style="animation-delay:0.15s">
+                        <div class="resource-card-top">
+                            <span class="resource-icon">🧑‍🎓</span>
+                            <span class="resource-cat-badge" data-category="patient">Patient Ed</span>
+                        </div>
+                        <h3 class="resource-title">NIDA for Teens: Marijuana</h3>
+                        <p class="resource-desc">Accessible, evidence-based cannabis education for adolescent clients — designed for youth-serving treatment programs and school-based prevention efforts.</p>
+                        <div class="resource-footer">
+                            <span class="resource-source">National Institute on Drug Abuse</span>
+                            <a href="https://teens.drugabuse.gov/drug-facts/marijuana" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                Visit resource
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="resource-card glass fade-in-up" data-category="patient" style="animation-delay:0.2s">
+                        <div class="resource-card-top">
+                            <span class="resource-icon">🤝</span>
+                            <span class="resource-cat-badge" data-category="patient">Patient Ed</span>
+                        </div>
+                        <h3 class="resource-title">Marijuana Anonymous</h3>
+                        <p class="resource-desc">12-step peer support community for cannabis use disorder — a free resource for treatment centers to share as part of a client's recovery support plan.</p>
+                        <div class="resource-footer">
+                            <span class="resource-source">Marijuana Anonymous</span>
+                            <a href="https://marijuana-anonymous.org/" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                Visit resource
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Professional Orgs -->
+                    <article class="resource-card glass fade-in-up" data-category="orgs" style="animation-delay:0.05s">
+                        <div class="resource-card-top">
+                            <span class="resource-icon">🏅</span>
+                            <span class="resource-cat-badge" data-category="orgs">Professional Orgs</span>
+                        </div>
+                        <h3 class="resource-title">NAADAC — Association for Addiction Professionals</h3>
+                        <p class="resource-desc">The leading membership organization for addiction counselors — offers CEUs, credentialing (NCAC, MAC), ethics guidance, and clinical practice resources.</p>
+                        <div class="resource-footer">
+                            <span class="resource-source">NAADAC</span>
+                            <a href="https://www.naadac.org/" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                Visit resource
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="resource-card glass fade-in-up" data-category="orgs" style="animation-delay:0.1s">
+                        <div class="resource-card-top">
+                            <span class="resource-icon">⚕️</span>
+                            <span class="resource-cat-badge" data-category="orgs">Professional Orgs</span>
+                        </div>
+                        <h3 class="resource-title">ASAM — American Society of Addiction Medicine</h3>
+                        <p class="resource-desc">Physician-focused addiction medicine society — ASAM Criteria for level of care, clinical guidelines, and board certification for addiction specialists.</p>
+                        <div class="resource-footer">
+                            <span class="resource-source">ASAM</span>
+                            <a href="https://www.asam.org/" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                Visit resource
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="resource-card glass fade-in-up" data-category="orgs" style="animation-delay:0.15s">
+                        <div class="resource-card-top">
+                            <span class="resource-icon">🍁</span>
+                            <span class="resource-cat-badge" data-category="orgs">Professional Orgs</span>
+                        </div>
+                        <h3 class="resource-title">CSAM — Canadian Society of Addiction Medicine</h3>
+                        <p class="resource-desc">Canada's primary professional organization for addiction medicine physicians and treatment specialists — clinical resources, education, and national advocacy.</p>
+                        <div class="resource-footer">
+                            <span class="resource-source">CSAM</span>
+                            <a href="https://csam-smca.org/" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                Visit resource
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="resource-card glass fade-in-up" data-category="orgs" style="animation-delay:0.2s">
+                        <div class="resource-card-top">
+                            <span class="resource-icon">🏢</span>
+                            <span class="resource-cat-badge" data-category="orgs">Professional Orgs</span>
+                        </div>
+                        <h3 class="resource-title">NAATP — National Association of Addiction Treatment Providers</h3>
+                        <p class="resource-desc">Membership organization for addiction treatment facilities — advocacy, ethical treatment standards, accreditation resources, and industry best practices.</p>
+                        <div class="resource-footer">
+                            <span class="resource-source">NAATP</span>
+                            <a href="https://www.naatp.org/" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                Visit resource
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── CTA ───────────────────────────────────────────── -->
+        <section class="cta-section">
+            <div class="container text-center">
+                <div class="cta-box glass fade-in-up">
+                    <h2>Ready to bring data into your practice?</h2>
+                    <p>SmokingTracker gives your treatment team real-time client engagement data between sessions — without adding burden to your workflow.</p>
+                    <a href="/trial.html" class="btn btn-primary btn-large cta-btn">Book a Free Demo</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="/" class="logo">
+                    <img src="/logo-icon.webp" alt="SmokingTracker Logo" class="logo-img" width="32" height="32">
+                    <span class="logo-text">SmokingTracker</span>
+                </a>
+                <p>Helping treatment centers deliver proactive, data-driven support while fully respecting client privacy.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Product</h4>
+                    <a href="/features.html">Features</a>
+                    <a href="/#how-it-works">How It Works</a>
+                    <a href="/pricing.html">Pricing</a>
+                    <a href="/faq.html">FAQ</a>
+                    <a href="/about.html">About</a>
+                    <a href="/knowledge-base.html">Blog</a>
+                    <a href="/resources.html">Resources</a>
+                </div>
+                <div class="link-group">
+                    <h4>Legal</h4>
+                    <a href="/privacy.html">Privacy Policy</a>
+                    <a href="/terms.html">Terms of Service</a>
+                    <a href="/dpa.html">Data Processing Agreement</a>
+                    <a href="/security.html">Security</a>
+                </div>
+                <div class="link-group">
+                    <h4>Connect</h4>
+                    <a href="mailto:support@smokingtracker.com">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 SmokingTracker. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const pills = document.querySelectorAll('.filter-pill');
+        const cards = document.querySelectorAll('.resource-card');
+        const countEl = document.getElementById('resource-count');
+
+        pills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                pills.forEach(p => {
+                    p.classList.remove('active');
+                    p.setAttribute('aria-selected', 'false');
+                });
+                pill.classList.add('active');
+                pill.setAttribute('aria-selected', 'true');
+
+                const cat = pill.dataset.category;
+                let visible = 0;
+                cards.forEach(card => {
+                    const show = cat === 'all' || card.dataset.category === cat;
+                    card.hidden = !show;
+                    if (show) visible++;
+                });
+                countEl.textContent = visible;
+            });
+        });
+    </script>
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>
