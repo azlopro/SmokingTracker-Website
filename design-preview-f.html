@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Design Preview E — TheraPlatform-inspired</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --purple:      #10b981;
+    --purple-hero: #020c07;
+    --purple-mid:  #34d399;
+    --purple-pale: #f0fdf4;
+    --purple-tint: rgba(16,185,129,0.12);
+    --orange:      #10b981;
+    --orange-dark: #059669;
+    --white:       #ffffff;
+    --bg-alt:      #f4fdf8;
+    --border:      #d1fae5;
+    --border-light:#e5f9f0;
+    --text:        #111f18;
+    --text-mid:    #3d5c4e;
+    --text-dim:    #7a9a8c;
+    --green:       #16a34a;
+    --green-bg:    #ecfdf5;
+    --amber:       #b45309;
+    --amber-bg:    #fffbeb;
+    --red:         #b91c1c;
+    --red-bg:      #fef2f2;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body { background: var(--white); color: var(--text); min-height: 100vh; }
+
+  /* ─── NAV ─── */
+  nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2.5rem; height: 66px;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-icon {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: var(--purple); display: grid; place-items: center;
+  }
+  .nav-icon svg { stroke: white; fill: none; }
+  .nav-wordmark { font-size: 15px; font-weight: 800; color: var(--text); letter-spacing: -0.3px; }
+  .nav-links { display: flex; gap: 0.25rem; }
+  .nav-links a {
+    font-size: 14px; color: var(--text-mid); text-decoration: none; font-weight: 500;
+    padding: 7px 14px; border-radius: 6px;
+  }
+  .nav-links a.active { color: var(--purple); font-weight: 600; }
+  .nav-links a:hover { background: var(--purple-pale); }
+  .nav-right { display: flex; align-items: center; gap: 0.75rem; }
+  .nav-signin { font-size: 14px; color: var(--text-mid); font-weight: 500; text-decoration: none; padding: 8px 14px; }
+  .nav-trial {
+    background: var(--orange); color: white; border: none;
+    padding: 10px 22px; border-radius: 7px; font-size: 14px; font-weight: 700; cursor: pointer;
+    letter-spacing: 0.01em;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--purple);
+    position: relative; overflow: hidden;
+    padding: 4.5rem 2.5rem 0;
+  }
+  /* dot grid texture */
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1140px; margin: 0 auto; position: relative;
+    display: grid; grid-template-columns: 1fr 520px; gap: 3rem; align-items: center;
+    padding-bottom: 4rem;
+  }
+  @media (max-width: 860px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-image { display: none; }
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 3.8vw, 3rem);
+    font-weight: 800; line-height: 1.18; color: white;
+    letter-spacing: -0.6px; margin-bottom: 1.25rem;
+  }
+  .hero-sub {
+    font-size: 1.05rem; color: rgba(255,255,255,0.82); line-height: 1.7;
+    margin-bottom: 2rem; max-width: 520px;
+  }
+  .hero-btns { display: flex; gap: 0.85rem; flex-wrap: wrap; margin-bottom: 0.85rem; }
+  .btn-orange {
+    background: var(--orange); color: white; border: none;
+    padding: 13px 28px; border-radius: 7px; font-size: 15px; font-weight: 700; cursor: pointer;
+    box-shadow: 0 4px 14px rgba(232,65,24,0.4);
+  }
+  .btn-white-outline {
+    background: transparent; color: white;
+    border: 2px solid rgba(255,255,255,0.45);
+    padding: 11px 24px; border-radius: 7px; font-size: 15px; font-weight: 600; cursor: pointer;
+  }
+  .hero-microcopy { font-size: 12.5px; color: rgba(255,255,255,0.5); margin-bottom: 2.25rem; }
+
+  /* HIPAA badge */
+  .hero-badge-row { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+  .hipaa-badge {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px; padding: 7px 14px;
+  }
+  .hipaa-icon {
+    width: 30px; height: 30px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hipaa-text { display: flex; flex-direction: column; }
+  .hipaa-label { font-size: 8px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.6); line-height: 1; }
+  .hipaa-value { font-size: 13px; font-weight: 800; color: white; letter-spacing: 0.05em; line-height: 1.3; }
+  .compliance-pill {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.75);
+  }
+  .compliance-pill svg { opacity: 0.7; flex-shrink: 0; }
+
+  /* Hero image side */
+  .hero-image {
+    position: relative;
+    display: flex; align-items: flex-end; justify-content: center;
+  }
+  .hero-blob {
+    position: absolute; bottom: -30px; right: -40px;
+    width: 420px; height: 380px; z-index: 0;
+    opacity: 0.18;
+  }
+  .hero-screenshot-frame {
+    position: relative; z-index: 1;
+    background: white; border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    box-shadow: 0 -8px 40px rgba(0,0,0,0.3);
+    width: 100%;
+  }
+  .hero-screenshot-bar {
+    background: #f3f4f6; border-bottom: 1px solid #e5e7eb;
+    padding: 8px 14px; display: flex; align-items: center; gap: 6px;
+  }
+  .chrome-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .hero-screenshot-bar-url {
+    font-size: 11px; color: #9ca3af; background: white; border: 1px solid #e5e7eb;
+    border-radius: 4px; padding: 3px 10px; margin-left: 8px; flex: 1; max-width: 260px;
+  }
+  .hero-screenshot-body {
+    background: #fafafa; padding: 12px;
+    display: flex; flex-direction: column; gap: 7px;
+  }
+  .dash-header-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 2px 6px;
+  }
+  .dash-header-row span:first-child { font-size: 13px; font-weight: 700; color: var(--text); }
+  .dash-header-row span:last-child { font-size: 11px; color: var(--text-dim); }
+  .client-row-item {
+    display: flex; align-items: center; gap: 10px;
+    background: white; border: 1px solid var(--border-light);
+    border-radius: 8px; padding: 9px 12px;
+  }
+  .c-av { width: 32px; height: 32px; border-radius: 7px; display: grid; place-items: center; font-size: 11.5px; font-weight: 700; flex-shrink: 0; }
+  .av-r { background: var(--red-bg); color: var(--red); }
+  .av-a { background: var(--amber-bg); color: var(--amber); }
+  .av-g { background: var(--green-bg); color: var(--green); }
+  .c-info { flex: 1; }
+  .c-name { font-size: 12.5px; font-weight: 600; color: var(--text); }
+  .c-meta { font-size: 10.5px; color: var(--text-dim); margin-top: 1px; }
+  .c-status { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 5px; flex-shrink: 0; }
+  .s-r { background: var(--red-bg); color: var(--red); }
+  .s-a { background: var(--amber-bg); color: var(--amber); }
+  .s-g { background: var(--green-bg); color: var(--green); }
+
+  /* SVG wave */
+  .hero-wave { display: block; margin-bottom: -2px; width: 100%; }
+
+  /* ─── BENEFIT STRIP ─── */
+  .benefit-strip {
+    padding: 3.5rem 2.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .benefit-strip h2 {
+    font-size: clamp(1.5rem, 2.8vw, 2.1rem); font-weight: 800;
+    color: var(--text); letter-spacing: -0.4px; margin-bottom: 0.6rem;
+  }
+  .benefit-strip p {
+    font-size: 1rem; color: var(--text-mid); max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.65;
+  }
+
+  .benefit-grid {
+    max-width: 1080px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+  }
+  @media (max-width: 780px) { .benefit-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .benefit-grid { grid-template-columns: 1fr; } }
+
+  .benefit-card {
+    background: var(--bg-alt); border-radius: 14px;
+    padding: 1.75rem 1.5rem 1.5rem;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+  .benefit-icon-wrap {
+    width: 56px; height: 56px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem;
+  }
+  .benefit-icon-wrap svg { stroke-width: 2; }
+  .benefit-title { font-size: 14.5px; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
+  .benefit-body { font-size: 13px; color: var(--text-mid); line-height: 1.6; margin-bottom: 0.85rem; }
+  .benefit-link { font-size: 13px; font-weight: 600; color: var(--purple); text-decoration: none; }
+  .benefit-link:hover { text-decoration: underline; }
+
+  /* ─── FEATURE SPLITS ─── */
+  .feature-section { padding: 5rem 2.5rem; }
+  .feature-section.tinted { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+  .feature-inner {
+    max-width: 1080px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .feature-inner.reverse { direction: rtl; }
+  .feature-inner.reverse > * { direction: ltr; }
+  @media (max-width: 780px) {
+    .feature-inner, .feature-inner.reverse { grid-template-columns: 1fr; direction: ltr; gap: 2.5rem; }
+  }
+
+  .feature-eyebrow { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--purple); margin-bottom: 0.65rem; }
+  .feature-title { font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 800; color: var(--text); line-height: 1.2; letter-spacing: -0.4px; margin-bottom: 0.8rem; }
+  .feature-body { font-size: 14.5px; color: var(--text-mid); line-height: 1.7; margin-bottom: 1.4rem; }
+  .feature-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.5rem; }
+  .feature-bullets li { display: flex; align-items: flex-start; gap: 9px; font-size: 14px; color: var(--text-mid); line-height: 1.5; }
+  .bullet-check {
+    width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0; margin-top: 1px;
+    background: var(--purple-tint);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .bullet-check svg { stroke: var(--purple); stroke-width: 2.5; fill: none; }
+  .feature-cta { font-size: 14px; font-weight: 600; color: var(--purple); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+  .feature-cta:hover { text-decoration: underline; }
+
+  /* image side with blob */
+  .feature-visual { position: relative; }
+  .feature-blob {
+    position: absolute; top: -30px; right: -30px;
+    width: 340px; height: 340px; z-index: 0;
+    border-radius: 50% 60% 50% 70% / 60% 50% 70% 50%;
+    background: var(--purple-tint);
+  }
+  .feature-blob.left { left: -30px; right: auto; }
+  .feature-img {
+    position: relative; z-index: 1;
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 12px 40px rgba(78,59,181,0.18);
+    background: white; border: 1px solid var(--border);
+  }
+  .feature-img img { display: block; width: 100%; height: auto; }
+  .feature-img-placeholder {
+    background: linear-gradient(135deg, var(--purple-tint) 0%, var(--bg-alt) 100%);
+    min-height: 280px; display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 0.75rem; color: var(--purple);
+  }
+  .feature-img-placeholder svg { opacity: 0.4; }
+  .feature-img-placeholder span { font-size: 13px; font-weight: 600; opacity: 0.5; }
+
+  /* ─── EVIDENCE ─── */
+  .evidence-section {
+    padding: 5rem 2.5rem;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+  }
+  .section-center { text-align: center; margin-bottom: 2.5rem; }
+  .section-eyebrow { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--purple); margin-bottom: 0.6rem; }
+  .section-title { font-size: clamp(1.5rem, 2.8vw, 2rem); font-weight: 800; color: var(--text); letter-spacing: -0.4px; margin-bottom: 0.6rem; }
+  .section-sub { font-size: 1rem; color: var(--text-mid); line-height: 1.7; max-width: 520px; margin: 0 auto; }
+
+  .evidence-grid {
+    max-width: 1080px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+  @media (max-width: 680px) { .evidence-grid { grid-template-columns: 1fr; } }
+  .ev-card {
+    background: var(--bg-alt); border: 1px solid var(--border);
+    border-left: 3px solid var(--purple);
+    border-radius: 10px; padding: 1.4rem 1.6rem;
+  }
+  .ev-tag { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: var(--purple); margin-bottom: 0.4rem; }
+  .ev-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
+  .ev-body { font-size: 13.5px; color: var(--text-mid); line-height: 1.65; }
+  .ref-chip { display: inline-flex; background: var(--purple-tint); color: var(--purple); font-size: 10px; font-weight: 700; border-radius: 3px; padding: 1px 5px; font-family: monospace; margin-left: 3px; }
+
+  /* ─── HOW IT WORKS ─── */
+  .how-section {
+    padding: 5rem 2.5rem;
+    background: var(--bg-alt);
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  .steps-grid {
+    max-width: 1080px; margin: 2.5rem auto 0;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  @media (max-width: 700px) { .steps-grid { grid-template-columns: 1fr; } }
+  .step-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.75rem 1.5rem;
+    text-align: left;
+  }
+  .step-num-pill {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--purple); color: white;
+    font-size: 13px; font-weight: 800; margin-bottom: 1rem;
+  }
+  .step-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 0.45rem; }
+  .step-body { font-size: 13.5px; color: var(--text-mid); line-height: 1.65; }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    background: var(--purple); padding: 5.5rem 2.5rem; text-align: center;
+  }
+  .cta-section h2 {
+    font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 800; color: white;
+    letter-spacing: -0.5px; margin-bottom: 0.85rem;
+  }
+  .cta-section p { font-size: 1.05rem; color: rgba(255,255,255,0.8); max-width: 520px; margin: 0 auto 2rem; line-height: 1.65; }
+  .cta-btns { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; }
+  .btn-orange-lg { background: var(--orange); color: white; border: none; padding: 14px 32px; border-radius: 8px; font-size: 15.5px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 20px rgba(232,65,24,0.45); }
+  .btn-ghost { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.4); padding: 12px 28px; border-radius: 8px; font-size: 15.5px; font-weight: 600; cursor: pointer; }
+  .cta-note { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 0.9rem; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+    </div>
+    <span class="nav-wordmark">SmokingTracker</span>
+  </a>
+  <div class="nav-links">
+    <a href="#" class="active">For Clinicians</a>
+    <a href="#">Features</a>
+    <a href="#">Pricing</a>
+    <a href="#">Resources</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-signin" href="#">Sign In</a>
+    <button class="nav-trial">Start 30-Day Free Trial</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+
+    <!-- Left: text -->
+    <div class="hero-text">
+      <h1>Your clients can't accurately recall a week of use. Now they don't have to.</h1>
+      <p class="hero-sub">SmokingTracker captures consumption, mood, and cravings the moment they happen — not reconstructed in session days later. Three taps to log. One click to get session-ready data.</p>
+      <div class="hero-btns">
+        <button class="btn-orange">Start 30-Day Free Trial</button>
+        <button class="btn-white-outline">Schedule Demo</button>
+      </div>
+      <p class="hero-microcopy">* no credit card required; no setup fee; cancel anytime</p>
+      <div class="hero-badge-row">
+        <!-- HIPAA badge -->
+        <div class="hipaa-badge">
+          <div class="hipaa-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </div>
+          <div class="hipaa-text">
+            <span class="hipaa-label">HIPAA</span>
+            <span class="hipaa-value">COMPLIANT</span>
+          </div>
+        </div>
+        <div class="compliance-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          42 CFR Part 2
+        </div>
+        <div class="compliance-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+          EMA-based
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: dashboard mockup -->
+    <div class="hero-image">
+      <svg class="hero-blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path fill="white" d="M47.5,-61.3C60.2,-51.3,68.5,-35.6,71.2,-19.2C73.9,-2.8,71.1,14.3,63.3,28.7C55.5,43.1,42.8,54.8,27.8,62.2C12.8,69.6,-4.5,72.7,-21.3,68.8C-38.1,64.9,-54.4,54,-64.5,38.8C-74.6,23.7,-78.5,4.2,-73.7,-12.5C-68.9,-29.2,-55.4,-43.1,-40.5,-52.8C-25.6,-62.5,-9.3,-68,5.9,-74.9C21.1,-81.8,34.8,-71.3,47.5,-61.3Z" transform="translate(100 100)"/>
+      </svg>
+      <div class="hero-screenshot-frame">
+        <div class="hero-screenshot-bar">
+          <div class="chrome-dot" style="background:#ef4444"></div>
+          <div class="chrome-dot" style="background:#f59e0b"></div>
+          <div class="chrome-dot" style="background:#22c55e"></div>
+          <div class="hero-screenshot-bar-url">app.smokingtracker.com</div>
+        </div>
+        <div class="hero-screenshot-body">
+          <div class="dash-header-row">
+            <span>Client Overview — This Week</span>
+            <span>3 clients active</span>
+          </div>
+          <div class="client-row-item">
+            <div class="c-av av-r">JM</div>
+            <div class="c-info">
+              <div class="c-name">James M.</div>
+              <div class="c-meta">Evening trigger flagged · 4 sessions this week</div>
+            </div>
+            <span class="c-status s-r">High risk</span>
+          </div>
+          <div class="client-row-item">
+            <div class="c-av av-a">SR</div>
+            <div class="c-info">
+              <div class="c-name">Sarah R.</div>
+              <div class="c-meta">Mood dip Tue–Thu · Stable pattern</div>
+            </div>
+            <span class="c-status s-a">Monitor</span>
+          </div>
+          <div class="client-row-item">
+            <div class="c-av av-g">TK</div>
+            <div class="c-info">
+              <div class="c-name">Tom K.</div>
+              <div class="c-meta">Week 3 of reduction plan</div>
+            </div>
+            <span class="c-status s-g">On track</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Curved wave -->
+  <svg class="hero-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,30 C360,70 1080,-10 1440,30 L1440,60 L0,60 Z" fill="white"/>
+  </svg>
+</div>
+
+<!-- BENEFIT STRIP -->
+<div class="benefit-strip">
+  <h2>Everything your practice needs to track what actually happened between sessions</h2>
+  <p>Built for outpatient substance use disorder programs — CBT, harm reduction, IOPs — where between-session data is the difference between guessing and knowing.</p>
+
+  <div class="benefit-grid">
+    <div class="benefit-card">
+      <div class="benefit-icon-wrap" style="background:#ede9ff">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5b4fcf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="benefit-title">Real-time EMA logging</div>
+      <div class="benefit-body">Clients log in the moment — not reconstructed days later in session. Three taps, no cognitive load.</div>
+      <a class="benefit-link" href="#">read more...</a>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon-wrap" style="background:#ecfdf5">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      </div>
+      <div class="benefit-title">Practitioner dashboard</div>
+      <div class="benefit-body">Traffic light status, trigger alarms, and week-over-week trends before clients walk through the door.</div>
+      <a class="benefit-link" href="#">read more...</a>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon-wrap" style="background:#fff7ed">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#c2410c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </div>
+      <div class="benefit-title">One-click PDF reports</div>
+      <div class="benefit-body">Session-ready clinical report in one click. Attach directly to any EHR system — no formatting required.</div>
+      <a class="benefit-link" href="#">read more...</a>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon-wrap" style="background:#ede9ff">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5b4fcf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <div class="benefit-title">Privacy by Design</div>
+      <div class="benefit-body">Clients control what they share. Consent can be extended or withdrawn at any time — no sharing required to start.</div>
+      <a class="benefit-link" href="#">read more...</a>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURE: Dashboard -->
+<div class="feature-section">
+  <div class="feature-inner">
+    <div class="feature-text">
+      <div class="feature-eyebrow">Practitioner Dashboard</div>
+      <h2 class="feature-title">Know which clients need attention before they tell you</h2>
+      <p class="feature-body">A live overview of every client's usage, mood, and trigger patterns. No prep work required — the data is already structured and ready before the session starts.</p>
+      <ul class="feature-bullets">
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Traffic light status — Green, Yellow, or Red at a glance</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Custom trigger alarms via app, email, or SMS</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Week-over-week trend for every client</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>One-click PDF report — attach to any EHR</li>
+      </ul>
+      <a class="feature-cta" href="#">Explore dashboard features →</a>
+    </div>
+    <div class="feature-visual">
+      <div class="feature-blob"></div>
+      <div class="feature-img">
+        <div class="feature-img-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          <span>Dashboard screenshot goes here</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURE: Client App -->
+<div class="feature-section tinted">
+  <div class="feature-inner reverse">
+    <div class="feature-text">
+      <div class="feature-eyebrow">Client App</div>
+      <h2 class="feature-title">Three taps. No cognitive load.</h2>
+      <p class="feature-body">Clients log a session the moment it happens — not reconstructed in your office days later. Built for people in active substance use, where working memory is already taxed.</p>
+      <ul class="feature-bullets">
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Three required taps — nothing more to start</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Optional: mood, trigger, location, and notes</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Works in any browser — no app store download</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Fast-use warning notifies the client in the moment</li>
+      </ul>
+      <a class="feature-cta" href="#">Explore client app features →</a>
+    </div>
+    <div class="feature-visual">
+      <div class="feature-blob left"></div>
+      <div class="feature-img">
+        <div class="feature-img-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          <span>Client app screenshot goes here</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURE: Privacy -->
+<div class="feature-section">
+  <div class="feature-inner">
+    <div class="feature-text">
+      <div class="feature-eyebrow">Privacy by Design</div>
+      <h2 class="feature-title">Start private. Share when ready.</h2>
+      <p class="feature-body">The tool works for the client first — no sharing required to start. Gradually extending data sharing can itself become part of the therapeutic process.</p>
+      <ul class="feature-bullets">
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Works as a private self-monitoring tool first</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Share logs, mood, triggers, and notes independently</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Consent extended or withdrawn at any time</li>
+      </ul>
+      <a class="feature-cta" href="#">Explore privacy features →</a>
+    </div>
+    <div class="feature-visual">
+      <div class="feature-blob"></div>
+      <div class="feature-img">
+        <div class="feature-img-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Consent screen screenshot goes here</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EVIDENCE -->
+<div class="evidence-section">
+  <div class="section-center">
+    <div class="section-eyebrow">Evidence base</div>
+    <h2 class="section-title">Built on peer-reviewed research</h2>
+    <p class="section-sub">No marketing claims — only research and the design decisions that follow from it.</p>
+  </div>
+  <div class="evidence-grid">
+    <div class="ev-card">
+      <div class="ev-tag">Recall bias</div>
+      <div class="ev-title">Retrospective self-report is unreliable</div>
+      <div class="ev-body">EMA captures behavior as it happens — dramatically improving accuracy versus reconstructed recall.<span class="ref-chip">1</span></div>
+    </div>
+    <div class="ev-card">
+      <div class="ev-tag">Proximal triggers</div>
+      <div class="ev-title">Craving and context predict use episodes</div>
+      <div class="ev-body">These associations only appear in real-time data — they vanish in retrospective reports.<span class="ref-chip">2</span><span class="ref-chip">3</span></div>
+    </div>
+    <div class="ev-card">
+      <div class="ev-tag">Measurement-based care</div>
+      <div class="ev-title">Timely feedback improves outcomes</div>
+      <div class="ev-body">MBC principles have strong evidence for improving outcomes when feedback is timely and systematic.<span class="ref-chip">4</span><span class="ref-chip">5</span></div>
+    </div>
+    <div class="ev-card">
+      <div class="ev-tag">CUD-specific EMA</div>
+      <div class="ev-title">Validated for cannabis use disorder</div>
+      <div class="ev-body">Captures dynamic mood–craving–use relationships that structured clinical interviews consistently miss.<span class="ref-chip">6</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="how-section">
+  <div class="section-eyebrow">How it works</div>
+  <h2 class="section-title">Up and running in under a day</h2>
+  <p class="section-sub" style="max-width:480px;margin:0.5rem auto 0;color:var(--text-mid);font-size:1rem;line-height:1.65;">No technical setup required on the client side.</p>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num-pill">1</div>
+      <div class="step-title">Invite the client</div>
+      <div class="step-body">Send a link by email, SMS, or manual handoff. No app download, no account friction for the client.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num-pill">2</div>
+      <div class="step-title">They track between sessions</div>
+      <div class="step-body">Clients log in the moment — sessions, mood, triggers. Three taps. No cognitive load required.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num-pill">3</div>
+      <div class="step-title">You see patterns before they arrive</div>
+      <div class="step-body">Traffic light status, trends, and trigger alarms before clients walk through the door. One-click PDF for the file.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Ready to stop relying on what clients remember?</h2>
+  <p>Book a free 20-minute demo. See how SmokingTracker fits your existing CBT or harm reduction workflow.</p>
+  <div class="cta-btns">
+    <button class="btn-orange-lg">Start 30-Day Free Trial</button>
+    <button class="btn-ghost">Schedule a Demo</button>
+  </div>
+  <div class="cta-note">No credit card required · No setup fee · Cancel anytime</div>
+</div>
+
+<div style="text-align:center;padding:1rem 1rem 2rem;font-size:12px;color:#9ca3af;">
+  Preview E v2 — Full purple hero, orange CTA, curved wave, blob shapes, benefit grid with icon cards, feature splits with "read more" links
+</div>
+
+</body>
+</html>

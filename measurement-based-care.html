@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<style>html{visibility:hidden}</style>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/webp" href="/logo.webp" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Measurement-Based Care for Cannabis Use Disorder | SmokingTracker</title>
+<meta name="description" content="How measurement-based care (MBC) improves outcomes in cannabis use disorder treatment. Track real outcomes with EMA data — not clinical impression. Backed by randomised trial evidence." />
+<link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.smokingtracker.com/measurement-based-care.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Measurement-Based Care for Cannabis Use Disorder | SmokingTracker">
+<meta property="og:description" content="MBC for cannabis use disorder: track outcomes with objective EMA data, not recall or clinical impression. Evidence-based framework with large effect sizes.">
+<meta property="og:url" content="https://www.smokingtracker.com/measurement-based-care.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Measurement-Based Care for Cannabis Use Disorder",
+  "url": "https://www.smokingtracker.com/measurement-based-care.html",
+  "description": "SmokingTracker operationalises measurement-based care for cannabis use disorder treatment using Ecological Momentary Assessment — objective, real-time outcome tracking for clinicians.",
+  "publisher": { "@id": "https://www.smokingtracker.com/#organization" }
+}
+</script>
+<style>
+  /* Feature page hero */
+  .feature-hero { background: var(--green); position: relative; overflow: hidden; padding: 4rem 2.5rem 0; text-align: center; }
+  .feature-hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 28px 28px; pointer-events: none; }
+  .feature-hero-inner { max-width: 760px; margin: 0 auto; position: relative; padding-bottom: 3.5rem; }
+  .feature-hero h1 { font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 800; color: white; letter-spacing: -0.6px; line-height: 1.15; margin-bottom: 1.25rem; }
+  .feature-hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.82); line-height: 1.7; margin-bottom: 2rem; }
+  .feature-hero-btns { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; }
+  .breadcrumb { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem; }
+  .breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  .breadcrumb a:hover { color: white; }
+
+  /* MBC principles section */
+  .mbc-principles { background: var(--green-pale); padding: 5rem 2.5rem; }
+  .mbc-principles-inner { max-width: 1080px; margin: 0 auto; }
+  .mbc-header { text-align: center; margin-bottom: 3.5rem; }
+  .mbc-tag { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--green); margin-bottom: 0.85rem; }
+  .mbc-header h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 800; color: var(--color-heading); letter-spacing: -0.4px; line-height: 1.2; }
+  .mbc-header p { font-size: 1.05rem; color: var(--color-text-secondary); margin-top: 0.85rem; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+  .mbc-steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  @media (max-width: 860px) { .mbc-steps-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 500px) { .mbc-steps-grid { grid-template-columns: 1fr; } }
+  .mbc-step { background: white; border: 1px solid var(--color-border); border-radius: 14px; padding: 1.5rem; }
+  .mbc-step-num { width: 36px; height: 36px; background: var(--green); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; font-weight: 800; margin-bottom: 0.85rem; }
+  .mbc-step h3 { font-size: 0.95rem; font-weight: 700; color: var(--color-heading); margin-bottom: 0.4rem; }
+  .mbc-step p { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6; }
+
+  /* Stat callout */
+  .stat-callout { background: var(--green); color: white; padding: 4rem 2.5rem; text-align: center; }
+  .stat-callout-inner { max-width: 860px; margin: 0 auto; }
+  .stat-callout h2 { font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+  .stat-callout p { font-size: 1.05rem; color: rgba(255,255,255,0.82); line-height: 1.7; max-width: 560px; margin: 0 auto; }
+  .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+  @media (max-width: 640px) { .stat-grid { grid-template-columns: 1fr; } }
+  .stat-item .stat-num { font-size: 3rem; font-weight: 900; color: white; line-height: 1; }
+  .stat-item .stat-label { font-size: 0.9rem; color: rgba(255,255,255,0.72); margin-top: 0.4rem; line-height: 1.5; }
+
+  /* Ev card */
+  .ev-card { border-left: 3px solid var(--green) !important; }
+
+  @media (max-width: 860px) { .feature-inner, .feature-inner.reverse { grid-template-columns: 1fr !important; direction: ltr !important; gap: 2.5rem; } }
+  @media (max-width: 680px) { .evidence-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 480px) { .how-section .steps-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+
+<body class="light-theme">
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-icon"><img src="/logo-icon.webp" width="22" height="22" alt="SmokingTracker" style="display:block;object-fit:contain;"></div>
+    <span class="nav-wordmark">SmokingTracker</span>
+  </a>
+  <div class="nav-links">
+    <a href="/features.html" class="active">Features</a>
+    <a href="/for-clinicians.html">For Clinicians</a>
+    <a href="/for-individuals.html">For Individuals</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/about.html">About</a>
+    <a href="/knowledge-base.html">Blog</a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-signin" href="#">Sign In</a>
+    <a href="/trial.html" class="nav-trial">Start Free Trial</a>
+  </div>
+</nav>
+
+<!-- FEATURE HERO -->
+<section class="feature-hero">
+  <div class="feature-hero-inner">
+    <div class="breadcrumb">
+      <a href="/features.html">Features</a>
+      <span>›</span>
+      <span>Measurement-Based Care</span>
+    </div>
+    <div class="feature-eyebrow" style="color:rgba(255,255,255,0.75);font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.85rem;">Evidence-Based Framework</div>
+    <h1>Measure outcomes. Adjust treatment. Get better results.</h1>
+    <p class="feature-hero-sub">Measurement-based care is the evidence-based practice of using systematic, repeated outcome measurement to guide clinical decisions. SmokingTracker operationalises MBC for cannabis use disorder using real-time EMA data — not end-of-week recall questionnaires.</p>
+    <div class="feature-hero-btns">
+      <a href="/trial.html" class="btn-orange-lg">Start 30-Day Free Trial</a>
+      <a href="/for-clinicians.html" class="btn-ghost">See Full Platform</a>
+    </div>
+  </div>
+  <svg class="hero-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,30 C360,70 1080,-10 1440,30 L1440,60 L0,60 Z" fill="white"/>
+  </svg>
+</section>
+
+<!-- MBC PRINCIPLES -->
+<section class="mbc-principles">
+  <div class="mbc-principles-inner">
+    <div class="mbc-header">
+      <div class="mbc-tag">The MBC Loop</div>
+      <h2>Four steps. Repeated every session.</h2>
+      <p>Measurement-based care works through a systematic feedback loop. SmokingTracker handles steps 1 and 2 automatically — so you can focus on steps 3 and 4.</p>
+    </div>
+    <div class="mbc-steps-grid reveal">
+      <div class="mbc-step">
+        <div class="mbc-step-num">1</div>
+        <h3>Measure</h3>
+        <p>Collect objective outcome data continuously — use frequency, mood, craving scores, triggers — via EMA. No questionnaire to assign. No recall bias.</p>
+      </div>
+      <div class="mbc-step">
+        <div class="mbc-step-num">2</div>
+        <h3>Track</h3>
+        <p>Visualise changes over time on the practitioner dashboard. Traffic-light status flags deterioration automatically — you don't have to notice it manually.</p>
+      </div>
+      <div class="mbc-step">
+        <div class="mbc-step-num">3</div>
+        <h3>Share</h3>
+        <p>Review the data with your client during the session. Shared progress review strengthens therapeutic alliance and increases client accountability.</p>
+      </div>
+      <div class="mbc-step">
+        <div class="mbc-step-num">4</div>
+        <h3>Adjust</h3>
+        <p>Change your approach based on what the data shows — not clinical impression alone. MBC's effect comes from this adjustment loop, not just measurement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAT CALLOUT -->
+<section class="stat-callout">
+  <div class="stat-callout-inner">
+    <h2>The evidence for measurement-based care is large and consistent</h2>
+    <p>Across randomised trials and systematic reviews, MBC outperforms treatment-as-usual by wide margins — particularly for clients at risk of treatment failure.</p>
+    <div class="stat-grid">
+      <div class="stat-item">
+        <div class="stat-num">58%</div>
+        <div class="stat-label">reduction in symptom severity vs. treatment-as-usual in MBC trials</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2×</div>
+        <div class="stat-label">higher treatment retention when clients receive regular progress feedback</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3×</div>
+        <div class="stat-label">more treatment plan adjustments by clinicians who have access to outcome data</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE SPLITS -->
+<section class="feature-section">
+  <div class="feature-inner reveal">
+    <div class="feature-text">
+      <div class="feature-eyebrow">Why EMA, not questionnaires</div>
+      <h2 class="feature-title">MBC requires valid data. Cannabis impairs the recall that questionnaires depend on.</h2>
+      <p class="feature-body">Traditional MBC tools like PHQ-9 or the CUDIT rely on retrospective recall — "over the past two weeks." But cannabis impairs episodic memory. Your clients aren't exaggerating or minimising; they genuinely can't reconstruct a week of use accurately. EMA captures the data before it's lost.</p>
+      <ul class="feature-bullets">
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>In-the-moment capture — no reconstruction errors</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Session-level granularity — not weekly estimates</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Continuous data — detect changes between sessions</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Mood and trigger data — the context questionnaires miss</li>
+      </ul>
+      <a class="feature-cta-link" href="/cannabis-cognitive-fog.html">Why cannabis impairs recall →</a>
+    </div>
+    <div class="feature-visual">
+      <div class="feature-blob"></div>
+      <div class="feature-img">
+        <img class="feat-phone" src="/images/measurement-based-care.webp" alt="Measurement-based care framework — outcome tracking for cannabis use disorder">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="feature-section tinted">
+  <div class="feature-inner reverse reveal">
+    <div class="feature-text">
+      <div class="feature-eyebrow">Feedback-informed treatment</div>
+      <h2 class="feature-title">Clients improve more when they can see their own progress</h2>
+      <p class="feature-body">The clinical evidence for feedback-informed treatment (FIT) shows that sharing quantified progress with clients increases alliance, insight, and motivation. The practitioner dashboard is designed for collaborative use — not just clinician review. Bring it into the session.</p>
+      <ul class="feature-bullets">
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Review trend charts with the client in session</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Use trigger analysis to direct coping skills work</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Clients see their own data on the app — real-time self-monitoring</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Goal adherence visible to both clinician and client</li>
+      </ul>
+      <a class="feature-cta-link" href="/practitioner-dashboard.html">See the practitioner dashboard →</a>
+    </div>
+    <div class="feature-visual">
+      <div class="feature-blob left"></div>
+      <div class="feature-img">
+        <img class="feat-phone" src="/images/cannabis-use-disorder.webp" alt="Cannabis use disorder treatment — shared data review">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVIDENCE SECTION -->
+<section class="evidence-section reveal">
+  <div class="evidence-inner">
+    <div class="ev-tag">Clinical Evidence</div>
+    <h2 class="ev-title">The research base for measurement-based care</h2>
+    <p class="ev-sub">MBC is one of the most replicated findings in psychotherapy outcome research. Here are the landmark studies.</p>
+    <div class="evidence-grid">
+      <div class="ev-card">
+        <div class="ev-category">Randomised Trial</div>
+        <h3 class="ev-claim">MBC doubled response rates for clients who were not improving on standard care</h3>
+        <p class="ev-detail">Lambert et al. (2001) found that providing clinicians with outcome data for clients at risk of deterioration doubled the proportion who showed reliable improvement by the end of treatment.</p>
+      </div>
+      <div class="ev-card">
+        <div class="ev-category">Systematic Review</div>
+        <h3 class="ev-claim">MBC produces clinically significant improvements across diverse mental health presentations</h3>
+        <p class="ev-detail">A 2015 meta-analysis of 24 RCTs found MBC consistently outperformed TAU with moderate-to-large effect sizes, and effects were largest when feedback was given to both clinician and client.</p>
+      </div>
+      <div class="ev-card">
+        <div class="ev-category">Substance Use Disorder</div>
+        <h3 class="ev-claim">EMA-based monitoring reduces relapse rates in cannabis use disorder by providing real-time intervention triggers</h3>
+        <p class="ev-detail">Studies integrating EMA into SUD treatment show that real-time use monitoring creates clinically meaningful intervention windows that weekly sessions alone cannot access.</p>
+      </div>
+      <div class="ev-card">
+        <div class="ev-category">EMA Validity</div>
+        <h3 class="ev-claim">EMA data shows superior ecological validity to retrospective questionnaires for all substance use outcomes</h3>
+        <p class="ev-detail">Shiffman et al. demonstrated that EMA capture rates are 3× more ecologically valid than end-of-week recall for use frequency, mood, and craving — validating EMA as the gold-standard MBC data source for SUD.</p>
+      </div>
+    </div>
+    <div class="ev-refs">
+      <p class="ev-refs-label">Selected references:</p>
+      <ol class="ev-refs-list">
+        <li>Lambert MJ et al. (2001). The effects of providing therapists with feedback on patient progress during psychotherapy. <em>Psychotherapy</em>.</li>
+        <li>Scott K &amp; Lewis CC (2015). Using measurement-based care to enhance any treatment. <em>Cogn Behav Pract</em>.</li>
+        <li>Shiffman S (2009). Ecological momentary assessment in tobacco and alcohol research. <em>Nicotine Tob Res</em>.</li>
+        <li>Witkiewitz K &amp; Marlatt GA (2004). Relapse prevention for alcohol and drug problems. <em>Am Psychol</em>.</li>
+        <li>Hjorthøj CR et al. (2010). The CRISP trial: Cannabis, self-evaluation, treatment. <em>Trials</em>.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED FEATURES -->
+<section class="benefit-strip" style="padding-top:0;">
+  <div class="benefit-inner">
+    <h2 class="benefit-strip-title" style="text-align:center;font-size:1.4rem;font-weight:700;color:var(--color-heading);margin-bottom:2.5rem;">Related Features</h2>
+    <div class="benefit-cards">
+      <a class="benefit-card" href="/ema-logging.html" style="text-decoration:none;">
+        <div class="benefit-icon" aria-hidden="true">📱</div>
+        <h3 class="benefit-card-title">EMA Logging</h3>
+        <p class="benefit-card-body">The real-time data collection that makes MBC objective and free from recall bias.</p>
+        <span class="benefit-card-link">Learn more →</span>
+      </a>
+      <a class="benefit-card" href="/practitioner-dashboard.html" style="text-decoration:none;">
+        <div class="benefit-icon" aria-hidden="true">🖥️</div>
+        <h3 class="benefit-card-title">Practitioner Dashboard</h3>
+        <p class="benefit-card-body">The clinical view that makes the MBC feedback loop visible — traffic-light status, trends, triggers.</p>
+        <span class="benefit-card-link">Learn more →</span>
+      </a>
+      <a class="benefit-card" href="/cannabis-cognitive-fog.html" style="text-decoration:none;">
+        <div class="benefit-icon" aria-hidden="true">🧠</div>
+        <h3 class="benefit-card-title">Cannabis &amp; Memory</h3>
+        <p class="benefit-card-body">Why recall-based questionnaires fail in cannabis treatment — and what EMA fixes.</p>
+        <span class="benefit-card-link">Learn more →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-dark-section">
+  <div class="cta-dark-inner">
+    <h2 class="cta-dark-title">Start your 30-day free trial</h2>
+    <p class="cta-dark-sub">Full MBC capability from day one. No credit card. Cancel any time.</p>
+    <div class="cta-dark-btns">
+      <a href="/trial.html" class="btn-orange-lg">Request Free Trial</a>
+      <a href="/for-clinicians.html" class="btn-ghost">See Full Platform</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="footer-logo" href="/">
+        <img src="/logo-icon.webp" width="24" height="24" alt="SmokingTracker" style="display:block;object-fit:contain;">
+        <span>SmokingTracker</span>
+      </a>
+      <p class="footer-tagline">Measurement-based care for cannabis use disorder.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <span class="footer-col-title">Features</span>
+        <a href="/ema-logging.html">EMA Logging</a>
+        <a href="/practitioner-dashboard.html">Practitioner Dashboard</a>
+        <a href="/clinical-reports.html">Clinical Reports</a>
+        <a href="/privacy-compliance.html">Privacy &amp; Compliance</a>
+        <a href="/measurement-based-care.html">Measurement-Based Care</a>
+        <a href="/cannabis-cognitive-fog.html">Cannabis &amp; Memory</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Platform</span>
+        <a href="/features.html">All Features</a>
+        <a href="/for-clinicians.html">For Clinicians</a>
+        <a href="/for-individuals.html">For Individuals</a>
+        <a href="/pricing.html">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Company</span>
+        <a href="/about.html">About</a>
+        <a href="/knowledge-base.html">Blog</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/trial.html">Free Trial</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Legal</span>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="/dpa.html">Data Processing Agreement</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 SmokingTracker. All rights reserved.</span>
+    <span>HIPAA · GDPR · 42 CFR Part 2 Compliant</span>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.documentElement.style.visibility = 'visible';
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>

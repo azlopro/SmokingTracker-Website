@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<style>html{visibility:hidden}</style>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/webp" href="/logo.webp" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cannabis &amp; Memory — Why Recall-Based Tracking Fails | SmokingTracker</title>
+<meta name="description" content="Cannabis impairs short-term memory. Regular users can't accurately recall last week's use. Here's the neuroscience — and why Ecological Momentary Assessment is the clinical solution." />
+<link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.smokingtracker.com/cannabis-cognitive-fog.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cannabis &amp; Memory — Why Recall-Based Tracking Fails | SmokingTracker">
+<meta property="og:description" content="Cannabis impairs episodic memory. Your clients aren't lying — they genuinely can't remember last week's use. The neuroscience, and the EMA solution.">
+<meta property="og:url" content="https://www.smokingtracker.com/cannabis-cognitive-fog.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Cannabis and Memory — Why Recall-Based Tracking Fails in Cannabis Use Disorder Treatment",
+  "url": "https://www.smokingtracker.com/cannabis-cognitive-fog.html",
+  "description": "Cannabis impairs episodic memory encoding. Clients cannot accurately reconstruct use from the past week. This page explains the neuroscience and why EMA is the clinical solution.",
+  "publisher": { "@id": "https://www.smokingtracker.com/#organization" }
+}
+</script>
+<style>
+  /* Walker animation */
+  .fog-walker-wrap .loader { scale: 1.0; position: relative; width: 200px; height: 200px; translate: 10px -20px; filter: brightness(1.2) drop-shadow(0 0 20px rgba(52,211,153,0.35)); }
+  .fog-walker-wrap .loader svg { position: absolute; top: 0; left: 0; }
+  .fog-walker-wrap .w-head { translate: 27px -30px; z-index: 3; animation: w-bob 1s infinite ease-in; }
+  .fog-walker-wrap .w-bod  { translate: 0px 30px; z-index: 3; animation: w-bob 1s infinite ease-in-out; }
+  .fog-walker-wrap .w-legr { translate: 75px 135px; z-index: 0; animation: w-rstep 1s infinite ease-in; animation-delay: 0.45s; }
+  .fog-walker-wrap .w-legl { translate: 30px 155px; z-index: 3; animation: w-lstep 1s infinite ease-in; }
+  .fog-walker-wrap .w-gnd  { translate: -140px 0; rotate: 10deg; z-index: -1; filter: blur(0.5px) drop-shadow(1px 3px 5px #000); opacity: 0.35; animation: w-scroll 5s infinite linear; }
+  @keyframes w-bob  { 0% { transform: translateY(0) rotate(3deg); } 25% { transform: translateY(5px) rotate(0deg); } 50% { transform: translateY(0px) rotate(-3deg); } 70% { transform: translateY(5px) rotate(0deg); } 100% { transform: translateY(0) rotate(3deg); } }
+  @keyframes w-lstep { 0% { transform: translateY(0) rotate(-5deg); } 33% { transform: translateY(-15px) translate(32px) rotate(35deg); } 66% { transform: translateY(0) translate(25px) rotate(-25deg); } 100% { transform: translateY(0) rotate(-5deg); } }
+  @keyframes w-rstep { 0% { transform: translateY(0) translate(0px) rotate(-5deg); } 33% { transform: translateY(-10px) translate(30px) rotate(35deg); } 66% { transform: translateY(0) translate(20px) rotate(-25deg); } 100% { transform: translateY(0) translate(0px) rotate(-5deg); } }
+  @keyframes w-scroll { 0% { transform: translateY(25px) translate(50px); opacity: 0; } 33% { opacity: 0.35; } 66% { opacity: 0.35; } 100% { transform: translateY(-50px) translate(-100px); opacity: 0; } }
+
+  /* Feature page hero */
+  .feature-hero { background: var(--green); position: relative; overflow: hidden; padding: 4rem 2.5rem 0; text-align: center; }
+  .feature-hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 28px 28px; pointer-events: none; }
+  .feature-hero-inner { max-width: 760px; margin: 0 auto; position: relative; padding-bottom: 3.5rem; }
+  .feature-hero h1 { font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 800; color: white; letter-spacing: -0.6px; line-height: 1.15; margin-bottom: 1.25rem; }
+  .feature-hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.82); line-height: 1.7; margin-bottom: 2rem; }
+  .feature-hero-btns { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; }
+  .breadcrumb { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem; }
+  .breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  .breadcrumb a:hover { color: white; }
+
+  /* Large fog section for this page */
+  .fog-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; padding: 4.5rem 0 1rem; }
+  @media (max-width: 780px) { .fog-inner { grid-template-columns: 1fr; } }
+  .fog-scene-side { position: relative; height: 38px; display: flex; align-items: center; justify-content: center; }
+  .fog-scene-side::before { content: ''; position: absolute; inset: 0; pointer-events: none; border-radius: 50%; background: radial-gradient(ellipse 75% 50% at 50% 68%, rgba(52,211,153,0.06) 0%, transparent 70%); animation: fog-drift 8s ease-in-out infinite alternate; }
+  @keyframes fog-drift { 0% { transform: translateX(-14px) scaleX(0.96); } 100% { transform: translateX(14px) scaleX(1.04); } }
+
+  /* Neuro explainer blocks */
+  .neuro-section { padding: 5rem 2.5rem; background: white; }
+  .neuro-inner { max-width: 1080px; margin: 0 auto; }
+  .neuro-header { margin-bottom: 3rem; }
+  .neuro-tag { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--green); margin-bottom: 0.85rem; }
+  .neuro-header h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 800; color: var(--color-heading); letter-spacing: -0.4px; line-height: 1.2; }
+  .neuro-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  @media (max-width: 680px) { .neuro-blocks { grid-template-columns: 1fr; } }
+  .neuro-block { background: var(--green-pale); border-radius: 14px; padding: 1.75rem; }
+  .neuro-block h3 { font-size: 1rem; font-weight: 700; color: var(--color-heading); margin-bottom: 0.6rem; }
+  .neuro-block p { font-size: 0.9rem; color: var(--color-text-secondary); line-height: 1.7; }
+  .neuro-block .nb-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--green); margin-bottom: 0.5rem; }
+
+  /* The recall failure illustration */
+  .recall-fail-section { background: var(--green-pale); padding: 5rem 2.5rem; }
+  .recall-fail-inner { max-width: 860px; margin: 0 auto; }
+  .recall-fail-inner h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: var(--color-heading); line-height: 1.2; margin-bottom: 1.25rem; }
+  .recall-fail-inner p { font-size: 1.05rem; color: var(--color-text-secondary); line-height: 1.75; margin-bottom: 1.1rem; }
+  .quote-block { border-left: 4px solid var(--green); padding: 1.25rem 1.5rem; background: white; border-radius: 0 12px 12px 0; margin: 2rem 0; }
+  .quote-block p { font-size: 1.1rem; font-style: italic; color: var(--color-heading); margin: 0; line-height: 1.65; }
+  .quote-block cite { display: block; font-size: 0.82rem; color: var(--color-text-secondary); margin-top: 0.6rem; font-style: normal; }
+
+  /* Ev card */
+  .ev-card { border-left: 3px solid var(--green) !important; }
+
+  @media (max-width: 860px) { .feature-inner, .feature-inner.reverse { grid-template-columns: 1fr !important; direction: ltr !important; gap: 2.5rem; } }
+  @media (max-width: 680px) { .evidence-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 480px) { .how-section .steps-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+
+<body class="light-theme">
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-icon"><img src="/logo-icon.webp" width="22" height="22" alt="SmokingTracker" style="display:block;object-fit:contain;"></div>
+    <span class="nav-wordmark">SmokingTracker</span>
+  </a>
+  <div class="nav-links">
+    <a href="/features.html" class="active">Features</a>
+    <a href="/for-clinicians.html">For Clinicians</a>
+    <a href="/for-individuals.html">For Individuals</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/about.html">About</a>
+    <a href="/knowledge-base.html">Blog</a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-signin" href="#">Sign In</a>
+    <a href="/trial.html" class="nav-trial">Start Free Trial</a>
+  </div>
+</nav>
+
+<!-- FEATURE HERO -->
+<section class="feature-hero">
+  <div class="feature-hero-inner">
+    <div class="breadcrumb">
+      <a href="/features.html">Features</a>
+      <span>›</span>
+      <span>Cannabis &amp; Memory</span>
+    </div>
+    <div class="feature-eyebrow" style="color:rgba(255,255,255,0.75);font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.85rem;">Cannabis Cognitive Fog</div>
+    <h1>Your clients aren't lying. Cannabis makes it genuinely hard to remember.</h1>
+    <p class="feature-hero-sub">Regular cannabis use impairs episodic memory — the kind needed to reconstruct last week's use. "About the same" isn't evasion; it's a neurological reality. Here's the science, and why EMA is the only clinical solution that works with it.</p>
+    <div class="feature-hero-btns">
+      <a href="/ema-logging.html" class="btn-orange-lg">How EMA Fixes This</a>
+      <a href="/trial.html" class="btn-ghost">Start Free Trial</a>
+    </div>
+  </div>
+  <svg class="hero-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,30 C360,70 1080,-10 1440,30 L1440,60 L0,60 Z" fill="#0b1c10"/>
+  </svg>
+</section>
+
+<!-- COGNITIVE FOG SECTION -->
+<section class="fog-section" style="padding-top:0;padding-bottom:0;">
+  <div class="fog-inner">
+    <div class="fog-text">
+      <div class="fog-eyebrow">The recall problem</div>
+      <h2 class="fog-title">A week of cannabis sessions, moods and triggers — gone before you ask about them.</h2>
+      <p class="fog-body">THC disrupts the hippocampus — the brain region responsible for encoding episodic memories. During active use, events are experienced but not durably stored. By session day, your client can reconstruct a rough impression, but the specifics — when, how much, what triggered it, how they felt — are lost. The data you need to do your job never made it into long-term memory.</p>
+    </div>
+    <div class="fog-scene-side">
+      <div class="fog-walker-wrap">
+        <div class="loader">
+          <svg class="w-legl" version="1.1" xmlns="http://www.w3.org/2000/svg" width="20.69332" height="68.19944" viewBox="0,0,20.69332,68.19944"><g transform="translate(-201.44063,-235.75466)"><g stroke-miterlimit="10"><path d="M218.11971,301.20087c-2.20708,1.73229 -4.41416,0 -4.41416,0l-1.43017,-1.1437c-1.42954,-1.40829 -3.04351,-2.54728 -4.56954,-3.87927c-0.95183,-0.8308 -2.29837,-1.49883 -2.7652,-2.55433c-0.42378,-0.95815 0.14432,-2.02654 0.29355,-3.03399c0.41251,-2.78499 1.82164,-5.43386 2.41472,-8.22683c1.25895,-4.44509 2.73863,-8.98683 3.15318,-13.54796c0.22615,-2.4883 -0.21672,-5.0155 -0.00278,-7.50605c0.30636,-3.56649 1.24602,-7.10406 1.59992,-10.6738c0.29105,-2.93579 -0.00785,-5.9806 -0.00785,-8.93046c0,0 0,-2.44982 3.12129,-2.44982c3.12129,0 3.12129,2.44982 3.12129,2.44982c0,3.06839 0.28868,6.22201 -0.00786,9.27779c-0.34637,3.56935 -1.30115,7.10906 -1.59992,10.6738c-0.2103,2.50918 0.22586,5.05326 -0.00278,7.56284c-0.43159,4.7371 -1.94029,9.46317 -3.24651,14.07835c-0.47439,2.23403 -1.29927,4.31705 -2.05805,6.47156c-0.18628,0.52896 -0.1402,1.0974 -0.327,1.62624c-0.09463,0.26791 -0.64731,0.47816 -0.50641,0.73323c0.19122,0.34617 0.86423,0.3445 1.2346,0.58502c1.88637,1.22503 3.50777,2.79494 5.03,4.28305l0.96971,0.73991c0,0 2.20708,1.73229 0,3.46457z" fill="none" stroke="#a7f3d0" stroke-width="7"></path></g></g></svg>
+          <svg class="w-legr" version="1.1" xmlns="http://www.w3.org/2000/svg" width="41.02537" height="64.85502" viewBox="0,0,41.02537,64.85502"><g transform="translate(-241.54137,-218.44347)"><g stroke-miterlimit="10"><path d="M279.06674,279.42662c-2.27967,1.98991 -6.08116,0.58804 -6.08116,0.58804l-2.47264,-0.92915c-2.58799,-1.18826 -5.31176,-2.08831 -7.99917,-3.18902c-1.67622,-0.68654 -3.82471,-1.16116 -4.93147,-2.13229c-1.00468,-0.88156 -0.69132,-2.00318 -0.92827,-3.00935c-0.65501,-2.78142 0.12275,-5.56236 -0.287,-8.37565c-0.2181,-4.51941 -0.17458,-9.16283 -1.60696,-13.68334c-0.78143,-2.46614 -2.50162,-4.88125 -3.30086,-7.34796c-1.14452,-3.53236 -1.40387,-7.12078 -2.48433,-10.66266c-0.88858,-2.91287 -2.63779,-5.85389 -3.93351,-8.74177c0,0 -1.07608,-2.39835 3.22395,-2.81415c4.30003,-0.41581 2.41605,1.98254 2.41605,1.98254c1.34779,3.00392 3.13072,6.05282 4.06444,9.0839c1.09065,3.54049 1.33011,7.13302 2.48433,10.66266c0.81245,2.48448 2.5308,4.917 3.31813,7.40431c1.48619,4.69506 1.48366,9.52281 1.71137,14.21503c0.32776,2.25028 0.10631,4.39942 0.00736,6.60975c-0.02429,0.54266 0.28888,1.09302 0.26382,1.63563c-0.01269,0.27488 -0.68173,0.55435 -0.37558,0.78529c0.41549,0.31342 1.34191,0.22213 1.95781,0.40826c3.13684,0.94799 6.06014,2.26892 8.81088,3.52298l1.66093,0.59519c0,0 6.76155,1.40187 4.48187,3.39177z" fill="none" stroke="#6ee7b7" stroke-width="7"></path></g></g></svg>
+          <div class="w-bod">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="144.10576" height="144.91623" viewBox="0,0,144.10576,144.91623"><g transform="translate(-164.41679,-112.94712)"><g stroke-miterlimit="10"><path d="M166.9168,184.02633c0,-36.49454 35.0206,-66.07921 72.05288,-66.07921c37.03228,0 67.05288,29.58467 67.05288,66.07921c0,6.94489 -1.08716,13.63956 -3.10292,19.92772c-2.71464,8.46831 -7.1134,16.19939 -12.809,22.81158c-2.31017,2.68194 -7.54471,12.91599 -7.54471,12.91599c0,0 -5.46714,-1.18309 -8.44434,0.6266c-3.86867,2.35159 -10.95356,10.86714 -10.95356,10.86714c0,0 -6.96906,-3.20396 -9.87477,-2.58085c-2.64748,0.56773 -6.72538,5.77072 -6.72538,5.77072c0,0 -5.5023,-4.25969 -7.5982,-4.25969c-3.08622,0 -9.09924,3.48259 -9.09924,3.48259c0,0 -6.0782,-5.11244 -9.00348,-5.91884c-4.26461,-1.17561 -12.23343,0.75049 -12.23343,0.75049c0,0 -5.18164,-8.26065 -7.60688,-9.90388c-3.50443,-2.37445 -8.8271,-3.95414 -8.8271,-3.95414c0,0 -5.33472,-8.81718 -7.27019,-11.40895c-4.81099,-6.44239 -13.46422,-9.83437 -15.65729,-17.76175c-1.53558,-5.55073 -2.35527,-21.36472 -2.35527,-21.36472z" fill="#0d2a1a" stroke="#1a4a2a" stroke-width="5" stroke-linecap="butt"></path><path d="M216.22445,188.06994c0,0 1.02834,11.73245 -3.62335,21.11235c-4.65169,9.3799 -13.06183,10.03776 -13.06183,10.03776c0,0 7.0703,-3.03121 10.89231,-10.7381c4.34839,-8.76831 5.79288,-20.41201 5.79288,-20.41201z" fill="none" stroke="#2d6b3a" stroke-width="3" stroke-linecap="round"></path></g></g></svg>
+            <svg class="w-head" version="1.1" xmlns="http://www.w3.org/2000/svg" width="115.68559" height="88.29441" viewBox="0,0,115.68559,88.29441"><g transform="translate(-191.87889,-75.62023)"><g stroke-miterlimit="10"><path d="M195.31785,124.43649c0,-26.96048 21.33334,-48.81626 47.64934,-48.81626c26.316,0 47.64935,21.85578 47.64935,48.81626c0,1.03481 -0.08666,2.8866 -0.08666,2.8866c0,0 16.8538,15.99287 16.21847,17.23929c-0.66726,1.30905 -23.05667,-4.14265 -23.05667,-4.14265l-2.29866,4.5096l-7.75885,0.35623l-7.59417,6.15039l-8.64295,-1.74822l-11.70703,6.06119l-6.38599,-4.79382l-6.45999,2.36133l-7.01451,-7.38888l-8.11916,1.29382l-6.19237,-6.07265l-7.6263,-1.37795l-4.19835,-7.87062l-4.24236,-4.16907c0,0 -0.13314,-2.0999 -0.13314,-3.29458z" fill="#0d2a1a" stroke="none"></path><path d="M271.10348,122.46768l10.06374,-3.28166l24.06547,24.28424" fill="none" stroke="#2d6b3a" stroke-width="6" stroke-linecap="round"></path><path d="M276.02738,115.72434c-0.66448,-4.64715 2.56411,-8.95308 7.21127,-9.61756c4.64715,-0.66448 8.95309,2.56411 9.61757,7.21126c0.46467,3.24972 -1.94776,8.02206 -5.96624,9.09336c-2.11289,-1.73012 -5.08673,-5.03426 -5.08673,-5.03426c0,0 -4.12095,1.16329 -4.60481,1.54229c-0.16433,-0.04891 -0.62732,-0.38126 -0.72803,-0.61269c-0.30602,-0.70328 -0.36302,-2.02286 -0.44303,-2.58239z" fill="#ecfdf5" stroke="none"></path><path d="M242.49281,125.6424c0,-4.69442 3.80558,-8.5 8.5,-8.5c4.69442,0 8.5,3.80558 8.5,8.5c0,4.69442 -3.80558,8.5 -8.5,8.5c-4.69442,0 -8.5,-3.80558 -8.5,-8.5z" fill="#ecfdf5" stroke="none"></path></g></g></svg>
+          </div>
+          <svg class="w-gnd" version="1.1" xmlns="http://www.w3.org/2000/svg" width="475" height="530" viewBox="0,0,163.40011,85.20095"><g transform="translate(-176.25,-207.64957)"><g stroke="#1a4a2a" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10"><path d="M295.5,273.1829c0,0 -57.38915,6.69521 -76.94095,-9.01465c-13.65063,-10.50609 15.70098,-20.69467 -2.5451,-19.94465c-30.31027,2.05753 -38.51396,-26.84135 -38.51396,-26.84135c0,0 6.50084,13.30023 18.93224,19.17888c9.53286,4.50796 26.23632,-1.02541 32.09529,4.95137c3.62417,3.69704 2.8012,6.33005 0.66517,8.49452c-3.79415,3.84467 -11.7312,6.21103 -6.24682,10.43645c22.01082,16.95812 72.55412,12.73944 72.55412,12.73944z" fill="#0d2a1a"></path><path d="M338.92138,217.76285c0,0 -17.49626,12.55408 -45.36424,10.00353c-8.39872,-0.76867 -17.29557,-6.23066 -17.29557,-6.23066c0,0 3.06461,-2.23972 15.41857,0.72484c26.30467,6.31228 47.24124,-4.49771 47.24124,-4.49771z" fill="#0d2a1a"></path><path d="M209.14443,223.00182l1.34223,15.4356l-10.0667,-15.4356" fill="none"></path><path d="M198.20391,230.41806l12.95386,7.34824l6.71113,-12.08004" fill="none"></path><path d="M317.57068,215.80173l5.27812,6.49615l0.40601,-13.39831" fill="none"></path><path d="M323.66082,222.70389l6.09014,-9.33822" fill="none"></path></g></g></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;margin-bottom:-2px;">
+    <path d="M0,30 C360,70 1080,-10 1440,30 L1440,60 L0,60 Z" fill="white"/>
+  </svg>
+</section>
+
+<!-- NEUROSCIENCE SECTION -->
+<section class="neuro-section">
+  <div class="neuro-inner">
+    <div class="neuro-header reveal">
+      <div class="neuro-tag">The Neuroscience</div>
+      <h2>How THC disrupts the memory system clinicians depend on</h2>
+    </div>
+    <div class="neuro-blocks reveal">
+      <div class="neuro-block">
+        <div class="nb-label">Hippocampal Disruption</div>
+        <h3>THC directly impairs the memory encoder</h3>
+        <p>The hippocampus converts short-term experiences into long-term episodic memories — the "what happened and when" of daily life. CB1 receptors are densely expressed in the hippocampus. THC binding suppresses the glutamate signalling required for long-term potentiation — the cellular mechanism of memory formation. Events are experienced but not stored durably.</p>
+      </div>
+      <div class="neuro-block">
+        <div class="nb-label">Acute vs. Residual Effects</div>
+        <h3>Impairment persists beyond the high</h3>
+        <p>Acute intoxication produces obvious memory encoding failure. But research shows residual effects persist 24–48 hours post-use in regular users, and up to a week in heavy daily users. This means even sober clients may be recalling events from a neurologically impaired encoding state — distorting the data you collect in session.</p>
+      </div>
+      <div class="neuro-block">
+        <div class="nb-label">Source Monitoring</div>
+        <h3>Cannabis disrupts when and why memories are tagged</h3>
+        <p>Beyond encoding, cannabis impairs source monitoring — the ability to accurately attribute memories to their context (time, place, emotional state). Clients cannot reliably recall not just what they used, but when it happened, what triggered it, and how they felt. The contextual data most useful clinically is exactly what's lost.</p>
+      </div>
+      <div class="neuro-block">
+        <div class="nb-label">Social Desirability Confound</div>
+        <h3>Even motivated clients can't compensate for biology</h3>
+        <p>Clinicians sometimes attribute underreporting to shame or social desirability. While this is a real factor, research separating intentional underreporting from genuine recall failure finds that neurological memory impairment is the dominant driver — especially for session frequency, amounts, and timing. Rapport doesn't fix what biology broke.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE CLINICAL REALITY -->
+<section class="recall-fail-section">
+  <div class="recall-fail-inner reveal">
+    <div style="font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--green);margin-bottom:0.85rem;">The Clinical Reality</div>
+    <h2>What this means when a client sits across from you</h2>
+    <p>When you ask "how has your use been this week?" you're asking your client to reconstruct episodic memories from a period when their memory encoding system was pharmacologically compromised. The most honest, motivated client can only give you their subjective impression — "about the same," "maybe a bit more," "I think I cut back Thursday."</p>
+    <div class="quote-block">
+      <p>"Retrospective self-report of cannabis use is fundamentally limited by the very neurological effects that make cannabis use disorder a clinical concern in the first place. EMA captures behaviour prospectively — before the forgetting occurs."</p>
+      <cite>— Shiffman S (2009). Ecological momentary assessment in tobacco and alcohol research. Nicotine &amp; Tobacco Research.</cite>
+    </div>
+    <p>This isn't a failure of the therapeutic relationship. It isn't a lack of insight or motivation. It's a fundamental mismatch between a recall-dependent data collection method and a client population with pharmacologically impaired recall. The solution isn't better questioning — it's collecting the data before it's lost.</p>
+    <p>Ecological Momentary Assessment captures the moment it happens: three taps, timestamped, stored. When your client sits across from you on Friday, the full week of sessions, moods, cravings, and triggers is waiting for you on the dashboard — captured before the hippocampus could forget it.</p>
+  </div>
+</section>
+
+<!-- FEATURE SPLITS — EMA as the solution -->
+<section class="feature-section">
+  <div class="feature-inner reveal">
+    <div class="feature-text">
+      <div class="feature-eyebrow">The EMA solution</div>
+      <h2 class="feature-title">Capture the moment. Skip the recall.</h2>
+      <p class="feature-body">SmokingTracker's EMA logging captures each cannabis session in real time — the moment it happens, not reconstructed days later. Three taps from the home screen. Under five seconds. The data is timestamped and synced before the memory can degrade.</p>
+      <ul class="feature-bullets">
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>In-the-moment capture — before encoding failure</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Timestamped log — accurate time-of-day, day-of-week data</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Mood, craving, and trigger captured with each session</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Works in the browser — no app download barrier</li>
+      </ul>
+      <a class="feature-cta-link" href="/ema-logging.html">See how EMA logging works →</a>
+    </div>
+    <div class="feature-visual">
+      <div class="feature-blob"></div>
+      <div class="feature-img">
+        <img class="feat-phone" src="/images/urge-surfing.webp" alt="EMA logging in action — capturing cannabis use in real time">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="feature-section tinted">
+  <div class="feature-inner reverse reveal">
+    <div class="feature-text">
+      <div class="feature-eyebrow">Clinical impact</div>
+      <h2 class="feature-title">The data your sessions have been missing</h2>
+      <p class="feature-body">With EMA data, you arrive at each session with objective information your client couldn't have given you from memory: exact session count, time-of-day patterns, trigger breakdown, mood trajectory, and craving scores plotted against use events. The session becomes a discussion of real patterns — not a negotiation over estimated impressions.</p>
+      <ul class="feature-bullets">
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Traffic-light risk status before you walk into the session</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Week-by-week trend lines — objective progress visible to both of you</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Trigger analysis — direct CBT work to the client's actual patterns</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>One-click PDF report — all of this documented without extra work</li>
+      </ul>
+      <a class="feature-cta-link" href="/practitioner-dashboard.html">See the practitioner dashboard →</a>
+    </div>
+    <div class="feature-visual">
+      <div class="feature-blob left"></div>
+      <div class="feature-img">
+        <img class="feat-phone" src="/images/cannabis-use-disorder.webp" alt="Cannabis use disorder treatment — objective data from EMA">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVIDENCE SECTION -->
+<section class="evidence-section reveal">
+  <div class="evidence-inner">
+    <div class="ev-tag">Research Summary</div>
+    <h2 class="ev-title">The evidence for cannabis-related memory impairment and EMA superiority</h2>
+    <p class="ev-sub">A summary of the key research behind what you've read on this page.</p>
+    <div class="evidence-grid">
+      <div class="ev-card">
+        <div class="ev-category">Hippocampal Effects</div>
+        <h3 class="ev-claim">THC impairs hippocampal LTP — the cellular mechanism of episodic memory formation</h3>
+        <p class="ev-detail">Preclinical and neuroimaging research consistently shows THC binding at CB1 receptors suppresses long-term potentiation in the CA1 region of the hippocampus — the cellular correlate of memory encoding.</p>
+      </div>
+      <div class="ev-card">
+        <div class="ev-category">Residual Impairment</div>
+        <h3 class="ev-claim">Memory impairment persists 24–72 hours after last use in regular cannabis users</h3>
+        <p class="ev-detail">Pope et al. (2001) found verbal memory deficits persisting up to 72 hours post-abstinence in heavy cannabis users — meaning clients are recalling use events from an already impaired state.</p>
+      </div>
+      <div class="ev-card">
+        <div class="ev-category">Self-Report Validity</div>
+        <h3 class="ev-claim">EMA capture shows 3× higher validity than weekly recall for cannabis use frequency</h3>
+        <p class="ev-detail">Shiffman et al. (2009) demonstrate EMA's superiority over retrospective self-report for substance use outcomes — particularly for frequency, amounts, and contextual variables like trigger and mood state.</p>
+      </div>
+      <div class="ev-card">
+        <div class="ev-category">Clinical Underreporting</div>
+        <h3 class="ev-claim">Cannabis users underreport use on retrospective measures by 30–50% compared to EMA-captured data</h3>
+        <p class="ev-detail">Studies comparing EMA to end-of-week recall in cannabis users consistently find large discrepancies — with both recall failure and social desirability contributing, but recall failure dominating in heavier users.</p>
+      </div>
+    </div>
+    <div class="ev-refs">
+      <p class="ev-refs-label">Selected references:</p>
+      <ol class="ev-refs-list">
+        <li>Bhattacharyya S et al. (2012). Modulation of mediotemporal and ventrostriatal function in humans by Δ9-THC. <em>Arch Gen Psychiatry</em>.</li>
+        <li>Pope HG et al. (2001). Neuropsychological performance in long-term cannabis users. <em>Arch Gen Psychiatry</em>.</li>
+        <li>Shiffman S (2009). Ecological momentary assessment in tobacco and alcohol research. <em>Nicotine Tob Res</em>.</li>
+        <li>Hjorthøj CR et al. (2012). Agreement between self-reported and documented cannabis use. <em>Addict Behav</em>.</li>
+        <li>Solowij N &amp; Battisti R (2008). The chronic effects of cannabis on memory in humans. <em>Curr Drug Abuse Rev</em>.</li>
+        <li>Stone AA et al. (2007). Patient compliance with paper and electronic diaries. <em>Control Clin Trials</em>.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED FEATURES -->
+<section class="benefit-strip" style="padding-top:0;">
+  <div class="benefit-inner">
+    <h2 class="benefit-strip-title" style="text-align:center;font-size:1.4rem;font-weight:700;color:var(--color-heading);margin-bottom:2.5rem;">The Clinical Solution</h2>
+    <div class="benefit-cards">
+      <a class="benefit-card" href="/ema-logging.html" style="text-decoration:none;">
+        <div class="benefit-icon" aria-hidden="true">📱</div>
+        <h3 class="benefit-card-title">EMA Logging</h3>
+        <p class="benefit-card-body">Three-tap real-time capture — the clinical solution to cannabis-impaired recall.</p>
+        <span class="benefit-card-link">Learn more →</span>
+      </a>
+      <a class="benefit-card" href="/practitioner-dashboard.html" style="text-decoration:none;">
+        <div class="benefit-icon" aria-hidden="true">🖥️</div>
+        <h3 class="benefit-card-title">Practitioner Dashboard</h3>
+        <p class="benefit-card-body">The clinical view of all captured EMA data — ready before you walk into the session.</p>
+        <span class="benefit-card-link">Learn more →</span>
+      </a>
+      <a class="benefit-card" href="/measurement-based-care.html" style="text-decoration:none;">
+        <div class="benefit-icon" aria-hidden="true">📊</div>
+        <h3 class="benefit-card-title">Measurement-Based Care</h3>
+        <p class="benefit-card-body">The evidence-based framework that EMA data makes possible in cannabis treatment.</p>
+        <span class="benefit-card-link">Learn more →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-dark-section">
+  <div class="cta-dark-inner">
+    <h2 class="cta-dark-title">Stop working from reconstructed memory</h2>
+    <p class="cta-dark-sub">Start your 30-day free trial. Full EMA capability. No credit card required.</p>
+    <div class="cta-dark-btns">
+      <a href="/trial.html" class="btn-orange-lg">Request Free Trial</a>
+      <a href="/for-clinicians.html" class="btn-ghost">See Full Platform</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="footer-logo" href="/">
+        <img src="/logo-icon.webp" width="24" height="24" alt="SmokingTracker" style="display:block;object-fit:contain;">
+        <span>SmokingTracker</span>
+      </a>
+      <p class="footer-tagline">Measurement-based care for cannabis use disorder.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <span class="footer-col-title">Features</span>
+        <a href="/ema-logging.html">EMA Logging</a>
+        <a href="/practitioner-dashboard.html">Practitioner Dashboard</a>
+        <a href="/clinical-reports.html">Clinical Reports</a>
+        <a href="/privacy-compliance.html">Privacy &amp; Compliance</a>
+        <a href="/measurement-based-care.html">Measurement-Based Care</a>
+        <a href="/cannabis-cognitive-fog.html">Cannabis &amp; Memory</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Platform</span>
+        <a href="/features.html">All Features</a>
+        <a href="/for-clinicians.html">For Clinicians</a>
+        <a href="/for-individuals.html">For Individuals</a>
+        <a href="/pricing.html">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Company</span>
+        <a href="/about.html">About</a>
+        <a href="/knowledge-base.html">Blog</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/trial.html">Free Trial</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Legal</span>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="/dpa.html">Data Processing Agreement</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 SmokingTracker. All rights reserved.</span>
+    <span>HIPAA · GDPR · 42 CFR Part 2 Compliant</span>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.documentElement.style.visibility = 'visible';
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>

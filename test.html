@@ -1,0 +1,107 @@
+<!-- From Uiverse.io by guraycha03 (modified for 3-image toggle) -->
+<div class="phone-card">
+  <div class="phone">
+    <div class="front-cam"></div>
+
+    <div class="side-buttons">
+      <div class="side-btn top"></div>
+      <div class="side-btn bottom"></div>
+    </div>
+
+    <!-- Screen -->
+    <div class="screen" id="screen"></div>
+  </div>
+</div>
+
+<style>
+.phone-card {
+  width: 180px;
+  margin: 0 auto;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.phone {
+  position: relative;
+  width: 80%;
+  height: 250px;
+  background-color: #fff6ee;
+  border-radius: 20px;
+  box-shadow: inset -4px -4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.front-cam {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: gray;
+  border-radius: 50%;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.side-buttons {
+  position: absolute;
+  top: 18%;
+  right: -3px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.side-btn {
+  width: 4px;
+  height: 18px;
+  background-color: pink;
+  border-radius: 0 50px 50px 0;
+  box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.side-btn.bottom {
+  background-color: #f4a6c4;
+}
+
+.screen {
+  width: 88%;
+  height: 85%;
+  border: 2px solid lightgray;
+  border-radius: 12px;
+
+  background-size: contain;   /* ✅ show full image */
+  background-position: center;
+  background-repeat: no-repeat; /* ✅ prevent tiling */
+
+  background-color: #000; /* optional: fills empty space nicely */
+  transition: background-image 0.4s ease;
+  cursor: pointer;
+}
+</style>
+
+<script>
+const images = [
+  "homescreenview.png",
+  "images/en_tracker_achievements.png",
+  "images/en_tracker_log_session_modal.png",
+  "app-kalender.png"
+];
+
+let index = 0;
+const screen = document.getElementById("screen");
+
+function updateScreen() {
+  screen.style.backgroundImage = `url(${images[index]})`;
+}
+
+screen.addEventListener("click", () => {
+  index = (index + 1) % images.length;
+  updateScreen();
+});
+
+// Initialize first image
+updateScreen();
+</script>

@@ -1,853 +1,363 @@
 <!doctype html>
 <html lang="en">
-
 <head>
 <style>html{visibility:hidden}</style>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/webp" href="/logo.webp" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Features — SmokingTracker</title>
-    <meta name="description"
-        content="Complete overview of all SmokingTracker features — from friction-free session logging to the clinical traffic light dashboard." />
-    <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/style.css">
-    <style>
-        /* ── Top 5 cards ───────────────────────────────────── */
-        .fp-top5-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-            max-width: 860px;
-            margin: 0 auto;
-        }
+<meta charset="UTF-8" />
+<link rel="icon" type="image/webp" href="/logo.webp" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Features — Cannabis Use Disorder Treatment Platform | SmokingTracker</title>
+<meta name="description" content="SmokingTracker features for cannabis use disorder treatment: EMA logging, practitioner dashboard, PDF clinical reports, HIPAA/GDPR compliance, and measurement-based care." />
+<link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.smokingtracker.com/features.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Features — Cannabis Use Disorder Treatment Platform | SmokingTracker">
+<meta property="og:description" content="All SmokingTracker features: EMA logging, practitioner dashboard, clinical reports, compliance, measurement-based care, and more.">
+<meta property="og:url" content="https://www.smokingtracker.com/features.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "SmokingTracker Features — Cannabis Use Disorder Treatment Platform",
+  "url": "https://www.smokingtracker.com/features.html",
+  "description": "Complete overview of SmokingTracker features for cannabis use disorder treatment — EMA logging, practitioner dashboard, clinical reports, compliance, and measurement-based care.",
+  "publisher": { "@id": "https://www.smokingtracker.com/#organization" }
+}
+</script>
+<style>
+  /* Hub hero — light green tint */
+  .hub-hero { background: var(--green-pale); padding: 5rem 2.5rem 4rem; text-align: center; border-bottom: 1px solid var(--color-border); }
+  .hub-hero-inner { max-width: 700px; margin: 0 auto; }
+  .hub-eyebrow { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--green); margin-bottom: 0.85rem; }
+  .hub-hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--color-heading); letter-spacing: -0.5px; line-height: 1.15; margin-bottom: 1.1rem; }
+  .hub-hero p { font-size: 1.1rem; color: var(--color-text-secondary); line-height: 1.75; max-width: 580px; margin: 0 auto 2rem; }
+  .hub-hero-btns { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; }
 
-        .fp-top5-card {
-            display: grid;
-            grid-template-columns: 4rem 1fr;
-            gap: 1.5rem;
-            padding: 2rem 2rem 2rem 1.75rem;
-            border-radius: 20px;
-            align-items: start;
-        }
+  /* Feature hub cards grid */
+  .hub-section { padding: 5rem 2.5rem; }
+  .hub-section-inner { max-width: 1100px; margin: 0 auto; }
+  .hub-section-header { text-align: center; margin-bottom: 3rem; }
+  .hub-section-tag { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--green); margin-bottom: 0.85rem; }
+  .hub-section-header h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: var(--color-heading); letter-spacing: -0.4px; }
+  .hub-section-header p { font-size: 1.05rem; color: var(--color-text-secondary); margin-top: 0.75rem; max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 
-        .fp-rank {
-            font-size: 2.25rem;
-            font-weight: 800;
-            line-height: 1;
-            color: var(--color-primary, #4ade80);
-            opacity: 0.35;
-            padding-top: 0.15rem;
-            font-variant-numeric: tabular-nums;
-        }
+  .feature-hub-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  @media (max-width: 860px) { .feature-hub-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .feature-hub-grid { grid-template-columns: 1fr; } }
 
-        .fp-top5-content h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
+  .fhub-card { background: white; border: 1px solid var(--color-border); border-radius: 18px; padding: 2rem 1.75rem 1.75rem; text-decoration: none; display: flex; flex-direction: column; transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s; }
+  .fhub-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.08); border-color: var(--green-tint); transform: translateY(-2px); }
+  .fhub-card-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .fhub-card-eyebrow { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--green); margin-bottom: 0.5rem; }
+  .fhub-card h3 { font-size: 1.05rem; font-weight: 800; color: var(--color-heading); margin-bottom: 0.6rem; line-height: 1.25; }
+  .fhub-card p { font-size: 0.88rem; color: var(--color-text-secondary); line-height: 1.65; flex: 1; margin-bottom: 1.25rem; }
+  .fhub-card-link { font-size: 0.85rem; font-weight: 700; color: var(--green); display: flex; align-items: center; gap: 0.3rem; }
 
-        .fp-top5-content p {
-            opacity: 0.78;
-            line-height: 1.75;
-            font-size: 0.97rem;
-            margin-bottom: 0;
-        }
+  /* Full feature list accordion */
+  .full-list-section { background: var(--green-pale); padding: 5rem 2.5rem; }
+  .full-list-inner { max-width: 900px; margin: 0 auto; }
+  .fl-header { text-align: center; margin-bottom: 3rem; }
+  .fl-tag { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--green); margin-bottom: 0.85rem; }
+  .fl-header h2 { font-size: clamp(1.5rem, 2.8vw, 2rem); font-weight: 800; color: var(--color-heading); letter-spacing: -0.3px; }
+  .fl-header p { font-size: 1rem; color: var(--color-text-secondary); margin-top: 0.7rem; line-height: 1.7; }
 
-        .fp-badges {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 0.6rem;
-        }
-
-        .fp-badge-priority {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            padding: 0.2rem 0.65rem;
-            border-radius: 100px;
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-            background: rgba(74, 222, 128, 0.15);
-            color: var(--color-primary, #4ade80);
-            border: 1px solid rgba(74, 222, 128, 0.3);
-        }
-
-        .fp-badge-b2b {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            padding: 0.2rem 0.65rem;
-            border-radius: 100px;
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-            background: rgba(96, 165, 250, 0.15);
-            color: #60a5fa;
-            border: 1px solid rgba(96, 165, 250, 0.3);
-        }
-
-        /* ── Category grid ─────────────────────────────────── */
-        .fp-cat-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.25rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .fp-cat-card {
-            border-radius: 20px;
-            padding: 1.75rem;
-        }
-
-        .fp-cat-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .fp-cat-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            background: rgba(74, 222, 128, 0.1);
-            border: 1px solid rgba(74, 222, 128, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .fp-cat-icon svg {
-            width: 18px;
-            height: 18px;
-            stroke: var(--color-primary, #4ade80);
-        }
-
-        .fp-cat-header h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            margin: 0;
-        }
-
-        .fp-feature-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.55rem;
-        }
-
-        .fp-feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.6rem;
-            font-size: 0.9rem;
-            line-height: 1.45;
-        }
-
-        .fp-feature-item svg {
-            width: 14px;
-            height: 14px;
-            stroke: var(--color-primary, #4ade80);
-            flex-shrink: 0;
-            margin-top: 0.18rem;
-        }
-
-        .fp-feature-item-inner {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .fp-chip-priority {
-            display: inline-block;
-            padding: 0.1rem 0.45rem;
-            border-radius: 100px;
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-            background: rgba(74, 222, 128, 0.12);
-            color: var(--color-primary, #4ade80);
-            border: 1px solid rgba(74, 222, 128, 0.25);
-            white-space: nowrap;
-        }
-
-        /* ── Section spacing ───────────────────────────────── */
-        .fp-section {
-            padding: 3rem 0;
-        }
-
-        .fp-section + .fp-section {
-            padding-top: 0;
-        }
-
-        .fp-section-header {
-            text-align: center;
-            max-width: 640px;
-            margin: 0 auto 2.5rem;
-        }
-
-        .fp-section-header h2 {
-            font-size: clamp(1.4rem, 3vw, 1.9rem);
-            font-weight: 800;
-            margin-bottom: 0.6rem;
-        }
-
-        .fp-section-header p {
-            opacity: 0.7;
-            line-height: 1.7;
-        }
-
-        /* ── Card carousel ─────────────────────────────────── */
-        .fp-carousel {
-            margin-top: 1.25rem;
-            max-width: 320px;
-        }
-
-        .fp-carousel-track {
-            display: grid;
-            border-radius: 16px;
-            overflow: hidden;
-        }
-
-        .fp-carousel-slide {
-            grid-area: 1 / 1;
-            opacity: 0;
-            transition: opacity 0.8s ease;
-            pointer-events: none;
-        }
-
-        .fp-carousel-slide.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .fp-carousel-slide img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .fp-carousel-dots {
-            display: flex;
-            gap: 0.4rem;
-            justify-content: center;
-            margin-top: 0.75rem;
-        }
-
-        .fp-carousel-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--color-border);
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-
-        .fp-carousel-dot.active {
-            background: var(--color-primary);
-            transform: scale(1.4);
-        }
-
-        .fp-carousel-dot:hover:not(.active) {
-            background: var(--color-text-secondary);
-        }
-
-        @media (max-width: 600px) {
-            .fp-top5-card {
-                grid-template-columns: 3rem 1fr;
-                gap: 1rem;
-                padding: 1.5rem;
-            }
-
-            .fp-rank {
-                font-size: 1.75rem;
-            }
-
-            .fp-carousel {
-                max-width: 100%;
-            }
-        }
-    </style>
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="SmokingTracker">
-    <meta property="og:title" content="Features — SmokingTracker">
-    <meta property="og:description" content="Complete overview of all SmokingTracker features — from friction-free session logging to the clinical traffic light dashboard.">
-    <meta property="og:image" content="https://www.smokingtracker.com/logo.png">
-    <meta property="og:url" content="https://www.smokingtracker.com/features.html">
-    <link rel="canonical" href="https://www.smokingtracker.com/features.html">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Features — SmokingTracker">
-    <meta name="twitter:description" content="Complete overview of all SmokingTracker features — from friction-free session logging to the clinical traffic light dashboard.">
-    <meta name="twitter:image" content="https://www.smokingtracker.com/logo.png">
+  .fl-group { background: white; border: 1px solid var(--color-border); border-radius: 14px; margin-bottom: 1rem; overflow: hidden; }
+  .fl-group-header { padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between; cursor: pointer; user-select: none; }
+  .fl-group-header:hover { background: var(--green-pale); }
+  .fl-group-title { font-size: 0.95rem; font-weight: 700; color: var(--color-heading); display: flex; align-items: center; gap: 0.75rem; }
+  .fl-group-icon { font-size: 1.1rem; }
+  .fl-chevron { color: var(--color-text-secondary); transition: transform 0.2s; font-size: 0.9rem; }
+  .fl-group.open .fl-chevron { transform: rotate(180deg); }
+  .fl-group-body { display: none; border-top: 1px solid var(--color-border); }
+  .fl-group.open .fl-group-body { display: block; }
+  .fl-items { list-style: none; padding: 0.75rem 1.5rem 1.25rem; margin: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+  .fl-item { display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.88rem; color: var(--color-text-secondary); line-height: 1.5; }
+  .fl-item::before { content: ''; width: 6px; height: 6px; background: var(--green); border-radius: 50%; flex-shrink: 0; margin-top: 0.45em; }
+  .fl-item strong { color: var(--color-heading); font-weight: 600; }
+</style>
 </head>
 
-<body>
-    <nav class="navbar glass">
-        <div class="nav-container">
-            <a href="/" class="logo">
-                <img src="/logo-icon.webp" alt="SmokingTracker Logo" class="logo-img" width="32" height="32">
-                <span class="logo-text">SmokingTracker</span>
-            </a>
-            <div class="nav-links">
-                <a href="/features.html" data-i18n="nav.features" class="active">Features</a>
-                <a href="/for-clinicians.html">For Clinicians</a>
-                <a href="/for-individuals.html">For Individuals</a>
-                <a href="/#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
-                <a href="/pricing.html" data-i18n="nav.pricing">Pricing</a>
-                <a href="/about.html" data-i18n="nav.about">About</a>
-                <a href="/knowledge-base.html" data-i18n="nav.blog">Blog</a>
-                <a href="/resources.html">Resources</a>
-            </div>
-            <div class="nav-actions">
-                <a href="/trial.html" class="btn btn-primary" data-i18n="nav.bookDemo">Book a Demo</a>
-                <button class="mobile-menu-btn icon-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="4" x2="20" y1="12" y2="12" />
-                        <line x1="4" x2="20" y1="6" y2="6" />
-                        <line x1="4" x2="20" y1="18" y2="18" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </nav>
+<body class="light-theme">
 
-    <main>
-        <!-- ─── HERO ──────────────────────────────────────────── -->
-        <section class="hero">
-            <div class="hero-bg-glow"></div>
-            <div class="container hero-container"
-                style="grid-template-columns: 1fr; text-align: center; max-width: 800px;">
-                <div class="hero-content" style="align-items: center;">
-                    <div class="badge fade-in-up" data-i18n="featuresPage.badge">Komplet funktionsoversigt</div>
-                    <h1 class="fade-in-up" style="animation-delay: 0.1s" data-i18n="featuresPage.title">
-                        Alle værktøjer dit team har brug for — <span class="text-gradient">bygget til behandling</span>
-                    </h1>
-                    <p class="hero-subtitle fade-in-up" style="animation-delay: 0.2s"
-                        data-i18n="featuresPage.subtitle">
-                        SmokingTracker er designet specifikt til cannabisbehandling. Alle funktioner er bygget med ét
-                        mål: at fastholde borgere i behandlingen længe nok til, at det virker.
-                    </p>
-                </div>
-            </div>
-        </section>
+<!-- NAV -->
+<nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-icon"><img src="/logo-icon.webp" width="22" height="22" alt="SmokingTracker" style="display:block;object-fit:contain;"></div>
+    <span class="nav-wordmark">SmokingTracker</span>
+  </a>
+  <div class="nav-links">
+    <a href="/features.html" class="active">Features</a>
+    <a href="/for-clinicians.html">For Clinicians</a>
+    <a href="/for-individuals.html">For Individuals</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/about.html">About</a>
+    <a href="/knowledge-base.html">Blog</a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-signin" href="#">Sign In</a>
+    <a href="/trial.html" class="nav-trial">Start Free Trial</a>
+  </div>
+</nav>
 
-        <!-- ─── TOP 5 ──────────────────────────────────────── -->
-        <section class="fp-section">
-            <div class="container">
-                <div class="fp-section-header fade-in-up">
-                    <div class="badge" style="margin: 0 auto 0.75rem" data-i18n="featuresPage.top5Badge">5
-                        kernefunktioner</div>
-                    <h2 data-i18n="featuresPage.top5Title">Funktionerne der gør forskellen</h2>
-                    <p data-i18n="featuresPage.top5Subtitle">Fem funktioner bygget direkte på klinisk evidens —
-                        designet til de sværeste øjeblikke i cannabisbehandling.</p>
-                </div>
+<!-- HUB HERO -->
+<section class="hub-hero">
+  <div class="hub-hero-inner">
+    <div class="hub-eyebrow">Platform Features</div>
+    <h1>Everything built for cannabis use disorder treatment</h1>
+    <p>SmokingTracker combines client-side EMA logging with a clinical dashboard — giving practitioners objective, real-time data instead of reconstructed weekly recall.</p>
+    <div class="hub-hero-btns">
+      <a href="/trial.html" class="btn-orange-lg">Start 30-Day Free Trial</a>
+      <a href="/for-clinicians.html" class="btn-ghost">Platform Overview</a>
+    </div>
+  </div>
+</section>
 
-                <div class="fp-top5-grid">
-                    <!-- 1: Three taps to log -->
-                    <div class="fp-top5-card glass hover-lift fade-in-up">
-                        <div class="fp-rank">01</div>
-                        <div class="fp-top5-content">
-                            <div class="fp-badges">
-                                <span class="fp-badge-priority" data-i18n="featuresPage.priorityBadge">Klinisk
-                                    prioritet</span>
-                            </div>
-                            <h3 data-i18n="featuresPage.f1_title">Tre klik at logge</h3>
-                            <p data-i18n="featuresPage.f1_desc">At logge noget kan føles som noget man skal huske at
-                                gøre. Det er præcis det, det her fjerner. En session logges med tre klik — åbn appen,
-                                tryk '+', tryk registrér — og telefonen er i lommen igen. Fordi det er så hurtigt,
-                                holder det op med at fylde. Det er ikke en opgave. Det er et sekund.</p>
-                        </div>
-                    </div>
+<!-- FEATURE HUB CARDS -->
+<section class="hub-section">
+  <div class="hub-section-inner">
+    <div class="hub-section-header reveal">
+      <div class="hub-section-tag">Core Features</div>
+      <h2>Six features that change how cannabis treatment works</h2>
+      <p>Each feature has a dedicated page with clinical evidence, screenshots, and how-it-works detail.</p>
+    </div>
+    <div class="feature-hub-grid reveal">
+      <a class="fhub-card" href="/ema-logging.html">
+        <div class="fhub-card-icon">📱</div>
+        <div class="fhub-card-eyebrow">Ecological Momentary Assessment</div>
+        <h3>EMA Logging</h3>
+        <p>Three-tap real-time session capture. Mood, craving, and trigger data recorded the moment it happens — before cannabis-impaired recall can distort it.</p>
+        <span class="fhub-card-link">Learn more →</span>
+      </a>
+      <a class="fhub-card" href="/practitioner-dashboard.html">
+        <div class="fhub-card-icon">🖥️</div>
+        <div class="fhub-card-eyebrow">Cannabis Use Disorder Dashboard</div>
+        <h3>Practitioner Dashboard</h3>
+        <p>Traffic-light risk status, trend charts, and trigger analysis for every client — all available before the session starts. No manual data import.</p>
+        <span class="fhub-card-link">Learn more →</span>
+      </a>
+      <a class="fhub-card" href="/clinical-reports.html">
+        <div class="fhub-card-icon">📄</div>
+        <div class="fhub-card-eyebrow">Clinical Documentation</div>
+        <h3>One-Click PDF Reports</h3>
+        <p>Auto-generate structured PDF reports from objective EMA data. Session notes, trend charts, trigger breakdown — formatted for EHR, referral, or billing.</p>
+        <span class="fhub-card-link">Learn more →</span>
+      </a>
+      <a class="fhub-card" href="/privacy-compliance.html">
+        <div class="fhub-card-icon">🔒</div>
+        <div class="fhub-card-eyebrow">Privacy by Design</div>
+        <h3>HIPAA, GDPR &amp; 42 CFR Part 2</h3>
+        <p>Substance use disorder data at the highest protection standard. BAA and DPA available from day one. Encryption at rest and in transit.</p>
+        <span class="fhub-card-link">Learn more →</span>
+      </a>
+      <a class="fhub-card" href="/measurement-based-care.html">
+        <div class="fhub-card-icon">📊</div>
+        <div class="fhub-card-eyebrow">Evidence-Based Framework</div>
+        <h3>Measurement-Based Care</h3>
+        <p>SmokingTracker operationalises MBC for cannabis treatment — the evidence-based framework that reduces symptom severity by 58% versus treatment-as-usual.</p>
+        <span class="fhub-card-link">Learn more →</span>
+      </a>
+      <a class="fhub-card" href="/cannabis-cognitive-fog.html">
+        <div class="fhub-card-icon">🧠</div>
+        <div class="fhub-card-eyebrow">Clinical Education</div>
+        <h3>Cannabis &amp; Memory</h3>
+        <p>Why cannabis impairs the recall your clients depend on to report their week — and why EMA is the only collection method that works around it.</p>
+        <span class="fhub-card-link">Read the science →</span>
+      </a>
+    </div>
+  </div>
+</section>
 
-                    <!-- 2: Consumption Overview -->
-                    <div class="fp-top5-card glass hover-lift fade-in-up" style="animation-delay: 0.05s">
-                        <div class="fp-rank">02</div>
-                        <div class="fp-top5-content">
-                            <div class="fp-badges">
-                                <span class="fp-badge-priority" data-i18n="featuresPage.priorityBadge">Klinisk
-                                    prioritet</span>
-                            </div>
-                            <h3 data-i18n="featuresPage.f3_title">Forbrugsoverblik</h3>
-                            <p data-i18n="featuresPage.f3_desc">Du kan se præcis, hvor lang tid der er gået siden din seneste session — ned til timen. Dage, timer og minutter, kombineret med en løbende pengesparet-beregning og milestone-beskeder der gør fremskridt mærkbart. De fleste borgere har aldrig haft et klart billede af eget forbrug. Det overblik er det, der gør kontrol mulig — og det er derfor mange borgere åbner appen hver morgen for at se tælleren.</p>
-                        </div>
-                    </div>
+<!-- FULL FEATURE LIST (accordion) -->
+<section class="full-list-section">
+  <div class="full-list-inner">
+    <div class="fl-header reveal">
+      <div class="fl-tag">Complete Feature List</div>
+      <h2>Every feature, organised by category</h2>
+      <p>A full breakdown of what's included across all SmokingTracker plans.</p>
+    </div>
 
-                    <!-- 3: Traffic Light -->
-                    <div class="fp-top5-card glass hover-lift fade-in-up" style="animation-delay: 0.1s">
-                        <div class="fp-rank">03</div>
-                        <div class="fp-top5-content">
-                            <div class="fp-badges">
-                                <span class="fp-badge-priority" data-i18n="featuresPage.priorityBadge">Klinisk
-                                    prioritet</span>
-                                <span class="fp-badge-b2b" data-i18n="featuresPage.b2bBadge">B2B-highlight</span>
-                            </div>
-                            <h3 data-i18n="featuresPage.f4_title">Trafiklys-dashboard</h3>
-                            <p data-i18n="featuresPage.f4_desc">Farvekoder automatisk dine borgere: grøn (aktiv), gul
-                                (kræver opmærksomhed), rød (inaktiv). Borgere kan ikke blive tavse uden at du opdager
-                                det — selv med en fuld sagsportefølje. Klinisk triage uden ekstra administrativt
-                                arbejde.</p>
-                        </div>
-                    </div>
+    <div class="fl-group open">
+      <div class="fl-group-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="fl-group-title"><span class="fl-group-icon">📱</span> Client Logging</span>
+        <span class="fl-chevron">▾</span>
+      </div>
+      <div class="fl-group-body">
+        <ul class="fl-items">
+          <li><strong>Three-tap session logging</strong> — substance, amount, method in under 5 seconds</li>
+          <li><strong>Optional fields</strong> — mood rating, craving score, trigger category, location, free-text notes</li>
+          <li><strong>Fast-use warning</strong> — in-app alert if session interval is unusually short</li>
+          <li><strong>Works in any mobile browser</strong> — no app store download required</li>
+          <li><strong>Session calendar heatmap</strong> — client-side view of logged use over time</li>
+          <li><strong>Longitudinal statistics</strong> — frequency, consumption, trend charts for the client</li>
+          <li><strong>Time-since-last-session counter</strong> — visible on home screen</li>
+          <li><strong>Goal tracking</strong> — client sets reduction targets, progress visible in app</li>
+        </ul>
+      </div>
+    </div>
 
-                    <!-- 4: Achievement System -->
-                    <div class="fp-top5-card glass hover-lift fade-in-up" style="animation-delay: 0.15s">
-                        <div class="fp-rank">04</div>
-                        <div class="fp-top5-content">
-                            <div class="fp-badges">
-                                <span class="fp-badge-priority" data-i18n="featuresPage.priorityBadge">Klinisk
-                                    prioritet</span>
-                            </div>
-                            <h3 data-i18n="featuresPage.f5_title">Achievement-system</h3>
-                            <p data-i18n="featuresPage.f5_desc">Gamification giver borgerne et lille dopaminstød bare
-                                ved at logge — hvert klik er en belønning, ikke et krav. Milepæle belønner konsekvens:
-                                første log, 7 røgfrie dage, streak-mål. Progress bars viser, hvad der venter — ikke
-                                bare hvad der er opnået. Afgørende: tilbagefald sletter ikke achievements, hvilket
-                                fjerner den skamspiral, der driver dropout.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="fl-group">
+      <div class="fl-group-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="fl-group-title"><span class="fl-group-icon">🖥️</span> Practitioner Dashboard</span>
+        <span class="fl-chevron">▾</span>
+      </div>
+      <div class="fl-group-body">
+        <ul class="fl-items">
+          <li><strong>Client list with traffic-light status</strong> — green/yellow/red risk at a glance</li>
+          <li><strong>Risk score algorithm</strong> — uses frequency, trend, craving, fast-use events</li>
+          <li><strong>Client detail view</strong> — calendar heatmap, trend charts, mood/craving plots</li>
+          <li><strong>Trigger breakdown</strong> — ranked by session count: stress, social, boredom, habit, pain</li>
+          <li><strong>Method &amp; substance analytics</strong> — flower, vape, concentrate, edible split</li>
+          <li><strong>Time-of-day and day-of-week patterns</strong> — identify use schedule</li>
+          <li><strong>Session notes</strong> — free-text annotations attached to any date</li>
+          <li><strong>Event flags</strong> — relapse, goal achievement, medication change</li>
+          <li><strong>Custom date range</strong> — 4, 8, 12 weeks or custom</li>
+          <li><strong>Real-time data</strong> — updates as client logs, no manual sync</li>
+        </ul>
+      </div>
+    </div>
 
-        <!-- ─── FULL FEATURE GRID ─────────────────────────── -->
-        <section class="fp-section">
-            <div class="container">
-                <div class="fp-section-header fade-in-up">
-                    <div class="badge" style="margin: 0 auto 0.75rem" data-i18n="featuresPage.allBadge">Fuld liste
-                    </div>
-                    <h2 data-i18n="featuresPage.allTitle">Alle funktioner, opdelt på kategorier</h2>
-                    <p data-i18n="featuresPage.allSubtitle">Alle SmokingTracker-funktioner organiseret efter klinisk
-                        funktion.</p>
-                </div>
+    <div class="fl-group">
+      <div class="fl-group-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="fl-group-title"><span class="fl-group-icon">📄</span> Clinical Reports</span>
+        <span class="fl-chevron">▾</span>
+      </div>
+      <div class="fl-group-body">
+        <ul class="fl-items">
+          <li><strong>One-click PDF export</strong> — generates instantly from dashboard data</li>
+          <li><strong>Includes</strong> — session calendar, use trends, mood/craving chart, top triggers, method breakdown, clinical notes</li>
+          <li><strong>Custom date range</strong> — weekly, monthly, full programme span</li>
+          <li><strong>Clinician name and client ID</strong> — on all exported documents</li>
+          <li><strong>EHR-ready formatting</strong> — structured for direct paste or attachment</li>
+          <li><strong>Referral quality</strong> — data sourced from timestamped EMA entries with methodology noted</li>
+        </ul>
+      </div>
+    </div>
 
-                <div class="fp-cat-grid">
+    <div class="fl-group">
+      <div class="fl-group-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="fl-group-title"><span class="fl-group-icon">🔒</span> Privacy &amp; Compliance</span>
+        <span class="fl-chevron">▾</span>
+      </div>
+      <div class="fl-group-body">
+        <ul class="fl-items">
+          <li><strong>HIPAA</strong> — Business Associate Agreement (BAA) available for all clinical accounts</li>
+          <li><strong>GDPR</strong> — Data Processing Agreement (DPA) available, EU data residency option</li>
+          <li><strong>42 CFR Part 2</strong> — substance use disorder record confidentiality requirements met</li>
+          <li><strong>AES-256 encryption at rest</strong> — all client data</li>
+          <li><strong>TLS 1.2+ in transit</strong> — all API and web traffic</li>
+          <li><strong>Role-based access</strong> — practitioners see only their own clients</li>
+          <li><strong>Full audit log</strong> — timestamped access events, tamper-evident</li>
+          <li><strong>Client consent model</strong> — client-initiated connection, revocable at any time</li>
+          <li><strong>Right to erasure</strong> — full account deletion on request</li>
+        </ul>
+      </div>
+    </div>
 
-                    <!-- ── Cat 2: Daily Retention ── -->
-                    <div class="fp-cat-card glass fade-in-up" style="animation-delay: 0.05s">
-                        <div class="fp-cat-header">
-                            <div class="fp-cat-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <polyline points="12 6 12 12 16 14" />
-                                </svg>
-                            </div>
-                            <h3 data-i18n="featuresPage.cat2">Daglig fastholdelse</h3>
-                        </div>
-                        <ul class="fp-feature-list">
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <div class="fp-feature-item-inner">
-                                    <span data-i18n="featuresPage.c2f1">Quit-tæller (dage, timer, sekunder)</span>
-                                    <span class="fp-chip-priority"
-                                        data-i18n="featuresPage.priorityBadge">Klinisk prioritet</span>
-                                </div>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c2f2">Hjemmeskærm-chips — næste achievement synligt</span>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c2f3">Daglig sessions-budget progress bar
-                                    (Reducer-mål)</span>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c2f4">Røgfrie timer-blokering</span>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c2f5">Awareness-mode — kun registrering, intet pres</span>
-                            </li>
-                        </ul>
-                    </div>
+    <div class="fl-group">
+      <div class="fl-group-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="fl-group-title"><span class="fl-group-icon">🤝</span> Client Management</span>
+        <span class="fl-chevron">▾</span>
+      </div>
+      <div class="fl-group-body">
+        <ul class="fl-items">
+          <li><strong>Secure client invite</strong> — link-based, no app store, setup in under 2 minutes</li>
+          <li><strong>Multi-client caseload</strong> — all clients visible on one dashboard</li>
+          <li><strong>Clinician shown in client app</strong> — client can see their connected practitioner</li>
+          <li><strong>Multiple clinicians per organisation</strong> — admin access across a team</li>
+          <li><strong>Client self-monitoring</strong> — clients see their own data on the tracker side</li>
+        </ul>
+      </div>
+    </div>
 
-                    <!-- ── Cat 3: Self-Insight ── -->
-                    <div class="fp-cat-card glass fade-in-up" style="animation-delay: 0.1s">
-                        <div class="fp-cat-header">
-                            <div class="fp-cat-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <line x1="18" y1="20" x2="18" y2="10" />
-                                    <line x1="12" y1="20" x2="12" y2="4" />
-                                    <line x1="6" y1="20" x2="6" y2="14" />
-                                </svg>
-                            </div>
-                            <h3 data-i18n="featuresPage.cat3">Selvindsigt &amp; refleksion</h3>
-                        </div>
-                        <ul class="fp-feature-list">
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c3f1">Ugentlige sammenligningsstatistikker</span>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c3f2">Kalendervisning af røgfrie dage</span>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <div class="fp-feature-item-inner">
-                                    <span data-i18n="featuresPage.c3f3">Stemnings-tracking per session</span>
-                                    <span class="fp-chip-priority"
-                                        data-i18n="featuresPage.priorityBadge">Klinisk prioritet</span>
-                                </div>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c3f4">Lokations-tracking per session</span>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c3f5">Pengesparet-beregning</span>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c3f6">Ugentlig cost-estimat</span>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c3f7">Top forbrugsmåde &amp; peak-dag rapport</span>
-                            </li>
-                        </ul>
-                    </div>
+    <div class="fl-group">
+      <div class="fl-group-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="fl-group-title"><span class="fl-group-icon">🏆</span> Client Engagement</span>
+        <span class="fl-chevron">▾</span>
+      </div>
+      <div class="fl-group-body">
+        <ul class="fl-items">
+          <li><strong>Achievement system</strong> — milestones for logging consistency, abstinence streaks, goal adherence</li>
+          <li><strong>Progress bars</strong> — next milestone always visible</li>
+          <li><strong>Relapse-resilient</strong> — achievements not deleted on relapse, removing shame spiral</li>
+          <li><strong>Urge surfing tool</strong> — in-app craving management exercise</li>
+          <li><strong>Money saved calculator</strong> — real-time estimate based on usage reduction</li>
+          <li><strong>Home screen summary</strong> — time since last session, current streak, recent trend</li>
+        </ul>
+      </div>
+    </div>
 
-                    <!-- ── Cat 4: Motivation ── -->
-                    <div class="fp-cat-card glass fade-in-up" style="animation-delay: 0.05s">
-                        <div class="fp-cat-header">
-                            <div class="fp-cat-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path
-                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                </svg>
-                            </div>
-                            <h3 data-i18n="featuresPage.cat4">Motivation &amp; gamification</h3>
-                        </div>
-                        <ul class="fp-feature-list">
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <div class="fp-feature-item-inner">
-                                    <span data-i18n="featuresPage.c4f1">Achievement-badges med progress bars</span>
-                                    <span class="fp-chip-priority"
-                                        data-i18n="featuresPage.priorityBadge">Klinisk prioritet</span>
-                                </div>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c4f2">Manuel røgfri-dag-markering</span>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c4f3">Streak-tæller (Reducer-mål)</span>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c4f4">Milestone-beskeder (penge sparet, tid)</span>
-                            </li>
-                        </ul>
-                    </div>
+  </div>
+</section>
 
-                    <!-- ── Cat 5: Practitioner ── -->
-                    <div class="fp-cat-card glass fade-in-up" style="animation-delay: 0.1s">
-                        <div class="fp-cat-header">
-                            <div class="fp-cat-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                                    <circle cx="9" cy="7" r="4" />
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                                </svg>
-                            </div>
-                            <h3 data-i18n="featuresPage.cat5">Behandler-relationen</h3>
-                        </div>
-                        <ul class="fp-feature-list">
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <div class="fp-feature-item-inner">
-                                    <span data-i18n="featuresPage.c5f1">Trafiklys-system (behandler-dashboard)</span>
-                                    <span class="fp-chip-priority"
-                                        data-i18n="featuresPage.priorityBadge">Klinisk prioritet</span>
-                                </div>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <div class="fp-feature-item-inner">
-                                    <span data-i18n="featuresPage.c5f2">Granulære samtykke-toggles (borgerstyret)</span>
-                                    <span class="fp-chip-priority"
-                                        data-i18n="featuresPage.priorityBadge">Klinisk prioritet</span>
-                                </div>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c5f3">Behandler-notifikationer ved triggere</span>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c5f4">Ét-klik PDF-klinisk rapport</span>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <div class="fp-feature-item-inner">
-                                    <span data-i18n="featuresPage.c5f5">Stemnings- og lokationsdata i
-                                        behandler-visning</span>
-                                    <span class="fp-chip-priority"
-                                        data-i18n="featuresPage.priorityBadge">Klinisk prioritet</span>
-                                </div>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c5f6">Invitations-flow (e-mail, SMS, manuelt)</span>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c5f7">Borger selvafmelding</span>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c5f8">Behandler notifikationspræferencer</span>
-                            </li>
-                        </ul>
-                    </div>
+<!-- CTA SECTION -->
+<section class="cta-dark-section">
+  <div class="cta-dark-inner">
+    <h2 class="cta-dark-title">Start your 30-day free trial</h2>
+    <p class="cta-dark-sub">No credit card. Full platform access. BAA and DPA available from day one.</p>
+    <div class="cta-dark-btns">
+      <a href="/trial.html" class="btn-orange-lg">Request Free Trial</a>
+      <a href="/for-clinicians.html" class="btn-ghost">Platform Overview</a>
+    </div>
+  </div>
+</section>
 
-                    <!-- ── Cat 6: Onboarding ── -->
-                    <div class="fp-cat-card glass fade-in-up" style="animation-delay: 0.05s">
-                        <div class="fp-cat-header">
-                            <div class="fp-cat-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-                                </svg>
-                            </div>
-                            <h3 data-i18n="featuresPage.cat6">Onboarding</h3>
-                        </div>
-                        <ul class="fp-feature-list">
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c6f1">7-trins onboarding-wizard</span>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c6f2">Valg af forbrugsmåde</span>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <div class="fp-feature-item-inner">
-                                    <span data-i18n="featuresPage.c6f3">Borger-defineret reduktionsmål</span>
-                                    <span class="fp-chip-priority"
-                                        data-i18n="featuresPage.priorityBadge">Klinisk prioritet</span>
-                                </div>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c6f4">Spring-knap — ingen blokering af ambivalente
-                                    borgere</span>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c6f5">Gentag onboarding fra profil</span>
-                            </li>
-                        </ul>
-                    </div>
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="footer-logo" href="/">
+        <img src="/logo-icon.webp" width="24" height="24" alt="SmokingTracker" style="display:block;object-fit:contain;">
+        <span>SmokingTracker</span>
+      </a>
+      <p class="footer-tagline">Measurement-based care for cannabis use disorder.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <span class="footer-col-title">Features</span>
+        <a href="/ema-logging.html">EMA Logging</a>
+        <a href="/practitioner-dashboard.html">Practitioner Dashboard</a>
+        <a href="/clinical-reports.html">Clinical Reports</a>
+        <a href="/privacy-compliance.html">Privacy &amp; Compliance</a>
+        <a href="/measurement-based-care.html">Measurement-Based Care</a>
+        <a href="/cannabis-cognitive-fog.html">Cannabis &amp; Memory</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Platform</span>
+        <a href="/features.html">All Features</a>
+        <a href="/for-clinicians.html">For Clinicians</a>
+        <a href="/for-individuals.html">For Individuals</a>
+        <a href="/pricing.html">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Company</span>
+        <a href="/about.html">About</a>
+        <a href="/knowledge-base.html">Blog</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/trial.html">Free Trial</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Legal</span>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="/dpa.html">Data Processing Agreement</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 SmokingTracker. All rights reserved.</span>
+    <span>HIPAA · GDPR · 42 CFR Part 2 Compliant</span>
+  </div>
+</footer>
 
-                    <!-- ── Cat 7: Infrastructure ── -->
-                    <div class="fp-cat-card glass fade-in-up" style="animation-delay: 0.1s">
-                        <div class="fp-cat-header">
-                            <div class="fp-cat-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                                </svg>
-                            </div>
-                            <h3 data-i18n="featuresPage.cat7">Infrastruktur</h3>
-                        </div>
-                        <ul class="fp-feature-list">
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c7f1">Rate-limiting på autentificering</span>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c7f2">Token-blocklist ved logout</span>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c7f3">Bulk JSON data-import / eksport</span>
-                            </li>
-                            <li class="fp-feature-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12" />
-                                </svg>
-                                <span data-i18n="featuresPage.c7f4">Sprogtoggle (dansk / engelsk)</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- ─── CTA ───────────────────────────────────────────── -->
-        <section class="cta-section">
-            <div class="container text-center">
-                <div class="cta-box glass fade-in-up">
-                    <h2 data-i18n="featuresPage.ctaTitle">Vil du se det hele i praksis?</h2>
-                    <p data-i18n="featuresPage.ctaDesc">Book en gratis demo og udforsk alle funktioner med en fra vores
-                        team.</p>
-                    <a href="/trial.html" class="btn btn-primary btn-large cta-btn"
-                        data-i18n="featuresPage.ctaBtn">Book en gratis demo</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <a href="/" class="logo">
-                    <img src="/logo-icon.webp" alt="SmokingTracker Logo" class="logo-img" width="32" height="32">
-                    <span class="logo-text">SmokingTracker</span>
-                </a>
-                <p data-i18n="footer.desc">Vi hjælper behandlingssteder med at levere proaktiv, datadrevet støtte —
-                    med fuld respekt for borgerens privatliv.</p>
-            </div>
-            <div class="footer-links">
-                <div class="link-group">
-                    <h4 data-i18n="footer.product">Produkt</h4>
-                    <a href="/features.html" data-i18n="nav.features" class="active">Funktioner</a>
-                    <a href="/#how-it-works" data-i18n="nav.howItWorks">Sådan virker det</a>
-                    <a href="/pricing.html" data-i18n="nav.pricing">Priser</a>
-                    <a href="/faq.html" data-i18n="nav.faq">FAQ</a>
-                    <a href="/about.html" data-i18n="nav.about">Om os</a>
-                    <a href="/knowledge-base.html" data-i18n="nav.blog">Vidensbank</a>
-                </div>
-                <div class="link-group">
-                    <h4 data-i18n="footer.legal">Juridisk</h4>
-                    <a href="/privacy.html" data-i18n="footer.privacy">Privatlivspolitik</a>
-                    <a href="/terms.html" data-i18n="footer.terms">Handelsbetingelser</a>
-                    <a href="/dpa.html" data-i18n="footer.dpa">Databehandleraftale</a>
-                    <a href="/security.html" data-i18n="footer.security">Sikkerhed</a>
-                </div>
-                <div class="link-group">
-                    <h4 data-i18n="footer.connect">Kontakt</h4>
-                    <a href="mailto:support@smokingtracker.com" data-i18n="footer.contact">Kontakt salg</a>
-                </div>
-            </div>
-        </div>
-        <div class="container footer-bottom">
-            <p>&copy; 2026 SmokingTracker. All rights reserved.</p>
-        </div>
-    </footer>
-    <script type="module" src="/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.documentElement.style.visibility = 'visible';
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+});
+</script>
 </body>
-
 </html>

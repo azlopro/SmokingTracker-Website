@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<style>html{visibility:hidden}</style>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/webp" href="/logo.webp" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EMA Logging — Capture Cannabis Use the Moment It Happens | SmokingTracker</title>
+<meta name="description" content="Ecological Momentary Assessment logging for cannabis use disorder treatment. Capture mood, cravings, and use in real time — not reconstructed from memory days later." />
+<link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.smokingtracker.com/ema-logging.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="EMA Logging — Capture Cannabis Use the Moment It Happens | SmokingTracker">
+<meta property="og:description" content="Ecological Momentary Assessment for cannabis use disorder. Three taps to log. Real-time data, no recall bias.">
+<meta property="og:url" content="https://www.smokingtracker.com/ema-logging.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "EMA Logging — Ecological Momentary Assessment for Cannabis Use Disorder",
+  "url": "https://www.smokingtracker.com/ema-logging.html",
+  "description": "SmokingTracker uses Ecological Momentary Assessment to capture cannabis use, mood, and triggers the moment they happen — not reconstructed from memory.",
+  "publisher": { "@id": "https://www.smokingtracker.com/#organization" }
+}
+</script>
+<style>
+  /* Walker animation for fog section */
+  .fog-walker-wrap .loader { scale: 1.0; position: relative; width: 200px; height: 200px; translate: 10px -20px; filter: brightness(1.2) drop-shadow(0 0 20px rgba(52,211,153,0.35)); }
+  .fog-walker-wrap .loader svg { position: absolute; top: 0; left: 0; }
+  .fog-walker-wrap .w-head { translate: 27px -30px; z-index: 3; animation: w-bob 1s infinite ease-in; }
+  .fog-walker-wrap .w-bod  { translate: 0px 30px; z-index: 3; animation: w-bob 1s infinite ease-in-out; }
+  .fog-walker-wrap .w-legr { translate: 75px 135px; z-index: 0; animation: w-rstep 1s infinite ease-in; animation-delay: 0.45s; }
+  .fog-walker-wrap .w-legl { translate: 30px 155px; z-index: 3; animation: w-lstep 1s infinite ease-in; }
+  .fog-walker-wrap .w-gnd  { translate: -140px 0; rotate: 10deg; z-index: -1; filter: blur(0.5px) drop-shadow(1px 3px 5px #000); opacity: 0.35; animation: w-scroll 5s infinite linear; }
+  @keyframes w-bob  { 0% { transform: translateY(0) rotate(3deg); } 25% { transform: translateY(5px) rotate(0deg); } 50% { transform: translateY(0px) rotate(-3deg); } 70% { transform: translateY(5px) rotate(0deg); } 100% { transform: translateY(0) rotate(3deg); } }
+  @keyframes w-lstep { 0% { transform: translateY(0) rotate(-5deg); } 33% { transform: translateY(-15px) translate(32px) rotate(35deg); } 66% { transform: translateY(0) translate(25px) rotate(-25deg); } 100% { transform: translateY(0) rotate(-5deg); } }
+  @keyframes w-rstep { 0% { transform: translateY(0) translate(0px) rotate(-5deg); } 33% { transform: translateY(-10px) translate(30px) rotate(35deg); } 66% { transform: translateY(0) translate(20px) rotate(-25deg); } 100% { transform: translateY(0) translate(0px) rotate(-5deg); } }
+  @keyframes w-scroll { 0% { transform: translateY(25px) translate(50px); opacity: 0; } 33% { opacity: 0.35; } 66% { opacity: 0.35; } 100% { transform: translateY(-50px) translate(-100px); opacity: 0; } }
+  .fog-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; padding: 4.5rem 0 1rem; }
+  @media (max-width: 780px) { .fog-inner { grid-template-columns: 1fr; } }
+  .fog-scene-side { position: relative; height: 38px; display: flex; align-items: center; justify-content: center; }
+  .fog-scene-side::before { content: ''; position: absolute; inset: 0; pointer-events: none; border-radius: 50%; background: radial-gradient(ellipse 75% 50% at 50% 68%, rgba(52,211,153,0.06) 0%, transparent 70%); animation: fog-drift 8s ease-in-out infinite alternate; }
+  @keyframes fog-drift { 0% { transform: translateX(-14px) scaleX(0.96); } 100% { transform: translateX(14px) scaleX(1.04); } }
+  .ev-card { border-left: 3px solid var(--green) !important; }
+  @media (max-width: 860px) { .feature-inner, .feature-inner.reverse { grid-template-columns: 1fr !important; direction: ltr !important; gap: 2.5rem; } }
+  @media (max-width: 680px) { .evidence-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 480px) { .how-section .steps-grid { grid-template-columns: 1fr; } }
+
+  /* Feature page hero — centered single-column */
+  .feature-hero { background: var(--green); position: relative; overflow: hidden; padding: 4rem 2.5rem 0; text-align: center; }
+  .feature-hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 28px 28px; pointer-events: none; }
+  .feature-hero-inner { max-width: 760px; margin: 0 auto; position: relative; padding-bottom: 3.5rem; }
+  .feature-hero h1 { font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 800; color: white; letter-spacing: -0.6px; line-height: 1.15; margin-bottom: 1.25rem; }
+  .feature-hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.82); line-height: 1.7; margin-bottom: 2rem; }
+  .feature-hero-btns { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; }
+  .breadcrumb { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem; }
+  .breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  .breadcrumb a:hover { color: white; }
+</style>
+</head>
+
+<body class="light-theme">
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-icon"><img src="/logo-icon.webp" width="22" height="22" alt="SmokingTracker" style="display:block;object-fit:contain;"></div>
+    <span class="nav-wordmark">SmokingTracker</span>
+  </a>
+  <div class="nav-links">
+    <a href="/features.html" class="active">Features</a>
+    <a href="/for-clinicians.html">For Clinicians</a>
+    <a href="/for-individuals.html">For Individuals</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/about.html">About</a>
+    <a href="/knowledge-base.html">Blog</a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-signin" href="#">Sign In</a>
+    <a href="/trial.html" class="nav-trial">Start Free Trial</a>
+  </div>
+</nav>
+
+<!-- FEATURE HERO -->
+<section class="feature-hero">
+  <div class="feature-hero-inner">
+    <div class="breadcrumb">
+      <a href="/features.html">Features</a>
+      <span>›</span>
+      <span>EMA Logging</span>
+    </div>
+    <div class="feature-eyebrow" style="color:rgba(255,255,255,0.75);font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.85rem;">Ecological Momentary Assessment</div>
+    <h1>Capture cannabis use the moment it happens — not reconstructed days later</h1>
+    <p class="feature-hero-sub">SmokingTracker uses EMA to log sessions, mood, and triggers in real time. Three taps. No cognitive load. No recall bias distorting your clinical data.</p>
+    <div class="feature-hero-btns">
+      <a href="/trial.html" class="btn-orange-lg">Start 30-Day Free Trial</a>
+      <a href="/for-clinicians.html" class="btn-ghost">See Full Platform</a>
+    </div>
+  </div>
+  <svg class="hero-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,30 C360,70 1080,-10 1440,30 L1440,60 L0,60 Z" fill="#0b1c10"/>
+  </svg>
+</section>
+
+<!-- COGNITIVE FOG SECTION -->
+<section class="fog-section" style="padding-top:0;padding-bottom:0;">
+  <div class="fog-inner">
+    <div class="fog-text">
+      <div class="fog-eyebrow">The recall problem</div>
+      <h2 class="fog-title">Cannabis affects short-term memory. Your clients aren't lying — they just can't recall.</h2>
+      <p class="fog-body">Regular cannabis use impairs episodic memory encoding. By the time a client sits across from you, a full week of sessions, moods, and triggers has dissolved into a vague "about the same." EMA fixes this — by capturing it the moment it happens, not reconstructed in a clinical setting days later.</p>
+    </div>
+    <div class="fog-scene-side">
+      <div class="fog-walker-wrap">
+        <div class="loader">
+          <svg class="w-legl" version="1.1" xmlns="http://www.w3.org/2000/svg" width="20.69332" height="68.19944" viewBox="0,0,20.69332,68.19944"><g transform="translate(-201.44063,-235.75466)"><g stroke-miterlimit="10"><path d="M218.11971,301.20087c-2.20708,1.73229 -4.41416,0 -4.41416,0l-1.43017,-1.1437c-1.42954,-1.40829 -3.04351,-2.54728 -4.56954,-3.87927c-0.95183,-0.8308 -2.29837,-1.49883 -2.7652,-2.55433c-0.42378,-0.95815 0.14432,-2.02654 0.29355,-3.03399c0.41251,-2.78499 1.82164,-5.43386 2.41472,-8.22683c1.25895,-4.44509 2.73863,-8.98683 3.15318,-13.54796c0.22615,-2.4883 -0.21672,-5.0155 -0.00278,-7.50605c0.30636,-3.56649 1.24602,-7.10406 1.59992,-10.6738c0.29105,-2.93579 -0.00785,-5.9806 -0.00785,-8.93046c0,0 0,-2.44982 3.12129,-2.44982c3.12129,0 3.12129,2.44982 3.12129,2.44982c0,3.06839 0.28868,6.22201 -0.00786,9.27779c-0.34637,3.56935 -1.30115,7.10906 -1.59992,10.6738c-0.2103,2.50918 0.22586,5.05326 -0.00278,7.56284c-0.43159,4.7371 -1.94029,9.46317 -3.24651,14.07835c-0.47439,2.23403 -1.29927,4.31705 -2.05805,6.47156c-0.18628,0.52896 -0.1402,1.0974 -0.327,1.62624c-0.09463,0.26791 -0.64731,0.47816 -0.50641,0.73323c0.19122,0.34617 0.86423,0.3445 1.2346,0.58502c1.88637,1.22503 3.50777,2.79494 5.03,4.28305l0.96971,0.73991c0,0 2.20708,1.73229 0,3.46457z" fill="none" stroke="#a7f3d0" stroke-width="7"></path></g></g></svg>
+          <svg class="w-legr" version="1.1" xmlns="http://www.w3.org/2000/svg" width="41.02537" height="64.85502" viewBox="0,0,41.02537,64.85502"><g transform="translate(-241.54137,-218.44347)"><g stroke-miterlimit="10"><path d="M279.06674,279.42662c-2.27967,1.98991 -6.08116,0.58804 -6.08116,0.58804l-2.47264,-0.92915c-2.58799,-1.18826 -5.31176,-2.08831 -7.99917,-3.18902c-1.67622,-0.68654 -3.82471,-1.16116 -4.93147,-2.13229c-1.00468,-0.88156 -0.69132,-2.00318 -0.92827,-3.00935c-0.65501,-2.78142 0.12275,-5.56236 -0.287,-8.37565c-0.2181,-4.51941 -0.17458,-9.16283 -1.60696,-13.68334c-0.78143,-2.46614 -2.50162,-4.88125 -3.30086,-7.34796c-1.14452,-3.53236 -1.40387,-7.12078 -2.48433,-10.66266c-0.88858,-2.91287 -2.63779,-5.85389 -3.93351,-8.74177c0,0 -1.07608,-2.39835 3.22395,-2.81415c4.30003,-0.41581 2.41605,1.98254 2.41605,1.98254c1.34779,3.00392 3.13072,6.05282 4.06444,9.0839c1.09065,3.54049 1.33011,7.13302 2.48433,10.66266c0.81245,2.48448 2.5308,4.917 3.31813,7.40431c1.48619,4.69506 1.48366,9.52281 1.71137,14.21503c0.32776,2.25028 0.10631,4.39942 0.00736,6.60975c-0.02429,0.54266 0.28888,1.09302 0.26382,1.63563c-0.01269,0.27488 -0.68173,0.55435 -0.37558,0.78529c0.41549,0.31342 1.34191,0.22213 1.95781,0.40826c3.13684,0.94799 6.06014,2.26892 8.81088,3.52298l1.66093,0.59519c0,0 6.76155,1.40187 4.48187,3.39177z" fill="none" stroke="#6ee7b7" stroke-width="7"></path></g></g></svg>
+          <div class="w-bod">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="144.10576" height="144.91623" viewBox="0,0,144.10576,144.91623"><g transform="translate(-164.41679,-112.94712)"><g stroke-miterlimit="10"><path d="M166.9168,184.02633c0,-36.49454 35.0206,-66.07921 72.05288,-66.07921c37.03228,0 67.05288,29.58467 67.05288,66.07921c0,6.94489 -1.08716,13.63956 -3.10292,19.92772c-2.71464,8.46831 -7.1134,16.19939 -12.809,22.81158c-2.31017,2.68194 -7.54471,12.91599 -7.54471,12.91599c0,0 -5.46714,-1.18309 -8.44434,0.6266c-3.86867,2.35159 -10.95356,10.86714 -10.95356,10.86714c0,0 -6.96906,-3.20396 -9.87477,-2.58085c-2.64748,0.56773 -6.72538,5.77072 -6.72538,5.77072c0,0 -5.5023,-4.25969 -7.5982,-4.25969c-3.08622,0 -9.09924,3.48259 -9.09924,3.48259c0,0 -6.0782,-5.11244 -9.00348,-5.91884c-4.26461,-1.17561 -12.23343,0.75049 -12.23343,0.75049c0,0 -5.18164,-8.26065 -7.60688,-9.90388c-3.50443,-2.37445 -8.8271,-3.95414 -8.8271,-3.95414c0,0 -5.33472,-8.81718 -7.27019,-11.40895c-4.81099,-6.44239 -13.46422,-9.83437 -15.65729,-17.76175c-1.53558,-5.55073 -2.35527,-21.36472 -2.35527,-21.36472z" fill="#0d2a1a" stroke="#1a4a2a" stroke-width="5" stroke-linecap="butt"></path><path d="M216.22445,188.06994c0,0 1.02834,11.73245 -3.62335,21.11235c-4.65169,9.3799 -13.06183,10.03776 -13.06183,10.03776c0,0 7.0703,-3.03121 10.89231,-10.7381c4.34839,-8.76831 5.79288,-20.41201 5.79288,-20.41201z" fill="none" stroke="#2d6b3a" stroke-width="3" stroke-linecap="round"></path></g></g></svg>
+            <svg class="w-head" version="1.1" xmlns="http://www.w3.org/2000/svg" width="115.68559" height="88.29441" viewBox="0,0,115.68559,88.29441"><g transform="translate(-191.87889,-75.62023)"><g stroke-miterlimit="10"><path d="M195.31785,124.43649c0,-26.96048 21.33334,-48.81626 47.64934,-48.81626c26.316,0 47.64935,21.85578 47.64935,48.81626c0,1.03481 -0.08666,2.8866 -0.08666,2.8866c0,0 16.8538,15.99287 16.21847,17.23929c-0.66726,1.30905 -23.05667,-4.14265 -23.05667,-4.14265l-2.29866,4.5096l-7.75885,0.35623l-7.59417,6.15039l-8.64295,-1.74822l-11.70703,6.06119l-6.38599,-4.79382l-6.45999,2.36133l-7.01451,-7.38888l-8.11916,1.29382l-6.19237,-6.07265l-7.6263,-1.37795l-4.19835,-7.87062l-4.24236,-4.16907c0,0 -0.13314,-2.0999 -0.13314,-3.29458z" fill="#0d2a1a" stroke="none"></path><path d="M271.10348,122.46768l10.06374,-3.28166l24.06547,24.28424" fill="none" stroke="#2d6b3a" stroke-width="6" stroke-linecap="round"></path><path d="M276.02738,115.72434c-0.66448,-4.64715 2.56411,-8.95308 7.21127,-9.61756c4.64715,-0.66448 8.95309,2.56411 9.61757,7.21126c0.46467,3.24972 -1.94776,8.02206 -5.96624,9.09336c-2.11289,-1.73012 -5.08673,-5.03426 -5.08673,-5.03426c0,0 -4.12095,1.16329 -4.60481,1.54229c-0.16433,-0.04891 -0.62732,-0.38126 -0.72803,-0.61269c-0.30602,-0.70328 -0.36302,-2.02286 -0.44303,-2.58239z" fill="#ecfdf5" stroke="none"></path><path d="M242.49281,125.6424c0,-4.69442 3.80558,-8.5 8.5,-8.5c4.69442,0 8.5,3.80558 8.5,8.5c0,4.69442 -3.80558,8.5 -8.5,8.5c-4.69442,0 -8.5,-3.80558 -8.5,-8.5z" fill="#ecfdf5" stroke="none"></path></g></g></svg>
+          </div>
+          <svg class="w-gnd" version="1.1" xmlns="http://www.w3.org/2000/svg" width="475" height="530" viewBox="0,0,163.40011,85.20095"><g transform="translate(-176.25,-207.64957)"><g stroke="#1a4a2a" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10"><path d="M295.5,273.1829c0,0 -57.38915,6.69521 -76.94095,-9.01465c-13.65063,-10.50609 15.70098,-20.69467 -2.5451,-19.94465c-30.31027,2.05753 -38.51396,-26.84135 -38.51396,-26.84135c0,0 6.50084,13.30023 18.93224,19.17888c9.53286,4.50796 26.23632,-1.02541 32.09529,4.95137c3.62417,3.69704 2.8012,6.33005 0.66517,8.49452c-3.79415,3.84467 -11.7312,6.21103 -6.24682,10.43645c22.01082,16.95812 72.55412,12.73944 72.55412,12.73944z" fill="#0d2a1a"></path><path d="M338.92138,217.76285c0,0 -17.49626,12.55408 -45.36424,10.00353c-8.39872,-0.76867 -17.29557,-6.23066 -17.29557,-6.23066c0,0 3.06461,-2.23972 15.41857,0.72484c26.30467,6.31228 47.24124,-4.49771 47.24124,-4.49771z" fill="#0d2a1a"></path><path d="M209.14443,223.00182l1.34223,15.4356l-10.0667,-15.4356" fill="none"></path><path d="M198.20391,230.41806l12.95386,7.34824l6.71113,-12.08004" fill="none"></path><path d="M317.57068,215.80173l5.27812,6.49615l0.40601,-13.39831" fill="none"></path><path d="M323.66082,222.70389l6.09014,-9.33822" fill="none"></path></g></g></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;margin-bottom:-2px;">
+    <path d="M0,30 C360,70 1080,-10 1440,30 L1440,60 L0,60 Z" fill="white"/>
+  </svg>
+</section>
+
+<!-- FEATURE SPLITS -->
+<section class="feature-section">
+  <div class="feature-inner reveal">
+    <div class="feature-text">
+      <div class="feature-eyebrow">Three-tap logging</div>
+      <h2 class="feature-title">Minimum friction. Maximum compliance.</h2>
+      <p class="feature-body">Cannabis use disorder clients often have impaired working memory during active use. A complicated logging interface guarantees low compliance. SmokingTracker's three-tap interface logs a full session in under five seconds — removing the barrier to real-time capture.</p>
+      <ul class="feature-bullets">
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Three required taps — substance, amount, method</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Optional: mood rating, craving score, trigger, location, notes</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Works in any mobile browser — no app store download</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Fast-use warning notifies the client in the moment</li>
+      </ul>
+      <a class="feature-cta-link" href="/for-clinicians.html">See the full client experience →</a>
+    </div>
+    <div class="feature-visual">
+      <div class="feature-blob"></div>
+      <div class="feature-img">
+        <img class="feat-phone" src="/images/en_tracker_log_session_modal.webp" alt="Client logging a cannabis session — three-tap interface">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="feature-section tinted">
+  <div class="feature-inner reverse reveal">
+    <div class="feature-text">
+      <div class="feature-eyebrow">Mood &amp; trigger capture</div>
+      <h2 class="feature-title">The data that vanishes without EMA</h2>
+      <p class="feature-body">Research shows that craving, state anxiety, and social context predict use episodes — but only when measured in the moment. By the time a client sits across from you, these proximal triggers are gone. EMA captures them before they dissolve.</p>
+      <ul class="feature-bullets">
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Mood rating tied to each session</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Craving score logged independently of use</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Trigger categories: social, stress, boredom, habit, pain</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Location context captured automatically (optional)</li>
+      </ul>
+      <a class="feature-cta-link" href="/practitioner-dashboard.html">See how this appears on the dashboard →</a>
+    </div>
+    <div class="feature-visual">
+      <div class="feature-blob left"></div>
+      <div class="feature-img">
+        <img class="feat-phone" src="/images/en_tracker_home_calendar.webp" alt="Cannabis tracking app — home calendar view showing logged sessions">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="feature-section">
+  <div class="feature-inner reveal">
+    <div class="feature-text">
+      <div class="feature-eyebrow">Longitudinal statistics</div>
+      <h2 class="feature-title">Patterns that only emerge over time</h2>
+      <p class="feature-body">Individual sessions are noise. Patterns are signal. SmokingTracker aggregates EMA data into weekly trends, time-of-day heatmaps, trigger frequency rankings, and mood-use correlations — giving both client and clinician a picture that no single session can provide.</p>
+      <ul class="feature-bullets">
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Week-over-week consumption trends</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Time-of-day usage heatmap</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Top trigger categories by frequency</li>
+        <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></span>Smoke-free days calendar and streak counter</li>
+      </ul>
+      <a class="feature-cta-link" href="/practitioner-dashboard.html">See the practitioner analytics view →</a>
+    </div>
+    <div class="feature-visual">
+      <div class="feature-blob"></div>
+      <div class="feature-img">
+        <img class="feat-phone" src="/images/en_tracker_statistics.webp" alt="Cannabis use statistics — weekly trends and patterns">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVIDENCE SECTION -->
+<section class="evidence-section">
+  <div class="section-center">
+    <div class="section-eyebrow">Evidence base</div>
+    <h2 class="section-title-lg">EMA is the gold standard for substance use research</h2>
+    <p class="section-sub">SmokingTracker's logging methodology is built directly on peer-reviewed EMA research.</p>
+  </div>
+  <div class="evidence-grid reveal">
+    <div class="ev-card">
+      <div class="ev-card-inner">
+        <img src="/cannabis-use-disorder.webp" alt="" class="ev-photo">
+        <div class="ev-content">
+          <div class="ev-tag">Ecological validity</div>
+          <div class="ev-title">EMA dramatically outperforms retrospective recall</div>
+          <div class="ev-body">Capturing behavior as it happens removes the systematic distortions of memory-based self-report.<span class="ref-chip">1</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ev-card">
+      <div class="ev-card-inner">
+        <img src="/urge-surfing.webp" alt="" class="ev-photo">
+        <div class="ev-content">
+          <div class="ev-tag">Proximal triggers</div>
+          <div class="ev-title">Craving and social context predict use — in real time only</div>
+          <div class="ev-body">Associations between triggers and use episodes are only detectable in momentary data — they vanish in retrospective reports.<span class="ref-chip">2</span><span class="ref-chip">3</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ev-card">
+      <div class="ev-card-inner">
+        <img src="/cannabis-withdrawal.webp" alt="" class="ev-photo">
+        <div class="ev-content">
+          <div class="ev-tag">CUD-specific validation</div>
+          <div class="ev-title">EMA validated for cannabis use disorder specifically</div>
+          <div class="ev-body">Mood–craving–use dynamics in CUD are reliably captured by EMA — and missed entirely by structured clinical interviews.<span class="ref-chip">6</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ev-card">
+      <div class="ev-card-inner">
+        <img src="/measurement-based-care.webp" alt="" class="ev-photo">
+        <div class="ev-content">
+          <div class="ev-tag">Clinical outcomes</div>
+          <div class="ev-title">Timely real-time data improves treatment outcomes</div>
+          <div class="ev-body">Systematic, timely client feedback improves clinical outcomes in substance use disorder settings — the foundation of Measurement-Based Care.<span class="ref-chip">4</span><span class="ref-chip">5</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1080px;margin:1rem auto 0;font-size:0.77rem;color:var(--color-text-muted);line-height:1.5;">
+    <strong>References:</strong>
+    [1] Shiffman et al., <em>Annu Rev Clin Psychol</em> 2008 · PMID 18509902 &nbsp;|&nbsp;
+    [2] Buckner et al., <em>J Behav Ther Exp Psychiatry</em> 2012 · PMID 21643485 &nbsp;|&nbsp;
+    [3] Buckner et al., <em>Addict Behav</em> 2012 · PMID 22766487 &nbsp;|&nbsp;
+    [4] Fortney et al., <em>Psychiatr Serv</em> 2017 · PMID 27582237 &nbsp;|&nbsp;
+    [5] Scott &amp; Lewis, <em>Cogn Behav Pract</em> 2015 · PMID 27330267 &nbsp;|&nbsp;
+    [6] Serre et al., <em>Drug Alcohol Depend</em> 2015 · PMID 25637078
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="section-eyebrow">How EMA logging works</div>
+  <h2 class="section-title-lg">From invitation to real-time data in minutes</h2>
+  <p class="section-sub">No technical setup for the client. No app store required.</p>
+  <div class="steps-grid reveal">
+    <div class="step-card">
+      <div class="step-num-pill">1</div>
+      <div class="step-title">Clinician sends an invite</div>
+      <div class="step-body">Create an invitation from the Practitioner Dashboard. The client receives a link — email, SMS, or manual handoff. No app download required.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num-pill">2</div>
+      <div class="step-title">Client logs in the moment</div>
+      <div class="step-body">Three taps to log a session. Optional mood, trigger, and notes fields. The data is captured when it's accurate — not recalled later.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num-pill">3</div>
+      <div class="step-title">Clinician sees structured patterns</div>
+      <div class="step-body">EMA data aggregates into trends, trigger patterns, and traffic light status. Session-ready before the client walks in.</div>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED FEATURES -->
+<section class="benefit-strip reveal" style="border-top:1px solid var(--color-border);">
+  <h2>Explore related features</h2>
+  <p>EMA logging powers the rest of the SmokingTracker platform.</p>
+  <div class="benefit-grid" style="grid-template-columns:repeat(3,1fr);">
+    <a class="benefit-card" href="/practitioner-dashboard.html" style="text-decoration:none;">
+      <div class="benefit-icon-wrap" style="background:var(--green-tint)">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      </div>
+      <div class="benefit-title">Practitioner Dashboard</div>
+      <div class="benefit-body">Traffic light status, trigger alarms, and analytics built on your clients' EMA data.</div>
+    </a>
+    <a class="benefit-card" href="/measurement-based-care.html" style="text-decoration:none;">
+      <div class="benefit-icon-wrap" style="background:var(--green-tint)">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <div class="benefit-title">Measurement-Based Care</div>
+      <div class="benefit-body">How EMA data enables systematic, outcome-improving MBC in substance use disorder treatment.</div>
+    </a>
+    <a class="benefit-card" href="/privacy-compliance.html" style="text-decoration:none;">
+      <div class="benefit-icon-wrap" style="background:var(--green-tint)">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <div class="benefit-title">Privacy by Design</div>
+      <div class="benefit-body">Client-controlled consent. HIPAA, GDPR, and 42 CFR Part 2 compliant data handling.</div>
+    </a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-dark-section">
+  <h2>See EMA logging in your workflow</h2>
+  <p>Book a free 20-minute demo. We'll show you exactly how clients log between sessions and how the data appears on your dashboard.</p>
+  <div class="cta-btns">
+    <a href="/trial.html" class="btn-orange-lg">Start 30-Day Free Trial</a>
+    <a href="/trial.html" class="btn-ghost">Schedule a Demo</a>
+  </div>
+  <div class="cta-note">No credit card required · No setup fee · Cancel anytime</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-content">
+    <div class="footer-brand">
+      <a href="/" class="logo"><img src="/logo-icon.webp" alt="SmokingTracker" class="logo-img" width="32" height="32"><span class="logo-text">SmokingTracker</span></a>
+      <p>Helping treatment centers deliver proactive, data-driven support while fully respecting client privacy.</p>
+    </div>
+    <div class="footer-links">
+      <div class="link-group">
+        <h4>Features</h4>
+        <a href="/ema-logging.html">EMA Logging</a>
+        <a href="/practitioner-dashboard.html">Practitioner Dashboard</a>
+        <a href="/clinical-reports.html">Clinical Reports</a>
+        <a href="/privacy-compliance.html">Privacy &amp; Compliance</a>
+        <a href="/measurement-based-care.html">Measurement-Based Care</a>
+        <a href="/cannabis-cognitive-fog.html">Cannabis &amp; Memory</a>
+      </div>
+      <div class="link-group">
+        <h4>Product</h4>
+        <a href="/features.html">All Features</a>
+        <a href="/for-clinicians.html">For Clinicians</a>
+        <a href="/for-individuals.html">For Individuals</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/about.html">About</a>
+        <a href="/knowledge-base.html">Blog</a>
+      </div>
+      <div class="link-group">
+        <h4>Legal</h4>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="/dpa.html">Data Processing Agreement</a>
+        <a href="/security.html">Security</a>
+        <a href="mailto:support@smokingtracker.com">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-bottom"><p>&copy; 2026 SmokingTracker. All rights reserved.</p></div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
