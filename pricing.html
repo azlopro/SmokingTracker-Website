@@ -393,7 +393,7 @@
         <nav class="site-nav">
         <a class="nav-logo" href="/">
             <div class="nav-icon">
-                <img src="/logo-icon-w.png" width="22" height="22" alt="SmokingTracker icon" style="display:block;object-fit:contain;">
+                <img src="/logo-icon.webp" width="22" height="22" alt="SmokingTracker icon" style="display:block;object-fit:contain;">
             </div>
             <span class="nav-wordmark">SmokingTracker</span>
         </a>
@@ -413,20 +413,14 @@
     </nav>
 
     <main>
-        <!-- ─── HERO ──────────────────────────────────────────── -->
-        <section class="hero">
-            <div class="hero-bg-glow"></div>
-            <div class="container hero-container" style="grid-template-columns: 1fr; text-align: center; max-width: 900px;">
-                <div class="hero-content" style="align-items: center;">
-                    <div class="badge fade-in-up" data-i18n="pricing.badge">Transparent Pricing</div>
-                    <h1 class="fade-in-up" style="animation-delay: 0.1s" data-i18n="pricing.title">
-                        Simple, Transparent Pricing for <span class="text-gradient">Modern Therapists</span>
-                    </h1>
-                    <p class="hero-subtitle fade-in-up" style="animation-delay: 0.2s" data-i18n="pricing.subtitle">
-                        Equip your practice with low-friction CBT self-monitoring. Stop relying on flawed retrospective memory, and start making clinical decisions based on real-time data.
-                    </p>
-                </div>
-            </div>
+        <!-- HERO -->
+        <section style="background:var(--green-pale);padding:4rem 2.5rem 3rem;text-align:center;border-bottom:1px solid var(--color-border);">
+          <div style="max-width:700px;margin:0 auto;">
+            <div style="font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--green);margin-bottom:0.75rem;">Transparent Pricing</div>
+            <h1 style="font-size:clamp(2rem,4vw,2.75rem);font-weight:800;color:var(--color-heading);letter-spacing:-0.4px;line-height:1.15;margin-bottom:1rem;">Simple, flexible pricing for modern practitioners</h1>
+            <p style="font-size:1.05rem;color:var(--color-text-secondary);line-height:1.75;max-width:560px;margin:0 auto 1.75rem;">Full EMA capability and clinical dashboard — no setup fee, no automatic charges. Free pilot access until October 2026.</p>
+            <a href="/trial.html" class="btn-orange-lg">Start 30-Day Free Trial</a>
+          </div>
         </section>
 
         <!-- ─── PRICING ───────────────────────────────────────── -->
@@ -678,56 +672,67 @@
             </div>
         </section>
 
-        <!-- ─── CTA ───────────────────────────────────────────── -->
-        <section class="cta-section">
-            <div class="container text-center">
-                <div class="cta-box glass fade-in-up">
-                    <h2 data-i18n="pricing.ctaTitle">Not sure which plan fits?</h2>
-                    <p data-i18n="pricing.ctaDesc">Book a free demo and we'll help you find the right setup for your center.</p>
-                    <a href="/trial.html" class="btn btn-primary btn-large cta-btn" data-i18n="pricing.ctaBtn">Book a Free Demo</a>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <a href="/" class="logo">
-                    <img src="/logo-icon-w.png" alt="SmokingTracker Logo" class="logo-img" width="32" height="32">
-                    <span class="logo-text">SmokingTracker</span>
-                </a>
-                <p data-i18n="footer.desc">Helping treatment centers deliver proactive, data-driven support while fully
-                    respecting citizen privacy.</p>
-            </div>
-            <div class="footer-links">
-                <div class="link-group">
-                    <h4 data-i18n="footer.product">Product</h4>
-                    <a href="/features.html" data-i18n="nav.features">Features</a>
-                    <a href="/#how-it-works" data-i18n="nav.howItWorks">How It Works</a>
-                    <a href="/pricing.html" data-i18n="nav.pricing">Pricing</a>
-                    <a href="/faq.html" data-i18n="nav.faq">FAQ</a>
-                    <a href="/about.html" data-i18n="nav.about">About</a>
-                    <a href="/knowledge-base.html" data-i18n="nav.blog">Blog</a>
-                </div>
-                <div class="link-group">
-                    <h4 data-i18n="footer.legal">Legal</h4>
-                    <a href="/privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
-                    <a href="/terms.html" data-i18n="footer.terms">Terms of Service</a>
-                    <a href="/dpa.html" data-i18n="footer.dpa">Data Processing Agreement</a>
-                    <a href="/security.html" data-i18n="footer.security">Security</a>
-                </div>
-                <div class="link-group">
-                    <h4 data-i18n="footer.connect">Connect</h4>
-                    <a href="mailto:support@smokingtracker.com" data-i18n="footer.contact">Contact Sales</a>
-                </div>
-            </div>
-        </div>
-        <div class="container footer-bottom">
-            <p>&copy; 2026 SmokingTracker. All rights reserved.</p>
-        </div>
-    </footer>
-    <script type="module" src="/main.js"></script>
+<section class="cta-dark-section">
+  <div class="cta-dark-inner">
+    <h2 class="cta-dark-title">Start your 30-day free trial</h2>
+    <p class="cta-dark-sub">No credit card. Full platform access. BAA and DPA available from day one.</p>
+    <div class="cta-dark-btns">
+      <a href="/trial.html" class="btn-orange-lg">Request Free Trial</a>
+      <a href="/for-clinicians.html" class="btn-ghost">Platform Overview</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="footer-logo" href="/">
+        <img src="/logo-icon.webp" width="24" height="24" alt="SmokingTracker" style="display:block;object-fit:contain;">
+        <span>SmokingTracker</span>
+      </a>
+      <p class="footer-tagline">Measurement-based care for cannabis use disorder.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <span class="footer-col-title">Features</span>
+        <a href="/ema-logging.html">EMA Logging</a>
+        <a href="/practitioner-dashboard.html">Practitioner Dashboard</a>
+        <a href="/clinical-reports.html">Clinical Reports</a>
+        <a href="/privacy-compliance.html">Privacy &amp; Compliance</a>
+        <a href="/measurement-based-care.html">Measurement-Based Care</a>
+        <a href="/cannabis-cognitive-fog.html">Cannabis &amp; Memory</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Platform</span>
+        <a href="/features.html">All Features</a>
+        <a href="/for-clinicians.html">For Clinicians</a>
+        <a href="/for-individuals.html">For Individuals</a>
+        <a href="/pricing.html">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Company</span>
+        <a href="/about.html">About</a>
+        <a href="/knowledge-base.html">Blog</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/trial.html">Free Trial</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Legal</span>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="/dpa.html">Data Processing Agreement</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 SmokingTracker. All rights reserved.</span>
+    <span>HIPAA · GDPR · 42 CFR Part 2 Compliant</span>
+  </div>
+</footer>
+<script>document.addEventListener('DOMContentLoaded',()=>{document.documentElement.style.visibility='visible';});</script>
 </body>
 
 </html>

@@ -1327,4 +1327,111 @@ html[lang="en"] .lang-da { display: none; }
   .cta-btns { flex-direction: column; align-items: center; }
   nav.site-nav { padding: 0 1rem; }
   .site-hero { padding: 3rem 1.25rem 0; }
+  .phone-fan-strip { padding: 3rem 1.25rem; }
+  .phone-fan { height: 220px; }
+  .pf-card { width: 100px; height: 168px; }
+}
+
+/* ─── Phone Fan Benefit Strip ─────────────────────────────── */
+.phone-fan-strip {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: var(--color-surface, #f9fafb);
+  border-top: 1px solid var(--color-border);
+}
+
+.phone-fan-strip h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-heading);
+  margin-bottom: 0.5rem;
+}
+
+.phone-fan-strip > p {
+  color: var(--color-text-secondary);
+  margin-bottom: 2.5rem;
+  font-size: 0.95rem;
+}
+
+.phone-fan {
+  position: relative;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.pf-card {
+  position: absolute;
+  width: 120px;
+  height: 200px;
+  border-radius: 14px;
+  border: 4px solid #fff;
+  border-bottom: 28px solid #fff;
+  background-size: cover;
+  background-position: center top;
+  background-color: #e5e7eb;
+  transform-origin: bottom center;
+  transform: rotate(0deg);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  text-decoration: none;
+  display: block;
+  bottom: 0;
+}
+
+.phone-fan:hover .pf-card:nth-child(1) {
+  transform: rotate(-28deg) translateX(-70px);
+  box-shadow: -4px 8px 20px rgba(0,0,0,0.15);
+}
+
+.phone-fan:hover .pf-card:nth-child(2) {
+  transform: rotate(0deg) scale(1.05);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.phone-fan:hover .pf-card:nth-child(3) {
+  transform: rotate(28deg) translateX(70px);
+  box-shadow: 4px 8px 20px rgba(0,0,0,0.15);
+}
+
+.pf-label {
+  display: block;
+  position: absolute;
+  bottom: -36px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.phone-fan:hover .pf-label {
+  opacity: 1;
+}
+
+.phone-fan-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.phone-fan-links a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--green);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.phone-fan-links a:hover {
+  border-bottom-color: var(--green);
 }
