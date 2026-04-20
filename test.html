@@ -1,84 +1,139 @@
-<!-- From Uiverse.io by guraycha03 (modified for 3-image toggle) -->
-<div class="phone-card">
-  <div class="phone">
-    <div class="front-cam"></div>
+<div class="demo-wrapper">
+  
+  <div class="phone-card">
+    <div class="phone">
+      <div class="front-cam"></div>
+      <div class="side-buttons">
+        <div class="side-btn top"></div>
+        <div class="side-btn bottom"></div>
+      </div>
+      <div class="screen" id="screen">
+        <div class="hotspot" id="hotspot"></div>
+      </div>
+    </div>
+  </div>
 
-    <div class="side-buttons">
-      <div class="side-btn top"></div>
-      <div class="side-btn bottom"></div>
+  <div class="steps-container" id="steps-container">
+    <div class="step" id="step-0">
+      <div class="arrow-pointer"></div>
+      <div class="step-card">
+        <div class="step-badge">1</div>
+        <div class="step-text">
+          <h4>First Click</h4>
+          <p>Open the Tracker</p>
+        </div>
+      </div>
     </div>
 
-    <!-- Screen -->
-    <div class="screen" id="screen"></div>
+    <div class="step" id="step-1">
+      <div class="arrow-pointer"></div>
+      <div class="step-card">
+        <div class="step-badge">2</div>
+        <div class="step-text">
+          <h4>Second Click</h4>
+          <p>Open Log Modal</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" id="step-2">
+      <div class="arrow-pointer"></div>
+      <div class="step-card">
+        <div class="step-badge">3</div>
+        <div class="step-text">
+          <h4>Third Click</h4>
+          <p>Save Session</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 <style>
-.phone-card {
-  width: 180px;
-  margin: 0 auto;
-  transform: scale(1);
-  transition: transform 0.3s ease;
+/* Layout Wrapper */
+.demo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
+
+.phone-card { width: 180px; }
 
 .phone {
   position: relative;
-  width: 80%;
-  height: 250px;
+  width: 100%;
+  height: 350px;
   background-color: #fff6ee;
   border-radius: 20px;
-  box-shadow: inset -4px -4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: inset -4px -4px 10px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .front-cam {
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  background: gray;
-  border-radius: 50%;
-  top: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
+  position: absolute; width: 7px; height: 7px; background: gray;
+  border-radius: 50%; top: 12px; left: 50%; transform: translateX(-50%); z-index: 2;
 }
 
-.side-buttons {
-  position: absolute;
-  top: 18%;
-  right: -3px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.side-btn {
-  width: 4px;
-  height: 18px;
-  background-color: pink;
-  border-radius: 0 50px 50px 0;
-  box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.side-btn.bottom {
-  background-color: #f4a6c4;
-}
+.side-buttons { position: absolute; top: 18%; right: -4px; display: flex; flex-direction: column; gap: 6px; }
+.side-btn { width: 4px; height: 24px; background-color: pink; border-radius: 0 50px 50px 0; }
+.side-btn.bottom { background-color: #f4a6c4; }
 
 .screen {
-  width: 88%;
-  height: 85%;
-  border: 2px solid lightgray;
-  border-radius: 12px;
+  width: 88%; height: 88%; border: 2px solid lightgray; border-radius: 12px;
+  background-size: contain; background-position: center; background-repeat: no-repeat;
+  background-color: #000; transition: background-image 0.4s ease; cursor: pointer;
+  position: relative; z-index: 1; overflow: hidden;
+}
 
-  background-size: contain;   /* ✅ show full image */
-  background-position: center;
-  background-repeat: no-repeat; /* ✅ prevent tiling */
+/* Steps UI */
+.steps-container { display: flex; flex-direction: column; gap: 20px; }
+.step { display: flex; align-items: center; gap: 15px; opacity: 0.3; transition: all 0.4s ease; }
+.arrow-pointer { 
+    width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; 
+    border-right: 15px solid #d1d5db; transition: all 0.3s ease; 
+}
 
-  background-color: #000; /* optional: fills empty space nicely */
-  transition: background-image 0.4s ease;
-  cursor: pointer;
+.step-card { 
+    display: flex; align-items: center; background: #fff; padding: 10px; 
+    border-radius: 12px; border: 1px solid #f3f4f6; min-width: 180px; 
+}
+.step-badge { 
+    width: 30px; height: 30px; background: #f3f4f6; color: #9ca3af; 
+    border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+    font-weight: bold; margin-right: 12px; 
+}
+.step-text h4 { margin: 0; font-size: 14px; color: #374151; }
+.step-text p { margin: 0; font-size: 12px; color: #9ca3af; }
+
+/* States */
+.step.active { opacity: 1; }
+.step.active .arrow-pointer { border-right-color: #f4a6c4; animation: bounceLeft 1.2s infinite; }
+.step.active .step-card { border-color: #f4a6c4; }
+.step.active .step-badge { background: #f4a6c4; color: #fff; }
+
+.step.completed { opacity: 1; }
+.step.completed .step-badge { background: #10b981; color: white; }
+.step.completed .step-text h4 { color: #10b981; }
+
+@keyframes bounceLeft { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-6px); } }
+
+/* Hotspot */
+.hotspot {
+  position: absolute; width: 35px; height: 35px; background: rgba(244, 166, 196, 0.4);
+  border: 2px solid #f4a6c4; border-radius: 50%; transform: translate(-50%, -50%);
+  pointer-events: none; z-index: 10; animation: pulse 1.5s infinite;
+  transition: all 0.4s ease;
+}
+.hotspot.hidden { opacity: 0; visibility: hidden; }
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(0.9); box-shadow: 0 0 0 0 rgba(244, 166, 196, 0.7); }
+  70% { transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 0 15px rgba(244, 166, 196, 0); }
+  100% { transform: translate(-50%, -50%) scale(0.9); }
 }
 </style>
 
@@ -87,21 +142,57 @@ const images = [
   "homescreenview.png",
   "images/en_tracker_achievements.png",
   "images/en_tracker_log_session_modal.png",
-  "app-kalender.png"
+  "app-kalender.png",
+  "images/en_tracker_home_calendar.webp"
+];
+
+// Coordinates for the first 3 steps
+const clickCoordinates = [
+  { top: "71%", left: "85%" }, 
+  { top: "95%", left: "85%" }, 
+  { top: "91%", left: "50%" }  
 ];
 
 let index = 0;
 const screen = document.getElementById("screen");
+const steps = document.querySelectorAll(".step");
+const hotspot = document.getElementById("hotspot");
 
-function updateScreen() {
-  screen.style.backgroundImage = `url(${images[index]})`;
+function updateUI() {
+  screen.style.backgroundImage = `url('${images[index]}')`;
+
+  // Handle Step Highlighting
+  steps.forEach((step, i) => {
+    step.classList.remove("active", "completed");
+    if (index === i) {
+      step.classList.add("active");
+    } else if (index > i) {
+      step.classList.add("completed");
+    }
+  });
+
+  // Handle Hotspot visibility
+  if (index < 3) {
+    hotspot.classList.remove("hidden");
+    hotspot.style.top = clickCoordinates[index].top;
+    hotspot.style.left = clickCoordinates[index].left;
+  } else {
+    // Hide hotspot for the two "success" screens at the end
+    hotspot.classList.add("hidden");
+  }
 }
 
 screen.addEventListener("click", () => {
-  index = (index + 1) % images.length;
-  updateScreen();
+  index++;
+  
+  // Reset logic: If we go past the last image, go back to 0
+  if (index >= images.length) {
+    index = 0;
+  }
+  
+  updateUI();
 });
 
-// Initialize first image
-updateScreen();
+// Init
+updateUI();
 </script>
