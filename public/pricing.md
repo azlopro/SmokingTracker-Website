@@ -1,7 +1,7 @@
 # Pricing — SmokingTracker
 
 SmokingTracker is a cannabis consumption tracking platform for outpatient treatment centers and cannabis counselors.
-All plans include a 14-day free trial. No automatic payments without consent.
+All plans are currently free during the pilot period through October 2026. No automatic payments or setup fees.
 
 ## Solo Practitioner
 
@@ -14,7 +14,7 @@ All plans include a 14-day free trial. No automatic payments without consent.
   - Traffic light clinical dashboard
   - Clinical session reports (exportable)
   - Full GDPR compliance + Data Processing Agreement (DPA) included
-- Trial: 14-day free trial, no credit card required
+- Current access: Free pilot access through October 2026
 - Signup: https://www.smokingtracker.com/pricing.html
 
 ## Group Practice
@@ -28,7 +28,7 @@ All plans include a 14-day free trial. No automatic payments without consent.
   - Clinical director oversight dashboard
   - Centralized billing for the practice
   - Aggregate reporting across all counselors
-- Trial: 14-day free trial
+- Current access: Free pilot access through October 2026
 - Signup: https://www.smokingtracker.com/pricing.html
 
 ## Enterprise & Telehealth
@@ -49,7 +49,8 @@ All plans include a 14-day free trial. No automatic payments without consent.
 ## Notes
 
 - All prices in USD
-- Annual billing offers 20% discount vs. monthly
+- Public pilot access is free through October 2026
+- Annual billing offers 20% discount vs. monthly after paid pricing launches
 - GDPR Data Processing Agreement included on all plans at no extra cost
 - HIPAA BAA available on Enterprise only
-- Cancellation at any time; access continues until end of billing period
+- No long-term commitment during the pilot period

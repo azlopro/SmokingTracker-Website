@@ -54,8 +54,8 @@ SmokingTracker is built on a privacy-by-design architecture. Clients own their d
 - Privacy by design — no sharing required
 
 ### Clinical plans
-- **Solo Practitioner** — $79/month (or $65/month billed annually at $790/year). 1 therapist seat, unlimited active clients, real-time tracking, free patient app. 14-day free trial.
-- **Group Practice** — $249/month (or $207/month billed annually at $2,490/year). Up to 5 counselor seats, 1 clinical director dashboard, centralized billing. 14-day free trial.
+- **Solo Practitioner** — Currently free through October 2026. Standard pricing after the pilot is $79/month (or $65/month billed annually at $790/year). 1 therapist seat, unlimited active clients, real-time tracking, free patient app.
+- **Group Practice** — Currently free through October 2026. Standard pricing after the pilot is $249/month (or $207/month billed annually at $2,490/year). Up to 5 counselor seats, 1 clinical director dashboard, centralized billing.
 - **Enterprise & Telehealth** — Custom pricing. Unlimited seats, EHR integration, API access, dedicated support, HIPAA BAA. Contact for quote.
 
 Full pricing details: https://www.smokingtracker.com/pricing.html
@@ -69,7 +69,7 @@ Machine-readable pricing: https://www.smokingtracker.com/pricing.md
 - Features: https://www.smokingtracker.com/features.html
 - Pricing: https://www.smokingtracker.com/pricing.html
 - Knowledge base (clinical articles): https://www.smokingtracker.com/knowledge-base.html
-- Book a demo (clinicians): https://www.smokingtracker.com/trial.html
+- Request access (clinicians): https://www.smokingtracker.com/trial.html
 - Sign up free (individuals): https://www.smokingtracker.com/individual-signup.html
 - FAQ: https://www.smokingtracker.com/faq.html
 - Security & privacy: https://www.smokingtracker.com/security.html

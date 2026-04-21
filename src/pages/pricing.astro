@@ -23,7 +23,7 @@ const clinicPlans = [
       ['pricing.tier1_f8', 'Full GDPR + DPA included'],
     ],
     href: '/trial.html',
-    cta: 'Get Started — Free',
+    cta: 'Request Free Access',
   },
   {
     popular: true,
@@ -46,7 +46,7 @@ const clinicPlans = [
       ['pricing.tier2_f4', 'Centralized billing'],
     ],
     href: '/trial.html',
-    cta: 'Get Started — Free',
+    cta: 'Request Free Access',
   },
   {
     nameKey: 'pricing.tier3_name',
@@ -65,7 +65,7 @@ const clinicPlans = [
     ],
     href: '/trial.html',
     ctaKey: 'pricing.tier3_cta',
-    cta: 'Contact Sales',
+    cta: 'Talk to Us',
     secondary: true,
   },
 ];
@@ -116,9 +116,9 @@ const valueProps = [
 ];
 
 const pricingFaqs = [
-  ['pricing.faq_q1', 'Do individual users pay?', 'pricing.faq_a1', "Individual users pay $1/month — a symbolic commitment to their own recovery journey. If that's out of reach, free access is available with no questions asked. <a href='/cud-application.html' style='color: var(--color-primary)'>Apply here</a>."],
-  ['pricing.faq_q2', 'Are there long-term contracts?', 'pricing.faq_a2', 'No. You can cancel your subscription at any time. If you cancel, you will still have access to your dashboard until the end of your current billing period.'],
-  ['pricing.faq_q3', 'How does the free trial work?', 'pricing.faq_a3', 'You get full access to all features in your chosen plan for 14 days. No credit card is required to start. At the end of the trial, you can choose to subscribe to keep your access.'],
+  ['pricing.faq_q1', 'Do individual users pay?', 'pricing.faq_a1', "Individual access is currently free until October 2026. After that, the standard price is $1/month, and free access remains available with no questions asked. <a href='/cud-application.html' style='color: var(--color-primary)'>Apply here</a>."],
+  ['pricing.faq_q2', 'Are there long-term contracts?', 'pricing.faq_a2', 'No. There are no long-term contracts. While the pilot is active, treatment centers get full access at no cost. If paid plans launch later, you will be notified clearly before anything changes.'],
+  ['pricing.faq_q3', 'How does access work right now?', 'pricing.faq_a3', 'All listed plans are currently available as free pilot access until October 2026. You can request access now, get onboarded, and start using the platform without setup fees or automatic charges.'],
 ];
 ---
 <BaseLayout
@@ -129,6 +129,8 @@ const pricingFaqs = [
   ogDescription={ogDescription}
   activeNav={"pricing"}
   navVariant={"marketing"}
+  navCtaHref={"/trial.html"}
+  navCtaLabel={"Request Access"}
   footerVariant={"full"}
   bodyClass={"light-theme"}
   showCta={false}
@@ -145,7 +147,7 @@ const pricingFaqs = [
           Full EMA capability and clinical dashboard — no setup fee, no automatic charges. Free pilot access until
           October 2026.
         </p>
-        <a href="/trial.html" class="btn-orange-lg">Start 30-Day Free Trial</a>
+        <a href="/trial.html" class="btn-orange-lg">Request Free Access</a>
       </div>
     </section>
 
@@ -264,7 +266,7 @@ const pricingFaqs = [
               </ul>
               <div class="pricing-cta">
                 <a href="/individual-signup.html" class="btn btn-primary btn-large" style="width: 100%; text-align: center;">
-                  Get Started — Free
+                  Start Free Access
                 </a>
               </div>
             </div>
@@ -344,6 +346,48 @@ const pricingFaqs = [
 </BaseLayout>
 
 <style is:global>
+  .simple-page-hero {
+    background: var(--green-pale);
+    padding: 4rem 2.5rem 3rem;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .simple-page-hero-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .simple-page-kicker {
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--green);
+    margin-bottom: 0.75rem;
+  }
+
+  .simple-page-hero h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: var(--color-heading);
+    letter-spacing: -0.4px;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .simple-page-hero p {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    line-height: 1.75;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .simple-page-hero .btn-orange-lg {
+    margin-top: 1.75rem;
+  }
+
   .pricing-section {
     padding-top: 0;
   }

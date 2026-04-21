@@ -19,6 +19,8 @@ export interface Props {
   /** nav `active` key (see SiteNav) */
   activeNav?: string;
   navVariant?: 'marketing' | 'blog';
+  navCtaHref?: string;
+  navCtaLabel?: string;
   footerVariant?: 'full' | 'blog';
   bodyClass?: string;
   showCta?: boolean;
@@ -47,6 +49,8 @@ const {
   twitterImage = '/logo.png',
   activeNav = '',
   navVariant = 'marketing',
+  navCtaHref = '/trial.html',
+  navCtaLabel = 'Request Access',
   footerVariant = 'full',
   bodyClass = 'light-theme',
   showCta = false,
@@ -85,7 +89,7 @@ const twitterImageAbs = twitterImage.startsWith('http') ? twitterImage : `${site
     <slot name="head" />
   </head>
   <body class={bodyClass ? bodyClass : undefined}>
-    <SiteNav active={activeNav} variant={navVariant} />
+    <SiteNav active={activeNav} variant={navVariant} ctaHref={navCtaHref} ctaLabel={navCtaLabel} />
     <slot />
     {showCta && <CtaDarkSection />}
     {hasFooterSlot ? <slot name="footer" /> : <SiteFooter variant={footerVariant} />}

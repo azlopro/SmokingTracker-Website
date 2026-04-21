@@ -4,6 +4,8 @@ export interface Props {
   active?: string;
   /** marketing: default nav; blog: Resources link + clinician sign-in */
   variant?: 'marketing' | 'blog';
+  ctaHref?: string;
+  ctaLabel?: string;
 }
 
 const FEATURE_SUB = new Set([
@@ -16,7 +18,7 @@ const FEATURE_SUB = new Set([
   'cannabis-cognitive-fog',
 ]);
 
-const { active = '', variant = 'marketing' } = Astro.props;
+const { active = '', variant = 'marketing', ctaHref = '/trial.html', ctaLabel = 'Request Access' } = Astro.props;
 const logoIcon = variant === 'blog' ? '/logo-icon-w.png' : '/logo-icon.webp';
 const featuresActive = FEATURE_SUB.has(active);
 ---
@@ -93,11 +95,11 @@ const featuresActive = FEATURE_SUB.has(active);
           Sign In (Clinician)
         </a>
       ) : (
-        <a class="nav-signin" href="/trial.html">
+        <a class="nav-signin" href="https://behandler.smokingtracker.com">
           Sign In
         </a>
       )
     }
-    <a href="/trial.html" class="nav-trial">Start Free Trial</a>
+    <a href={ctaHref} class="nav-trial">{ctaLabel}</a>
   </div>
 </nav>
