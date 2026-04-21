@@ -533,7 +533,7 @@ export const i18n = {
         ctaBottom: {
             title: "Ready to make client behavior visible between sessions?",
             desc: "Request access and see how structured self-monitoring integrates into your existing CBT or harm reduction workflow — most counselors have clients enrolled within a day.",
-            btn: "Request Free Access"
+            btn: "Start Free"
         },
         philosophy: {
             line: "Self-monitoring starts with the client. Visible progress follows for both."
@@ -581,7 +581,7 @@ export const i18n = {
             creatorLink: "Visit azlo.pro",
             ctaTitle: "See how it fits your counseling workflow",
             ctaDesc: "Book a free 20-minute demo. We'll walk through how self-monitoring data is captured between sessions and how the practitioner dashboard makes it actionable before clients walk through the door.",
-            ctaBtn: "Request Free Access"
+            ctaBtn: "Start Free"
         },
         faq: {
             badge: "Common Questions",
@@ -646,7 +646,7 @@ export const i18n = {
             tier1_f5: "Client engagement milestones",
             tier1_f7: "Standard support",
             tier1_f8: "Data Processing Agreement (DPA) included",
-            tier1_cta: "Request Free Access",
+            tier1_cta: "Start Free",
             tier2_name: "Group Practice",
             tier2_scope: "For outpatient programs and clinics with multiple counselors.",
             tier2_price_monthly: "$249",
@@ -658,7 +658,7 @@ export const i18n = {
             tier2_f2: "Up to 5 Counselor Seats",
             tier2_f3: "1 Clinical Director Admin Dashboard",
             tier2_f4: "Centralized billing",
-            tier2_cta: "Request Free Access",
+            tier2_cta: "Start Free",
             tier3_name: "Enterprise & Telehealth",
             tier3_scope: "For large-scale treatment networks and telehealth platforms.",
             tier3_price: "Custom",
@@ -696,7 +696,7 @@ export const i18n = {
             faq_a3: "All listed plans are currently available as free pilot access until October 2026. You can request access now, get onboarded, and start using the platform without setup fees or automatic charges.",
             ctaTitle: "Not sure which plan fits your program?",
             ctaDesc: "Book a free demo and we'll help you find the right setup for your counseling program or treatment center.",
-            ctaBtn: "Request Free Access"
+            ctaBtn: "Start Free"
         },
         cud: {
             badge: "Apply for Free Access",
@@ -773,9 +773,9 @@ export const i18n = {
             placeholderPhone: "+1 555 123 4567",
             placeholderCVR: "12345678",
             placeholderMunicipality: "New York",
-            btnSmall: "Request Free Access — Solo",
-            btnMedium: "Request Free Access — Group",
-            btnLarge: "Request Free Access — Enterprise",
+            btnSmall: "Start Free — Solo",
+            btnMedium: "Start Free — Group",
+            btnLarge: "Start Free — Enterprise",
             legal: 'By submitting, you agree to our <a href="/terms.html">Terms of Service</a> and <a href="/dpa.html">Data Processing Agreement</a>, and confirm you have read our <a href="/privacy.html">Privacy Policy</a>.',
             errorGeneric: "Something went wrong. Please try again.",
             successTitle: "Check your inbox!",
@@ -842,7 +842,7 @@ export const i18n = {
             c7f4: "Language toggle (Danish / English)",
             ctaTitle: "Ready to add structured self-monitoring to your practice?",
             ctaDesc: "Book a free 20-minute demo and we'll walk through how self-monitoring data fits your existing counseling workflow.",
-            ctaBtn: "Request Free Access"
+            ctaBtn: "Start Free"
         }
     },
     da: {
