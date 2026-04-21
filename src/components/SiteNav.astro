@@ -4,6 +4,9 @@ export interface Props {
   active?: string;
   /** marketing: default nav; blog: Resources link + clinician sign-in */
   variant?: 'marketing' | 'blog';
+  theme?: 'light' | 'dark';
+  signInHref?: string;
+  signInLabel?: string;
   ctaHref?: string;
   ctaLabel?: string;
 }
@@ -18,12 +21,20 @@ const FEATURE_SUB = new Set([
   'cannabis-cognitive-fog',
 ]);
 
-const { active = '', variant = 'marketing', ctaHref = '/trial.html', ctaLabel = 'Start Free' } = Astro.props;
+const {
+  active = '',
+  variant = 'marketing',
+  theme = 'light',
+  signInHref = 'https://behandler.smokingtracker.com',
+  signInLabel = variant === 'blog' ? 'Sign In (Clinician)' : 'Sign In',
+  ctaHref = '/trial.html',
+  ctaLabel = 'Start Free'
+} = Astro.props;
 const logoIcon = variant === 'blog' ? '/logo-icon-w.png' : '/logo-icon.webp';
 const featuresActive = FEATURE_SUB.has(active);
 ---
 
-<nav class="site-nav">
+<nav class:list={['site-nav', { dark: theme === 'dark' }]}>
   <a class="nav-logo" href="/">
     <div class="nav-icon">
       <img
@@ -88,15 +99,15 @@ const featuresActive = FEATURE_SUB.has(active);
       variant === 'blog' ? (
         <a
           class="nav-signin"
-          href="https://behandler.smokingtracker.com"
+          href={signInHref}
           style="display: flex; align-items: center; gap: 6px;"
         >
           <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981;"></span>
-          Sign In (Clinician)
+          {signInLabel}
         </a>
       ) : (
-        <a class="nav-signin" href="https://behandler.smokingtracker.com">
-          Sign In
+        <a class="nav-signin" href={signInHref}>
+          {signInLabel}
         </a>
       )
     }

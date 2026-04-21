@@ -19,6 +19,9 @@ export interface Props {
   /** nav `active` key (see SiteNav) */
   activeNav?: string;
   navVariant?: 'marketing' | 'blog';
+  navTheme?: 'light' | 'dark';
+  navSignInHref?: string;
+  navSignInLabel?: string;
   navCtaHref?: string;
   navCtaLabel?: string;
   footerVariant?: 'full' | 'blog';
@@ -49,6 +52,9 @@ const {
   twitterImage = '/logo.png',
   activeNav = '',
   navVariant = 'marketing',
+  navTheme = 'light',
+  navSignInHref,
+  navSignInLabel,
   navCtaHref = '/trial.html',
   navCtaLabel = 'Start Free',
   footerVariant = 'full',
@@ -89,7 +95,15 @@ const twitterImageAbs = twitterImage.startsWith('http') ? twitterImage : `${site
     <slot name="head" />
   </head>
   <body class={bodyClass ? bodyClass : undefined}>
-    <SiteNav active={activeNav} variant={navVariant} ctaHref={navCtaHref} ctaLabel={navCtaLabel} />
+    <SiteNav
+      active={activeNav}
+      variant={navVariant}
+      theme={navTheme}
+      signInHref={navSignInHref}
+      signInLabel={navSignInLabel}
+      ctaHref={navCtaHref}
+      ctaLabel={navCtaLabel}
+    />
     <slot />
     {showCta && <CtaDarkSection />}
     {hasFooterSlot ? <slot name="footer" /> : <SiteFooter variant={footerVariant} />}
