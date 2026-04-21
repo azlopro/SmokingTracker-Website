@@ -18,7 +18,7 @@ const FEATURE_SUB = new Set([
   'cannabis-cognitive-fog',
 ]);
 
-const { active = '', variant = 'marketing', ctaHref = '/trial.html', ctaLabel = 'Request Access' } = Astro.props;
+const { active = '', variant = 'marketing', ctaHref = '/trial.html', ctaLabel = 'Start Free' } = Astro.props;
 const logoIcon = variant === 'blog' ? '/logo-icon-w.png' : '/logo-icon.webp';
 const featuresActive = FEATURE_SUB.has(active);
 ---
