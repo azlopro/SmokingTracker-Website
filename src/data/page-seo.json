@@ -1,0 +1,122 @@
+{
+  "about": {
+    "title": "About — SmokingTracker",
+    "description": "SmokingTracker is a structured self-monitoring tool built for cannabis counselors and outpatient treatment programs. Designed with clinical insight — and lived experience.",
+    "ogTitle": "About — SmokingTracker",
+    "ogDescription": "SmokingTracker is a structured self-monitoring tool built for cannabis counselors and outpatient treatment programs. Designed with clinical insight — and lived experience."
+  },
+  "features": {
+    "title": "Features — SmokingTracker",
+    "description": "Explore the powerful features built for cannabis use disorder treatment and personal habit tracking. EMA logging, clinical dashboards, and more.",
+    "ogTitle": "Features — SmokingTracker",
+    "ogDescription": "Explore the powerful features built for cannabis use disorder treatment and personal habit tracking. EMA logging, clinical dashboards, and more."
+  },
+  "pricing": {
+    "title": "Pricing — SmokingTracker",
+    "description": "Transparent pricing for SmokingTracker — flexible billing for treatment centers, no automatic payments.",
+    "ogTitle": "Pricing — SmokingTracker",
+    "ogDescription": "Transparent pricing for SmokingTracker — flexible billing for treatment centers, no automatic payments."
+  },
+  "faq": {
+    "title": "FAQ — SmokingTracker",
+    "description": "Frequently asked questions about SmokingTracker — pricing, HIPAA, onboarding, and technical requirements.",
+    "ogTitle": "FAQ — SmokingTracker",
+    "ogDescription": "Frequently asked questions about SmokingTracker — pricing, HIPAA, onboarding, and technical requirements."
+  },
+  "for-clinicians": {
+    "title": "SmokingTracker for Clinicians — Real-Time Client Data Between Sessions",
+    "description": "SmokingTracker gives outpatient treatment centers real-time cannabis use data between sessions. Replace recall bias with EMA. Traffic light dashboard. Book a demo.",
+    "ogTitle": "SmokingTracker for Clinicians — Real-Time Client Data Between Sessions",
+    "ogDescription": "SmokingTracker gives outpatient treatment centers real-time cannabis use data between sessions. Replace recall bias with EMA. Traffic light dashboard. Book a demo."
+  },
+  "for-individuals": {
+    "title": "Cannabis Habit Tracker for Individuals — SmokingTracker",
+    "description": "Finally see the full picture of your cannabis habits — when, how often, and why. Three taps to log, no counsellor needed, no data sold. Free to start.",
+    "ogTitle": "Cannabis Habit Tracker for Individuals — SmokingTracker",
+    "ogDescription": "Log in the moment. See your frequency, timing, and triggers build into a real picture over weeks. Private by design. Free to start."
+  },
+  "trial": {
+    "title": "SmokingTracker — Get Started Free",
+    "description": "Get free access to SmokingTracker for your treatment center. Pilot program — no payment until October 2026.",
+    "ogTitle": "Get Started Free — SmokingTracker",
+    "ogDescription": "Get free access to SmokingTracker for your treatment center. Pilot program — no payment until October 2026."
+  },
+  "privacy": {
+    "title": "Privatlivspolitik / Privacy Policy — SmokingTracker",
+    "description": "SmokingTracker's privacy policy — how we collect, process, and protect personal data.",
+    "ogTitle": "Privacy Policy — SmokingTracker",
+    "ogDescription": "SmokingTracker's privacy policy — how we collect, process, and protect personal data."
+  },
+  "terms": {
+    "title": "Terms of Service — SmokingTracker",
+    "description": "SmokingTracker's terms of service — subscription terms, pricing, data processing, and governing law.",
+    "ogTitle": "Terms of Service — SmokingTracker",
+    "ogDescription": "SmokingTracker's terms of service — subscription terms, pricing, data processing, and governing law."
+  },
+  "security": {
+    "title": "Sikkerhed & Transparens / Security & Transparency — SmokingTracker",
+    "description": "SmokingTracker's security architecture — how we protect client health data at substance use treatment centers.",
+    "ogTitle": "Security — SmokingTracker",
+    "ogDescription": "SmokingTracker's security architecture — how we protect client health data at substance use treatment centers."
+  },
+  "dpa": {
+    "title": "Data Processing Agreement — SmokingTracker",
+    "description": "SmokingTracker's Data Processing Agreement (DPA) — terms governing the processing of client health data on behalf of treatment centers.",
+    "ogTitle": "Data Processing Agreement — SmokingTracker",
+    "ogDescription": "SmokingTracker's Data Processing Agreement (DPA) — terms governing the processing of client health data on behalf of treatment centers."
+  },
+  "ema-logging": {
+    "title": "EMA Logging — Capture Cannabis Use the Moment It Happens | SmokingTracker",
+    "description": "Ecological Momentary Assessment logging for cannabis use disorder treatment. Capture mood, cravings, and use in real time — not reconstructed from memory days later.",
+    "ogTitle": "EMA Logging — Capture Cannabis Use the Moment It Happens | SmokingTracker",
+    "ogDescription": "Ecological Momentary Assessment for cannabis use disorder. Three taps to log. Real-time data, no recall bias."
+  },
+  "practitioner-dashboard": {
+    "title": "Practitioner Dashboard — Know Before They Tell You | SmokingTracker",
+    "description": "Cannabis use disorder treatment dashboard. Traffic-light risk status, real-time EMA data, trend charts and trigger analysis — all before your client walks in the room.",
+    "ogTitle": "Practitioner Dashboard — Know Before They Tell You | SmokingTracker",
+    "ogDescription": "Cannabis use disorder dashboard. Real-time EMA data, traffic-light risk status, and trigger analysis — session-ready before the client walks in."
+  },
+  "clinical-reports": {
+    "title": "One-Click PDF Reports — Session-Ready Clinical Documentation | SmokingTracker",
+    "description": "Auto-generate cannabis use disorder clinical reports from EMA data. Session notes, trend charts, trigger analysis — export to PDF in one click for EHR, referral, or billing.",
+    "ogTitle": "One-Click PDF Reports — Session-Ready Clinical Documentation | SmokingTracker",
+    "ogDescription": "Generate cannabis use disorder clinical reports from real EMA data. One click — charts, notes, trend analysis — ready for EHR or referral."
+  },
+  "measurement-based-care": {
+    "title": "Measurement-Based Care for Cannabis Use Disorder | SmokingTracker",
+    "description": "How measurement-based care (MBC) improves outcomes in cannabis use disorder treatment. Track real outcomes with EMA data — not clinical impression. Backed by randomised trial evidence.",
+    "ogTitle": "Measurement-Based Care for Cannabis Use Disorder | SmokingTracker",
+    "ogDescription": "MBC for cannabis use disorder: track outcomes with objective EMA data, not recall or clinical impression. Evidence-based framework with large effect sizes."
+  },
+  "privacy-compliance": {
+    "title": "Privacy by Design — HIPAA, GDPR & 42 CFR Part 2 Compliance | SmokingTracker",
+    "description": "SmokingTracker is built for cannabis use disorder treatment. HIPAA, GDPR, and 42 CFR Part 2 compliant — substance use data protected at the highest standard from the ground up.",
+    "ogTitle": "Privacy by Design — HIPAA, GDPR & 42 CFR Part 2 | SmokingTracker",
+    "ogDescription": "Cannabis use disorder data demands the highest protection. SmokingTracker is HIPAA, GDPR, and 42 CFR Part 2 compliant by design — not as an afterthought."
+  },
+  "cannabis-cognitive-fog": {
+    "title": "Cannabis & Memory — Why Recall-Based Tracking Fails | SmokingTracker",
+    "description": "Cannabis impairs short-term memory. Regular users can't accurately recall last week's use. Here's the neuroscience — and why Ecological Momentary Assessment is the clinical solution.",
+    "ogTitle": "Cannabis & Memory — Why Recall-Based Tracking Fails | SmokingTracker",
+    "ogDescription": "Cannabis impairs episodic memory. Your clients aren't lying — they genuinely can't remember last week's use. The neuroscience, and the EMA solution."
+  },
+  "resources": {
+    "title": "Clinical Resources — Cannabis Addiction Treatment | SmokingTracker",
+    "description": "Curated North American clinical resources for cannabis use disorder treatment — SAMHSA guidelines, ASAM criteria, Health Canada data, and professional organizations.",
+    "ogTitle": "Clinical Resources — Cannabis Addiction Treatment | SmokingTracker",
+    "ogDescription": "Curated North American clinical resources for cannabis use disorder treatment — SAMHSA guidelines, ASAM criteria, Health Canada data, and professional organizations."
+  },
+  "individual-signup": {
+    "title": "Create Your Account — SmokingTracker",
+    "description": "Create your free SmokingTracker account and start tracking in seconds.",
+    "ogTitle": "Create Your Account — SmokingTracker",
+    "ogDescription": "Create your free SmokingTracker account and start tracking in seconds."
+  },
+  "cud-application": {
+    "title": "Apply for Free Access — SmokingTracker",
+    "description": "Apply for free access to SmokingTracker. No diagnosis required — if $1/month isn't possible, just ask.",
+    "ogTitle": "Apply for Free Access — SmokingTracker",
+    "ogDescription": "Apply for free access to SmokingTracker. No diagnosis required — if $1/month isn't possible, just ask."
+  }
+}

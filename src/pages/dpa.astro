@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPageSeo } from '../lib/pageSeo';
+
+const { title, description, ogTitle, ogDescription } = getPageSeo('dpa');
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/dpa.html"
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  activeNav=""
+  navVariant="marketing"
+  footerVariant="full"
+  bodyClass="light-theme"
+  showCta={false}
+  includeMainJs={true}
+  extraModuleScripts={[]}
+  hideUntilLoad={true}
+>
+  <div class="legal-content">
+    <h1>Data Processing Agreement</h1>
+    <span class="legal-updated">Last updated: 11 April 2026</span>
+
+    <p>This Data Processing Agreement ("DPA") governs the processing of personal data and protected health information carried out by <strong>Azlo</strong>, CVR no. 43143778, Sundvej 10, 2. th, DK-8700 Horsens, Denmark, operating the SmokingTracker platform ("the Processor"), on behalf of the Customer ("the Controller") in connection with use of SmokingTracker. The DPA forms an integral part of the Terms of Service and is entered into automatically upon account creation.</p>
+
+    <p>As an EU-based company, Azlo is subject to GDPR. For US-based treatment centers subject to HIPAA and 42 CFR Part 2, the Processor operates in the role of a <strong>Business Associate</strong> with respect to Protected Health Information (PHI). A separate HIPAA Business Associate Agreement (BAA) is available on Enterprise plans — contact <a href="mailto:support@smokingtracker.com">support@smokingtracker.com</a> to execute one.</p>
+
+    <h2>1. Subject matter and duration</h2>
+    <p>The Processor processes personal data on behalf of the Controller for the purpose of delivering the SmokingTracker platform in accordance with the Terms of Service. The DPA runs concurrently with the underlying service agreement and terminates upon its termination.</p>
+
+    <h2>2. Nature and purpose of processing</h2>
+    <p>Processing consists of hosting, storing, backing up, and providing access to client data for the purpose of supporting substance use disorder treatment, Measurement-Based Care, and clinical follow-up carried out by the Controller's staff.</p>
+
+    <h2>3. Categories of personal data processed</h2>
+    <p>The Processor processes the following categories of personal data on behalf of the Controller:</p>
+    <ul>
+      <li>Cannabis consumption sessions, urge records, and mood logs</li>
+      <li>Location data (only where the client has given explicit consent)</li>
+      <li>Free-text notes entered by the client</li>
+      <li>Technical identifiers (user ID, timestamps, device type)</li>
+      <li>Consent records (which data categories each client has chosen to share)</li>
+    </ul>
+    <p>Client data constitutes <strong>sensitive health information</strong> — specifically substance use records subject to heightened protection under HIPAA, 42 CFR Part 2, and GDPR Article 9 (special categories of personal data). The Processor treats all client data accordingly.</p>
+
+    <h2>4. Categories of data subjects</h2>
+    <p>Data subjects are clients whom the Controller has invited to use the SmokingTracker platform for substance use disorder tracking and clinical support.</p>
+
+    <h2>5. Controller's instructions</h2>
+    <p>The Processor processes personal data only on documented instructions from the Controller, unless required to do so by applicable law. Instructions are established at the time the Terms of Service are entered into; further written instructions may be issued during the term of the agreement.</p>
+    <p>The Processor shall promptly inform the Controller if, in its view, an instruction would infringe applicable data protection or health privacy law.</p>
+
+    <h2>6. Privacy by Design and client-controlled consent</h2>
+    <p>SmokingTracker is built on a Privacy by Design architecture. Clients own their data and control what they share with their clinician through granular, revocable consent toggles. The platform is designed so that:</p>
+    <ul>
+      <li>Clients can use the tracking app without sharing any data with their clinician.</li>
+      <li>Each data category (session logs, mood data, trigger notes, craving data) can be shared or withheld independently.</li>
+      <li>Consent can be extended or withdrawn at any time without loss of the client's own history.</li>
+      <li>The Controller sees only what the client has actively chosen to share.</li>
+    </ul>
+
+    <h2>7. Security measures</h2>
+    <p>The Processor implements appropriate technical and organisational security measures, including:</p>
+    <ul>
+      <li>Encryption of data in transit (TLS 1.2+) and at rest (AES-256 or equivalent)</li>
+      <li>Access control based on the principle of least privilege</li>
+      <li>Logging of access to personal data</li>
+      <li>Regular security updates and vulnerability assessments</li>
+      <li>Confidentiality obligations for all staff with access to personal data</li>
+    </ul>
+    <p>For a full description of security practices, see our <a href="/security.html">Security page</a>.</p>
+
+    <h2>8. Sub-processors</h2>
+    <p>The Controller grants general authorisation for the Processor to engage sub-processors necessary for platform operation. The Processor currently uses the following categories of sub-processors:</p>
+    <ul>
+      <li>Cloud hosting provider — platform storage and infrastructure</li>
+      <li>Transactional email provider — system notifications and invitations</li>
+    </ul>
+    <p>The Processor shall notify the Controller in writing at least <strong>30 days</strong> before adding new or replacing existing sub-processors. The Controller may object to a change within the notice period.</p>
+    <p>All sub-processors are bound by data processing agreements providing at least the same level of data protection as this DPA.</p>
+
+    <h2>9. International data transfers</h2>
+    <p>The Processor is headquartered in the EU (Denmark) and is subject to GDPR. Where client data is transferred to or processed by sub-processors outside the EU/EEA, the Processor ensures an appropriate transfer mechanism is in place (such as Standard Contractual Clauses) in accordance with GDPR Chapter V.</p>
+
+    <h2>10. 42 CFR Part 2 — Substance use record confidentiality</h2>
+    <p>For US-based treatment centers, client substance use records processed through SmokingTracker may constitute records subject to 42 CFR Part 2. The Processor acknowledges that such records may not be disclosed without client consent except as permitted by 42 CFR Part 2. The Controller is responsible for ensuring that client invitations and consent flows meet the requirements of applicable federal and state law. The Processor's platform design — specifically the granular client-controlled consent model — is intended to support the Controller's compliance obligations under 42 CFR Part 2.</p>
+
+    <h2>11. Audit rights</h2>
+    <p>The Processor makes available all information reasonably necessary to demonstrate compliance with this DPA. The Controller or an authorised auditor may request an audit with reasonable prior written notice. The Processor is entitled to reimbursement of documented costs associated with on-site audits.</p>
+
+    <h2>12. Personal data breaches</h2>
+    <p>The Processor shall notify the Controller of a confirmed personal data breach <strong>within 72 hours</strong> of becoming aware of it. The notification shall include, to the extent known at the time: the nature of the breach, categories and approximate number of data subjects affected, likely consequences, and measures taken or planned to address the breach.</p>
+    <p>For US treatment centers, the Controller remains responsible for any breach notification obligations to clients, regulators, or HHS under HIPAA and applicable state law.</p>
+
+    <h2>13. Deletion and return of data</h2>
+    <p>Upon termination of the agreement, the Processor deletes all personal data belonging to the Controller within <strong>30 days</strong>, unless the Controller has requested a data export before termination takes effect. Exports are provided in a machine-readable format. The Processor issues written confirmation of deletion upon request.</p>
+
+    <h2>14. Governing law</h2>
+    <p>This DPA is governed by <strong>Danish law</strong>. As an EU-based processor, Azlo is subject to GDPR, which provides a recognised international framework for data protection. Disputes shall be resolved by Copenhagen City Court as the court of first instance.</p>
+    <p>For US-based treatment centers, the Processor acknowledges applicable US federal and state health privacy requirements, including HIPAA and 42 CFR Part 2, as they apply to the Controller's obligations.</p>
+
+    <h2>15. Contact</h2>
+    <p>Questions regarding this DPA may be directed to <a href="mailto:support@smokingtracker.com">support@smokingtracker.com</a>.</p>
+  </div>
+</BaseLayout>

@@ -1,0 +1,379 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPageSeo } from '../lib/pageSeo';
+import ResourceCard from '../components/ResourceCard.astro';
+import { resourceCategoryLabels, resources } from '../data/resources';
+
+const { title, description, ogTitle, ogDescription } = getPageSeo('resources');
+const filterOrder = ['all', 'clinical', 'government', 'research', 'patient', 'orgs'] as const;
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/resources.html"
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  activeNav={"resources"}
+  navVariant={"blog"}
+  footerVariant={"full"}
+  bodyClass={"light-theme"}
+  showCta={false}
+  includeMainJs={true}
+  extraModuleScripts={[]}
+  hideUntilLoad={true}
+>
+  <main>
+    <section class="hero resources-hero">
+      <div class="hero-bg-glow"></div>
+      <div class="container hero-container resources-hero-container">
+        <div class="hero-content resources-hero-content">
+          <div class="badge fade-in-up">Resource Directory</div>
+          <h1 class="fade-in-up" style="animation-delay: 0.1s">
+            North American <span class="text-gradient">Clinical Resources</span>
+          </h1>
+          <p class="hero-subtitle fade-in-up resources-hero-subtitle" style="animation-delay: 0.2s">
+            Curated guidelines, government data, and professional tools for addiction treatment providers in the US
+            and Canada.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="filter-bar-wrapper">
+      <div class="container">
+        <div class="filter-bar" role="toolbar" aria-label="Filter resources by category">
+          {
+            filterOrder.map((category) => (
+              <button
+                class:list={['filter-pill', { active: category === 'all' }]}
+                type="button"
+                data-category={category}
+                aria-pressed={category === 'all' ? 'true' : 'false'}
+              >
+                {resourceCategoryLabels[category]}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <section class="features-section resources-section">
+      <div class="container">
+        <p class="resources-summary fade-in-up">
+          <span id="resource-count">{resources.length}</span> resources across 5 categories
+        </p>
+        <div class="resources-grid" id="resources-grid">
+          {resources.map((resource, index) => <ResourceCard resource={resource} delay={0.05 * index} />)}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container text-center">
+        <div class="cta-box glass fade-in-up">
+          <h2>Ready to bring data into your practice?</h2>
+          <p>
+            SmokingTracker gives your treatment team real-time client engagement data between sessions without adding
+            burden to your workflow.
+          </p>
+          <a href="/trial.html" class="btn btn-primary btn-large cta-btn">Book a Free Demo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div slot="scripts">
+    <script is:inline>
+      const pills = document.querySelectorAll('.filter-pill');
+      const cards = document.querySelectorAll('.resource-card');
+      const countEl = document.getElementById('resource-count');
+
+      pills.forEach((pill) => {
+        pill.addEventListener('click', () => {
+          pills.forEach((button) => {
+            button.classList.remove('active');
+            button.setAttribute('aria-pressed', 'false');
+          });
+          pill.classList.add('active');
+          pill.setAttribute('aria-pressed', 'true');
+
+          const category = pill.getAttribute('data-category');
+          let visible = 0;
+
+          cards.forEach((card) => {
+            const show = category === 'all' || card.getAttribute('data-category') === category;
+            card.toggleAttribute('hidden', !show);
+            if (show) visible += 1;
+          });
+
+          if (countEl) countEl.textContent = String(visible);
+        });
+      });
+    </script>
+  </div>
+</BaseLayout>
+
+<style is:global>
+  :root {
+    --cat-clinical: #10b981;
+    --cat-government: #38bdf8;
+    --cat-research: #a78bfa;
+    --cat-patient: #fbbf24;
+    --cat-orgs: #fb7185;
+  }
+
+  .resources-hero {
+    min-height: 38vh;
+    padding-bottom: 0;
+  }
+
+  .resources-hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    max-width: 760px;
+  }
+
+  .resources-hero-content {
+    align-items: center;
+  }
+
+  .resources-hero-subtitle {
+    max-width: 600px;
+  }
+
+  .filter-bar-wrapper {
+    position: sticky;
+    top: 72px;
+    z-index: 50;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: rgba(2, 12, 7, 0.88);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .filter-bar {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .filter-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-pill {
+    flex-shrink: 0;
+    border-radius: 9999px;
+    padding: 0.4rem 1.1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  .filter-pill:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .filter-pill.active {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .filter-pill[data-category='government'].active {
+    background: var(--cat-government);
+    border-color: var(--cat-government);
+    color: #020c07;
+  }
+
+  .filter-pill[data-category='research'].active {
+    background: var(--cat-research);
+    border-color: var(--cat-research);
+  }
+
+  .filter-pill[data-category='patient'].active {
+    background: var(--cat-patient);
+    border-color: var(--cat-patient);
+    color: #020c07;
+  }
+
+  .filter-pill[data-category='orgs'].active {
+    background: var(--cat-orgs);
+    border-color: var(--cat-orgs);
+  }
+
+  .resources-section {
+    padding-top: 3rem;
+  }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .resource-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+    border-radius: 14px;
+    border-left-width: 4px;
+    border-left-style: solid;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .resource-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .resource-card[data-category='clinical'] {
+    border-left-color: var(--cat-clinical);
+  }
+
+  .resource-card[data-category='government'] {
+    border-left-color: var(--cat-government);
+  }
+
+  .resource-card[data-category='research'] {
+    border-left-color: var(--cat-research);
+  }
+
+  .resource-card[data-category='patient'] {
+    border-left-color: var(--cat-patient);
+  }
+
+  .resource-card[data-category='orgs'] {
+    border-left-color: var(--cat-orgs);
+  }
+
+  .resource-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .resource-icon {
+    font-size: 1.4rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .resource-cat-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    border: 1px solid;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .resource-cat-badge[data-category='clinical'] {
+    color: var(--cat-clinical);
+    border-color: rgba(16, 185, 129, 0.3);
+    background: rgba(16, 185, 129, 0.08);
+  }
+
+  .resource-cat-badge[data-category='government'] {
+    color: var(--cat-government);
+    border-color: rgba(56, 189, 248, 0.3);
+    background: rgba(56, 189, 248, 0.08);
+  }
+
+  .resource-cat-badge[data-category='research'] {
+    color: var(--cat-research);
+    border-color: rgba(167, 139, 250, 0.3);
+    background: rgba(167, 139, 250, 0.08);
+  }
+
+  .resource-cat-badge[data-category='patient'] {
+    color: var(--cat-patient);
+    border-color: rgba(251, 191, 36, 0.3);
+    background: rgba(251, 191, 36, 0.08);
+  }
+
+  .resource-cat-badge[data-category='orgs'] {
+    color: var(--cat-orgs);
+    border-color: rgba(251, 113, 133, 0.3);
+    background: rgba(251, 113, 133, 0.08);
+  }
+
+  .resource-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .resource-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .resource-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  .resource-source {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 500;
+  }
+
+  .resource-link {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    flex-shrink: 0;
+    transition: gap 0.2s ease;
+  }
+
+  .resource-link:hover {
+    gap: 0.5rem;
+  }
+
+  .resources-summary {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  .resource-card[hidden] {
+    display: none;
+  }
+
+  .cta-btn {
+    display: inline-block;
+  }
+
+  @media (max-width: 768px) {
+    .resources-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

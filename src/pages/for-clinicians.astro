@@ -1,0 +1,807 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPageSeo } from '../lib/pageSeo';
+
+const { title, description, ogTitle, ogDescription } = getPageSeo('for-clinicians');
+
+const carouselSlides = [
+  {
+    webp: '/images/en_behandler_patient_calendar.webp',
+    mobileWebp: '/images/en_behandler_patient_calendar-mobile.webp',
+    png: '/images/en_behandler_patient_calendar.png',
+    alt: 'Practitioner Dashboard - client session timeline',
+    caption: 'Practitioner Dashboard · Timeline',
+    width: 1920,
+    height: 1080,
+    priority: true,
+  },
+  {
+    webp: '/images/en_behandler_analytics_time_of_day.webp',
+    mobileWebp: '/images/en_behandler_analytics_time_of_day-mobile.webp',
+    png: '/images/en_behandler_analytics_time_of_day.png',
+    alt: 'Practitioner Dashboard - time of day patterns',
+    caption: 'Practitioner Dashboard · Patterns',
+    width: 1920,
+    height: 1080,
+  },
+  {
+    webp: '/images/en_behandler_analytics_social.webp',
+    mobileWebp: '/images/en_behandler_analytics_social-mobile.webp',
+    png: '/images/en_behandler_analytics_social.png',
+    alt: 'Practitioner Dashboard - social context analytics',
+    caption: 'Practitioner Dashboard · Social context',
+    width: 1920,
+    height: 1080,
+  },
+  {
+    webp: '/images/en_behandler_patient_list.webp',
+    mobileWebp: '/images/en_behandler_patient_list-mobile.webp',
+    png: '/images/en_behandler_patient_list.png',
+    alt: 'Practitioner Dashboard - client list with traffic light status',
+    caption: 'Practitioner Dashboard · Client list',
+    width: 1920,
+    height: 1080,
+  },
+  {
+    webp: '/images/en_behandler_patient_detail.webp',
+    mobileWebp: '/images/en_behandler_patient_detail-mobile.webp',
+    png: '/images/en_behandler_patient_detail.png',
+    alt: 'Practitioner Dashboard - individual client detail view',
+    caption: 'Practitioner Dashboard · Detail view',
+    width: 1920,
+    height: 1080,
+  },
+];
+
+const benefitCards = [
+  {
+    title: 'Real-time EMA logging',
+    body: 'Clients log in the moment — not reconstructed days later in session. Three taps, no cognitive load.',
+    href: '/features.html',
+    linkLabel: 'See features →',
+    iconBg: 'var(--green-tint)',
+    iconStroke: 'var(--green)',
+    icon: 'clock',
+  },
+  {
+    title: 'Practitioner dashboard',
+    body: 'Traffic light status, trigger alarms, and week-over-week trends before clients walk through the door.',
+    href: '/features.html',
+    linkLabel: 'See features →',
+    iconBg: 'var(--green-tint)',
+    iconStroke: 'var(--green)',
+    icon: 'grid',
+  },
+  {
+    title: 'One-click PDF reports',
+    body: 'Session-ready clinical report in one click. Attach directly to any EHR system — no formatting required.',
+    href: '/features.html',
+    linkLabel: 'See features →',
+    iconBg: '#fff7ed',
+    iconStroke: '#c2410c',
+    icon: 'file',
+  },
+  {
+    title: 'Privacy by Design',
+    body: 'Clients control what they share. Consent can be extended or withdrawn at any time — no sharing required to start.',
+    href: '/security.html',
+    linkLabel: 'Learn more →',
+    iconBg: 'var(--green-tint)',
+    iconStroke: 'var(--green)',
+    icon: 'lock',
+  },
+];
+
+const featureSections = [
+  {
+    eyebrow: 'Practitioner Dashboard',
+    title: 'Know which clients need attention before they tell you',
+    body: "A live overview of every client's usage, mood, and trigger patterns. No prep work required — the data is already structured and ready before the session starts.",
+    bullets: [
+      'Traffic light status — Green, Yellow, or Red at a glance',
+      'Custom trigger alarms via app, email, or SMS',
+      'Week-over-week trend for every client',
+      'One-click PDF report — attach to any EHR',
+    ],
+    href: '/features.html',
+    linkLabel: 'Explore dashboard features →',
+    image: '/images/en_behandler_analytics_methods.webp',
+    alt: 'Clinician analytics dashboard',
+  },
+  {
+    eyebrow: 'Privacy by Design',
+    title: 'Start private. Share when ready.',
+    body: 'The tool works for the client first — no sharing required to start. Gradually extending data sharing can itself become part of the therapeutic process.',
+    bullets: [
+      'Works as a private self-monitoring tool first',
+      'Share logs, mood, triggers, and notes independently',
+      'Consent extended or withdrawn at any time',
+      'GDPR DPA included · HIPAA BAA on Enterprise',
+    ],
+    href: '/security.html',
+    linkLabel: 'Explore privacy features →',
+    image: '/images/en_tracker_settings_my_counselor.webp',
+    alt: 'Privacy settings screen',
+    phone: true,
+  },
+];
+
+const evidenceCards = [
+  {
+    image: '/cannabis-use-disorder.webp',
+    tag: 'Recall bias',
+    title: 'Retrospective self-report is unreliable',
+    body: 'EMA captures behavior as it happens — dramatically improving accuracy versus reconstructed recall.',
+    refs: ['1'],
+  },
+  {
+    image: '/urge-surfing.webp',
+    tag: 'Proximal triggers',
+    title: 'Craving and context predict use episodes',
+    body: 'These associations only appear in real-time data — they vanish entirely in retrospective reports.',
+    refs: ['2', '3'],
+  },
+  {
+    image: '/measurement-based-care.webp',
+    tag: 'Measurement-based care',
+    title: 'Timely feedback improves outcomes',
+    body: 'MBC principles have strong evidence for improving outcomes when feedback is timely and systematic.',
+    refs: ['4', '5'],
+  },
+  {
+    image: '/cannabis-withdrawal.webp',
+    tag: 'CUD-specific EMA',
+    title: 'Validated for cannabis use disorder',
+    body: 'Captures dynamic mood–craving–use relationships that structured clinical interviews consistently miss.',
+    refs: ['6'],
+  },
+];
+
+const faqs = [
+  {
+    question: 'What is SmokingTracker?',
+    answer:
+      'SmokingTracker is a clinical SaaS tool for outpatient substance use disorder treatment centers. Clients log cannabis consumption in real time using a three-tap mobile interface — no cognitive load required. Clinicians access a live dashboard showing usage trends, traffic-light status, trigger patterns, and one-click exportable PDF reports. SmokingTracker is built on Ecological Momentary Assessment (EMA), the gold-standard methodology for capturing behavior as it happens rather than from memory.',
+  },
+  {
+    question: 'Is SmokingTracker HIPAA compliant?',
+    answer:
+      "SmokingTracker is built on a Privacy by Design architecture. A HIPAA Business Associate Agreement (BAA) is available on Enterprise plans for US-based treatment centers. All plans include a GDPR Data Processing Agreement (DPA). The platform's data handling approach is designed to align with 42 CFR Part 2 substance use confidentiality requirements.",
+  },
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/for-clinicians.html"
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  activeNav="for-clinicians"
+  navVariant="marketing"
+  footerVariant="full"
+  bodyClass="light-theme"
+  showCta={true}
+  includeMainJs={true}
+  extraModuleScripts={[]}
+  hideUntilLoad={true}
+>
+  <div slot="head" style="display:contents">
+    <link
+      rel="preload"
+      as="image"
+      imagesrcset="/images/en_behandler_patient_calendar-mobile.webp 1280w, /images/en_behandler_patient_calendar.webp 1920w"
+      imagesizes="(max-width: 900px) 100vw, 1280px"
+      type="image/webp"
+    />
+    <style is:global>
+      /* Fog walker animation override for for-clinicians page */
+      .fog-walker-wrap .loader { scale: 1.0; position: relative; width: 200px; height: 200px; translate: 10px -20px; filter: brightness(1.2) drop-shadow(0 0 20px rgba(52,211,153,0.35)); }
+      .fog-walker-wrap .loader svg { position: absolute; top: 0; left: 0; }
+      .fog-walker-wrap .w-head { translate: 27px -30px; z-index: 3; animation: w-bob 1s infinite ease-in; }
+      .fog-walker-wrap .w-bod { translate: 0 30px; z-index: 3; animation: w-bob 1s infinite ease-in-out; }
+      .fog-walker-wrap .w-legr { translate: 75px 135px; z-index: 0; animation: w-rstep 1s infinite ease-in; animation-delay: 0.45s; }
+      .fog-walker-wrap .w-legl { translate: 30px 155px; z-index: 3; animation: w-lstep 1s infinite ease-in; }
+      .fog-walker-wrap .w-gnd { translate: -140px 0; rotate: 10deg; z-index: -1; filter: blur(0.5px) drop-shadow(1px 3px 5px #000); opacity: 0.35; animation: w-scroll 5s infinite linear; }
+      @keyframes w-bob { 0% { transform: translateY(0) rotate(3deg); } 25% { transform: translateY(5px) rotate(0deg); } 50% { transform: translateY(0) rotate(-3deg); } 70% { transform: translateY(5px) rotate(0deg); } 100% { transform: translateY(0) rotate(3deg); } }
+      @keyframes w-lstep { 0% { transform: translateY(0) rotate(-5deg); } 33% { transform: translateY(-15px) translate(32px) rotate(35deg); } 66% { transform: translateY(0) translate(25px) rotate(-25deg); } 100% { transform: translateY(0) rotate(-5deg); } }
+      @keyframes w-rstep { 0% { transform: translateY(0) translate(0) rotate(-5deg); } 33% { transform: translateY(-10px) translate(30px) rotate(35deg); } 66% { transform: translateY(0) translate(20px) rotate(-25deg); } 100% { transform: translateY(0) translate(0) rotate(-5deg); } }
+      @keyframes w-scroll { 0% { transform: translateY(25px) translate(50px); opacity: 0; } 33% { opacity: 0.35; } 66% { opacity: 0.35; } 100% { transform: translateY(-50px) translate(-100px); opacity: 0; } }
+
+      .fog-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        padding: 4.5rem 0 1rem;
+      }
+      @media (max-width: 780px) { .fog-inner { grid-template-columns: 1fr; } }
+      .fog-scene-side { position: relative; height: 38px; display: flex; align-items: center; justify-content: center; }
+      .fog-scene-side::before, .fog-scene-side::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        border-radius: 50%;
+      }
+      .fog-scene-side::before {
+        background: radial-gradient(ellipse 75% 50% at 50% 68%, rgba(52,211,153,0.06) 0%, transparent 70%),
+                    radial-gradient(ellipse 55% 38% at 72% 58%, rgba(16,185,129,0.04) 0%, transparent 65%);
+        animation: fog-drift 8s ease-in-out infinite alternate;
+      }
+      .fog-scene-side::after {
+        background: radial-gradient(ellipse 90% 42% at 48% 72%, rgba(52,211,153,0.04) 0%, transparent 70%),
+                    radial-gradient(ellipse 42% 32% at 22% 62%, rgba(52,211,153,0.03) 0%, transparent 62%);
+        animation: fog-drift 12s ease-in-out infinite alternate-reverse;
+      }
+      @keyframes fog-drift { 0% { transform: translateX(-14px) scaleX(0.96); } 100% { transform: translateX(14px) scaleX(1.04); } }
+
+      .ev-card { border-left: 3px solid var(--green) !important; }
+      .site-hero-img { align-items: flex-end; }
+      .hero-screenshot-frame .hero-carousel-slide img {
+        object-fit: contain !important;
+        width: 100% !important;
+        height: auto !important;
+        background: #fff;
+      }
+
+      .demo-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        padding: 3rem 2rem;
+        width: 100%;
+      }
+      @media (max-width: 500px) { .demo-wrapper { flex-direction: column; gap: 1.5rem; padding: 1rem; } }
+      .phone-card { width: 280px; flex-shrink: 0; }
+      .phone {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 9 / 19;
+        background-color: #111827;
+        border-radius: 44px;
+        box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.5), inset 0 0 2px 2px rgba(255,255,255,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px;
+      }
+      .front-cam {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: #1f2937;
+        border-radius: 50%;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+      }
+      .side-buttons { position: absolute; top: 18%; right: -2px; display: flex; flex-direction: column; gap: 8px; }
+      .side-btn { width: 3px; height: 32px; background-color: #374151; border-radius: 0 2px 2px 0; }
+      .screen {
+        width: 100%;
+        height: 100%;
+        border-radius: 32px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #000;
+        transition: background-image 0.4s ease;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+      }
+      .steps-container { display: flex; flex-direction: column; gap: 1.25rem; }
+      .step { display: flex; align-items: center; gap: 16px; opacity: 0.35; transition: all 0.4s ease; cursor: pointer; }
+      .arrow-pointer {
+        width: 0;
+        height: 0;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-right: 12px solid #9ca3af;
+        transition: all 0.3s ease;
+      }
+      .step-card {
+        display: flex;
+        align-items: center;
+        background: #fff;
+        padding: 1.25rem 1.75rem;
+        border-radius: 20px;
+        border: 1px solid #e5e7eb;
+        min-width: 240px;
+        box-shadow: 0 8px 15px -3px rgba(0,0,0,0.05);
+      }
+      .step-badge {
+        width: 36px;
+        height: 36px;
+        background: #f3f4f6;
+        color: #6b7280;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        margin-right: 16px;
+        font-size: 16px;
+      }
+      .step-text h4 { margin: 0; font-size: 16px; color: #111827; }
+      .step-text p { margin: 0; font-size: 14px; color: #6b7280; }
+      .step.active { opacity: 1; }
+      .step.active .arrow-pointer { border-right-color: var(--green); animation: bounceLeft 1.2s infinite; }
+      .step.active .step-card { border-color: var(--green); box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.2); }
+      .step.active .step-badge { background: var(--green); color: #fff; }
+      .step.completed { opacity: 1; }
+      .step.completed .step-badge { background: #059669; color: white; }
+      .step.completed .step-text h4 { color: #059669; }
+      @keyframes bounceLeft { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-6px); } }
+      .hotspot {
+        position: absolute;
+        width: 56px;
+        height: 56px;
+        background: rgba(52, 211, 153, 0.3);
+        border: 3px solid var(--green);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 10;
+        animation: pulseGreen 1.5s infinite;
+        transition: all 0.4s ease;
+      }
+      .hotspot.hidden { opacity: 0; visibility: hidden; }
+      @keyframes pulseGreen {
+        0% { transform: translate(-50%, -50%) scale(0.9); box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7); }
+        70% { transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 0 15px rgba(52, 211, 153, 0); }
+        100% { transform: translate(-50%, -50%) scale(0.9); }
+      }
+      .reveal { opacity: 0; transform: translateY(30px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+      .reveal.revealed { opacity: 1; transform: translateY(0); }
+    </style>
+  </div>
+
+  <section class="site-hero">
+    <div class="site-hero-inner">
+      <div class="hero-text">
+        <h1>
+          Your clients can't accurately recall a week of use.
+          <span style="background:linear-gradient(90deg,#ffffff,#a7f3d0 50%,#ffffff 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:hero-shimmer 7s linear infinite;">Now they don't have to.</span>
+        </h1>
+        <p class="site-hero-sub">SmokingTracker captures consumption, mood, and cravings the moment they happen — not reconstructed in session days later. Three taps to log. One click to get session-ready data. And for clients who aren't ready to share anything yet — the tool works for them alone first.</p>
+        <div class="site-hero-btns">
+          <a href="/trial.html" class="btn-orange-lg">Start 30-Day Free Trial</a>
+          <a href="/trial.html" class="btn-ghost">Schedule a Demo</a>
+        </div>
+        <p class="site-hero-microcopy">No credit card required · No setup fee · Cancel anytime</p>
+        <div class="hero-badge-row">
+          <div class="hipaa-badge">
+            <div class="hipaa-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="M9 12l2 2 4-4"></path>
+              </svg>
+            </div>
+            <div class="hipaa-text">
+              <span class="hipaa-label">HIPAA</span>
+              <span class="hipaa-value">COMPLIANT</span>
+            </div>
+          </div>
+          <div class="compliance-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            42 CFR Part 2
+          </div>
+          <div class="compliance-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"></path><circle cx="12" cy="12" r="10"></circle></svg>
+            EMA-based
+          </div>
+          <div class="compliance-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            GDPR + DPA
+          </div>
+        </div>
+      </div>
+
+      <div class="site-hero-img">
+        <svg class="hero-blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path fill="white" d="M47.5,-61.3C60.2,-51.3,68.5,-35.6,71.2,-19.2C73.9,-2.8,71.1,14.3,63.3,28.7C55.5,43.1,42.8,54.8,27.8,62.2C12.8,69.6,-4.5,72.7,-21.3,68.8C-38.1,64.9,-54.4,54,-64.5,38.8C-74.6,23.7,-78.5,4.2,-73.7,-12.5C-68.9,-29.2,-55.4,-43.1,-40.5,-52.8C-25.6,-62.5,-9.3,-68,5.9,-74.9C21.1,-81.8,34.8,-71.3,47.5,-61.3Z" transform="translate(100 100)"></path>
+        </svg>
+        <div class="hero-screenshot-frame">
+          <div class="hero-screenshot-bar">
+            <div class="chrome-dot" style="background:#ef4444"></div>
+            <div class="chrome-dot" style="background:#f59e0b"></div>
+            <div class="chrome-dot" style="background:#22c55e"></div>
+            <div class="hero-screenshot-bar-url">app.smokingtracker.com</div>
+          </div>
+          <div class="hero-carousel" id="hero-carousel">
+            <button class="hero-carousel-arrow hero-carousel-prev" aria-label="Previous slide">&#8249;</button>
+            <button class="hero-carousel-arrow hero-carousel-next" aria-label="Next slide">&#8250;</button>
+            <div class="hero-carousel-track">
+              {carouselSlides.map((slide, index) => (
+                <div class:list={['hero-carousel-slide', { active: index === 0 }]}>
+                  <picture>
+                    <source srcset={`${slide.mobileWebp} 1280w, ${slide.webp} 1920w`} sizes="(max-width: 900px) 100vw, 1280px" type="image/webp" />
+                    <img
+                      src={slide.png}
+                      alt={slide.alt}
+                      width={slide.width}
+                      height={slide.height}
+                      fetchpriority={slide.priority ? 'high' : undefined}
+                      loading={slide.priority ? undefined : 'lazy'}
+                    />
+                  </picture>
+                </div>
+              ))}
+            </div>
+            <div class="hero-carousel-footer" style="padding: 0.6rem 1rem; background: #f9fafb; border-top: 1px solid #e5e7eb;">
+              <span class="hero-carousel-caption" style="color:#6b7280;">{carouselSlides[0].caption}</span>
+              <div class="hero-carousel-dots">
+                {carouselSlides.map((_, index) => (
+                  <button class:list={['hero-carousel-dot', { active: index === 0 }]} aria-label={`Go to slide ${index + 1}`}></button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <svg class="hero-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C360,70 1080,-10 1440,30 L1440,60 L0,60 Z" fill="#0b1c10"></path>
+    </svg>
+  </section>
+
+  <section class="fog-section" style="padding-top: 0; padding-bottom: 0;">
+    <div class="fog-inner">
+      <div class="fog-text reveal">
+        <div class="fog-eyebrow">The recall problem</div>
+        <h2 class="fog-title">Cannabis affects short-term memory. Your clients aren't lying — they just can't recall.</h2>
+        <p class="fog-body">Regular cannabis use impairs episodic memory encoding. By the time a client sits across from you, a full week of sessions, moods, and triggers has dissolved into a vague "about the same." Ecological Momentary Assessment fixes this — not by asking them to remember, but by capturing it the moment it happens.</p>
+      </div>
+      <div class="fog-scene-side reveal">
+        <div class="fog-walker-wrap">
+          <div class="loader">
+            <svg class="w-legl" version="1.1" xmlns="http://www.w3.org/2000/svg" width="20.69332" height="68.19944" viewBox="0,0,20.69332,68.19944">
+              <g transform="translate(-201.44063,-235.75466)"><g stroke-miterlimit="10">
+                <path d="M218.11971,301.20087c-2.20708,1.73229 -4.41416,0 -4.41416,0l-1.43017,-1.1437c-1.42954,-1.40829 -3.04351,-2.54728 -4.56954,-3.87927c-0.95183,-0.8308 -2.29837,-1.49883 -2.7652,-2.55433c-0.42378,-0.95815 0.14432,-2.02654 0.29355,-3.03399c0.41251,-2.78499 1.82164,-5.43386 2.41472,-8.22683c1.25895,-4.44509 2.73863,-8.98683 3.15318,-13.54796c0.22615,-2.4883 -0.21672,-5.0155 -0.00278,-7.50605c0.30636,-3.56649 1.24602,-7.10406 1.59992,-10.6738c0.29105,-2.93579 -0.00785,-5.9806 -0.00785,-8.93046c0,0 0,-2.44982 3.12129,-2.44982c3.12129,0 3.12129,2.44982 3.12129,2.44982c0,3.06839 0.28868,6.22201 -0.00786,9.27779c-0.34637,3.56935 -1.30115,7.10906 -1.59992,10.6738c-0.2103,2.50918 0.22586,5.05326 -0.00278,7.56284c-0.43159,4.7371 -1.94029,9.46317 -3.24651,14.07835c-0.47439,2.23403 -1.29927,4.31705 -2.05805,6.47156c-0.18628,0.52896 -0.1402,1.0974 -0.327,1.62624c-0.09463,0.26791 -0.64731,0.47816 -0.50641,0.73323c0.19122,0.34617 0.86423,0.3445 1.2346,0.58502c1.88637,1.22503 3.50777,2.79494 5.03,4.28305l0.96971,0.73991c0,0 2.20708,1.73229 0,3.46457z" fill="none" stroke="#a7f3d0" stroke-width="7"></path>
+              </g></g>
+            </svg>
+            <svg class="w-legr" version="1.1" xmlns="http://www.w3.org/2000/svg" width="41.02537" height="64.85502" viewBox="0,0,41.02537,64.85502">
+              <g transform="translate(-241.54137,-218.44347)"><g stroke-miterlimit="10">
+                <path d="M279.06674,279.42662c-2.27967,1.98991 -6.08116,0.58804 -6.08116,0.58804l-2.47264,-0.92915c-2.58799,-1.18826 -5.31176,-2.08831 -7.99917,-3.18902c-1.67622,-0.68654 -3.82471,-1.16116 -4.93147,-2.13229c-1.00468,-0.88156 -0.69132,-2.00318 -0.92827,-3.00935c-0.65501,-2.78142 0.12275,-5.56236 -0.287,-8.37565c-0.2181,-4.51941 -0.17458,-9.16283 -1.60696,-13.68334c-0.78143,-2.46614 -2.50162,-4.88125 -3.30086,-7.34796c-1.14452,-3.53236 -1.40387,-7.12078 -2.48433,-10.66266c-0.88858,-2.91287 -2.63779,-5.85389 -3.93351,-8.74177c0,0 -1.07608,-2.39835 3.22395,-2.81415c4.30003,-0.41581 2.41605,1.98254 2.41605,1.98254c1.34779,3.00392 3.13072,6.05282 4.06444,9.0839c1.09065,3.54049 1.33011,7.13302 2.48433,10.66266c0.81245,2.48448 2.5308,4.917 3.31813,7.40431c1.48619,4.69506 1.48366,9.52281 1.71137,14.21503c0.32776,2.25028 0.10631,4.39942 0.00736,6.60975c-0.02429,0.54266 0.28888,1.09302 0.26382,1.63563c-0.01269,0.27488 -0.68173,0.55435 -0.37558,0.78529c0.41549,0.31342 1.34191,0.22213 1.95781,0.40826c3.13684,0.94799 6.06014,2.26892 8.81088,3.52298l1.66093,0.59519c0,0 6.76155,1.40187 4.48187,3.39177z" fill="none" stroke="#6ee7b7" stroke-width="7"></path>
+              </g></g>
+            </svg>
+            <div class="w-bod">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="144.10576" height="144.91623" viewBox="0,0,144.10576,144.91623">
+                <g transform="translate(-164.41679,-112.94712)"><g stroke-miterlimit="10">
+                  <path d="M166.9168,184.02633c0,-36.49454 35.0206,-66.07921 72.05288,-66.07921c37.03228,0 67.05288,29.58467 67.05288,66.07921c0,6.94489 -1.08716,13.63956 -3.10292,19.92772c-2.71464,8.46831 -7.1134,16.19939 -12.809,22.81158c-2.31017,2.68194 -7.54471,12.91599 -7.54471,12.91599c0,0 -5.46714,-1.18309 -8.44434,0.6266c-3.86867,2.35159 -10.95356,10.86714 -10.95356,10.86714c0,0 -6.96906,-3.20396 -9.87477,-2.58085c-2.64748,0.56773 -6.72538,5.77072 -6.72538,5.77072c0,0 -5.5023,-4.25969 -7.5982,-4.25969c-3.08622,0 -9.09924,3.48259 -9.09924,3.48259c0,0 -6.0782,-5.11244 -9.00348,-5.91884c-4.26461,-1.17561 -12.23343,0.75049 -12.23343,0.75049c0,0 -5.18164,-8.26065 -7.60688,-9.90388c-3.50443,-2.37445 -8.8271,-3.95414 -8.8271,-3.95414c0,0 -5.33472,-8.81718 -7.27019,-11.40895c-4.81099,-6.44239 -13.46422,-9.83437 -15.65729,-17.76175c-1.53558,-5.55073 -2.35527,-21.36472 -2.35527,-21.36472z" fill="#0d2a1a" stroke="#1a4a2a" stroke-width="5" stroke-linecap="butt"></path>
+                  <path d="M216.22445,188.06994c0,0 1.02834,11.73245 -3.62335,21.11235c-4.65169,9.3799 -13.06183,10.03776 -13.06183,10.03776c0,0 7.0703,-3.03121 10.89231,-10.7381c4.34839,-8.76831 5.79288,-20.41201 5.79288,-20.41201z" fill="none" stroke="#2d6b3a" stroke-width="3" stroke-linecap="round"></path>
+                </g></g>
+              </svg>
+              <svg class="w-head" version="1.1" xmlns="http://www.w3.org/2000/svg" width="115.68559" height="88.29441" viewBox="0,0,115.68559,88.29441">
+                <g transform="translate(-191.87889,-75.62023)"><g stroke-miterlimit="10">
+                  <path d="M195.31785,124.43649c0,-26.96048 21.33334,-48.81626 47.64934,-48.81626c26.316,0 47.64935,21.85578 47.64935,48.81626c0,1.03481 -0.08666,2.8866 -0.08666,2.8866c0,0 16.8538,15.99287 16.21847,17.23929c-0.66726,1.30905 -23.05667,-4.14265 -23.05667,-4.14265l-2.29866,4.5096l-7.75885,0.35623l-7.59417,6.15039l-8.64295,-1.74822l-11.70703,6.06119l-6.38599,-4.79382l-6.45999,2.36133l-7.01451,-7.38888l-8.11916,1.29382l-6.19237,-6.07265l-7.6263,-1.37795l-4.19835,-7.87062l-4.24236,-4.16907c0,0 -0.13314,-2.0999 -0.13314,-3.29458z" fill="#0d2a1a" stroke="none"></path>
+                  <path d="M271.10348,122.46768l10.06374,-3.28166l24.06547,24.28424" fill="none" stroke="#2d6b3a" stroke-width="6" stroke-linecap="round"></path>
+                  <path d="M276.02738,115.72434c-0.66448,-4.64715 2.56411,-8.95308 7.21127,-9.61756c4.64715,-0.66448 8.95309,2.56411 9.61757,7.21126c0.46467,3.24972 -1.94776,8.02206 -5.96624,9.09336c-2.11289,-1.73012 -5.08673,-5.03426 -5.08673,-5.03426c0,0 -4.12095,1.16329 -4.60481,1.54229c-0.16433,-0.04891 -0.62732,-0.38126 -0.72803,-0.61269c-0.30602,-0.70328 -0.36302,-2.02286 -0.44303,-2.58239z" fill="#ecfdf5" stroke="none"></path>
+                  <path d="M242.49281,125.6424c0,-4.69442 3.80558,-8.5 8.5,-8.5c4.69442,0 8.5,3.80558 8.5,8.5c0,4.69442 -3.80558,8.5 -8.5,8.5c-4.69442,0 -8.5,-3.80558 -8.5,-8.5z" fill="#ecfdf5" stroke="none"></path>
+                </g></g>
+              </svg>
+            </div>
+            <svg class="w-gnd" version="1.1" xmlns="http://www.w3.org/2000/svg" width="475" height="530" viewBox="0,0,163.40011,85.20095">
+              <g transform="translate(-176.25,-207.64957)"><g stroke="#1a4a2a" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10">
+                <path d="M295.5,273.1829c0,0 -57.38915,6.69521 -76.94095,-9.01465c-13.65063,-10.50609 15.70098,-20.69467 -2.5451,-19.94465c-30.31027,2.05753 -38.51396,-26.84135 -38.51396,-26.84135c0,0 6.50084,13.30023 18.93224,19.17888c9.53286,4.50796 26.23632,-1.02541 32.09529,4.95137c3.62417,3.69704 2.8012,6.33005 0.66517,8.49452c-3.79415,3.84467 -11.7312,6.21103 -6.24682,10.43645c22.01082,16.95812 72.55412,12.73944 72.55412,12.73944z" fill="#0d2a1a"></path>
+                <path d="M338.92138,217.76285c0,0 -17.49626,12.55408 -45.36424,10.00353c-8.39872,-0.76867 -17.29557,-6.23066 -17.29557,-6.23066c0,0 3.06461,-2.23972 15.41857,0.72484c26.30467,6.31228 47.24124,-4.49771 47.24124,-4.49771z" fill="#0d2a1a"></path>
+                <path d="M209.14443,223.00182l1.34223,15.4356l-10.0667,-15.4356" fill="none"></path>
+                <path d="M198.20391,230.41806l12.95386,7.34824l6.71113,-12.08004" fill="none"></path>
+                <path d="M317.57068,215.80173l5.27812,6.49615l0.40601,-13.39831" fill="none"></path>
+                <path d="M323.66082,222.70389l6.09014,-9.33822" fill="none"></path>
+              </g></g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;margin-bottom:-2px;">
+      <path d="M0,30 C360,70 1080,-10 1440,30 L1440,60 L0,60 Z" fill="white"></path>
+    </svg>
+  </section>
+
+  <section class="benefit-strip reveal">
+    <h2>Everything your practice needs to track what actually happened between sessions</h2>
+    <p>Built for outpatient substance use disorder programs — CBT, harm reduction, IOPs — where between-session data is the difference between guessing and knowing.</p>
+    <div class="benefit-grid">
+      {benefitCards.map((card) => (
+        <div class="benefit-card">
+          <div class="benefit-icon-wrap" style={`background:${card.iconBg}`}>
+            {card.icon === 'clock' && <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke={card.iconStroke} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>}
+            {card.icon === 'grid' && <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke={card.iconStroke} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path></svg>}
+            {card.icon === 'file' && <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke={card.iconStroke} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>}
+            {card.icon === 'lock' && <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke={card.iconStroke} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>}
+          </div>
+          <div class="benefit-title">{card.title}</div>
+          <div class="benefit-body">{card.body}</div>
+          <a class="benefit-link" href={card.href}>{card.linkLabel}</a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="feature-section">
+    <div class="feature-inner reveal">
+      <div class="feature-text">
+        <div class="feature-eyebrow">{featureSections[0].eyebrow}</div>
+        <h2 class="feature-title">{featureSections[0].title}</h2>
+        <p class="feature-body">{featureSections[0].body}</p>
+        <ul class="feature-bullets">
+          {featureSections[0].bullets.map((bullet) => (
+            <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>{bullet}</li>
+          ))}
+        </ul>
+        <a class="feature-cta-link" href={featureSections[0].href}>{featureSections[0].linkLabel}</a>
+      </div>
+      <div class="feature-visual">
+        <div class="feature-blob"></div>
+        <div class="feature-img">
+          <img src={featureSections[0].image} alt={featureSections[0].alt} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-section tinted">
+    <div class="feature-inner reverse reveal">
+      <div class="feature-text">
+        <div class="feature-eyebrow">Client App</div>
+        <h2 class="feature-title">Three taps. No cognitive load.</h2>
+        <p class="feature-body">Clients log a session the moment it happens — not reconstructed in your office days later. Built for people in active substance use, where working memory is already taxed.</p>
+        <ul class="feature-bullets">
+          <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Three required taps — nothing more to start</li>
+          <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Optional: mood, trigger, location, and notes</li>
+          <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Works in any browser — no app download</li>
+          <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Momentary logging captures the truth</li>
+        </ul>
+        <a class="feature-cta-link" href="/features.html">Explore client app features →</a>
+      </div>
+      <div class="feature-visual">
+        <div class="feature-blob left"></div>
+        <div class="demo-wrapper">
+          <div class="phone-card">
+            <div class="phone">
+              <div class="front-cam"></div>
+              <div class="side-buttons">
+                <div class="side-btn top"></div>
+                <div class="side-btn bottom"></div>
+              </div>
+              <div class="screen" id="demo-screen">
+                <div class="hotspot" id="demo-hotspot"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="steps-container" id="steps-container">
+            <div class="step" id="step-0">
+              <div class="arrow-pointer"></div>
+              <div class="step-card">
+                <div class="step-badge">1</div>
+                <div class="step-text">
+                  <h4>First Click</h4>
+                  <p>Open the Tracker</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="step" id="step-1">
+              <div class="arrow-pointer"></div>
+              <div class="step-card">
+                <div class="step-badge">2</div>
+                <div class="step-text">
+                  <h4>Second Click</h4>
+                  <p>Open Log Modal</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="step" id="step-2">
+              <div class="arrow-pointer"></div>
+              <div class="step-card">
+                <div class="step-badge">3</div>
+                <div class="step-text">
+                  <h4>Third Click</h4>
+                  <p>Save Session</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-section">
+    <div class="feature-inner reveal">
+      <div class="feature-text">
+        <div class="feature-eyebrow">{featureSections[1].eyebrow}</div>
+        <h2 class="feature-title">{featureSections[1].title}</h2>
+        <p class="feature-body">{featureSections[1].body}</p>
+        <ul class="feature-bullets">
+          {featureSections[1].bullets.map((bullet) => (
+            <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>{bullet}</li>
+          ))}
+        </ul>
+        <a class="feature-cta-link" href={featureSections[1].href}>{featureSections[1].linkLabel}</a>
+      </div>
+      <div class="feature-visual">
+        <div class="feature-blob"></div>
+        <div class="feature-img">
+          <img class:list={['feat-phone', { 'feat-phone': featureSections[1].phone }]} src={featureSections[1].image} alt={featureSections[1].alt} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="evidence-section">
+    <div class="section-center">
+      <div class="section-eyebrow">Evidence base</div>
+      <h2 class="section-title-lg">Built on peer-reviewed research</h2>
+      <p class="section-sub">No marketing claims — only research and the design decisions that follow from it.</p>
+    </div>
+    <div class="evidence-grid reveal">
+      {evidenceCards.map((card) => (
+        <div class="ev-card">
+          <div class="ev-card-inner">
+            <img src={card.image} alt="" class="ev-photo" />
+            <div class="ev-content">
+              <div class="ev-tag">{card.tag}</div>
+              <div class="ev-title">{card.title}</div>
+              <div class="ev-body">
+                {card.body}
+                {card.refs.map((ref) => <span class="ref-chip">{ref}</span>)}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section id="faq" class="features-section" style="background:#fff;border-top:1px solid var(--color-border);">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list reveal" style="max-width: 780px; margin: 0 auto;">
+        {faqs.map((item) => (
+          <details class="faq-item glass">
+            <summary>
+              <span>{item.question}</span>
+              <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="faq-body">{item.answer}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script slot="scripts" define:vars={{ captions: carouselSlides.map((slide) => slide.caption) }}>
+    (() => {
+      const carousel = document.getElementById('hero-carousel');
+      if (!carousel) return;
+      const slides = Array.from(carousel.querySelectorAll('.hero-carousel-slide'));
+      const dots = Array.from(carousel.querySelectorAll('.hero-carousel-dot'));
+      const caption = carousel.querySelector('.hero-carousel-caption');
+      const prevBtn = carousel.querySelector('.hero-carousel-prev');
+      const nextBtn = carousel.querySelector('.hero-carousel-next');
+      let current = 0;
+      let timer;
+
+      function goTo(n) {
+        slides[current]?.classList.remove('active');
+        dots[current]?.classList.remove('active');
+        current = (n + slides.length) % slides.length;
+        slides[current]?.classList.add('active');
+        dots[current]?.classList.add('active');
+        if (caption) caption.textContent = captions[current];
+      }
+
+      function start() {
+        timer = window.setInterval(() => goTo(current + 1), 5000);
+      }
+
+      function stop() {
+        window.clearInterval(timer);
+      }
+
+      dots.forEach((dot, index) => dot.addEventListener('click', () => {
+        stop();
+        goTo(index);
+        start();
+      }));
+      prevBtn?.addEventListener('click', () => {
+        stop();
+        goTo(current - 1);
+        start();
+      });
+      nextBtn?.addEventListener('click', () => {
+        stop();
+        goTo(current + 1);
+        start();
+      });
+      carousel.addEventListener('mouseenter', stop);
+      carousel.addEventListener('mouseleave', start);
+      start();
+    })();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+
+    (() => {
+      const demoImages = [
+        '/homescreenview.png',
+        '/images/en_tracker_achievements.png',
+        '/images/en_tracker_log_session_modal.webp',
+        '/images/en_tracker_home_calendar.webp',
+      ];
+      const clickCoordinates = [
+        { top: '71%', left: '85%' },
+        { top: '95%', left: '85%' },
+        { top: '91%', left: '50%' },
+      ];
+
+      let demoIndex = 0;
+      const screen = document.getElementById('demo-screen');
+      const hotspot = document.getElementById('demo-hotspot');
+      const steps = document.querySelectorAll('.demo-wrapper .step');
+
+      if (!screen || !hotspot) return;
+
+      function updateDemoUI() {
+        screen.style.backgroundImage = `url('${demoImages[demoIndex]}')`;
+
+        steps.forEach((step, index) => {
+          step.classList.remove('active', 'completed');
+          if (demoIndex === index) {
+            step.classList.add('active');
+          } else if (demoIndex > index) {
+            step.classList.add('completed');
+          }
+        });
+
+        if (demoIndex < 3) {
+          hotspot.classList.remove('hidden');
+          hotspot.style.top = clickCoordinates[demoIndex].top;
+          hotspot.style.left = clickCoordinates[demoIndex].left;
+        } else {
+          hotspot.classList.add('hidden');
+        }
+      }
+
+      screen.addEventListener('click', () => {
+        demoIndex += 1;
+        if (demoIndex >= demoImages.length) demoIndex = 0;
+        updateDemoUI();
+      });
+
+      steps.forEach((step, index) => {
+        step.addEventListener('click', () => {
+          demoIndex = index;
+          updateDemoUI();
+        });
+      });
+
+      updateDemoUI();
+    })();
+
+    window.addEventListener('load', () => {
+      document.documentElement.style.visibility = 'visible';
+    });
+  </script>
+</BaseLayout>

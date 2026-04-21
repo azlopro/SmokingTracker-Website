@@ -1,0 +1,602 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPageSeo } from '../lib/pageSeo';
+
+const { title, description, ogTitle, ogDescription } = getPageSeo('features');
+const heroCards = [
+  {
+    rank: '01',
+    icon: '🌊',
+    title: 'Urge Surfing',
+    description:
+      'A real-time panic button. Guided breathing and distraction exercises designed to help users survive the critical 3-minute craving window.',
+    href: '/ema-logging.html',
+    linkText: 'Learn about EMA logging',
+  },
+  {
+    rank: '02',
+    icon: '⏱️',
+    title: 'Countdown Timer',
+    description:
+      'Real-time streak tracking that builds anticipatory dopamine. A powerful identity-shifting tool for users moving toward abstinence.',
+    href: '/for-individuals.html',
+    linkText: 'See personal features',
+  },
+  {
+    rank: '03',
+    icon: '🚦',
+    title: 'Traffic Light System',
+    description:
+      'Automated clinical triage. Instantly see which clients are escalating, stable, or at risk without reading through raw session logs.',
+    href: '/practitioner-dashboard.html',
+    linkText: 'Explore the dashboard',
+  },
+  {
+    rank: '04',
+    icon: '🏆',
+    title: 'Achievement System',
+    description:
+      'Resilient gamification that removes the shame spiral. Progress bars show milestones for logging consistency and reduction goals.',
+    href: '/for-individuals.html',
+    linkText: 'See progress tracking',
+  },
+  {
+    rank: '05',
+    icon: '🔒',
+    title: 'Implemental Intentions',
+    description:
+      'Define smoke-free hours with frictionless override prompts. Helping clients bridge the gap between intention and actual behavior.',
+    href: '/privacy-compliance.html',
+    linkText: 'View privacy standards',
+  },
+];
+
+const accordionSections = [
+  {
+    id: 'client-logging',
+    icon: '📱',
+    title: 'Client Side Logging',
+    items: [
+      ['Three-tap session logging', 'Quick and accurate capture.'],
+      ['Mood & Craving tracking', 'Tied to every use event.'],
+      ['Fast-use warnings', 'Real-time behavioral feedback.'],
+      ['Heatmap calendar', 'Visual overview of use patterns.'],
+      ['Goal configuration', 'Reduce, Quit, or Awareness modes.'],
+    ],
+  },
+  {
+    id: 'practitioner',
+    icon: '🖥️',
+    title: 'Practitioner Dashboard',
+    items: [
+      ['Multi-client caseload', 'All clients on one screen.'],
+      ['Trigger rankings', 'Identify high-risk social contexts.'],
+      ['Method analytics', 'Flower, vape, and edible split.'],
+      ['Clinical annotations', 'Direct session notes.'],
+      ['One-click PDF reports', 'EHR-ready documentation.'],
+    ],
+  },
+  {
+    id: 'engagement',
+    icon: '🤝',
+    title: 'Engagement & Alliance',
+    items: [
+      ['Achievement badges', 'Positive reinforcement.'],
+      ['Money saved calculator', 'Rational motivations.'],
+      ['Time-since-last-smoke', 'Visual progress.'],
+      ['Urge Surfing exercises', 'Acute craving support.'],
+    ],
+  },
+  {
+    id: 'privacy',
+    icon: '🔒',
+    title: 'Privacy & Compliance',
+    items: [
+      ['HIPAA Compliant', 'BAA available.'],
+      ['GDPR DPA', 'Standard in all contracts.'],
+      ['42 CFR Part 2', 'Specialized for SUD.'],
+      ['Revocable consent', 'Clients control their data.'],
+    ],
+  },
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/features.html"
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  activeNav={"features"}
+  navVariant={"marketing"}
+  footerVariant={"full"}
+  bodyClass={"dark-theme"}
+  showCta={false}
+  includeMainJs={true}
+  extraModuleScripts={[]}
+  hideUntilLoad={true}
+>
+  <main>
+    <section class="features-hub-hero">
+      <div class="container">
+        <span class="hub-tag reveal">Platform Capabilities</span>
+        <h1 class="hub-title reveal">
+          Built for the reality of <br /><span class="text-gradient">cannabis treatment.</span>
+        </h1>
+        <p class="hub-subtitle reveal">
+          SmokingTracker combines frictionless client-side logging with clinical intelligence to solve the recall
+          problem in CUD treatment.
+        </p>
+        <div class="reveal">
+          <a href="/trial.html" class="features-hero-cta">Start 30-Day Free Trial</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="features-dark-block">
+      <div class="container">
+        <div class="killer-grid">
+          {
+            heroCards.map((card) => (
+              <div class="killer-card reveal">
+                <span class="killer-rank">{card.rank}</span>
+                <span class="killer-icon" aria-hidden="true">{card.icon}</span>
+                <h3>{card.title}</h3>
+                <p>{card.description}</p>
+                <a href={card.href} class="killer-link">
+                  {card.linkText}
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="list-section">
+      <div class="container">
+        <div class="list-header reveal">
+          <span class="hub-tag">Complete Directory</span>
+          <h2 class="features-list-title">Every feature, explained.</h2>
+        </div>
+
+        <div class="accordion-group">
+          {
+            accordionSections.map((section, index) => {
+              const isOpen = index === 0;
+              const triggerId = `feature-trigger-${section.id}`;
+              const panelId = `feature-panel-${section.id}`;
+              return (
+                <div class:list={['accordion-item', { active: isOpen }]}>
+                  <button
+                    class="accordion-trigger"
+                    aria-expanded={isOpen ? 'true' : 'false'}
+                    aria-controls={panelId}
+                    id={triggerId}
+                    type="button"
+                  >
+                    <span>{section.icon} {section.title}</span>
+                    <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </button>
+                  <div
+                    class="accordion-content"
+                    id={panelId}
+                    role="region"
+                    aria-labelledby={triggerId}
+                    hidden={!isOpen}
+                  >
+                    <ul class="feature-list">
+                      {section.items.map(([title, text]) => <li class="feature-item"><strong>{title}</strong> - {text}</li>)}
+                    </ul>
+                  </div>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="features-cta-section">
+      <div class="container text-center reveal">
+        <div class="features-cta-box glass">
+          <h2 class="features-cta-title">Ready to clear the fog?</h2>
+          <p class="features-cta-text">
+            Takes under 2 minutes to invite your first client and see real-time data flowing.
+          </p>
+          <a href="/trial.html" class="features-cta-link">Request Free Trial</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer slot="footer" class="features-footer footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <img src="/logo-icon-w.png" alt="SmokingTracker Logo" width="56" height="48" />
+          <span class="logo-text features-footer-logo">SmokingTracker</span>
+        </a>
+        <p class="features-footer-copy">Helping treatment centers deliver proactive, data-driven support.</p>
+      </div>
+      <div class="footer-links">
+        <div class="link-group">
+          <h4 class="features-footer-heading">Product</h4>
+          <a href="/features.html">Features</a>
+          <a href="/for-clinicians.html">For Clinicians</a>
+          <a href="/for-individuals.html">For Individuals</a>
+          <a href="/pricing.html">Pricing</a>
+          <a href="/knowledge-base.html">Blog</a>
+        </div>
+        <div class="link-group">
+          <h4 class="features-footer-heading">Legal</h4>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom features-footer-bottom">
+      <p>&copy; 2026 SmokingTracker. All rights reserved.</p>
+    </div>
+  </footer>
+  <div slot="scripts">
+    <script is:inline>
+      document.querySelectorAll('.accordion-trigger').forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+          const item = trigger.parentElement;
+          const isActive = item?.classList.contains('active');
+
+          document.querySelectorAll('.accordion-item').forEach((accordionItem) => {
+            accordionItem.classList.remove('active');
+            const button = accordionItem.querySelector('.accordion-trigger');
+            const panel = accordionItem.querySelector('.accordion-content');
+            if (button) button.setAttribute('aria-expanded', 'false');
+            if (panel) panel.hidden = true;
+          });
+
+          if (!isActive && item) {
+            item.classList.add('active');
+            trigger.setAttribute('aria-expanded', 'true');
+            const panel = item.querySelector('.accordion-content');
+            if (panel) panel.hidden = false;
+          }
+        });
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal').forEach((element) => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(40px)';
+        element.style.transition = 'all 1s cubic-bezier(0.16, 1, 0.3, 1)';
+        observer.observe(element);
+      });
+    </script>
+  </div>
+</BaseLayout>
+
+<style is:global>
+  .features-hub-hero {
+    background: #020c07;
+    padding: 8rem 0 6rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .features-hub-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% -20%, rgba(16, 185, 129, 0.15) 0%, transparent 60%);
+  }
+
+  .hub-tag {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    padding: 0.5rem 1.25rem;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+  }
+
+  .hub-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    color: white;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 2rem;
+  }
+
+  .hub-subtitle {
+    font-size: 1.4rem;
+    color: #9ca3af;
+    max-width: 700px;
+    margin: 0 auto 4rem;
+    line-height: 1.6;
+  }
+
+  .features-hero-cta {
+    background: #10b981;
+    color: white;
+    padding: 1.25rem 2.5rem;
+    border-radius: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .features-dark-block {
+    background: #020c07;
+    padding-bottom: 8rem;
+  }
+
+  .killer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 8rem;
+  }
+
+  .killer-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 32px;
+    padding: 3rem;
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .killer-card:hover {
+    border-color: rgba(16, 185, 129, 0.4);
+    background: rgba(255, 255, 255, 0.04);
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  .killer-rank {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(16, 185, 129, 0.1);
+    line-height: 1;
+  }
+
+  .killer-icon {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    display: block;
+  }
+
+  .killer-card h3 {
+    color: white;
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.01em;
+  }
+
+  .killer-card p {
+    color: #9ca3af;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    flex: 1;
+  }
+
+  .killer-link {
+    color: #10b981;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    transition: gap 0.3s;
+  }
+
+  .killer-card:hover .killer-link {
+    gap: 0.8rem;
+  }
+
+  .list-section {
+    background: #050a06;
+    padding: 8rem 0;
+  }
+
+  .list-header {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  .features-list-title {
+    font-size: 3rem;
+    color: white;
+    font-weight: 800;
+  }
+
+  .accordion-group {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .accordion-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .accordion-item:hover {
+    border-color: rgba(16, 185, 129, 0.2);
+  }
+
+  .accordion-trigger {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .accordion-item.active .accordion-content {
+    max-height: 1000px;
+    padding: 0 2rem 2.5rem;
+  }
+
+  .accordion-item.active .chevron {
+    transform: rotate(180deg);
+  }
+
+  .chevron {
+    transition: transform 0.3s;
+    color: #4b5563;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    color: #9ca3af;
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .feature-item::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 0.5rem;
+  }
+
+  .feature-item strong {
+    color: #d1d5db;
+    font-weight: 600;
+  }
+
+  .features-cta-section {
+    background: #020c07;
+    padding: 12rem 0;
+  }
+
+  .features-cta-box {
+    padding: 8rem 2rem;
+    border-radius: 48px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.01);
+  }
+
+  .features-cta-title {
+    font-size: 4rem;
+    color: white;
+    font-weight: 900;
+    margin-bottom: 3rem;
+    letter-spacing: -0.04em;
+  }
+
+  .features-cta-text {
+    color: #9ca3af;
+    font-size: 1.6rem;
+    max-width: 750px;
+    margin: 0 auto 5rem;
+    line-height: 1.6;
+  }
+
+  .features-cta-link {
+    background: #10b981;
+    color: white;
+    padding: 1.6rem 5rem;
+    border-radius: 20px;
+    font-weight: 900;
+    text-decoration: none;
+    font-size: 1.5rem;
+    display: inline-block;
+    box-shadow: 0 20px 50px -10px rgba(16, 185, 129, 0.6);
+  }
+
+  .features-footer {
+    background: #020c07;
+    padding: 10rem 0 5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .features-footer-logo {
+    color: white;
+    font-weight: 900;
+    font-size: 2.25rem;
+  }
+
+  .features-footer-copy {
+    color: #6b7280;
+    margin-top: 2.5rem;
+    max-width: 400px;
+    font-size: 1.2rem;
+    line-height: 1.7;
+  }
+
+  .features-footer-heading {
+    color: white;
+    margin-bottom: 2.5rem;
+    font-size: 1.4rem;
+  }
+
+  .features-footer-bottom {
+    margin-top: 10rem;
+    padding-top: 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #4b5563;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+</style>

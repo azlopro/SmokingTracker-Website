@@ -1,0 +1,212 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPageSeo } from '../lib/pageSeo';
+
+const { title, description, ogTitle, ogDescription } = getPageSeo('trial');
+
+const trustItems = [
+  'Full access — completely free until October 2026',
+  'No credit card required',
+  'Up and running within a day',
+  'Dedicated onboarding support',
+];
+
+const tiers = [
+  {
+    value: 'solo',
+    name: 'Solo Practitioner',
+    scope: '1 therapist seat',
+    price: 'Free',
+    checked: true,
+  },
+  {
+    value: 'group',
+    name: 'Group Practice',
+    scope: 'Up to 5 seats',
+    price: 'Free',
+  },
+  {
+    value: 'enterprise',
+    name: 'Enterprise',
+    scope: 'Unlimited seats',
+    price: 'Free',
+  },
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/trial.html"
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  activeNav=""
+  navVariant="marketing"
+  footerVariant="blog"
+  bodyClass="light-theme"
+  showCta={false}
+  includeMainJs={true}
+  extraModuleScripts={['/trial.js']}
+  hideUntilLoad={true}
+>
+  <section class="trial-hero">
+    <div class="hero-bg-glow"></div>
+    <div class="container trial-container">
+      <div class="trial-copy fade-in-up">
+        <div class="badge section-badge">Pilot Program</div>
+        <h1>
+          Get started free — <span class="text-gradient">no payment until October 2026</span>
+        </h1>
+        <p class="hero-subtitle">
+          Set up SmokingTracker for your treatment center in minutes. Full access at no cost during our pilot program.
+        </p>
+        <ul class="trial-trust-list">
+          {trustItems.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+
+      <div class="trial-form-card glass fade-in" style="animation-delay: 0.15s">
+        <div class="trial-success" id="trial-success">
+          <div class="trial-success-icon">✓</div>
+          <h2>Check your inbox!</h2>
+          <p>We've sent a setup link to your email. Follow the link to create your account and get started.</p>
+        </div>
+
+        <div id="trial-form-wrap">
+          <h2>Get started free</h2>
+          <p class="form-subtitle">Takes about 2 minutes</p>
+
+          <div class="tier-cards" role="radiogroup" aria-label="Subscription tier">
+            {tiers.map((tier) => (
+              <label class="tier-card">
+                <input type="radio" name="tier" value={tier.value} checked={tier.checked} />
+                <div class="tier-name">{tier.name}</div>
+                <div class="tier-scope">{tier.scope}</div>
+                <div class="tier-price">{tier.price}</div>
+              </label>
+            ))}
+          </div>
+
+          <form class="trial-form" id="trial-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name" data-i18n="trial.labelContactName">Your full name</label>
+                <input
+                  type="text"
+                  id="contact-name"
+                  name="contact_name"
+                  required
+                  autocomplete="name"
+                  data-i18n-placeholder="trial.placeholderContactName"
+                  placeholder="Jane Smith"
+                />
+              </div>
+              <div class="form-group">
+                <label for="admin-email" data-i18n="trial.labelEmail">Work email</label>
+                <input
+                  type="email"
+                  id="admin-email"
+                  name="admin_email"
+                  required
+                  autocomplete="email"
+                  data-i18n-placeholder="trial.placeholderEmail"
+                  placeholder="jane@clinic.com"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="role" data-i18n="trial.labelRole">Your Role</label>
+                <select id="role" name="role" required class="form-select">
+                  <option value="solo" data-i18n="trial.roleSolo">Solo Therapist</option>
+                  <option value="director" data-i18n="trial.roleDirector">Clinical Director</option>
+                  <option value="other" data-i18n="trial.roleOther">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="org-name" data-i18n="trial.labelOrgName">Organisation / clinic</label>
+                <input
+                  type="text"
+                  id="org-name"
+                  name="org_name"
+                  required
+                  autocomplete="organization"
+                  data-i18n-placeholder="trial.placeholderOrgName"
+                  placeholder="Integrative Health Associates"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="center-name" id="center-name-label" data-i18n="trial.labelCenterName">Clinic or practice name</label>
+              <input
+                type="text"
+                id="center-name"
+                name="center_name"
+                required
+                data-i18n-placeholder="trial.placeholderCenterName"
+                placeholder="Outpatient Harm Reduction Center"
+              />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-phone">
+                  <span data-i18n="trial.labelPhone">Phone</span>
+                  <span class="field-optional" data-i18n="trial.optional">(optional)</span>
+                </label>
+                <input
+                  type="tel"
+                  id="contact-phone"
+                  name="contact_phone"
+                  autocomplete="tel"
+                  data-i18n-placeholder="trial.placeholderPhone"
+                  placeholder="+1 555 123 4567"
+                />
+              </div>
+              <div class="form-group">
+                <label for="cvr-number">
+                  <span data-i18n="trial.labelCVR">CVR / Tax ID</span>
+                  <span class="field-optional" data-i18n="trial.optional">(optional)</span>
+                </label>
+                <input
+                  type="text"
+                  id="cvr-number"
+                  name="cvr_number"
+                  data-i18n-placeholder="trial.placeholderCVR"
+                  placeholder="12345678"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="municipality">
+                <span data-i18n="trial.labelMunicipality">City / Region</span>
+                <span class="field-optional" data-i18n="trial.optional">(optional)</span>
+              </label>
+              <input
+                type="text"
+                id="municipality"
+                name="municipality"
+                data-i18n-placeholder="trial.placeholderMunicipality"
+                placeholder="New York"
+              />
+            </div>
+
+            <div class="form-error" id="trial-error" role="alert" data-i18n="trial.errorGeneric">
+              Noget gik galt. Prøv igen.
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-large btn-full" id="trial-submit" data-i18n="trial.btnStandard">
+              Start gratis prøveperiode — Standard
+            </button>
+
+            <p class="form-legal" data-i18n="trial.legal">
+              Ved indsendelse accepterer du vores Handelsbetingelser og Privatlivspolitik.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

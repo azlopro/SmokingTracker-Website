@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPageSeo } from '../lib/pageSeo';
+
+const { title, description, ogTitle, ogDescription } = getPageSeo('terms');
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/terms.html"
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  activeNav=""
+  navVariant="marketing"
+  footerVariant="full"
+  bodyClass="light-theme"
+  showCta={false}
+  includeMainJs={true}
+  extraModuleScripts={[]}
+  hideUntilLoad={true}
+>
+  <div class="legal-content">
+    <h1>Terms of Service</h1>
+    <span class="legal-updated">Last updated: 18 April 2026</span>
+
+    <h2>1. Parties</h2>
+    <p>These Terms of Service govern the agreement between <strong>Azlo</strong>, CVR no. 43143778, Sundvej 10, 2. th, DK-8700 Horsens, Denmark, operating the SmokingTracker platform ("the Supplier"), and the treatment center, practice, or organisation that creates an account ("the Customer").</p>
+    <p>SmokingTracker is a product of Azlo. For more information about Azlo, visit <a href="https://www.azlo.pro/en/" target="_blank" rel="noopener">azlo.pro</a>.</p>
+
+    <h2>2. Scope of service</h2>
+    <p>SmokingTracker is a cloud-based SaaS platform enabling outpatient substance use disorder treatment centers, counseling practices, and Intensive Outpatient Programs (IOPs) to invite clients to friction-free real-time tracking of cannabis consumption, cravings, mood, and contextual triggers, for the purpose of clinical follow-up, Measurement-Based Care, and client retention.</p>
+    <p>Platform access is provided via a web browser. No app store download is required for clients or staff. The Supplier reserves the right to update platform functionality on an ongoing basis and will communicate material changes by email.</p>
+
+    <h2>3. Pilot period &amp; free access</h2>
+    <p><strong>B2B customers (treatment centers, clinics, and practices):</strong> New customers receive <strong>6 months of free full-access</strong> as part of our launch pilot. No payment information is required during the pilot period. No automatic charge is made at the end of the pilot. After the pilot period, the Customer must actively choose a plan and provide payment details to continue.</p>
+    <p><strong>Individual users:</strong> Personal accounts are <strong>free forever</strong>. No payment is required at any time for individual, non-clinical use of the platform.</p>
+    <p>Either party may end access at any time with no cost and no questions asked by contacting <a href="mailto:support@smokingtracker.com">support@smokingtracker.com</a>.</p>
+
+    <h2>4. Pricing and billing</h2>
+    <p>During the launch pilot period (see Section 3), B2B access is provided at no charge. Post-pilot subscription pricing will be as follows (USD, billed monthly unless the Customer selects annual billing):</p>
+    <ul>
+      <li><strong>Solo Counselor</strong> — $79/month ($790/year billed annually). 1 counselor seat, unlimited active clients.</li>
+      <li><strong>Group Practice</strong> — $249/month ($2,490/year billed annually). Up to 5 counselor seats and 1 clinical director dashboard.</li>
+      <li><strong>Enterprise &amp; Telehealth</strong> — Custom pricing. Unlimited seats, EHR integration support, API access, and HIPAA BAA. Contact <a href="mailto:support@smokingtracker.com">support@smokingtracker.com</a> for a quote.</li>
+    </ul>
+    <p>Individual accounts are free forever and are not subject to subscription billing.</p>
+    <p>An "active client" is a client who has logged at least one session in the billing month.</p>
+    <p>Billing is monthly in advance. The Supplier issues a PDF invoice by email. Payment is due within <strong>14 days</strong> of the invoice date. The Supplier may also offer credit card payment via a secure payment processor.</p>
+    <p>The Supplier may adjust prices with <strong>60 days' written notice</strong> by email. Price changes take effect at the start of the next billing cycle after the notice period.</p>
+
+    <h2>5. Termination</h2>
+    <p>The agreement is ongoing and may be terminated by either party with <strong>30 days' written notice</strong>. Notice must be sent to <a href="mailto:support@smokingtracker.com">support@smokingtracker.com</a>.</p>
+    <p>The Customer may request an export of their own data and client data in a machine-readable format before termination takes effect. Exports are delivered within 30 days of the request.</p>
+    <p>Upon termination, all Customer and client data is deleted within <strong>30 days</strong> of the agreement end date, unless the Customer has requested a data export or otherwise agreed in writing.</p>
+
+    <h2>6. Late payment</h2>
+    <p>If an invoice remains unpaid 14 days after the due date, the Supplier will send a written reminder. If payment is not received within a further 14 days, the Supplier may suspend platform access until the outstanding balance is settled. Continued non-payment may result in termination of the agreement.</p>
+
+    <h2>7. Data processing and HIPAA</h2>
+    <p>SmokingTracker acts as a <strong>service provider / data processor</strong> for client health data, for which the Customer is the covered entity or data controller. A Data Processing Agreement (DPA) is entered into automatically at account creation and forms an integral part of this agreement. The terms of the DPA are set out at <a href="/dpa.html">smokingtracker.com/dpa.html</a>.</p>
+    <p>For US-based treatment centers subject to HIPAA, a <strong>Business Associate Agreement (BAA)</strong> is available on Enterprise plans. Contact <a href="mailto:support@smokingtracker.com">support@smokingtracker.com</a> to execute a BAA.</p>
+    <p>Client data constitutes sensitive health information. The Supplier processes it only for the purpose of delivering the SmokingTracker platform and does not use it for advertising, profiling, or sale to third parties.</p>
+    <p>For further information, see our <a href="/privacy.html">Privacy Policy</a>.</p>
+
+    <h2>8. Third-party tracking on marketing pages</h2>
+    <p>The SmokingTracker marketing website uses <strong>Apollo.io</strong>, a B2B website intelligence tool, to identify companies and organisations visiting our public pages. Apollo may collect your IP address, browser metadata, and inferred company affiliation. This data is used solely to identify potential B2B customers and is not applied to client health data or logged-in platform sessions.</p>
+    <p>Apollo.io's privacy practices are governed by the <a href="https://www.apollo.io/privacy-policy" target="_blank" rel="noopener">Apollo Privacy Policy</a>. If you wish to opt out of Apollo tracking, you may do so via their opt-out page or by contacting <a href="mailto:support@smokingtracker.com">support@smokingtracker.com</a>.</p>
+    <p>No tracking tools of any kind are loaded within the authenticated platform used by counselors or clients.</p>
+
+    <h2>9. Availability and support</h2>
+    <p>The Supplier targets <strong>99.5% monthly uptime</strong>, excluding scheduled maintenance. Planned maintenance is communicated in advance where possible. Support is provided by email at <a href="mailto:support@smokingtracker.com">support@smokingtracker.com</a> on business days (Central European Time).</p>
+
+    <h2>10. Intellectual property</h2>
+    <p>All software, design, algorithms, and content on the SmokingTracker platform are owned by the Supplier. The Customer obtains a non-exclusive, non-transferable right to use the platform for the duration of the agreement.</p>
+    <p>The Customer retains all rights to its own data and its clients' data. The Supplier claims no ownership over any data entered by the Customer or its clients.</p>
+
+    <h2>11. Confidentiality</h2>
+    <p>The Supplier treats all Customer data and client data as confidential. It is not disclosed to competitors or third parties beyond those identified in the DPA and Privacy Policy. This obligation applies to Supplier staff with platform access and survives termination of the agreement.</p>
+
+    <h2>12. Limitation of liability</h2>
+    <p>The Supplier's total liability to the Customer is limited to the amount the Customer has paid for the service in the <strong>12 months prior</strong> to the event giving rise to the claim.</p>
+    <p>The Supplier is not liable for indirect losses, loss of revenue, data loss caused by the Customer's own actions, or consequential damages.</p>
+    <p>SmokingTracker is a clinical support tool. It does not replace professional clinical judgment, crisis intervention, or emergency services. The Supplier is not liable for clinical outcomes.</p>
+
+    <h2>13. Acceptable use</h2>
+    <p>The Customer agrees to use the platform in compliance with applicable law and these Terms. The Customer must not:</p>
+    <ul>
+      <li>Use the platform for purposes other than substance use disorder treatment support and clinical follow-up.</li>
+      <li>Attempt to access data belonging to other customers or clients without authorisation.</li>
+      <li>Use the platform for automated bulk data collection (scraping).</li>
+      <li>Resell or transfer platform access to third parties without prior written agreement with the Supplier.</li>
+      <li>Use the platform in a manner that violates applicable health information privacy laws, including HIPAA and 42 CFR Part 2.</li>
+    </ul>
+    <p>Violation of the above may result in immediate suspension of access without prior notice.</p>
+
+    <h2>14. Force majeure</h2>
+    <p>Neither party is liable for failure to perform due to circumstances beyond their reasonable control, including natural disasters, regulatory actions, cyberattacks, or third-party infrastructure outages.</p>
+
+    <h2>15. Changes to these terms</h2>
+    <p>The Supplier may amend these Terms of Service with <strong>30 days' written notice</strong> by email. Continued use of the platform after the notice period constitutes acceptance of the amended terms. If the Customer does not accept the changes, the agreement may be terminated during the notice period at no additional cost.</p>
+
+    <h2>16. Governing law and jurisdiction</h2>
+    <p>This agreement is governed by <strong>Danish law</strong>. Disputes that cannot be resolved amicably shall be submitted to <strong>Copenhagen City Court (Københavns Byret)</strong> as the court of first instance.</p>
+    <p>Nothing in this clause limits the rights of Customers who are consumers under mandatory consumer protection laws in their jurisdiction.</p>
+
+    <h2>17. Contact</h2>
+    <p>Questions regarding these terms may be directed to <a href="mailto:support@smokingtracker.com">support@smokingtracker.com</a>.</p>
+  </div>
+</BaseLayout>

@@ -1,0 +1,324 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPageSeo } from '../lib/pageSeo';
+
+const { title, description, ogTitle, ogDescription } = getPageSeo('clinical-reports');
+
+const reportSections = [
+  {
+    icon: '📅',
+    title: 'Session Calendar',
+    body: 'Visual heatmap of logged sessions across the report period — frequency, pattern, and gaps visible at a glance.',
+  },
+  {
+    icon: '📈',
+    title: 'Use Trend Chart',
+    body: 'Week-by-week frequency and consumption volume plotted as a line chart — ideal for tracking reduction progress.',
+  },
+  {
+    icon: '🧠',
+    title: 'Mood & Craving Scores',
+    body: 'Mood rating and craving intensity plotted alongside use events — shows the emotional-use relationship over time.',
+  },
+  {
+    icon: '🎯',
+    title: 'Top Triggers',
+    body: 'Ranked breakdown of the client\'s logged triggers — stress, social context, boredom, habit, pain — with session count per category.',
+  },
+  {
+    icon: '🏷️',
+    title: 'Method & Substance',
+    body: 'Pie breakdown by administration method (flower, vape, edible, concentrate) and substance type with percentage split.',
+  },
+  {
+    icon: '📝',
+    title: 'Clinical Notes',
+    body: 'Your session annotations and flagged events appear in chronological context alongside the objective data.',
+  },
+];
+
+const featureSections = [
+  {
+    eyebrow: 'EHR & referral documentation',
+    title: 'Documentation that holds up to clinical scrutiny',
+    body: 'Generated reports include the data source, collection method (EMA), and time period — making them transparent and reproducible for EHR submission, supervisory review, insurance documentation, or cross-disciplinary referrals. No narrative invented from memory.',
+    bullets: [
+      'PDF export with clinician name, client ID, and date range',
+      'Data sourced from timestamped EMA entries — not recall',
+      'Custom date range — weekly, monthly, or full programme span',
+      'Printable and digitally shareable format',
+    ],
+    href: '/practitioner-dashboard.html',
+    linkLabel: 'See the data before it becomes a report →',
+    image: '/images/en_behandler_analytics_notes.webp',
+    alt: 'Clinical report export interface showing session notes and trend data',
+  },
+  {
+    eyebrow: 'Supervision & billing',
+    title: 'Demonstrate clinical progress in formats your supervisors and payers recognise',
+    body: 'For supervised clinicians, SmokingTracker reports provide objective evidence of treatment progress that supplements session notes. For billing, the reports demonstrate ongoing clinical necessity using quantified outcome data — not subjective clinician judgement alone.',
+    bullets: [
+      'Objective outcome data for supervision case presentation',
+      'Quantified progress metrics — not just clinician impression',
+      'Supports ongoing medical necessity documentation',
+      'Formatted for non-clinical stakeholders — clear narrative + data',
+    ],
+    href: '/privacy-compliance.html',
+    linkLabel: 'See privacy and compliance details →',
+    image: '/images/en_behandler_patient_detail.webp',
+    alt: 'Practitioner patient detail view with trend charts and clinical data',
+    reverse: true,
+  },
+];
+
+const evidenceCards = [
+  {
+    category: 'Clinical Accountability',
+    claim: 'Clinicians who track outcomes adjust treatment plans more frequently — improving results',
+    detail: 'Research in feedback-informed treatment shows that when clinicians have access to quantified outcome data, they adapt their approach more responsively than those relying on clinical impression alone.',
+  },
+  {
+    category: 'Treatment Necessity',
+    claim: 'Objective outcome measures are the gold standard for demonstrating ongoing treatment necessity',
+    detail: 'Insurance and funding bodies increasingly require quantified evidence of ongoing clinical need. EMA-derived data provides a defensible, reproducible basis that session notes alone cannot.',
+  },
+  {
+    category: 'Data Quality',
+    claim: 'EMA data shows 3× higher ecological validity than end-of-week recall assessments',
+    detail: 'Momentary capture eliminates the reconstruction errors that distort retrospective self-report — making EMA-derived reports a more accurate clinical record than questionnaire-based alternatives.',
+  },
+  {
+    category: 'Client Engagement',
+    claim: 'Clients who review their own progress data show significantly higher treatment engagement',
+    detail: 'Sharing report content with clients as part of the therapeutic conversation increases insight, accountability, and motivation — an argument for using reports collaboratively, not just administratively.',
+  },
+];
+
+const references = [
+  'Shimokawa K et al. (2010). Enhancing treatment outcome of patients at risk of treatment failure. J Consult Clin Psychol.',
+  'Shiffman S (2009). Ecological momentary assessment in tobacco and alcohol research. Nicotine Tob Res.',
+  'Lambert MJ & Shimokawa K (2011). Collecting client feedback. Psychotherapy.',
+];
+
+const howSteps = [
+  {
+    title: 'Data collects automatically',
+    body: 'Every session your client logs contributes to the report dataset in real time. Mood, triggers, method, amount — all timestamped and stored securely.',
+  },
+  {
+    title: 'Add your clinical notes',
+    body: 'Annotate the data from the practitioner dashboard — flag events, add session notes, mark goal achievements. Your annotations will appear in context in the report.',
+  },
+  {
+    title: 'Export as formatted PDF',
+    body: 'Select the client, choose the date range, and click Export. The report is generated instantly — charts, notes, and all — ready for EHR entry, referral, or supervision.',
+  },
+];
+
+const relatedFeatures = [
+  {
+    href: '/practitioner-dashboard.html',
+    icon: '🖥️',
+    title: 'Practitioner Dashboard',
+    body: 'The live data view that all clinical reports are drawn from — traffic-light status, trends, and triggers.',
+  },
+  {
+    href: '/ema-logging.html',
+    icon: '📱',
+    title: 'EMA Logging',
+    body: 'The real-time capture that makes report data objective and defensible — not recalled.',
+  },
+  {
+    href: '/privacy-compliance.html',
+    icon: '🔒',
+    title: 'Privacy & Compliance',
+    body: 'HIPAA, GDPR, and 42 CFR Part 2 compliance built into how data is stored and exported.',
+  },
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/clinical-reports.html"
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  activeNav="clinical-reports"
+  navVariant="marketing"
+  footerVariant="full"
+  bodyClass="light-theme"
+  showCta={true}
+  includeMainJs={false}
+  extraModuleScripts={[]}
+  hideUntilLoad={true}
+>
+  <div slot="head" style="display:contents">
+    <style is:global>
+      .feature-hero { background: var(--green); position: relative; overflow: hidden; padding: 4rem 2.5rem 0; text-align: center; }
+      .feature-hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 28px 28px; pointer-events: none; }
+      .feature-hero-inner { max-width: 760px; margin: 0 auto; position: relative; padding-bottom: 3.5rem; }
+      .feature-hero h1 { font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 800; color: white; letter-spacing: -0.6px; line-height: 1.15; margin-bottom: 1.25rem; }
+      .feature-hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.82); line-height: 1.7; margin-bottom: 2rem; }
+      .feature-hero-btns { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; }
+      .breadcrumb { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem; }
+      .breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; }
+      .breadcrumb a:hover { color: white; }
+      .report-anatomy { background: var(--green-pale); padding: 5rem 2.5rem; }
+      .report-anatomy-inner { max-width: 1080px; margin: 0 auto; }
+      .report-anatomy-header { text-align: center; margin-bottom: 3.5rem; }
+      .report-anatomy-tag { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--green); margin-bottom: 0.85rem; }
+      .report-anatomy-header h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 800; color: var(--color-heading); letter-spacing: -0.4px; line-height: 1.2; }
+      .report-anatomy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+      @media (max-width: 780px) { .report-anatomy-grid { grid-template-columns: 1fr 1fr; } }
+      @media (max-width: 500px) { .report-anatomy-grid { grid-template-columns: 1fr; } }
+      .report-section-card { background: white; border: 1px solid var(--color-border); border-radius: 14px; padding: 1.5rem; }
+      .report-section-card .rs-icon { font-size: 1.6rem; margin-bottom: 0.75rem; }
+      .report-section-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--color-heading); margin-bottom: 0.4rem; }
+      .report-section-card p { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6; }
+      .ev-card { border-left: 3px solid var(--green) !important; }
+      @media (max-width: 860px) { .feature-inner, .feature-inner.reverse { grid-template-columns: 1fr !important; direction: ltr !important; gap: 2.5rem; } }
+      @media (max-width: 680px) { .evidence-grid { grid-template-columns: 1fr; } }
+      @media (max-width: 480px) { .how-section .steps-grid { grid-template-columns: 1fr; } }
+    </style>
+  </div>
+
+  <section class="feature-hero">
+    <div class="feature-hero-inner">
+      <div class="breadcrumb">
+        <a href="/features.html">Features</a>
+        <span>›</span>
+        <span>Clinical Reports</span>
+      </div>
+      <div class="feature-eyebrow" style="color:rgba(255,255,255,0.75);font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.85rem;">Cannabis Use Disorder Documentation</div>
+      <h1>One click. A complete clinical report. Session-ready.</h1>
+      <p class="feature-hero-sub">SmokingTracker generates structured PDF reports from your client's objective EMA data — trend charts, session annotations, and trigger analysis formatted for EHR entry, supervision, or referral. No copy-pasting. No manual charts.</p>
+      <div class="feature-hero-btns">
+        <a href="/trial.html" class="btn-orange-lg">Start 30-Day Free Trial</a>
+        <a href="/for-clinicians.html" class="btn-ghost">See Full Platform</a>
+      </div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C360,70 1080,-10 1440,30 L1440,60 L0,60 Z" fill="white"></path>
+    </svg>
+  </section>
+
+  <section class="report-anatomy">
+    <div class="report-anatomy-inner">
+      <div class="report-anatomy-header">
+        <div class="report-anatomy-tag">What's in the report</div>
+        <h2>Six structured sections. All data — zero formatting work.</h2>
+      </div>
+      <div class="report-anatomy-grid reveal">
+        {reportSections.map((section) => (
+          <div class="report-section-card">
+            <div class="rs-icon">{section.icon}</div>
+            <h3>{section.title}</h3>
+            <p>{section.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {featureSections.map((section) => (
+    <section class:list={['feature-section', { tinted: section.reverse }]}>
+      <div class:list={['feature-inner', 'reveal', { reverse: section.reverse }]}>
+        <div class="feature-text">
+          <div class="feature-eyebrow">{section.eyebrow}</div>
+          <h2 class="feature-title">{section.title}</h2>
+          <p class="feature-body">{section.body}</p>
+          <ul class="feature-bullets">
+            {section.bullets.map((bullet) => (
+              <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>{bullet}</li>
+            ))}
+          </ul>
+          <a class="feature-cta-link" href={section.href}>{section.linkLabel}</a>
+        </div>
+        <div class="feature-visual">
+          <div class:list={['feature-blob', { left: section.reverse }]}></div>
+          <div class="feature-img">
+            <img class="feat-phone" src={section.image} alt={section.alt} />
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="evidence-section reveal">
+    <div class="evidence-inner">
+      <div class="ev-tag">Clinical Evidence</div>
+      <h2 class="ev-title">Why documented outcomes matter in addiction treatment</h2>
+      <p class="ev-sub">Structured outcome documentation improves treatment quality, payer relations, and clinical accountability.</p>
+      <div class="evidence-grid">
+        {evidenceCards.map((card) => (
+          <div class="ev-card">
+            <div class="ev-category">{card.category}</div>
+            <h3 class="ev-claim">{card.claim}</h3>
+            <p class="ev-detail">{card.detail}</p>
+          </div>
+        ))}
+      </div>
+      <div class="ev-refs">
+        <p class="ev-refs-label">Selected references:</p>
+        <ol class="ev-refs-list">
+          {references.map((reference) => <li>{reference}</li>)}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-section">
+    <div class="how-inner">
+      <div class="how-tag">How It Works</div>
+      <h2 class="how-title">From data to document in three steps</h2>
+      <div class="steps-grid reveal">
+        {howSteps.map((step, index) => (
+          <div class="step-card">
+            <div class="step-num">{index + 1}</div>
+            <h3 class="step-title">{step.title}</h3>
+            <p class="step-body">{step.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="benefit-strip" style="padding-top:0;">
+    <div class="benefit-inner">
+      <h2 class="benefit-strip-title" style="text-align:center;font-size:1.4rem;font-weight:700;color:var(--color-heading);margin-bottom:2.5rem;">Related Features</h2>
+      <div class="benefit-cards">
+        {relatedFeatures.map((feature) => (
+          <a class="benefit-card" href={feature.href} style="text-decoration:none;">
+            <div class="benefit-icon" aria-hidden="true">{feature.icon}</div>
+            <h3 class="benefit-card-title">{feature.title}</h3>
+            <p class="benefit-card-body">{feature.body}</p>
+            <span class="benefit-card-link">Learn more →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-dark-section">
+    <div class="cta-dark-inner">
+      <h2 class="cta-dark-title">Start your 30-day free trial</h2>
+      <p class="cta-dark-sub">No credit card. Full reporting access for your entire caseload. Cancel any time.</p>
+      <div class="cta-dark-btns">
+        <a href="/trial.html" class="btn-orange-lg">Request Free Trial</a>
+        <a href="/for-clinicians.html" class="btn-ghost">See Full Platform</a>
+      </div>
+    </div>
+  </section>
+
+  <script slot="scripts">
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+  </script>
+</BaseLayout>

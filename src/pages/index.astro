@@ -1,0 +1,287 @@
+---
+import MinimalLayout from '../layouts/MinimalLayout.astro';
+
+const title = 'SmokingTracker — Cannabis Habit Tracking for Individuals & Treatment Centers';
+const description =
+  'SmokingTracker helps individuals understand their cannabis habits and gives treatment centers real-time client data between sessions. Who are you?';
+
+const chooserPanels = [
+  {
+    href: '/for-individuals.html',
+    backgroundImage: '/images/en_tracker_statistics.webp',
+    eyebrow: 'For you',
+    title: ['I want to track', 'my own habits'],
+    body: 'Understand your use, spot triggers, and set goals with complete privacy. Free forever.',
+    cta: 'Get Started Free',
+    icon: 'individual',
+  },
+  {
+    href: '/for-clinicians.html',
+    backgroundImage: '/images/en_behandler_patient_list.webp',
+    eyebrow: 'For clinicians',
+    title: ['I work with', 'clients'],
+    body: 'Replace recall bias with real-time EMA data. Traffic light dashboards and clinical reports.',
+    cta: 'View Clinical Solutions',
+    icon: 'clinician',
+  },
+];
+---
+
+<MinimalLayout title={title} description={description} canonicalPath="/">
+  <div slot="head" style="display:contents">
+    <style is:global>
+      :root {
+        --green: #10b981;
+        --green-dark: #065f46;
+        --green-light: #34d399;
+        --bg-dark: #020c07;
+      }
+
+      body {
+        background: var(--bg-dark);
+        margin: 0;
+        padding: 0;
+        font-family: 'Outfit', sans-serif;
+        overflow: hidden;
+        color: white;
+      }
+
+      .chooser-logo {
+        position: absolute;
+        top: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+        color: white;
+        font-weight: 800;
+        font-size: 1.25rem;
+        letter-spacing: -0.02em;
+        background: rgba(0,0,0,0.2);
+        padding: 0.5rem 1.25rem;
+        border-radius: 100px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .chooser-page {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+      }
+
+      .chooser-panel {
+        flex: 1;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+        text-decoration: none;
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .chooser-panel-bg {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0.15;
+        filter: grayscale(1) brightness(0.5);
+        transition: all 0.8s ease;
+        z-index: -1;
+      }
+
+      .chooser-panel:hover .chooser-panel-bg {
+        opacity: 0.4;
+        filter: grayscale(0) brightness(0.7);
+        transform: scale(1.05);
+      }
+
+      .chooser-panel-glow {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at center, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.6s ease;
+        z-index: -1;
+      }
+
+      .chooser-panel:hover .chooser-panel-glow {
+        opacity: 1;
+      }
+
+      .chooser-content {
+        max-width: 400px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .chooser-eyebrow {
+        font-size: 0.75rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--green);
+        margin-bottom: 1.5rem;
+        opacity: 0.8;
+      }
+
+      .chooser-icon {
+        width: 80px;
+        height: 80px;
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 2rem;
+        color: var(--green);
+        transition: all 0.4s ease;
+      }
+
+      .chooser-panel:hover .chooser-icon {
+        transform: translateY(-10px) rotate(5deg);
+        background: var(--green);
+        color: white;
+        box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+      }
+
+      .chooser-heading {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        color: white;
+      }
+
+      .chooser-subtext {
+        color: #9ca3af;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 2.5rem;
+      }
+
+      .chooser-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 700;
+        color: var(--green);
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .chooser-panel:hover .chooser-cta {
+        gap: 1.25rem;
+        color: var(--green-light);
+      }
+
+      .chooser-divider {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.1);
+        z-index: 10;
+      }
+
+      .chooser-divider-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 11;
+        background: var(--bg-dark);
+        padding: 1rem;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .chooser-divider-center img {
+        display: block;
+        filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.5));
+      }
+
+      .chooser-hint {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.75rem;
+        color: #4b5563;
+        letter-spacing: 0.05em;
+        z-index: 20;
+      }
+
+      @media (max-width: 860px) {
+        .chooser-page { flex-direction: column; overflow-y: auto; }
+        .chooser-divider { display: none; }
+        .chooser-divider-center { display: none; }
+        .chooser-panel { height: 50vh; min-height: 400px; }
+        .chooser-logo { top: 1rem; }
+      }
+    </style>
+  </div>
+
+  <a href="/" class="chooser-logo">
+    <img src="/logo-icon-w.png" alt="SmokingTracker" width="28" height="28" />
+    <span>SmokingTracker</span>
+  </a>
+
+  <div class="chooser-page">
+    {chooserPanels.map((panel) => (
+      <a href={panel.href} class="chooser-panel">
+        <div class="chooser-panel-bg" style={`background-image: url('${panel.backgroundImage}');`}></div>
+        <div class="chooser-panel-glow"></div>
+        <div class="chooser-content">
+          <div class="chooser-eyebrow">{panel.eyebrow}</div>
+          <div class="chooser-icon">
+            {panel.icon === 'individual' && (
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            )}
+            {panel.icon === 'clinician' && (
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            )}
+          </div>
+          <h2 class="chooser-heading">
+            {panel.title[0]}<br />{panel.title[1]}
+          </h2>
+          <p class="chooser-subtext">{panel.body}</p>
+          <span class="chooser-cta">
+            {panel.cta}
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </div>
+      </a>
+    ))}
+
+    <div class="chooser-divider"></div>
+    <div class="chooser-divider-center">
+      <img src="/logo-icon-w.png" alt="" width="40" height="40" />
+    </div>
+
+    <p class="chooser-hint">Choose your path</p>
+  </div>
+</MinimalLayout>

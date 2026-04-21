@@ -1,0 +1,243 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPageSeo } from '../lib/pageSeo';
+
+const { title, description, ogTitle, ogDescription } = getPageSeo('cud-application');
+
+const trustItems = [
+  {
+    titleKey: 'cud.trust1Title',
+    title: 'No questions asked',
+    descKey: 'cud.trust1Desc',
+    desc: "We don't require proof or a diagnosis. Your word is enough.",
+  },
+  {
+    titleKey: 'cud.trust2Title',
+    title: 'Fully Private',
+    descKey: 'cud.trust2Desc',
+    desc: "Your data is yours. We don't sell it or share it.",
+  },
+  {
+    titleKey: 'cud.trust3Title',
+    title: 'Same full access',
+    descKey: 'cud.trust3Desc',
+    desc: 'Identical features to the paid tier — no limitations.',
+  },
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/cud-application.html"
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  activeNav="for-individuals"
+  navVariant="marketing"
+  footerVariant="full"
+  bodyClass="light-theme"
+  showCta={false}
+  includeMainJs={false}
+  extraModuleScripts={['/cud-application.js']}
+  hideUntilLoad={true}
+>
+  <div slot="head" style="display:contents">
+    <style is:global>
+      .trial-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: start;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      @media (max-width: 992px) {
+        .trial-grid {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+      }
+
+      .trial-form-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        padding: 3rem;
+      }
+
+      @media (max-width: 576px) {
+        .trial-form-card {
+          padding: 1.5rem;
+        }
+      }
+
+      .form-header {
+        margin-bottom: 2.5rem;
+      }
+
+      .form-header h2 {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .form-header p {
+        opacity: 0.7;
+        font-size: 0.95rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        opacity: 0.9;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 0.75rem 1rem;
+        color: white;
+        font-family: inherit;
+        font-size: 1rem;
+        transition: border-color 0.2s, background 0.2s;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--color-primary, #4ade80);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      .success-message,
+      .error-message {
+        display: none;
+        padding: 2rem;
+        border-radius: 16px;
+        text-align: center;
+      }
+
+      .success-message.visible {
+        display: block;
+        background: rgba(74, 222, 128, 0.1);
+        border: 1px solid rgba(74, 222, 128, 0.2);
+      }
+
+      .error-message.visible {
+        display: block;
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid rgba(239, 68, 68, 0.2);
+        margin-bottom: 1.5rem;
+      }
+
+      .success-message h3 {
+        color: var(--color-primary, #4ade80);
+        margin-bottom: 1rem;
+      }
+
+      .trust-list {
+        list-style: none;
+        padding: 0;
+        margin: 2rem 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      .trust-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .trust-icon {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: rgba(74, 222, 128, 0.1);
+        color: var(--color-primary, #4ade80);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </div>
+
+  <section class="hero">
+    <div class="hero-bg-glow"></div>
+    <div class="container">
+      <div class="trial-grid">
+        <div class="hero-content">
+          <div class="badge fade-in-up" data-i18n="cud.badge">Apply for Free Access</div>
+          <h1 class="fade-in-up" style="animation-delay: 0.1s" data-i18n="cud.title">
+            No one should be held back <span class="text-gradient">by a dollar.</span>
+          </h1>
+          <p class="hero-subtitle fade-in-up" style="animation-delay: 0.2s" data-i18n="cud.subtitle">
+            The $1/month exists as a personal commitment — not a barrier. If it's out of reach for any reason, just apply. No diagnosis required, no questions asked.
+          </p>
+
+          <div class="trust-list fade-in-up" style="animation-delay: 0.3s">
+            {trustItems.map((item) => (
+              <div class="trust-item">
+                <div class="trust-icon">✔</div>
+                <div>
+                  <strong data-i18n={item.titleKey}>{item.title}</strong>
+                  <p style="font-size: 0.9rem; opacity: 0.7;" data-i18n={item.descKey}>{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="trial-form-card glass fade-in-up" style="animation-delay: 0.2s">
+          <div id="application-form-wrap">
+            <div class="form-header">
+              <h2 data-i18n="cud.formTitle">Free Access Application</h2>
+              <p data-i18n="cud.formSubtitle">Tell us a bit about your situation. Applications are reviewed within 24-48 hours.</p>
+            </div>
+
+            <div id="application-error" class="error-message" data-i18n="cud.errorGeneric">Something went wrong. Please try again or contact support.</div>
+
+            <form id="application-form">
+              <div class="form-group">
+                <label for="name" data-i18n="cud.labelName">Your Name</label>
+                <input type="text" id="name" name="name" required data-i18n-placeholder="cud.placeholderName" placeholder="John Doe" />
+              </div>
+
+              <div class="form-group">
+                <label for="email" data-i18n="cud.labelEmail">Your Email</label>
+                <input type="email" id="email" name="email" required data-i18n-placeholder="cud.placeholderEmail" placeholder="john@example.com" />
+              </div>
+
+              <div class="form-group">
+                <label for="story" data-i18n="cud.labelStory">Briefly describe your situation and why you're seeking free access</label>
+                <textarea id="story" name="story" required data-i18n-placeholder="cud.placeholderStory" placeholder="I've been struggling with cannabis use for X years and want to start tracking to gain control..."></textarea>
+              </div>
+
+              <button type="submit" id="application-submit" class="btn btn-primary btn-large" style="width: 100%;" data-i18n="cud.btnSubmit">Submit Application</button>
+            </form>
+          </div>
+
+          <div id="application-success" class="success-message">
+            <h3 data-i18n="cud.successTitle">Application Received!</h3>
+            <p data-i18n="cud.successText">Thank you for sharing. We'll review your application and get back to you at the email provided within 48 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

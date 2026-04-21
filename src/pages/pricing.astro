@@ -1,0 +1,653 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPageSeo } from '../lib/pageSeo';
+
+const { title, description, ogTitle, ogDescription } = getPageSeo('pricing');
+const clinicPlans = [
+  {
+    nameKey: 'pricing.tier1_name',
+    name: 'Solo Practitioner',
+    scopeKey: 'pricing.tier1_scope',
+    scope: 'Perfect for independent therapists (LCSWs, Psychologists).',
+    originalPriceKey: 'pricing.tier1_price_monthly',
+    originalPrice: '$79',
+    periodKey: 'pricing.tier1_period_monthly',
+    period: '$79/month',
+    descriptionKey: 'pricing.tier1_desc',
+    description: 'Everything you need to get started with your own practice.',
+    features: [
+      ['pricing.tier1_f1', '1 Therapist Seat'],
+      ['pricing.tier1_f2', 'Unlimited Active Clients'],
+      ['pricing.tier1_f3', 'Real-time tracking'],
+      ['pricing.tier1_f4', 'Free patient app'],
+      ['pricing.tier1_f8', 'Full GDPR + DPA included'],
+    ],
+    href: '/trial.html',
+    cta: 'Get Started — Free',
+  },
+  {
+    popular: true,
+    badgeKey: 'pricing.popular',
+    badge: 'Most popular',
+    nameKey: 'pricing.tier2_name',
+    name: 'Group Practice',
+    scopeKey: 'pricing.tier2_scope',
+    scope: 'Built for Intensive Outpatient Programs (IOPs) and growing clinics.',
+    originalPriceKey: 'pricing.tier2_price_monthly',
+    originalPrice: '$249',
+    periodKey: 'pricing.tier2_period_monthly',
+    period: '$249/month',
+    descriptionKey: 'pricing.tier2_desc',
+    description: 'For growing centers with multiple practitioners.',
+    features: [
+      ['pricing.tier2_f1', 'Everything in Solo Practitioner'],
+      ['pricing.tier2_f2', 'Up to 5 Counselor Seats'],
+      ['pricing.tier2_f3', '1 Clinical Director Dashboard'],
+      ['pricing.tier2_f4', 'Centralized billing'],
+    ],
+    href: '/trial.html',
+    cta: 'Get Started — Free',
+  },
+  {
+    nameKey: 'pricing.tier3_name',
+    name: 'Enterprise & Telehealth',
+    scopeKey: 'pricing.tier3_scope',
+    scope: 'For large-scale treatment networks and telehealth platforms.',
+    customPriceKey: 'pricing.tier3_price',
+    customPrice: 'Custom',
+    descriptionKey: 'pricing.tier3_desc',
+    description: 'Enterprise solution for large clinics and organizations.',
+    features: [
+      ['pricing.tier3_f2', 'Unlimited seats'],
+      ['pricing.tier3_f3', 'EHR Integration & API Access'],
+      ['pricing.tier3_f4', 'Dedicated Support'],
+      ['pricing.tier3_f5', 'HIPAA BAA'],
+    ],
+    href: '/trial.html',
+    ctaKey: 'pricing.tier3_cta',
+    cta: 'Contact Sales',
+    secondary: true,
+  },
+];
+
+const individualPlan = {
+  badgeKey: 'pricing.b2cBadge',
+  badge: 'For Individuals',
+  nameKey: 'pricing.b2cTierName',
+  name: 'Personal Tracker',
+  scopeKey: 'pricing.b2cScope',
+  scope: 'Understand your smoking patterns on your own terms.',
+  priceKey: 'pricing.b2cPrice',
+  price: '$1/mo',
+  descriptionKey: 'pricing.b2cDesc',
+  description:
+    "Log your sessions in seconds and get a real overview of your habits — frequency, timing, triggers. See the patterns you'd otherwise never notice.",
+  features: [
+    ['pricing.b2cF1', 'Full overview of your smoking habits'],
+    ['pricing.b2cF2', 'Insights into frequency, timing & triggers'],
+    ['pricing.b2cF3', 'Your data stays private — Privacy by Design'],
+    ['pricing.b2cF4', 'No counsellor or referral needed'],
+  ],
+};
+
+const comparisonRows = [
+  ['Counselor Seats', '1', 'Up to 5', 'Unlimited'],
+  ['Active Clients', 'Unlimited', 'Unlimited', 'Unlimited'],
+  ['Real-time Triggers', '✔', '✔', '✔'],
+  ['Admin Oversight Dashboard', '—', '✔', '✔'],
+  ['Custom Org Branding', '—', '—', '✔'],
+  ['EHR/API Integration', '—', '—', '✔'],
+  ['HIPAA BAA', '—', '—', '✔'],
+];
+
+const valueProps = [
+  {
+    title: 'Consistent Client Self-Monitoring',
+    text: 'Three taps to log a session — low enough friction that clients actually do it between appointments. Consistent self-monitoring gives you the behavior data you need for effective CBT interventions.',
+  },
+  {
+    title: 'Structured Support Between Sessions',
+    text: 'SmokingTracker provides structured support to clients between appointments — filling the gap where most treatment programs have nothing. Counselors reclaim session time for intervention rather than recall reconstruction.',
+  },
+  {
+    title: 'Three Treatment Goal Modes',
+    text: 'Reduce, Quit, or Awareness mode — aligning with harm reduction, moderation management, and abstinence approaches. Clients set their own goal. Counselors see progress toward it.',
+  },
+];
+
+const pricingFaqs = [
+  ['pricing.faq_q1', 'Do individual users pay?', 'pricing.faq_a1', "Individual users pay $1/month — a symbolic commitment to their own recovery journey. If that's out of reach, free access is available with no questions asked. <a href='/cud-application.html' style='color: var(--color-primary)'>Apply here</a>."],
+  ['pricing.faq_q2', 'Are there long-term contracts?', 'pricing.faq_a2', 'No. You can cancel your subscription at any time. If you cancel, you will still have access to your dashboard until the end of your current billing period.'],
+  ['pricing.faq_q3', 'How does the free trial work?', 'pricing.faq_a3', 'You get full access to all features in your chosen plan for 14 days. No credit card is required to start. At the end of the trial, you can choose to subscribe to keep your access.'],
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/pricing.html"
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  activeNav={"pricing"}
+  navVariant={"marketing"}
+  footerVariant={"full"}
+  bodyClass={"light-theme"}
+  showCta={false}
+  includeMainJs={true}
+  extraModuleScripts={[]}
+  hideUntilLoad={true}
+>
+  <main>
+    <section class="simple-page-hero">
+      <div class="simple-page-hero-inner">
+        <div class="simple-page-kicker">Transparent Pricing</div>
+        <h1>Simple, flexible pricing for modern practitioners</h1>
+        <p>
+          Full EMA capability and clinical dashboard — no setup fee, no automatic charges. Free pilot access until
+          October 2026.
+        </p>
+        <a href="/trial.html" class="btn-orange-lg">Start 30-Day Free Trial</a>
+      </div>
+    </section>
+
+    <section class="features-section pricing-section">
+      <div class="container">
+        <div class="text-center fade-in-up pricing-section-heading">
+          <h2 class="section-title" data-i18n="pricing.b2bSectionTitle">For Treatment Centers & Clinics</h2>
+        </div>
+
+        <div class="pilot-banner fade-in-up" style="animation-delay: 0.25s;">
+          <span class="pilot-banner-icon" aria-hidden="true">🚀</span>
+          <div>
+            <div class="pilot-banner-text">Pilot Program — Free Access Until October 2026</div>
+            <div class="pilot-banner-sub">We're onboarding our first treatment centers at no cost. Pricing below activates after the pilot period.</div>
+          </div>
+        </div>
+
+        <div class="pricing-grid fade-in-up" style="animation-delay: 0.3s;">
+          {
+            clinicPlans.map((plan, index) => (
+              <div class:list={['pricing-card', 'glass', { popular: Boolean(plan.popular) }]}>
+                {plan.popular && <div class="popular-badge" data-i18n={plan.badgeKey}>{plan.badge}</div>}
+                <div>
+                  <div class="pricing-tier-name" data-i18n={plan.nameKey}>{plan.name}</div>
+                  <div class="pricing-scope" data-i18n={plan.scopeKey}>{plan.scope}</div>
+                </div>
+                <div>
+                  {plan.customPrice ? (
+                    <div class="pricing-price-row">
+                      <span class="pricing-price" data-i18n={plan.customPriceKey}>{plan.customPrice}</span>
+                    </div>
+                  ) : (
+                    <>
+                      <div class="pricing-price-row pricing-price-free-row">
+                        <span class="pricing-price-free">Free</span>
+                        <span
+                          class="pricing-price-original"
+                          id={index === 0 ? 'price-tier1' : index === 1 ? 'price-tier2' : undefined}
+                          data-i18n={plan.originalPriceKey}
+                        >
+                          {plan.originalPrice}<span class="pricing-price-original-suffix">/mo</span>
+                        </span>
+                      </div>
+                      <div class="pricing-after-pilot-note">
+                        Until October 2026 — then <span id={index === 0 ? 'period-tier1' : index === 1 ? 'period-tier2' : undefined} data-i18n={plan.periodKey}>{plan.period}</span>
+                      </div>
+                    </>
+                  )}
+                </div>
+                <p class="pricing-desc" data-i18n={plan.descriptionKey}>{plan.description}</p>
+                <ul class="pricing-features">
+                  {plan.features.map(([featureKey, feature]) => (
+                    <li>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span data-i18n={featureKey}>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div class="pricing-cta">
+                  <a
+                    href={plan.href}
+                    class:list={['btn', 'btn-large', { 'btn-primary': !plan.secondary, 'btn-secondary': Boolean(plan.secondary) }]}
+                    style="width: 100%; text-align: center;"
+                    data-i18n={plan.ctaKey}
+                  >
+                    {plan.cta}
+                  </a>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+
+        <p class="pricing-active-note fade-in-up">
+          <span data-i18n="pricing.faqLink">Have questions? See our</span>
+          <a href="/faq.html" data-i18n="pricing.faqLinkText">FAQ</a>
+        </p>
+
+        <div class="fade-in-up pricing-individual-section">
+          <hr class="section-divider" />
+          <div class="text-center">
+            <h2 class="section-title" data-i18n="pricing.individualSectionTitle">For Individuals</h2>
+            <p class="section-desc pricing-individual-desc" data-i18n="pricing.individualSectionDesc">
+              Curious about your habits? Get a clear picture of when, how often, and why you smoke — no counsellor
+              needed.
+            </p>
+          </div>
+          <div class="individual-card-wrap">
+            <div class="pricing-card glass individual-card">
+              <div class="individual-badge" data-i18n={individualPlan.badgeKey}>{individualPlan.badge}</div>
+              <div>
+                <div class="pricing-tier-name" data-i18n={individualPlan.nameKey}>{individualPlan.name}</div>
+                <div class="pricing-scope" data-i18n={individualPlan.scopeKey}>{individualPlan.scope}</div>
+              </div>
+              <div>
+                <div class="pricing-price-row pricing-price-free-row">
+                  <span class="pricing-price-free">Free</span>
+                  <span class="pricing-price-original" data-i18n={individualPlan.priceKey}>
+                    $1<span class="pricing-price-original-suffix">/mo</span>
+                  </span>
+                </div>
+                <div class="pricing-after-pilot-note">Until October 2026 — then $1/month</div>
+              </div>
+              <p class="pricing-desc" data-i18n={individualPlan.descriptionKey}>{individualPlan.description}</p>
+              <ul class="pricing-features">
+                {individualPlan.features.map(([featureKey, feature]) => (
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span data-i18n={featureKey}>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <div class="pricing-cta">
+                <a href="/individual-signup.html" class="btn btn-primary btn-large" style="width: 100%; text-align: center;">
+                  Get Started — Free
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="comparison-section">
+      <div class="container">
+        <div class="text-center fade-in-up">
+          <h2 class="section-title">Compare Plans</h2>
+        </div>
+        <div class="comparison-table-container fade-in-up">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th data-i18n="pricing.tier1_name">Solo Practitioner</th>
+                <th data-i18n="pricing.tier2_name">Group Practice</th>
+                <th data-i18n="pricing.tier3_name">Enterprise</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                comparisonRows.map(([feature, tier1, tier2, tier3]) => (
+                  <tr>
+                    <td>{feature}</td>
+                    <td class:list={{ 'check-icon': tier1 === '✔' }}>{tier1}</td>
+                    <td class:list={{ 'check-icon': tier2 === '✔' }}>{tier2}</td>
+                    <td class:list={{ 'check-icon': tier3 === '✔' }}>{tier3}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="features-section">
+      <div class="container">
+        <div class="text-center fade-in-up">
+          <h2 class="section-title">Why counselors use SmokingTracker</h2>
+        </div>
+        <div class="value-prop-grid">
+          {
+            valueProps.map((item, index) => (
+              <div class="value-prop-card fade-in-up" style={`animation-delay: ${index * 0.1}s`}>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="features-section pricing-faq-section">
+      <div class="container">
+        <div class="text-center fade-in-up">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
+        <div class="pricing-faq-grid">
+          {
+            pricingFaqs.map(([questionKey, question, answerKey, answer], index) => (
+              <div class="value-prop-card fade-in-up" style={`animation-delay: ${index * 0.1}s`}>
+                <h3 data-i18n={questionKey}>{question}</h3>
+                <p data-i18n={answerKey} set:html={answer}></p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style is:global>
+  .pricing-section {
+    padding-top: 0;
+  }
+
+  .pricing-section-heading {
+    margin-bottom: 2rem;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .pricing-card {
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+    background: white !important;
+    border: 1px solid var(--color-border) !important;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--green-tint) !important;
+  }
+
+  .pricing-card.popular {
+    border: 2px solid var(--green) !important;
+    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.12) !important;
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-primary, #4ade80);
+    color: #0a1a0e;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 1rem;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .pricing-tier-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--green) !important;
+  }
+
+  .pricing-scope {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-top: 0.25rem;
+    min-height: 2.7rem;
+  }
+
+  .pricing-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+  }
+
+  .pricing-price-free-row {
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .pricing-price {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--color-heading) !important;
+  }
+
+  .pricing-period {
+    font-size: 0.95rem;
+    opacity: 0.6;
+  }
+
+  .pricing-desc {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    line-height: 1.6;
+  }
+
+  .pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .pricing-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .pricing-features li svg {
+    flex-shrink: 0;
+    color: var(--green) !important;
+  }
+
+  .pricing-cta {
+    margin-top: auto;
+    padding-top: 1rem;
+  }
+
+  .pricing-active-note {
+    text-align: center;
+    font-size: 0.82rem;
+    opacity: 0.55;
+    max-width: 600px;
+    margin: 1.5rem auto 0;
+  }
+
+  .pricing-active-note a {
+    color: var(--green) !important;
+  }
+
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--color-border) !important;
+    margin: 4rem 0 3.5rem;
+  }
+
+  .pricing-individual-section {
+    animation-delay: 0.5s;
+  }
+
+  .pricing-individual-desc {
+    margin-top: 0.75rem;
+  }
+
+  .individual-card-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+  }
+
+  .individual-card {
+    max-width: 420px;
+    width: 100%;
+  }
+
+  .individual-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent;
+    color: var(--green) !important;
+    border: 1.5px solid var(--green) !important;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 1rem;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .comparison-section {
+    padding: 6rem 0;
+  }
+
+  .comparison-table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 3rem;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 800px;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--color-border) !important;
+  }
+
+  .comparison-table th {
+    font-weight: 700;
+    color: var(--green) !important;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+  }
+
+  .comparison-table td:first-child {
+    font-weight: 500;
+    width: 30%;
+  }
+
+  .comparison-table td:not(:first-child) {
+    text-align: center;
+    width: 23%;
+  }
+
+  .check-icon {
+    color: var(--color-primary, #4ade80);
+    font-weight: bold;
+  }
+
+  .value-prop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .value-prop-card {
+    padding: 2rem;
+    border-radius: 14px;
+    background: white !important;
+    border: 1px solid var(--color-border) !important;
+  }
+
+  .value-prop-card h3 {
+    color: var(--green) !important;
+    margin-bottom: 1rem;
+  }
+
+  .pilot-banner {
+    background: var(--green-pale) !important;
+    border: 1.5px solid var(--color-border) !important;
+    border-radius: 16px;
+    padding: 1.25rem 2rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .pilot-banner-icon {
+    font-size: 1.2rem;
+  }
+
+  .pilot-banner-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--green) !important;
+  }
+
+  .pilot-banner-sub {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: 0.15rem;
+  }
+
+  .pricing-price-original {
+    font-size: 1.4rem;
+    font-weight: 600;
+    opacity: 0.45;
+    text-decoration: line-through;
+    text-decoration-color: rgba(0, 0, 0, 0.3);
+    margin-right: 0.35rem;
+  }
+
+  .pricing-price-original-suffix {
+    font-size: 0.9rem;
+  }
+
+  .pricing-price-free {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--green);
+  }
+
+  .pricing-after-pilot-note {
+    font-size: 0.8rem;
+    opacity: 0.55;
+    margin-top: 0.35rem;
+  }
+
+  .pricing-faq-section {
+    padding-top: 0;
+  }
+
+  .pricing-faq-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+    max-width: 800px;
+    margin: 3rem auto 0;
+  }
+</style>

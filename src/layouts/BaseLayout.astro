@@ -1,0 +1,107 @@
+---
+import SiteNav from '../components/SiteNav.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import CtaDarkSection from '../components/CtaDarkSection.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  /** e.g. /about.html — used for og:url and canonical */
+  canonicalPath: string;
+  lang?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  ogType?: string;
+  twitterTitle?: string;
+  twitterDescription?: string;
+  twitterImage?: string;
+  /** nav `active` key (see SiteNav) */
+  activeNav?: string;
+  navVariant?: 'marketing' | 'blog';
+  footerVariant?: 'full' | 'blog';
+  bodyClass?: string;
+  showCta?: boolean;
+  /** Load /main.js (i18n, pricing toggle, etc.) */
+  includeMainJs?: boolean;
+  /** Additional `<script type="module" src="...">` after main.js */
+  extraModuleScripts?: string[];
+  /** FOUC prevention used on legacy pages */
+  hideUntilLoad?: boolean;
+}
+
+const hasFooterSlot = Astro.slots.has('footer');
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.smokingtracker.com';
+const {
+  title,
+  description,
+  canonicalPath,
+  lang = 'en',
+  ogTitle = title,
+  ogDescription = description,
+  ogImage = '/logo.png',
+  ogType = 'website',
+  twitterTitle = title,
+  twitterDescription = description,
+  twitterImage = '/logo.png',
+  activeNav = '',
+  navVariant = 'marketing',
+  footerVariant = 'full',
+  bodyClass = 'light-theme',
+  showCta = false,
+  includeMainJs = false,
+  extraModuleScripts = [],
+  hideUntilLoad = true,
+} = Astro.props;
+
+const canonical = `${site}${canonicalPath.startsWith('/') ? canonicalPath : `/${canonicalPath}`}`;
+const ogImageAbs = ogImage.startsWith('http') ? ogImage : `${site}${ogImage.startsWith('/') ? ogImage : `/${ogImage}`}`;
+const twitterImageAbs = twitterImage.startsWith('http') ? twitterImage : `${site}${twitterImage.startsWith('/') ? twitterImage : `/${twitterImage}`}`;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    {hideUntilLoad && <style is:inline>{`html{visibility:hidden}`}</style>}
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/webp" href="/logo.webp" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/style.css" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="SmokingTracker" />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:image" content={ogImageAbs} />
+    <meta property="og:url" content={canonical} />
+    <link rel="canonical" href={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={twitterTitle} />
+    <meta name="twitter:description" content={twitterDescription} />
+    <meta name="twitter:image" content={twitterImageAbs} />
+    <slot name="head" />
+  </head>
+  <body class={bodyClass ? bodyClass : undefined}>
+    <SiteNav active={activeNav} variant={navVariant} />
+    <slot />
+    {showCta && <CtaDarkSection />}
+    {hasFooterSlot ? <slot name="footer" /> : <SiteFooter variant={footerVariant} />}
+    {includeMainJs && <script type="module" src="/main.js" />}
+    {extraModuleScripts.map((src) => (
+      <script type="module" src={src} />
+    ))}
+    <slot name="scripts" />
+    {
+      hideUntilLoad && (
+        <script is:inline>
+          window.addEventListener('load', () => {
+            document.documentElement.style.visibility = 'visible';
+          });
+        </script>
+      )
+    }
+  </body>
+</html>

@@ -1,0 +1,321 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPageSeo } from '../lib/pageSeo';
+
+const { title, description, ogTitle, ogDescription } = getPageSeo('measurement-based-care');
+
+const mbcSteps = [
+  {
+    title: 'Measure',
+    body: 'Collect objective outcome data continuously — use frequency, mood, craving scores, triggers — via EMA. No questionnaire to assign. No recall bias.',
+  },
+  {
+    title: 'Track',
+    body: "Visualise changes over time on the practitioner dashboard. Traffic-light status flags deterioration automatically — you don't have to notice it manually.",
+  },
+  {
+    title: 'Share',
+    body: 'Review the data with your client during the session. Shared progress review strengthens therapeutic alliance and increases client accountability.',
+  },
+  {
+    title: 'Adjust',
+    body: "Change your approach based on what the data shows — not clinical impression alone. MBC's effect comes from this adjustment loop, not just measurement.",
+  },
+];
+
+const stats = [
+  {
+    value: '58%',
+    label: 'reduction in symptom severity vs. treatment-as-usual in MBC trials',
+  },
+  {
+    value: '2×',
+    label: 'higher treatment retention when clients receive regular progress feedback',
+  },
+  {
+    value: '3×',
+    label: 'more treatment plan adjustments by clinicians who have access to outcome data',
+  },
+];
+
+const featureSections = [
+  {
+    eyebrow: 'Why EMA, not questionnaires',
+    title: 'MBC requires valid data. Cannabis impairs the recall that questionnaires depend on.',
+    body: `Traditional MBC tools like PHQ-9 or the CUDIT rely on retrospective recall — "over the past two weeks." But cannabis impairs episodic memory. Your clients aren't exaggerating or minimising; they genuinely can't reconstruct a week of use accurately. EMA captures the data before it's lost.`,
+    bullets: [
+      'In-the-moment capture — no reconstruction errors',
+      'Session-level granularity — not weekly estimates',
+      'Continuous data — detect changes between sessions',
+      'Mood and trigger data — the context questionnaires miss',
+    ],
+    href: '/cannabis-cognitive-fog.html',
+    linkLabel: 'Why cannabis impairs recall →',
+    image: '/images/measurement-based-care.webp',
+    alt: 'Measurement-based care framework — outcome tracking for cannabis use disorder',
+  },
+  {
+    eyebrow: 'Feedback-informed treatment',
+    title: 'Clients improve more when they can see their own progress',
+    body: 'The clinical evidence for feedback-informed treatment (FIT) shows that sharing quantified progress with clients increases alliance, insight, and motivation. The practitioner dashboard is designed for collaborative use — not just clinician review. Bring it into the session.',
+    bullets: [
+      'Review trend charts with the client in session',
+      'Use trigger analysis to direct coping skills work',
+      'Clients see their own data on the app — real-time self-monitoring',
+      'Goal adherence visible to both clinician and client',
+    ],
+    href: '/practitioner-dashboard.html',
+    linkLabel: 'See the practitioner dashboard →',
+    image: '/images/cannabis-use-disorder.webp',
+    alt: 'Cannabis use disorder treatment — shared data review',
+    reverse: true,
+  },
+];
+
+const evidenceCards = [
+  {
+    category: 'Randomised Trial',
+    claim: 'MBC doubled response rates for clients who were not improving on standard care',
+    detail: 'Lambert et al. (2001) found that providing clinicians with outcome data for clients at risk of deterioration doubled the proportion who showed reliable improvement by the end of treatment.',
+  },
+  {
+    category: 'Systematic Review',
+    claim: 'MBC produces clinically significant improvements across diverse mental health presentations',
+    detail: 'A 2015 meta-analysis of 24 RCTs found MBC consistently outperformed TAU with moderate-to-large effect sizes, and effects were largest when feedback was given to both clinician and client.',
+  },
+  {
+    category: 'Substance Use Disorder',
+    claim: 'EMA-based monitoring reduces relapse rates in cannabis use disorder by providing real-time intervention triggers',
+    detail: 'Studies integrating EMA into SUD treatment show that real-time use monitoring creates clinically meaningful intervention windows that weekly sessions alone cannot access.',
+  },
+  {
+    category: 'EMA Validity',
+    claim: 'EMA data shows superior ecological validity to retrospective questionnaires for all substance use outcomes',
+    detail: 'Shiffman et al. demonstrated that EMA capture rates are 3× more ecologically valid than end-of-week recall for use frequency, mood, and craving — validating EMA as the gold-standard MBC data source for SUD.',
+  },
+];
+
+const references = [
+  'Lambert MJ et al. (2001). The effects of providing therapists with feedback on patient progress during psychotherapy. Psychotherapy.',
+  'Scott K & Lewis CC (2015). Using measurement-based care to enhance any treatment. Cogn Behav Pract.',
+  'Shiffman S (2009). Ecological momentary assessment in tobacco and alcohol research. Nicotine Tob Res.',
+  'Witkiewitz K & Marlatt GA (2004). Relapse prevention for alcohol and drug problems. Am Psychol.',
+  'Hjorthøj CR et al. (2010). The CRISP trial: Cannabis, self-evaluation, treatment. Trials.',
+];
+
+const relatedFeatures = [
+  {
+    href: '/ema-logging.html',
+    icon: '📱',
+    title: 'EMA Logging',
+    body: 'The real-time data collection that makes MBC objective and free from recall bias.',
+  },
+  {
+    href: '/practitioner-dashboard.html',
+    icon: '🖥️',
+    title: 'Practitioner Dashboard',
+    body: 'The clinical view that makes the MBC feedback loop visible — traffic-light status, trends, triggers.',
+  },
+  {
+    href: '/cannabis-cognitive-fog.html',
+    icon: '🧠',
+    title: 'Cannabis & Memory',
+    body: 'Why recall-based questionnaires fail in cannabis treatment — and what EMA fixes.',
+  },
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/measurement-based-care.html"
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  activeNav="measurement-based-care"
+  navVariant="marketing"
+  footerVariant="full"
+  bodyClass="light-theme"
+  showCta={true}
+  includeMainJs={false}
+  extraModuleScripts={[]}
+  hideUntilLoad={true}
+>
+  <div slot="head" style="display:contents">
+    <style is:global>
+      .feature-hero { background: var(--green); position: relative; overflow: hidden; padding: 4rem 2.5rem 0; text-align: center; }
+      .feature-hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 28px 28px; pointer-events: none; }
+      .feature-hero-inner { max-width: 760px; margin: 0 auto; position: relative; padding-bottom: 3.5rem; }
+      .feature-hero h1 { font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 800; color: white; letter-spacing: -0.6px; line-height: 1.15; margin-bottom: 1.25rem; }
+      .feature-hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.82); line-height: 1.7; margin-bottom: 2rem; }
+      .feature-hero-btns { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; }
+      .breadcrumb { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem; }
+      .breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; }
+      .breadcrumb a:hover { color: white; }
+      .mbc-principles { background: var(--green-pale); padding: 5rem 2.5rem; }
+      .mbc-principles-inner { max-width: 1080px; margin: 0 auto; }
+      .mbc-header { text-align: center; margin-bottom: 3.5rem; }
+      .mbc-tag { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--green); margin-bottom: 0.85rem; }
+      .mbc-header h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 800; color: var(--color-heading); letter-spacing: -0.4px; line-height: 1.2; }
+      .mbc-header p { font-size: 1.05rem; color: var(--color-text-secondary); margin-top: 0.85rem; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+      .mbc-steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+      @media (max-width: 860px) { .mbc-steps-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 500px) { .mbc-steps-grid { grid-template-columns: 1fr; } }
+      .mbc-step { background: white; border: 1px solid var(--color-border); border-radius: 14px; padding: 1.5rem; }
+      .mbc-step-num { width: 36px; height: 36px; background: var(--green); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; font-weight: 800; margin-bottom: 0.85rem; }
+      .mbc-step h3 { font-size: 0.95rem; font-weight: 700; color: var(--color-heading); margin-bottom: 0.4rem; }
+      .mbc-step p { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6; }
+      .stat-callout { background: var(--green); color: white; padding: 4rem 2.5rem; text-align: center; }
+      .stat-callout-inner { max-width: 860px; margin: 0 auto; }
+      .stat-callout h2 { font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+      .stat-callout p { font-size: 1.05rem; color: rgba(255,255,255,0.82); line-height: 1.7; max-width: 560px; margin: 0 auto; }
+      .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+      @media (max-width: 640px) { .stat-grid { grid-template-columns: 1fr; } }
+      .stat-item .stat-num { font-size: 3rem; font-weight: 900; color: white; line-height: 1; }
+      .stat-item .stat-label { font-size: 0.9rem; color: rgba(255,255,255,0.72); margin-top: 0.4rem; line-height: 1.5; }
+      .ev-card { border-left: 3px solid var(--green) !important; }
+      @media (max-width: 860px) { .feature-inner, .feature-inner.reverse { grid-template-columns: 1fr !important; direction: ltr !important; gap: 2.5rem; } }
+      @media (max-width: 680px) { .evidence-grid { grid-template-columns: 1fr; } }
+      @media (max-width: 480px) { .how-section .steps-grid { grid-template-columns: 1fr; } }
+    </style>
+  </div>
+
+  <section class="feature-hero">
+    <div class="feature-hero-inner">
+      <div class="breadcrumb">
+        <a href="/features.html">Features</a>
+        <span>›</span>
+        <span>Measurement-Based Care</span>
+      </div>
+      <div class="feature-eyebrow" style="color:rgba(255,255,255,0.75);font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.85rem;">Evidence-Based Framework</div>
+      <h1>Measure outcomes. Adjust treatment. Get better results.</h1>
+      <p class="feature-hero-sub">Measurement-based care is the evidence-based practice of using systematic, repeated outcome measurement to guide clinical decisions. SmokingTracker operationalises MBC for cannabis use disorder using real-time EMA data — not end-of-week recall questionnaires.</p>
+      <div class="feature-hero-btns">
+        <a href="/trial.html" class="btn-orange-lg">Start 30-Day Free Trial</a>
+        <a href="/for-clinicians.html" class="btn-ghost">See Full Platform</a>
+      </div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C360,70 1080,-10 1440,30 L1440,60 L0,60 Z" fill="white"></path>
+    </svg>
+  </section>
+
+  <section class="mbc-principles">
+    <div class="mbc-principles-inner">
+      <div class="mbc-header">
+        <div class="mbc-tag">The MBC Loop</div>
+        <h2>Four steps. Repeated every session.</h2>
+        <p>Measurement-based care works through a systematic feedback loop. SmokingTracker handles steps 1 and 2 automatically — so you can focus on steps 3 and 4.</p>
+      </div>
+      <div class="mbc-steps-grid reveal">
+        {mbcSteps.map((step, index) => (
+          <div class="mbc-step">
+            <div class="mbc-step-num">{index + 1}</div>
+            <h3>{step.title}</h3>
+            <p>{step.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="stat-callout">
+    <div class="stat-callout-inner">
+      <h2>The evidence for measurement-based care is large and consistent</h2>
+      <p>Across randomised trials and systematic reviews, MBC outperforms treatment-as-usual by wide margins — particularly for clients at risk of treatment failure.</p>
+      <div class="stat-grid">
+        {stats.map((stat) => (
+          <div class="stat-item">
+            <div class="stat-num">{stat.value}</div>
+            <div class="stat-label">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {featureSections.map((section) => (
+    <section class:list={['feature-section', { tinted: section.reverse }]}>
+      <div class:list={['feature-inner', 'reveal', { reverse: section.reverse }]}>
+        <div class="feature-text">
+          <div class="feature-eyebrow">{section.eyebrow}</div>
+          <h2 class="feature-title">{section.title}</h2>
+          <p class="feature-body">{section.body}</p>
+          <ul class="feature-bullets">
+            {section.bullets.map((bullet) => (
+              <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>{bullet}</li>
+            ))}
+          </ul>
+          <a class="feature-cta-link" href={section.href}>{section.linkLabel}</a>
+        </div>
+        <div class="feature-visual">
+          <div class:list={['feature-blob', { left: section.reverse }]}></div>
+          <div class="feature-img">
+            <img class="feat-phone" src={section.image} alt={section.alt} />
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="evidence-section reveal">
+    <div class="evidence-inner">
+      <div class="ev-tag">Clinical Evidence</div>
+      <h2 class="ev-title">The research base for measurement-based care</h2>
+      <p class="ev-sub">MBC is one of the most replicated findings in psychotherapy outcome research. Here are the landmark studies.</p>
+      <div class="evidence-grid">
+        {evidenceCards.map((card) => (
+          <div class="ev-card">
+            <div class="ev-category">{card.category}</div>
+            <h3 class="ev-claim">{card.claim}</h3>
+            <p class="ev-detail">{card.detail}</p>
+          </div>
+        ))}
+      </div>
+      <div class="ev-refs">
+        <p class="ev-refs-label">Selected references:</p>
+        <ol class="ev-refs-list">
+          {references.map((reference) => <li>{reference}</li>)}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="benefit-strip" style="padding-top:0;">
+    <div class="benefit-inner">
+      <h2 class="benefit-strip-title" style="text-align:center;font-size:1.4rem;font-weight:700;color:var(--color-heading);margin-bottom:2.5rem;">Related Features</h2>
+      <div class="benefit-cards">
+        {relatedFeatures.map((feature) => (
+          <a class="benefit-card" href={feature.href} style="text-decoration:none;">
+            <div class="benefit-icon" aria-hidden="true">{feature.icon}</div>
+            <h3 class="benefit-card-title">{feature.title}</h3>
+            <p class="benefit-card-body">{feature.body}</p>
+            <span class="benefit-card-link">Learn more →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-dark-section">
+    <div class="cta-dark-inner">
+      <h2 class="cta-dark-title">Start your 30-day free trial</h2>
+      <p class="cta-dark-sub">Full MBC capability from day one. No credit card. Cancel any time.</p>
+      <div class="cta-dark-btns">
+        <a href="/trial.html" class="btn-orange-lg">Request Free Trial</a>
+        <a href="/for-clinicians.html" class="btn-ghost">See Full Platform</a>
+      </div>
+    </div>
+  </section>
+
+  <script slot="scripts">
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+  </script>
+</BaseLayout>

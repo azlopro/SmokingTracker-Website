@@ -1,0 +1,342 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPageSeo } from '../lib/pageSeo';
+
+const { title, description, ogTitle, ogDescription } = getPageSeo('practitioner-dashboard');
+
+const heroPills = ['Measurement-Based Care', 'Real-Time Data', 'Multi-Client View'];
+
+const riskLights = [
+  {
+    color: 'green',
+    title: 'Green — On Track',
+    body: 'Use frequency stable or decreasing. Mood and craving scores within target range. No fast-use warnings this period.',
+  },
+  {
+    color: 'yellow',
+    title: 'Yellow — Watch',
+    body: 'Increasing frequency or craving scores. One or more fast-use events. Mood deterioration trend detected.',
+  },
+  {
+    color: 'red',
+    title: 'Red — Needs Attention',
+    body: 'Significant escalation, missed logging streak, or sharp mood drop. Prioritise at the next clinical contact.',
+  },
+];
+
+const featureSections = [
+  {
+    eyebrow: 'Client detail view',
+    title: 'Everything you need for the session — in one scroll',
+    body: 'Open any client and see their complete picture: calendar heatmap of logged sessions, frequency and consumption trends over time, mood and craving trajectory, top triggers, and a chronological activity feed. No piecing together spreadsheets.',
+    bullets: [
+      'Session calendar heatmap — see use patterns at a glance',
+      'Frequency and quantity trend lines over 4, 8, or 12 weeks',
+      'Mood and craving scores plotted alongside use events',
+      'Trigger breakdown: stress, social, boredom, habit, pain',
+    ],
+    href: '/clinical-reports.html',
+    linkLabel: 'See how this turns into a PDF report →',
+    image: '/images/en_behandler_patient_detail.webp',
+    alt: 'Client detail view showing cannabis use trends and mood data',
+  },
+  {
+    eyebrow: 'Analytics & methods',
+    title: 'Understand which methods and substances are driving use',
+    body: "Cannabis is not one substance. Flower, concentrate, edible, and vape have different onset times, potency profiles, and behavioural patterns. SmokingTracker breaks down your client's use by method so treatment targets are grounded in actual behaviour — not generalised assumptions.",
+    bullets: [
+      'Use breakdown by substance type and administration method',
+      'Time-of-day and day-of-week pattern analysis',
+      'Co-occurrence of use with stress, cravings, and mood states',
+      'Goal adherence tracking — use vs. reduction targets',
+    ],
+    href: '/measurement-based-care.html',
+    linkLabel: 'Learn about measurement-based care →',
+    image: '/images/en_behandler_analytics_methods.webp',
+    alt: 'Analytics breakdown by cannabis method — flower, concentrate, vape, edible',
+    reverse: true,
+  },
+  {
+    eyebrow: 'Session notes & flags',
+    title: 'Add clinical annotations directly to the data',
+    body: 'Attach session notes, flag significant events, and track treatment milestones alongside the objective EMA data. When you generate a PDF report, your annotations appear in context — making the document session-ready and referral-quality without extra formatting work.',
+    bullets: [
+      'Free-text session notes attached to any date',
+      'Flag events — relapse, goal achievement, medication change',
+      'Notes included in exported PDF reports',
+      'Full audit trail — timestamps on all entries',
+    ],
+    href: '/clinical-reports.html',
+    linkLabel: 'See one-click PDF reports →',
+    image: '/images/en_behandler_analytics_notes.webp',
+    alt: 'Clinical notes and annotations in the practitioner dashboard',
+  },
+];
+
+const evidenceCards = [
+  {
+    category: 'Measurement-Based Care',
+    claim: 'MBC reduces symptom severity by 58% compared to treatment-as-usual',
+    detail: 'Systematic reviews of measurement-based care across substance use disorders consistently find large effect sizes when clinicians use objective outcome data to guide session decisions.',
+  },
+  {
+    category: 'Self-Report Bias',
+    claim: 'Clients underreport cannabis use by 30–50% on retrospective questionnaires',
+    detail: 'Studies comparing EMA capture to weekly retrospective recall consistently find that recall-based methods miss roughly half of actual use episodes, especially in heavier users.',
+  },
+  {
+    category: 'Treatment Engagement',
+    claim: 'Clients who receive regular progress feedback are 2× more likely to stay in treatment',
+    detail: 'Feedback-informed treatment (FIT) trials demonstrate that sharing objective progress data with clients improves alliance and retention — a direct clinical use case for the dashboard.',
+  },
+  {
+    category: 'Trigger Analysis',
+    claim: 'Identifying proximal triggers doubles the effectiveness of coping skills training',
+    detail: "CBT and contingency management protocols perform better when trigger work is grounded in the client's own EMA-identified pattern data rather than generic high-risk scenario lists.",
+  },
+];
+
+const references = [
+  'Scott K & Lewis CC (2015). Using measurement-based care to enhance any treatment. Cogn Behav Pract.',
+  'Hjorthøj CR et al. (2012). Agreement between self-reported and documented cannabis use. Addict Behav.',
+  'Lambert MJ et al. (2003). Is it time for clinicians to routinely track patient outcome? Clin Psychol Sci Pract.',
+  'Witkiewitz K & Marlatt GA (2004). Relapse prevention for alcohol and drug problems. Am Psychol.',
+];
+
+const howSteps = [
+  {
+    title: 'Invite your client',
+    body: "Send a secure link from the dashboard. Your client creates an account and begins logging immediately — no app store, no lengthy setup. You're connected in under two minutes.",
+  },
+  {
+    title: 'Data flows automatically',
+    body: "Every session your client logs appears in your dashboard in real time. Trend charts, risk status, and trigger analysis update continuously — no manual imports or check-ins required.",
+  },
+  {
+    title: 'Open prepared, close informed',
+    body: "Check the dashboard before each session — review the week's data, note any escalations, add session annotations. Export a one-click PDF when documentation is needed for EHR or referral.",
+  },
+];
+
+const relatedFeatures = [
+  {
+    href: '/ema-logging.html',
+    icon: '📱',
+    title: 'EMA Logging',
+    body: 'Three-tap real-time session capture — the data source that powers the dashboard.',
+  },
+  {
+    href: '/clinical-reports.html',
+    icon: '📄',
+    title: 'One-Click PDF Reports',
+    body: 'Export session-ready clinical documentation directly from the dashboard data.',
+  },
+  {
+    href: '/measurement-based-care.html',
+    icon: '📊',
+    title: 'Measurement-Based Care',
+    body: 'The evidence-based framework that makes objective outcome tracking clinically effective.',
+  },
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/practitioner-dashboard.html"
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  activeNav="practitioner-dashboard"
+  navVariant="marketing"
+  footerVariant="full"
+  bodyClass="light-theme"
+  showCta={true}
+  includeMainJs={false}
+  extraModuleScripts={[]}
+  hideUntilLoad={true}
+>
+  <div slot="head" style="display:contents">
+    <style is:global>
+      .feature-hero { background: var(--green); position: relative; overflow: hidden; padding: 4rem 2.5rem 0; text-align: center; }
+      .feature-hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 28px 28px; pointer-events: none; }
+      .feature-hero-inner { max-width: 760px; margin: 0 auto; position: relative; padding-bottom: 3.5rem; }
+      .feature-hero h1 { font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 800; color: white; letter-spacing: -0.6px; line-height: 1.15; margin-bottom: 1.25rem; }
+      .feature-hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.82); line-height: 1.7; margin-bottom: 2rem; }
+      .feature-hero-btns { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; }
+      .breadcrumb { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem; }
+      .breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; }
+      .breadcrumb a:hover { color: white; }
+      .hero-pills { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+      .hero-pill { font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 10px; border-radius: 20px; background: rgba(255,255,255,0.14); color: rgba(255,255,255,0.88); border: 1px solid rgba(255,255,255,0.2); }
+      .tl-section { background: var(--green-pale); padding: 5rem 2.5rem; }
+      .tl-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+      @media (max-width: 780px) { .tl-inner { grid-template-columns: 1fr; } }
+      .tl-text .tl-eyebrow { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--green); margin-bottom: 0.85rem; }
+      .tl-text h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 800; color: var(--color-heading); letter-spacing: -0.4px; line-height: 1.2; margin-bottom: 1.1rem; }
+      .tl-text p { font-size: 1.05rem; color: var(--color-text-secondary); line-height: 1.75; }
+      .tl-lights { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+      .tl-light { display: flex; align-items: flex-start; gap: 1rem; background: white; border: 1px solid var(--color-border); border-radius: 12px; padding: 1rem 1.25rem; }
+      .tl-dot { width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0; margin-top: 3px; box-shadow: 0 0 10px currentColor; }
+      .tl-dot.green { background: #22c55e; color: #22c55e; }
+      .tl-dot.yellow { background: #f59e0b; color: #f59e0b; }
+      .tl-dot.red { background: #ef4444; color: #ef4444; }
+      .tl-light-text strong { display: block; font-size: 0.88rem; font-weight: 700; color: var(--color-heading); margin-bottom: 0.2rem; }
+      .tl-light-text span { font-size: 0.82rem; color: var(--color-text-secondary); line-height: 1.5; }
+      .tl-screenshot { position: relative; }
+      .tl-screenshot img { width: 100%; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,0.12); }
+      .ev-card { border-left: 3px solid var(--green) !important; }
+      @media (max-width: 860px) { .feature-inner, .feature-inner.reverse { grid-template-columns: 1fr !important; direction: ltr !important; gap: 2.5rem; } }
+      @media (max-width: 680px) { .evidence-grid { grid-template-columns: 1fr; } }
+      @media (max-width: 480px) { .how-section .steps-grid { grid-template-columns: 1fr; } }
+    </style>
+  </div>
+
+  <section class="feature-hero">
+    <div class="feature-hero-inner">
+      <div class="breadcrumb">
+        <a href="/features.html">Features</a>
+        <span>›</span>
+        <span>Practitioner Dashboard</span>
+      </div>
+      <div class="feature-eyebrow" style="color:rgba(255,255,255,0.75);font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.85rem;">Cannabis Use Disorder Dashboard</div>
+      <h1>Know how your clients are doing before they walk in the room</h1>
+      <p class="feature-hero-sub">SmokingTracker's practitioner dashboard turns objective EMA data into actionable clinical insight. Traffic-light status, trend charts, and trigger analysis — all waiting for you when you open the session.</p>
+      <div class="hero-pills">
+        {heroPills.map((pill) => <span class="hero-pill">{pill}</span>)}
+      </div>
+      <div class="feature-hero-btns">
+        <a href="/trial.html" class="btn-orange-lg">Start 30-Day Free Trial</a>
+        <a href="/for-clinicians.html" class="btn-ghost">See Full Platform</a>
+      </div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C360,70 1080,-10 1440,30 L1440,60 L0,60 Z" fill="white"></path>
+    </svg>
+  </section>
+
+  <section class="tl-section">
+    <div class="tl-inner">
+      <div class="tl-text">
+        <div class="tl-eyebrow">Risk stratification</div>
+        <h2>A traffic-light system that tells you who needs attention today</h2>
+        <p>Every client on your caseload shows a risk status calculated from their EMA data — frequency, consumption trend, mood trajectory, and craving intensity. Identify escalating cases without reading through raw logs.</p>
+        <div class="tl-lights">
+          {riskLights.map((light) => (
+            <div class="tl-light">
+              <div class:list={['tl-dot', light.color]}></div>
+              <div class="tl-light-text">
+                <strong>{light.title}</strong>
+                <span>{light.body}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="tl-screenshot reveal">
+        <img src="/images/en_behandler_patient_list.webp" alt="Practitioner patient list with traffic-light risk status indicators" />
+      </div>
+    </div>
+  </section>
+
+  {featureSections.map((section) => (
+    <section class:list={['feature-section', { tinted: section.reverse }]}>
+      <div class:list={['feature-inner', 'reveal', { reverse: section.reverse }]}>
+        <div class="feature-text">
+          <div class="feature-eyebrow">{section.eyebrow}</div>
+          <h2 class="feature-title">{section.title}</h2>
+          <p class="feature-body">{section.body}</p>
+          <ul class="feature-bullets">
+            {section.bullets.map((bullet) => (
+              <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>{bullet}</li>
+            ))}
+          </ul>
+          <a class="feature-cta-link" href={section.href}>{section.linkLabel}</a>
+        </div>
+        <div class="feature-visual">
+          <div class:list={['feature-blob', { left: section.reverse }]}></div>
+          <div class="feature-img">
+            <img class="feat-phone" src={section.image} alt={section.alt} />
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="evidence-section reveal">
+    <div class="evidence-inner">
+      <div class="ev-tag">Clinical Evidence</div>
+      <h2 class="ev-title">Why real-time data outperforms recall in CUD treatment</h2>
+      <p class="ev-sub">The case for objective, session-by-session tracking is well-established in the addiction literature.</p>
+      <div class="evidence-grid">
+        {evidenceCards.map((card) => (
+          <div class="ev-card">
+            <div class="ev-category">{card.category}</div>
+            <h3 class="ev-claim">{card.claim}</h3>
+            <p class="ev-detail">{card.detail}</p>
+          </div>
+        ))}
+      </div>
+      <div class="ev-refs">
+        <p class="ev-refs-label">Selected references:</p>
+        <ol class="ev-refs-list">
+          {references.map((reference) => <li>{reference}</li>)}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-section">
+    <div class="how-inner">
+      <div class="how-tag">How It Works</div>
+      <h2 class="how-title">From client invite to clinical insight in minutes</h2>
+      <div class="steps-grid reveal">
+        {howSteps.map((step, index) => (
+          <div class="step-card">
+            <div class="step-num">{index + 1}</div>
+            <h3 class="step-title">{step.title}</h3>
+            <p class="step-body">{step.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="benefit-strip" style="padding-top:0;">
+    <div class="benefit-inner">
+      <h2 class="benefit-strip-title" style="text-align:center;font-size:1.4rem;font-weight:700;color:var(--color-heading);margin-bottom:2.5rem;">Related Features</h2>
+      <div class="benefit-cards">
+        {relatedFeatures.map((feature) => (
+          <a class="benefit-card" href={feature.href} style="text-decoration:none;">
+            <div class="benefit-icon" aria-hidden="true">{feature.icon}</div>
+            <h3 class="benefit-card-title">{feature.title}</h3>
+            <p class="benefit-card-body">{feature.body}</p>
+            <span class="benefit-card-link">Learn more →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-dark-section">
+    <div class="cta-dark-inner">
+      <h2 class="cta-dark-title">Start your 30-day free trial</h2>
+      <p class="cta-dark-sub">No credit card. Full dashboard access for your entire caseload. Cancel any time.</p>
+      <div class="cta-dark-btns">
+        <a href="/trial.html" class="btn-orange-lg">Request Free Trial</a>
+        <a href="/for-clinicians.html" class="btn-ghost">See Full Platform</a>
+      </div>
+    </div>
+  </section>
+
+  <script slot="scripts">
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+  </script>
+</BaseLayout>

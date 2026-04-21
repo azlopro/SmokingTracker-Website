@@ -1,0 +1,199 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import { formatPostDate } from '../lib/formatPostDate';
+
+type BlogPost = CollectionEntry<'blog'>;
+
+export interface Props {
+  post: BlogPost;
+}
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.smokingtracker.com';
+const { post } = Astro.props;
+const { data } = post;
+const canonicalPath = `/posts/${post.slug}.html`;
+const canonical = `${site}${canonicalPath}`;
+const dateFormatted = formatPostDate(data.date, data.lang);
+const ogLocale = data.lang === 'en' ? 'en_US' : 'da_DK';
+const imageUrl = data.image
+  ? data.image.startsWith('http')
+    ? data.image
+    : `${site}${data.image.startsWith('/') ? data.image : `/${data.image}`}`
+  : `${site}/logo.png`;
+const isEn = data.lang === 'en';
+const backText = isEn ? 'Back to Knowledge Base' : 'Back to Knowledge Base';
+const shareText = isEn ? 'Share this article' : 'Del denne artikel';
+const copyText = isEn ? 'Copy link' : 'Kopiér link';
+const copiedText = isEn ? 'Copied!' : 'Kopieret!';
+---
+
+<BaseLayout
+  title={`${data.title} — SmokingTracker`}
+  description={data.description}
+  canonicalPath={canonicalPath}
+  lang={data.lang}
+  ogType="article"
+  ogTitle={data.title}
+  ogDescription={data.description}
+  ogImage={data.image || '/logo.png'}
+  twitterTitle={data.title}
+  twitterDescription={data.description}
+  twitterImage={data.image || '/logo.png'}
+  activeNav="blog"
+  navVariant="blog"
+  footerVariant="blog"
+  showCta={false}
+  includeMainJs={true}
+  hideUntilLoad={false}
+>
+  <div slot="head" style="display:contents">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="author" content={data.author} />
+    <meta property="article:published_time" content={data.date} />
+    <meta property="article:section" content={data.category} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:image:alt" content={data.title} />
+    <meta property="og:image:type" content="image/webp" />
+    <meta name="twitter:site" content="@smokingtracker" />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': canonical,
+        },
+        headline: data.title,
+        description: data.description,
+        datePublished: data.date,
+        dateModified: data.date,
+        inLanguage: data.lang,
+        articleSection: data.category,
+        author: {
+          '@type': 'Organization',
+          name: 'SmokingTracker',
+          url: site,
+        },
+        publisher: {
+          '@type': 'Organization',
+          '@id': `${site}/#organization`,
+          name: 'SmokingTracker',
+          url: site,
+          logo: { '@type': 'ImageObject', url: `${site}/logo.png` },
+        },
+        image: {
+          '@type': 'ImageObject',
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+        },
+      })}
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </div>
+  <div class="progress-container">
+    <div class="progress-bar" id="myBar"></div>
+  </div>
+  <main class="page-header-spacing">
+    <article class="post-container">
+      <header class="post-header fade-in-up">
+        <div class="post-meta">
+          <a href="/knowledge-base.html" class="back-link">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            {backText}
+          </a>
+          <div class="meta-tags">
+            <span class="blog-category">{data.category}</span>
+            <span class="blog-date">{dateFormatted}</span>
+            <span class="read-time">{data.readTime}</span>
+          </div>
+        </div>
+        <h1 class="post-title">{data.title}</h1>
+        <p class="post-subtitle">{data.description}</p>
+        <div class="post-author">
+          <div class="author-info">
+            <strong>{data.author}</strong>
+          </div>
+        </div>
+      </header>
+      {
+        data.image && (
+          <img
+            src={data.image}
+            alt={data.title}
+            class="post-hero-image fade-in-up"
+            style="animation-delay: 0.2s"
+          />
+        )
+      }
+      <div class="post-content fade-in-up" style="animation-delay: 0.3s">
+        <slot />
+        <hr />
+        <div class="post-footer">
+          <h3>{shareText}</h3>
+          <div class="share-links">
+            <button
+              type="button"
+              class="btn btn-outline"
+              onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent(document.title), '_blank')"
+            >
+              Twitter
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline"
+              onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href), '_blank')"
+            >
+              LinkedIn
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline"
+              id="copy-post-link"
+              data-copied-text={copiedText}
+            >
+              {copyText}
+            </button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div slot="scripts">
+    <script is:inline>
+      window.onscroll = function () {
+        var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var scrolled = (winScroll / height) * 100;
+        var bar = document.getElementById('myBar');
+        if (bar) bar.style.width = scrolled + '%';
+      };
+      document.getElementById('copy-post-link')?.addEventListener('click', function () {
+        var copied = this.getAttribute('data-copied-text') || 'Copied!';
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          this.textContent = copied;
+        });
+      });
+    </script>
+  </div>
+</BaseLayout>

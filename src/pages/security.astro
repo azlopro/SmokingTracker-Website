@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPageSeo } from '../lib/pageSeo';
+
+const { title, description, ogTitle, ogDescription } = getPageSeo('security');
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/security.html"
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  activeNav=""
+  navVariant="marketing"
+  footerVariant="full"
+  bodyClass="light-theme"
+  showCta={false}
+  includeMainJs={true}
+  extraModuleScripts={[]}
+  hideUntilLoad={true}
+>
+  <div class="lang-da">
+    <div class="legal-content">
+      <h1>Sikkerhed &amp; Transparens</h1>
+      <span class="legal-updated">Sidst opdateret: 14. marts 2026</span>
+
+      <h2>1. Formål med denne side</h2>
+      <p>Denne side beskriver de tekniske og organisatoriske sikkerhedsforanstaltninger, som SmokingTracker anvender til at beskytte personoplysninger — herunder borgeres helbredsdata — på vegne af behandlingssteder. Siden er udformet til sikkerhedsteams og IT-ansvarlige, der vurderer platformen forud for ibrugtagning.</p>
+
+      <h2>2. Dataindsamling</h2>
+      <p>Platformen indsamler udelukkende de datakategorier, der er nødvendige for at understøtte klinisk rygestopbehandling:</p>
+      <ul>
+        <li><strong>Sessionsdata:</strong> Tidsstempler og metadata for rygesessioner logget af borgeren.</li>
+        <li><strong>Humørlogninger:</strong> Selvrapporterede humørtilstande knyttet til en session.</li>
+        <li><strong>Lokationsdata:</strong> Kun indsamlet, hvis borgeren eksplicit samtykker hertil.</li>
+        <li><strong>Kontooplysninger:</strong> Navn, arbejds-e-mail og organisationstilhørsforhold for behandlere.</li>
+      </ul>
+      <p>Borgerdata klassificeres som <strong>særlige kategorier af personoplysninger</strong> (helbredsdata) i henhold til GDPR artikel 9. Platformen indsamler ingen data til markedsføring eller videregivelse til tredjeparter.</p>
+
+      <h2>3. Adgangskontrol</h2>
+      <p>Platformen anvender et rollebaseret adgangskontrolsystem (RBAC) med fire roller:</p>
+      <ul>
+        <li><strong>Borger:</strong> Kan kun tilgå egne data.</li>
+        <li><strong>Behandler:</strong> Kan tilgå data for borgere i eget caseload — og kun de datakategorier, borgeren har samtykket til at dele.</li>
+        <li><strong>Center-admin:</strong> Administrerer behandlere og borgere på ét behandlingssted.</li>
+        <li><strong>Org-admin:</strong> Administrerer på tværs af organisationens behandlingssteder.</li>
+      </ul>
+      <p><strong>Invite-only model:</strong> Ingen selvregistrering er mulig. Borgere og behandlere oprettes udelukkende ved invitation fra en autoriseret administrator, hvilket eliminerer uautoriseret kontooprettelse.</p>
+      <p><strong>Granuleret samtykkemodel:</strong> Borgeren styrer individuelt, hvilke datakategorier der deles med behandleren, via to uafhængige samtykkeindstillinger: <code>Rygedata</code> (sessioner og humør) og <code>Trangdata</code> (trangregistreringer). Behandlere kan aldrig tilgå data, borgeren ikke har samtykket til.</p>
+
+      <h2>4. Kryptering</h2>
+      <ul>
+        <li><strong>Under overførsel:</strong> Al kommunikation mellem klient og server er krypteret med TLS (HTTPS). Ingen ukrypterede forbindelser accepteres.</li>
+        <li><strong>I hvile:</strong> Alle personoplysninger lagret på serveren er krypteret med AES-256 eller tilsvarende algoritme.</li>
+      </ul>
+
+      <h2>5. Autentificering</h2>
+      <ul>
+        <li><strong>Sessions:</strong> Autentifikation håndteres via tokens, der udelukkende opbevares i HttpOnly cookies — ikke i browserens localStorage eller sessionStorage — hvilket beskytter mod XSS-baseret tokentyveri.</li>
+        <li><strong>Adgangskodepolitik:</strong> Alle adgangskoder skal indeholde mindst otte tegn samt store og små bogstaver, mindst ét ciffer og mindst ét specialtegn.</li>
+        <li><strong>Nulstilling af adgangskode:</strong> Nulstillingslinks er enkeltbrugs og udløber automatisk. Et brugt eller udløbet link kan ikke genanvendes.</li>
+      </ul>
+
+      <h2>6. GDPR-overholdelse</h2>
+      <p>SmokingTracker er bygget til at overholde GDPR og understøtter alle registreredes rettigheder:</p>
+      <ul>
+        <li>Indsigt, berigtigelse, sletning, begrænsning, dataportabilitet og indsigelse</li>
+        <li>Tilbagetrækning af samtykke via app-indstillinger til enhver tid</li>
+      </ul>
+      <p><strong>Retsgrundlag:</strong> Borgerdata behandles på grundlag af eksplicit samtykke (GDPR art. 9, stk. 2, litra a). Behandlerkontdata behandles til opfyldelse af aftaleforholdet (GDPR art. 6, stk. 1, litra b).</p>
+      <p><strong>Dataansvarlig:</strong> Azlo er dataansvarlig for SmokingTracker-platformen. En Databehandleraftale (DPA) medfølger alle abonnementer og fastlægger begge parters forpligtelser. Kontakt <a href="mailto:support@smokingtracker.com">support@smokingtracker.com</a> ved spørgsmål om databeskyttelse.</p>
+      <p><strong>Brudanmeldelse:</strong> I tilfælde af et persondatabrud underrettes den dataansvarlige inden for 72 timer i overensstemmelse med GDPR artikel 33.</p>
+      <p><strong>Ingen tredjepartsdeling:</strong> Personoplysninger videregives ikke til tredjeparter med henblik på markedsføring eller analyse.</p>
+      <p><strong>Sletning:</strong> Personoplysninger slettes senest 30 dage efter kontraktens ophør eller på anmodning.</p>
+      <p>Se vores <a href="/privacy.html">Privatlivspolitik</a> og <a href="/dpa.html">Databehandleraftale</a> for yderligere detaljer.</p>
+
+      <h2>7. Infrastruktur og hosting</h2>
+      <ul>
+        <li><strong>EU-dataopbevaring:</strong> Alle borger- og behandlerdata lagres og behandles inden for EU/EØS.</li>
+        <li><strong>Self-hosted option:</strong> Organisationer kan vælge at køre platformen på egne servere, hvilket giver fuld kontrol over dataopbevaring og infrastruktur.</li>
+        <li><strong>Sikkerhedsheadere:</strong> Serveren sender følgende HTTP-sikkerhedsheadere som standard: <code>Strict-Transport-Security</code> (HSTS), <code>X-Frame-Options</code>, <code>Content-Security-Policy</code> (CSP), <code>X-Content-Type-Options</code> og <code>Referrer-Policy</code>.</li>
+      </ul>
+
+      <h2>8. Revisionslog</h2>
+      <p>Platformen fører en revisionslog over behandlerhandlinger. Loggen giver behandlingssteder mulighed for at dokumentere, hvem der har tilgået hvilke borgerdata og hvornår — en central forudsætning for GDPR-dokumentation og klinisk ansvarlighed.</p>
+
+      <h2>9. Sårbarhedsrapportering</h2>
+      <p>Vi tager sikkerhedsrapporter alvorligt. Hvis du opdager en potentiel sårbarhed i SmokingTracker-platformen, opfordrer vi dig til at rapportere den ansvarligt:</p>
+      <ul>
+        <li>Kontakt os på <a href="mailto:support@smokingtracker.com">support@smokingtracker.com</a> med emnet "Security Disclosure".</li>
+        <li>Beskriv sårbarheden og, hvis muligt, trin til reproduktion.</li>
+        <li>Vi bekræfter modtagelse inden for to arbejdsdage og bestræber os på at afhjælpe bekræftede sårbarheder hurtigst muligt.</li>
+      </ul>
+      <p>Vi beder om, at du ikke offentliggør sårbarheden, inden vi har haft mulighed for at afhjælpe den. Vi udfører regelmæssig sårbarhedsscanning som del af CI/CD-processen.</p>
+
+      <h2>10. Kontakt</h2>
+      <p>Har du spørgsmål om SmokingTrackers sikkerhedsarkitektur, ønsker du yderligere dokumentation, eller vil du planlægge en sikkerhedsevaluering forud for ibrugtagning, er du velkommen til at kontakte os:</p>
+      <p><a href="mailto:support@smokingtracker.com">support@smokingtracker.com</a></p>
+    </div>
+  </div>
+
+  <div class="lang-en">
+    <div class="legal-content">
+      <h1>Security &amp; Transparency</h1>
+      <span class="legal-updated">Last updated: 14 March 2026</span>
+
+      <h2>1. Purpose of this page</h2>
+      <p>This page describes the technical and organisational security measures SmokingTracker uses to protect personal data — including citizen health data — on behalf of treatment centers. It is written for security teams and IT officers evaluating the platform prior to adoption.</p>
+
+      <h2>2. Data collection</h2>
+      <p>The platform collects only the data categories required to support clinical smoking-cessation treatment:</p>
+      <ul>
+        <li><strong>Session data:</strong> Timestamps and metadata for smoking sessions logged by the citizen.</li>
+        <li><strong>Mood logs:</strong> Self-reported mood states associated with a session.</li>
+        <li><strong>Location data:</strong> Collected only if the citizen gives explicit consent.</li>
+        <li><strong>Account information:</strong> Name, work email, and organisational affiliation for clinicians.</li>
+      </ul>
+      <p>Citizen data is classified as <strong>special categories of personal data</strong> (health data) under GDPR Article 9. The platform collects no data for marketing or third-party disclosure purposes.</p>
+
+      <h2>3. Access control</h2>
+      <p>The platform uses a role-based access control (RBAC) system with four roles:</p>
+      <ul>
+        <li><strong>Citizen (borger):</strong> Can access their own data only.</li>
+        <li><strong>Clinician (behandler):</strong> Can access data for citizens in their own caseload — and only the data categories the citizen has consented to share.</li>
+        <li><strong>Center admin:</strong> Manages clinicians and citizens at one treatment center.</li>
+        <li><strong>Org admin:</strong> Manages across all treatment centers within the organisation.</li>
+      </ul>
+      <p><strong>Invite-only model:</strong> No self-registration is possible. Citizens and clinicians are created exclusively through invitation by an authorised administrator, eliminating unauthorised account creation.</p>
+      <p><strong>Granular consent model:</strong> Citizens individually control which data categories are shared with their clinician via two independent consent flags: <code>Smoking data</code> (sessions and mood) and <code>Urge data</code> (urge records). Clinicians can never access data the citizen has not consented to share.</p>
+
+      <h2>4. Encryption</h2>
+      <ul>
+        <li><strong>In transit:</strong> All communication between client and server is encrypted with TLS (HTTPS). No unencrypted connections are accepted.</li>
+        <li><strong>At rest:</strong> All personal data stored on the server is encrypted using AES-256 or equivalent.</li>
+      </ul>
+
+      <h2>5. Authentication</h2>
+      <ul>
+        <li><strong>Sessions:</strong> Authentication is handled via tokens stored exclusively in HttpOnly cookies — not in the browser's localStorage or sessionStorage — protecting against XSS-based token theft.</li>
+        <li><strong>Password policy:</strong> All passwords must be at least eight characters and contain uppercase letters, lowercase letters, at least one digit, and at least one special character.</li>
+        <li><strong>Password reset:</strong> Reset links are single-use and expire automatically. A used or expired link cannot be reused.</li>
+      </ul>
+
+      <h2>6. GDPR compliance</h2>
+      <p>SmokingTracker is built for GDPR compliance and supports all data subject rights:</p>
+      <ul>
+        <li>Access, rectification, erasure, restriction, data portability, and objection</li>
+        <li>Withdrawal of consent via in-app settings at any time</li>
+      </ul>
+      <p><strong>Legal basis:</strong> Citizen data is processed on the basis of explicit consent (GDPR Art. 9(2)(a)). Clinician account data is processed for the performance of a contract (GDPR Art. 6(1)(b)).</p>
+      <p><strong>Data controller:</strong> Azlo is the data controller for the SmokingTracker platform. A Data Processing Agreement (DPA) is included with all plans and sets out the responsibilities of both parties. Contact <a href="mailto:support@smokingtracker.com">support@smokingtracker.com</a> with any data protection questions.</p>
+      <p><strong>Breach notification:</strong> In the event of a personal data breach, the data controller is notified within 72 hours in accordance with GDPR Article 33.</p>
+      <p><strong>No third-party sharing:</strong> Personal data is not shared with third parties for marketing or analytics purposes.</p>
+      <p><strong>Deletion:</strong> Personal data is deleted within 30 days of contract termination or upon request.</p>
+      <p>See our <a href="/privacy.html">Privacy Policy</a> and <a href="/dpa.html">Data Processing Agreement</a> for further details.</p>
+
+      <h2>7. Infrastructure and hosting</h2>
+      <ul>
+        <li><strong>EU data residency:</strong> All citizen and clinician data is stored and processed within the EU/EEA.</li>
+        <li><strong>Self-hosted option:</strong> Organisations may choose to run the platform on their own servers, providing full control over data residency and infrastructure.</li>
+        <li><strong>Security headers:</strong> The server sends the following HTTP security headers by default: <code>Strict-Transport-Security</code> (HSTS), <code>X-Frame-Options</code>, <code>Content-Security-Policy</code> (CSP), <code>X-Content-Type-Options</code>, and <code>Referrer-Policy</code>.</li>
+      </ul>
+
+      <h2>8. Audit trail</h2>
+      <p>The platform maintains an audit log of clinician actions. The log allows treatment centers to document who accessed which citizen data and when — a key requirement for GDPR accountability and clinical governance.</p>
+
+      <h2>9. Vulnerability disclosure</h2>
+      <p>We take security reports seriously. If you discover a potential vulnerability in the SmokingTracker platform, we encourage responsible disclosure:</p>
+      <ul>
+        <li>Contact us at <a href="mailto:support@smokingtracker.com">support@smokingtracker.com</a> with the subject line "Security Disclosure".</li>
+        <li>Describe the vulnerability and, if possible, steps to reproduce it.</li>
+        <li>We will acknowledge receipt within two business days and aim to remediate confirmed vulnerabilities as promptly as possible.</li>
+      </ul>
+      <p>We ask that you do not publicly disclose the vulnerability until we have had the opportunity to address it. We perform regular vulnerability scanning as part of our CI/CD pipeline.</p>
+
+      <h2>10. Contact</h2>
+      <p>If you have questions about SmokingTracker's security architecture, need additional documentation, or wish to schedule a security evaluation prior to adoption, please get in touch:</p>
+      <p><a href="mailto:support@smokingtracker.com">support@smokingtracker.com</a></p>
+    </div>
+  </div>
+</BaseLayout>

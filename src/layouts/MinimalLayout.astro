@@ -1,0 +1,42 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  lang?: string;
+  /** When true, omit global /style.css (page head is fully self-contained). */
+  skipDefaultStyles?: boolean;
+}
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.smokingtracker.com';
+const { title, description, canonicalPath = '/', lang = 'en', skipDefaultStyles = false } = Astro.props;
+const canonical = `${site}${canonicalPath.startsWith('/') ? canonicalPath : `/${canonicalPath}`}`;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <style is:inline>{`html{visibility:hidden}`}</style>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/webp" href="/logo.webp" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {!skipDefaultStyles && (
+      <>
+        <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="stylesheet" href="/style.css" />
+      </>
+    )}
+    <link rel="canonical" href={canonical} />
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+    <script is:inline>
+      window.addEventListener('load', () => {
+        document.documentElement.style.visibility = 'visible';
+      });
+    </script>
+  </body>
+</html>

@@ -84,4 +84,4 @@ SmokingTracker publishes peer-reviewed-informed clinical content for cannabis tr
 - Nicotine and Cannabis: https://www.smokingtracker.com/posts/nicotine-and-cannabis.html
 - Friction-Free Tracking Case Study: https://www.smokingtracker.com/posts/friction-free-tracking-case.html
 - HIPAA, 42 CFR Part 2, and Client-Owned Addiction Data: https://www.smokingtracker.com/posts/gdpr-consent-addiction-data.html
-- Measurement-Based Care in Addiction Treatment: https://www.smokingtracker.com/posts/measurement-based-care-addiction.html
+- Measurement-Based Care in Addiction Treatment: https://www.smokingtracker.com/posts/measurement-based-care.html

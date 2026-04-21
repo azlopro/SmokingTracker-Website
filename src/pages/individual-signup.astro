@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPageSeo } from '../lib/pageSeo';
+
+const { title, description, ogTitle, ogDescription } = getPageSeo('individual-signup');
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/individual-signup.html"
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  activeNav="for-individuals"
+  navVariant="marketing"
+  footerVariant="full"
+  bodyClass="light-theme"
+  showCta={false}
+  includeMainJs={false}
+  extraModuleScripts={['/individual-signup.js']}
+  hideUntilLoad={true}
+>
+  <section class="trial-hero">
+    <div class="hero-bg-glow"></div>
+    <div class="container trial-container" style="grid-template-columns: 1fr; justify-items: center;">
+      <div class="trial-form-card glass fade-in" style="max-width: 480px; width: 100%;">
+        <div class="trial-success" id="signup-success" style="display: none;">
+          <div class="trial-success-icon">✓</div>
+          <h2>Check your inbox!</h2>
+          <p>We've sent a setup link to your email. Follow the link to create your password and start tracking.</p>
+          <p style="margin-top: 0.75rem; font-size: 0.85rem; opacity: 0.6;">Check your spam folder if you don't see it within a couple of minutes.</p>
+        </div>
+
+        <div id="signup-form-wrap">
+          <h2>Create your account</h2>
+          <p class="form-subtitle">Free — takes 30 seconds.</p>
+
+          <form class="trial-form" id="individual-signup-form" novalidate style="margin-top: 1.5rem;">
+            <div class="form-group">
+              <label for="contact-name">Your name</label>
+              <input type="text" id="contact-name" name="contact_name" required autocomplete="name" placeholder="Jane Smith" />
+            </div>
+
+            <div class="form-group">
+              <label for="admin-email">Email address</label>
+              <input type="email" id="admin-email" name="admin_email" required autocomplete="email" placeholder="jane@example.com" />
+            </div>
+
+            <div class="form-error" id="signup-error" role="alert"></div>
+
+            <button type="submit" class="btn btn-primary btn-large btn-full" id="signup-submit">
+              Create Account — Free
+            </button>
+
+            <p class="form-legal">
+              By signing up you agree to our <a href="/terms.html" style="color: var(--color-primary)">Terms of Service</a> and <a href="/privacy.html" style="color: var(--color-primary)">Privacy Policy</a>.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

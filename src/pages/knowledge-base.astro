@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { formatPostDate } from '../lib/formatPostDate';
+
+const title = 'Knowledge Base — SmokingTracker';
+const description =
+  'Insights on habit tracking as a clinical tool for engagement, retention, and documentation.';
+const ogTitle = 'Knowledge Base — SmokingTracker';
+const ogDescription =
+  'Insights on habit tracking as a clinical tool for engagement, retention, and compliance.';
+
+const allPosts = await getCollection('blog');
+const posts = allPosts
+  .filter((p) => p.data.lang === 'en')
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const gradients = ['bg-gradient-1', 'bg-gradient-2', 'bg-gradient-3'];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/knowledge-base.html"
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  activeNav="blog"
+  navVariant="blog"
+  footerVariant="blog"
+  bodyClass="light-theme"
+  showCta={false}
+  includeMainJs={true}
+  hideUntilLoad={true}
+>
+  <main class="page-header-spacing">
+    <section class="container">
+      <div class="section-header text-center fade-in-up">
+        <h1 class="page-title" data-i18n="blogList.title">Resources for Treatment Centers</h1>
+        <p class="section-desc" data-i18n="blogList.subtitle">
+          Insights on habit tracking as a clinical tool for engagement, retention, and compliance.
+        </p>
+      </div>
+
+      <div class="blog-grid" id="blog-grid">
+        {
+          posts.length === 0 ? (
+            <p style="text-align:center; padding:4rem 0; color: var(--color-text-secondary);">No articles yet.</p>
+          ) : (
+            posts.map((post, i) => {
+              const isFeatured = i === 0;
+              const gradient = gradients[i % gradients.length];
+              const dateFormatted = formatPostDate(post.data.date, post.data.lang);
+              const HeadingTag = isFeatured ? 'h2' : 'h3';
+              return (
+                <article
+                  class={`blog-card ${isFeatured ? 'featured' : ''} glass hover-lift fade-in-up`}
+                  style={`animation-delay: ${0.1 + i * 0.1}s`}
+                >
+                  <div class="blog-image">
+                    {post.data.image ? (
+                      <img
+                        src={post.data.image}
+                        alt={post.data.title}
+                        class="placeholder-img"
+                        style="object-fit: cover;"
+                      />
+                    ) : (
+                      <div class={`placeholder-img ${gradient}`} />
+                    )}
+                  </div>
+                  <div class="blog-content">
+                    <div class="blog-meta">
+                      <span class="blog-category">{post.data.category}</span>
+                      <span class="blog-date">{dateFormatted}</span>
+                      <span class="read-time">{post.data.readTime}</span>
+                    </div>
+                    <HeadingTag>
+                      <a href={`/posts/${post.slug}.html`}>{post.data.title}</a>
+                    </HeadingTag>
+                    <p>{post.data.description}</p>
+                    <a href={`/posts/${post.slug}.html`} class="read-more">
+                      <span>Read article</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                      </svg>
+                    </a>
+                  </div>
+                </article>
+              );
+            })
+          )
+        }
+      </div>
+    </section>
+  </main>
+</BaseLayout>

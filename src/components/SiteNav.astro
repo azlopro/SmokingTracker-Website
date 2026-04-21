@@ -1,0 +1,103 @@
+---
+/** Which top-level or feature-sub nav item is current (matches href basename without .html) */
+export interface Props {
+  active?: string;
+  /** marketing: default nav; blog: Resources link + clinician sign-in */
+  variant?: 'marketing' | 'blog';
+}
+
+const FEATURE_SUB = new Set([
+  'features',
+  'ema-logging',
+  'practitioner-dashboard',
+  'clinical-reports',
+  'measurement-based-care',
+  'privacy-compliance',
+  'cannabis-cognitive-fog',
+]);
+
+const { active = '', variant = 'marketing' } = Astro.props;
+const logoIcon = variant === 'blog' ? '/logo-icon-w.png' : '/logo-icon.webp';
+const featuresActive = FEATURE_SUB.has(active);
+---
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">
+    <div class="nav-icon">
+      <img
+        src={logoIcon}
+        width="22"
+        height="22"
+        alt="SmokingTracker icon"
+        style="display:block;object-fit:contain;"
+      />
+    </div>
+    <span class="nav-wordmark">SmokingTracker</span>
+  </a>
+  <button
+    class="mobile-menu-btn"
+    type="button"
+    aria-expanded="false"
+    aria-controls="site-nav-links"
+    aria-label="Toggle navigation menu"
+  >
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+      <line x1="4" y1="7" x2="20" y2="7"></line>
+      <line x1="4" y1="12" x2="20" y2="12"></line>
+      <line x1="4" y1="17" x2="20" y2="17"></line>
+    </svg>
+  </button>
+  <div class="nav-links" id="site-nav-links">
+    <div class="nav-dropdown">
+      <a href="/features.html" class:list={[{ active: featuresActive }]}>
+        Features
+        <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+          ><polyline points="6 9 12 15 18 9"></polyline></svg
+        >
+      </a>
+      <div class="dropdown-content">
+        <a href="/ema-logging.html" class:list={[{ active: active === 'ema-logging' }]}>EMA Logging</a>
+        <a href="/practitioner-dashboard.html" class:list={[{ active: active === 'practitioner-dashboard' }]}
+          >Practitioner Dashboard</a
+        >
+        <a href="/clinical-reports.html" class:list={[{ active: active === 'clinical-reports' }]}>Clinical Reports</a>
+        <a href="/measurement-based-care.html" class:list={[{ active: active === 'measurement-based-care' }]}
+          >Measurement-Based Care</a
+        >
+        <a href="/privacy-compliance.html" class:list={[{ active: active === 'privacy-compliance' }]}
+          >Privacy & Compliance</a
+        >
+        <a href="/cannabis-cognitive-fog.html" class:list={[{ active: active === 'cannabis-cognitive-fog' }]}
+          >Cannabis & Memory</a
+        >
+      </div>
+    </div>
+    <a href="/for-clinicians.html" class:list={[{ active: active === 'for-clinicians' }]}>For Clinicians</a>
+    <a href="/for-individuals.html" class:list={[{ active: active === 'for-individuals' }]}>For Individuals</a>
+    <a href="/pricing.html" class:list={[{ active: active === 'pricing' }]}>Pricing</a>
+    <a href="/about.html" class:list={[{ active: active === 'about' }]}>About</a>
+    <a href="/knowledge-base.html" class:list={[{ active: active === 'blog' }]}>Blog</a>
+    {variant === 'blog' && (
+      <a href="/resources.html" class:list={[{ active: active === 'resources' }]}>Resources</a>
+    )}
+  </div>
+  <div class="nav-right">
+    {
+      variant === 'blog' ? (
+        <a
+          class="nav-signin"
+          href="https://behandler.smokingtracker.com"
+          style="display: flex; align-items: center; gap: 6px;"
+        >
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981;"></span>
+          Sign In (Clinician)
+        </a>
+      ) : (
+        <a class="nav-signin" href="/trial.html">
+          Sign In
+        </a>
+      )
+    }
+    <a href="/trial.html" class="nav-trial">Start Free Trial</a>
+  </div>
+</nav>

@@ -1,0 +1,292 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPageSeo } from '../lib/pageSeo';
+
+const { title, description, ogTitle, ogDescription } = getPageSeo('privacy-compliance');
+
+const heroPills = ['HIPAA Compliant', 'GDPR Compliant', '42 CFR Part 2', 'EU Data Residency'];
+
+const frameworks = [
+  {
+    badge: 'HIPAA',
+    title: 'Health Insurance Portability and Accountability Act',
+    body: 'Required for any US-based clinician or organisation handling Protected Health Information. SmokingTracker signs a Business Associate Agreement (BAA) with all clinical accounts.',
+    items: [
+      'Business Associate Agreement available',
+      'Access controls — role-based, per-client',
+      'Audit logs for all data access events',
+      'Breach notification procedures in place',
+      'Encryption at rest and in transit (TLS 1.2+)',
+    ],
+  },
+  {
+    badge: 'GDPR',
+    title: 'General Data Protection Regulation',
+    body: 'Applies to any EU/EEA client data regardless of where the clinician is based. SmokingTracker offers EU data residency and a signed Data Processing Agreement for all accounts.',
+    items: [
+      'Data Processing Agreement (DPA) available',
+      'EU server residency option',
+      'Right to access, rectification, and erasure',
+      'Explicit consent collection on signup',
+      'Data minimisation — only necessary fields collected',
+    ],
+  },
+  {
+    badge: '42 CFR Part 2',
+    title: 'Confidentiality of Substance Use Disorder Records',
+    body: 'The strictest US federal standard — more protective than HIPAA — governing substance use disorder treatment records. Any platform used in SUD treatment must meet these requirements.',
+    items: [
+      'Explicit written consent before disclosure',
+      'Data never shared without patient authorisation',
+      'No disclosure to law enforcement without consent',
+      'Separate access controls for SUD data',
+      'Prohibition on re-disclosure built into DPA',
+    ],
+  },
+];
+
+const featureSections = [
+  {
+    eyebrow: 'Technical security',
+    title: 'Encrypted, access-controlled, and audited at every layer',
+    body: 'Compliance is not just a policy document — it requires technical controls. SmokingTracker encrypts all data at rest and in transit, implements role-based access so clients only see their own data, and maintains a full audit trail of all access events.',
+    bullets: [
+      'AES-256 encryption at rest — all client data',
+      'TLS 1.2+ in transit — all API and web traffic',
+      'Role-based access — practitioners see only their clients',
+      'Full access audit log — timestamped, tamper-evident',
+    ],
+    href: '/security.html',
+    linkLabel: 'Read the full security overview →',
+    image: '/images/en_tracker_settings_my_counselor.webp',
+    alt: 'Client settings showing counselor connection and privacy controls',
+  },
+  {
+    eyebrow: 'Client consent & control',
+    title: 'Clients control what they share and with whom',
+    body: "The therapeutic relationship requires trust. SmokingTracker's consent model puts clients in control: they choose which clinician sees their data, they can revoke access at any time, and no data leaves the system without explicit authorisation. Clients see exactly what their clinician can access.",
+    bullets: [
+      'Clinician connection requires client-initiated confirmation',
+      'Clients can disconnect from a clinician at any time',
+      'Clients can see exactly what data their clinician can view',
+      'Full account and data deletion available on request',
+    ],
+    href: '/dpa.html',
+    linkLabel: 'Read the Data Processing Agreement →',
+    image: '/images/en_tracker_settings_my_counselor.webp',
+    alt: 'Client counselor settings with privacy and access controls',
+    reverse: true,
+  },
+];
+
+const howSteps = [
+  {
+    title: 'Sign the BAA / DPA',
+    body: 'All clinical accounts are offered a Business Associate Agreement (US/HIPAA) and a Data Processing Agreement (EU/GDPR). Both are available during or after onboarding.',
+  },
+  {
+    title: 'Invite clients with consent',
+    body: 'When a client accepts your invitation and creates an account, they complete a consent flow covering data collection, access permissions, and their rights under GDPR or HIPAA as applicable.',
+  },
+  {
+    title: 'Operate with confidence',
+    body: 'All data access is logged. All exports are tied to the clinician account. You can provide documentation of your compliance posture to supervisors, employers, or auditors at any time.',
+  },
+];
+
+const relatedFeatures = [
+  {
+    href: '/ema-logging.html',
+    icon: '📱',
+    title: 'EMA Logging',
+    body: 'Real-time session capture — all data is collected with full consent and encrypted at the point of entry.',
+  },
+  {
+    href: '/clinical-reports.html',
+    icon: '📄',
+    title: 'Clinical Reports',
+    body: 'PDF exports are tied to clinician accounts and covered by the same BAA/DPA framework.',
+  },
+  {
+    href: '/practitioner-dashboard.html',
+    icon: '🖥️',
+    title: 'Practitioner Dashboard',
+    body: "Role-based access ensures each clinician sees only their own clients' data.",
+  },
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/privacy-compliance.html"
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  activeNav="privacy-compliance"
+  navVariant="marketing"
+  footerVariant="full"
+  bodyClass="light-theme"
+  showCta={true}
+  includeMainJs={false}
+  extraModuleScripts={[]}
+  hideUntilLoad={true}
+>
+  <div slot="head" style="display:contents">
+    <style is:global>
+      .feature-hero { background: var(--green); position: relative; overflow: hidden; padding: 4rem 2.5rem 0; text-align: center; }
+      .feature-hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 28px 28px; pointer-events: none; }
+      .feature-hero-inner { max-width: 760px; margin: 0 auto; position: relative; padding-bottom: 3.5rem; }
+      .feature-hero h1 { font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 800; color: white; letter-spacing: -0.6px; line-height: 1.15; margin-bottom: 1.25rem; }
+      .feature-hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.82); line-height: 1.7; margin-bottom: 2rem; }
+      .feature-hero-btns { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; }
+      .breadcrumb { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem; }
+      .breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; }
+      .breadcrumb a:hover { color: white; }
+      .hero-pills { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+      .hero-pill { font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 10px; border-radius: 20px; background: rgba(255,255,255,0.14); color: rgba(255,255,255,0.88); border: 1px solid rgba(255,255,255,0.2); }
+      .frameworks-section { background: var(--green-pale); padding: 5rem 2.5rem; }
+      .frameworks-inner { max-width: 1080px; margin: 0 auto; }
+      .frameworks-header { text-align: center; margin-bottom: 3.5rem; }
+      .frameworks-tag { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--green); margin-bottom: 0.85rem; }
+      .frameworks-header h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 800; color: var(--color-heading); letter-spacing: -0.4px; line-height: 1.2; }
+      .frameworks-header p { font-size: 1.05rem; color: var(--color-text-secondary); margin-top: 0.85rem; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+      .frameworks-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+      @media (max-width: 780px) { .frameworks-grid { grid-template-columns: 1fr; } }
+      .framework-card { background: white; border: 1px solid var(--color-border); border-radius: 16px; padding: 2rem 1.75rem; }
+      .framework-card .fc-badge { display: inline-block; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 9px; border-radius: 20px; background: var(--green-tint); color: var(--green); margin-bottom: 1rem; }
+      .framework-card h3 { font-size: 1.1rem; font-weight: 800; color: var(--color-heading); margin-bottom: 0.75rem; }
+      .framework-card p { font-size: 0.9rem; color: var(--color-text-secondary); line-height: 1.65; margin-bottom: 1rem; }
+      .framework-card ul { list-style: none; padding: 0; margin: 0; }
+      .framework-card ul li { font-size: 0.85rem; color: var(--color-text-secondary); padding: 0.3rem 0 0.3rem 1.3rem; position: relative; line-height: 1.5; }
+      .framework-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+      .ev-card { border-left: 3px solid var(--green) !important; }
+      @media (max-width: 860px) { .feature-inner, .feature-inner.reverse { grid-template-columns: 1fr !important; direction: ltr !important; gap: 2.5rem; } }
+      @media (max-width: 680px) { .evidence-grid { grid-template-columns: 1fr; } }
+      @media (max-width: 480px) { .how-section .steps-grid { grid-template-columns: 1fr; } }
+    </style>
+  </div>
+
+  <section class="feature-hero">
+    <div class="feature-hero-inner">
+      <div class="breadcrumb">
+        <a href="/features.html">Features</a>
+        <span>›</span>
+        <span>Privacy &amp; Compliance</span>
+      </div>
+      <div class="feature-eyebrow" style="color:rgba(255,255,255,0.75);font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.85rem;">Privacy by Design</div>
+      <h1>Substance use data demands the highest protection. We built it that way from day one.</h1>
+      <p class="feature-hero-sub">Cannabis use disorder records are sensitive health data — protected by HIPAA, GDPR, and the strictest US law governing substance use treatment records: 42 CFR Part 2. SmokingTracker was designed around these requirements, not retrofitted to them.</p>
+      <div class="hero-pills">
+        {heroPills.map((pill) => <span class="hero-pill">{pill}</span>)}
+      </div>
+      <div class="feature-hero-btns">
+        <a href="/trial.html" class="btn-orange-lg">Start 30-Day Free Trial</a>
+        <a href="/dpa.html" class="btn-ghost">View Data Processing Agreement</a>
+      </div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C360,70 1080,-10 1440,30 L1440,60 L0,60 Z" fill="white"></path>
+    </svg>
+  </section>
+
+  <section class="frameworks-section">
+    <div class="frameworks-inner">
+      <div class="frameworks-header">
+        <div class="frameworks-tag">Compliance Frameworks</div>
+        <h2>Three frameworks. One platform. Zero compromise.</h2>
+        <p>Cannabis treatment data crosses multiple regulatory regimes depending on where your clients are. SmokingTracker meets all three simultaneously.</p>
+      </div>
+      <div class="frameworks-grid reveal">
+        {frameworks.map((framework) => (
+          <div class="framework-card">
+            <div class="fc-badge">{framework.badge}</div>
+            <h3>{framework.title}</h3>
+            <p>{framework.body}</p>
+            <ul>
+              {framework.items.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {featureSections.map((section) => (
+    <section class:list={['feature-section', { tinted: section.reverse }]}>
+      <div class:list={['feature-inner', 'reveal', { reverse: section.reverse }]}>
+        <div class="feature-text">
+          <div class="feature-eyebrow">{section.eyebrow}</div>
+          <h2 class="feature-title">{section.title}</h2>
+          <p class="feature-body">{section.body}</p>
+          <ul class="feature-bullets">
+            {section.bullets.map((bullet) => (
+              <li><span class="bullet-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>{bullet}</li>
+            ))}
+          </ul>
+          <a class="feature-cta-link" href={section.href}>{section.linkLabel}</a>
+        </div>
+        <div class="feature-visual">
+          <div class:list={['feature-blob', { left: section.reverse }]}></div>
+          <div class="feature-img">
+            <img class="feat-phone" src={section.image} alt={section.alt} />
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="how-section">
+    <div class="how-inner">
+      <div class="how-tag">Getting Compliant</div>
+      <h2 class="how-title">What compliance looks like in practice</h2>
+      <div class="steps-grid reveal">
+        {howSteps.map((step, index) => (
+          <div class="step-card">
+            <div class="step-num">{index + 1}</div>
+            <h3 class="step-title">{step.title}</h3>
+            <p class="step-body">{step.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="benefit-strip" style="padding-top:0;">
+    <div class="benefit-inner">
+      <h2 class="benefit-strip-title" style="text-align:center;font-size:1.4rem;font-weight:700;color:var(--color-heading);margin-bottom:2.5rem;">Related Features</h2>
+      <div class="benefit-cards">
+        {relatedFeatures.map((feature) => (
+          <a class="benefit-card" href={feature.href} style="text-decoration:none;">
+            <div class="benefit-icon" aria-hidden="true">{feature.icon}</div>
+            <h3 class="benefit-card-title">{feature.title}</h3>
+            <p class="benefit-card-body">{feature.body}</p>
+            <span class="benefit-card-link">Learn more →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-dark-section">
+    <div class="cta-dark-inner">
+      <h2 class="cta-dark-title">Start your 30-day free trial</h2>
+      <p class="cta-dark-sub">BAA and DPA available from day one. Full compliance documentation on request.</p>
+      <div class="cta-dark-btns">
+        <a href="/trial.html" class="btn-orange-lg">Request Free Trial</a>
+        <a href="/security.html" class="btn-ghost">Security Overview</a>
+      </div>
+    </div>
+  </section>
+
+  <script slot="scripts">
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+  </script>
+</BaseLayout>
