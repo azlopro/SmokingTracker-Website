@@ -15,7 +15,9 @@ const posts = allPosts
   .filter((p) => p.data.lang === 'en')
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 
-const gradients = ['bg-gradient-1', 'bg-gradient-2', 'bg-gradient-3'];
+const featured   = posts[0];          // Hero
+const secondRow  = posts.slice(1, 3); // Two large side-by-side
+const rest       = posts.slice(3);    // Compact list
 ---
 
 <BaseLayout
@@ -32,76 +34,493 @@ const gradients = ['bg-gradient-1', 'bg-gradient-2', 'bg-gradient-3'];
   includeMainJs={true}
   hideUntilLoad={true}
 >
-  <main class="page-header-spacing">
-    <section class="container">
-      <div class="section-header text-center fade-in-up">
-        <h1 class="page-title" data-i18n="blogList.title">Resources for Treatment Centers</h1>
-        <p class="section-desc" data-i18n="blogList.subtitle">
-          Insights on habit tracking as a clinical tool for engagement, retention, and compliance.
-        </p>
-      </div>
+  <div slot="head" style="display:contents">
+    <style is:global>
 
-      <div class="blog-grid" id="blog-grid">
-        {
-          posts.length === 0 ? (
-            <p style="text-align:center; padding:4rem 0; color: var(--color-text-secondary);">No articles yet.</p>
-          ) : (
-            posts.map((post, i) => {
-              const isFeatured = i === 0;
-              const gradient = gradients[i % gradients.length];
-              const dateFormatted = formatPostDate(post.data.date, post.data.lang);
-              const HeadingTag = isFeatured ? 'h2' : 'h3';
-              return (
-                <article
-                  class={`blog-card ${isFeatured ? 'featured' : ''} glass hover-lift fade-in-up`}
-                  style={`animation-delay: ${0.1 + i * 0.1}s`}
-                >
-                  <div class="blog-image">
-                    {post.data.image ? (
-                      <img
-                        src={post.data.image}
-                        alt={post.data.title}
-                        class="placeholder-img"
-                        style="object-fit: cover;"
-                      />
-                    ) : (
-                      <div class={`placeholder-img ${gradient}`} />
-                    )}
-                  </div>
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <span class="blog-category">{post.data.category}</span>
-                      <span class="blog-date">{dateFormatted}</span>
-                      <span class="read-time">{post.data.readTime}</span>
-                    </div>
-                    <HeadingTag>
-                      <a href={`/posts/${post.slug}.html`}>{post.data.title}</a>
-                    </HeadingTag>
-                    <p>{post.data.description}</p>
-                    <a href={`/posts/${post.slug}.html`} class="read-more">
-                      <span>Read article</span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                        <polyline points="12 5 19 12 12 19" />
-                      </svg>
-                    </a>
-                  </div>
-                </article>
-              );
-            })
-          )
-        }
+
+
+
+
+      /* ─── HEADER ─────────────────────────────────────────────────── */
+      .kb-header {
+        background: var(--green, #10b981);
+        padding: 5rem 2rem 0;
+        position: relative;
+        overflow: hidden;
+      }
+      /* dot-grid texture */
+      .kb-header::before {
+        content: '';
+        position: absolute; inset: 0;
+        background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+        background-size: 26px 26px;
+        pointer-events: none;
+      }
+      /* top radial glow */
+      .kb-header::after {
+        content: '';
+        position: absolute;
+        top: -30%; left: 50%;
+        transform: translateX(-50%);
+        width: 700px; height: 500px;
+        background: radial-gradient(ellipse, rgba(255,255,255,0.07) 0%, transparent 65%);
+        pointer-events: none;
+      }
+      .kb-header-inner {
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        padding-bottom: 4rem;
+      }
+      .kb-eyebrow {
+        display: inline-flex; align-items: center; gap: 0.4rem;
+        font-size: 10.5px; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 0.14em;
+        color: rgba(255,255,255,0.65);
+        margin-bottom: 1rem;
+      }
+      .kb-eyebrow-dot {
+        width: 5px; height: 5px; border-radius: 50%;
+        background: rgba(255,255,255,0.65);
+        animation: kb-pulse 2.8s ease-in-out infinite;
+      }
+      .kb-header h1 {
+        font-size: clamp(2.1rem, 4.2vw, 2.9rem);
+        font-weight: 800; color: white;
+        letter-spacing: -0.5px; line-height: 1.15;
+        margin-bottom: 1rem;
+      }
+      .kb-header-sub {
+        font-size: 1.05rem;
+        color: rgba(255,255,255,0.72);
+        line-height: 1.72;
+      }
+      .kb-header-wave {
+        display: block; width: 100%; height: 52px;
+        position: relative; z-index: 1;
+      }
+
+      /* ─── BODY ───────────────────────────────────────────────────── */
+      .kb-body {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 3.5rem 2rem 7rem;
+      }
+
+      /* ─── FEATURED (Hero Card) ───────────────────────────────────── */
+      .kb-hero-link {
+        display: grid;
+        grid-template-columns: 55% 1fr;
+        border-radius: 22px;
+        overflow: hidden;
+        border: 1px solid var(--kb-border);
+        background: var(--kb-card);
+        text-decoration: none; color: inherit;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        margin-bottom: 1.5rem;
+        transition: box-shadow 0.3s var(--kb-ease), transform 0.3s var(--kb-ease);
+      }
+      .kb-hero-link:hover {
+        box-shadow: 0 16px 56px rgba(16,185,129,0.12);
+        transform: translateY(-4px);
+      }
+      .kb-hero-img {
+        position: relative; overflow: hidden;
+        min-height: 400px;
+      }
+      .kb-hero-img img {
+        width: 100%; height: 100%;
+        object-fit: cover; display: block;
+        transition: transform 0.7s var(--kb-ease);
+      }
+      .kb-hero-link:hover .kb-hero-img img { transform: scale(1.04); }
+
+      /* "Latest" badge */
+      .kb-badge-latest {
+        position: absolute; top: 1.25rem; left: 1.25rem; z-index: 2;
+        font-size: 9.5px; font-weight: 800;
+        text-transform: uppercase; letter-spacing: 0.1em;
+        color: white; background: var(--kb-green);
+        padding: 4px 11px; border-radius: 999px;
+        box-shadow: 0 2px 8px rgba(16,185,129,0.35);
+      }
+
+      /* dark gradient over the image */
+      .kb-hero-img-overlay {
+        position: absolute; inset: 0;
+        background: linear-gradient(to right, transparent 60%, rgba(255,255,255,0.06) 100%);
+        pointer-events: none;
+      }
+
+      .kb-hero-content {
+        padding: 2.75rem 2.5rem;
+        display: flex; flex-direction: column; justify-content: center;
+      }
+
+      /* ─── META ROW ───────────────────────────────────────────────── */
+      .kb-meta {
+        display: flex; align-items: center; gap: 0.55rem;
+        flex-wrap: wrap; margin-bottom: 0.9rem;
+      }
+      .kb-cat {
+        font-size: 10px; font-weight: 800;
+        text-transform: uppercase; letter-spacing: 0.09em;
+        color: var(--kb-green);
+        background: var(--kb-green-lt);
+        border: 1px solid #a7f3d0;
+        padding: 3px 9px; border-radius: 999px;
+        white-space: nowrap;
+      }
+      .kb-sep { color: #cbd5e1; font-size: 10px; }
+      .kb-date, .kb-rt {
+        font-size: 11.5px; color: var(--kb-muted); font-weight: 500;
+        white-space: nowrap;
+      }
+
+      .kb-hero-content h2 {
+        font-size: clamp(1.45rem, 2.4vw, 1.9rem);
+        font-weight: 800; color: var(--kb-head);
+        letter-spacing: -0.4px; line-height: 1.25;
+        margin-bottom: 0.85rem;
+        transition: color 0.2s;
+      }
+      .kb-hero-link:hover h2 { color: var(--kb-green); }
+
+      .kb-hero-content p {
+        font-size: 0.945rem; color: var(--kb-body);
+        line-height: 1.72; margin-bottom: 1.75rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* ─── READ MORE CTA ──────────────────────────────────────────── */
+      .kb-cta {
+        display: inline-flex; align-items: center; gap: 0.5rem;
+        font-size: 0.875rem; font-weight: 700;
+        color: var(--kb-green);
+        transition: gap 0.2s;
+      }
+      .kb-cta svg { transition: transform 0.2s; flex-shrink: 0; }
+      .kb-hero-link:hover .kb-cta,
+      .kb-card-link:hover .kb-cta,
+      .kb-row-link:hover  .kb-cta { gap: 0.75rem; }
+      .kb-hero-link:hover .kb-cta svg,
+      .kb-card-link:hover .kb-cta svg,
+      .kb-row-link:hover  .kb-cta svg { transform: translateX(3px); }
+
+      /* ─── SECOND ROW (2-up cards) ────────────────────────────────── */
+      .kb-two-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .kb-card-link {
+        display: flex; flex-direction: column;
+        border-radius: 18px; overflow: hidden;
+        border: 1px solid var(--kb-border);
+        background: var(--kb-card);
+        text-decoration: none; color: inherit;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        transition: box-shadow 0.3s var(--kb-ease), transform 0.3s var(--kb-ease), border-color 0.3s;
+      }
+      .kb-card-link:hover {
+        box-shadow: 0 10px 40px rgba(16,185,129,0.11);
+        transform: translateY(-3px);
+        border-color: var(--kb-border-h);
+      }
+
+      .kb-card-img {
+        position: relative; overflow: hidden;
+        aspect-ratio: 16 / 9;
+        background: var(--kb-green-lt);
+      }
+      .kb-card-img img {
+        width: 100%; height: 100%;
+        object-fit: cover; display: block;
+        transition: transform 0.55s var(--kb-ease);
+      }
+      .kb-card-link:hover .kb-card-img img { transform: scale(1.05); }
+
+      .kb-card-body {
+        padding: 1.5rem 1.6rem 1.75rem;
+        display: flex; flex-direction: column; flex: 1;
+      }
+      .kb-card-body h3 {
+        font-size: 1.05rem; font-weight: 800;
+        color: var(--kb-head); letter-spacing: -0.25px;
+        line-height: 1.3; margin-bottom: 0.55rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        transition: color 0.2s;
+      }
+      .kb-card-link:hover h3 { color: var(--kb-green); }
+      .kb-card-body p {
+        font-size: 0.875rem; color: var(--kb-body);
+        line-height: 1.68; flex: 1; margin-bottom: 1.2rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* ─── SECTION LABEL ──────────────────────────────────────────── */
+      .kb-section-label {
+        display: flex; align-items: center; gap: 0.9rem;
+        margin-bottom: 1.25rem; margin-top: 0.25rem;
+      }
+      .kb-section-label span {
+        font-size: 10.5px; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 0.13em;
+        color: var(--kb-muted); white-space: nowrap;
+      }
+      .kb-section-label-line {
+        flex: 1; height: 1px; background: var(--kb-border);
+      }
+
+      /* ─── COMPACT LIST ───────────────────────────────────────────── */
+      .kb-list {
+        display: flex; flex-direction: column; gap: 0;
+        border: 1px solid var(--kb-border);
+        border-radius: 18px;
+        overflow: hidden;
+        background: var(--kb-card);
+      }
+
+      .kb-row-link {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: 0;
+        text-decoration: none; color: inherit;
+        border-bottom: 1px solid var(--kb-border);
+        transition: background 0.2s;
+        position: relative;
+      }
+      .kb-row-link:last-child { border-bottom: none; }
+      .kb-row-link:hover { background: #f0fdf7; }
+
+      /* left accent line on hover */
+      .kb-row-link::before {
+        content: '';
+        position: absolute; top: 0; left: 0; bottom: 0;
+        width: 3px;
+        background: var(--kb-green);
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+      .kb-row-link:hover::before { opacity: 1; }
+
+      .kb-row-thumb {
+        overflow: hidden;
+        aspect-ratio: 1;
+        width: 100px; height: 100px;
+        flex-shrink: 0;
+      }
+      .kb-row-thumb img {
+        width: 100%; height: 100%;
+        object-fit: cover; display: block;
+        transition: transform 0.4s;
+      }
+      .kb-row-link:hover .kb-row-thumb img { transform: scale(1.08); }
+
+      .kb-row-body {
+        padding: 1rem 1.4rem 1rem 1.2rem;
+        display: flex; flex-direction: column; justify-content: center;
+        gap: 0.3rem;
+      }
+      .kb-row-body h3 {
+        font-size: 0.925rem; font-weight: 700;
+        color: var(--kb-head); letter-spacing: -0.15px;
+        line-height: 1.35;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        transition: color 0.2s;
+      }
+      .kb-row-link:hover h3 { color: var(--kb-green); }
+      .kb-row-body p {
+        font-size: 0.81rem; color: var(--kb-body);
+        line-height: 1.6;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .kb-row-meta {
+        display: flex; align-items: center; gap: 0.5rem;
+        margin-top: 0.2rem;
+      }
+
+      /* ─── PLACEHOLDER GRADIENTS ──────────────────────────────────── */
+      .kb-ph { width: 100%; height: 100%; }
+      .kb-ph-1 { background: linear-gradient(135deg, #d1fae5 0%, #6ee7b7 100%); }
+      .kb-ph-2 { background: linear-gradient(135deg, #a7f3d0 0%, #34d399 100%); }
+      .kb-ph-3 { background: linear-gradient(135deg, #6ee7b7 0%, #10b981 100%); }
+
+      /* ─── FADE IN ────────────────────────────────────────────────── */
+      .kb-fade {
+        opacity: 0; transform: translateY(18px);
+        transition: opacity 0.55s var(--kb-ease), transform 0.55s var(--kb-ease);
+      }
+      .kb-fade.visible { opacity: 1; transform: none; }
+
+      /* ─── KEYFRAMES ──────────────────────────────────────────────── */
+      @keyframes kb-pulse {
+        0%,100% { opacity: 1; }
+        50%      { opacity: 0.25; }
+      }
+
+      /* ─── RESPONSIVE ─────────────────────────────────────────────── */
+      @media (max-width: 960px) {
+        .kb-hero-link { grid-template-columns: 1fr; }
+        .kb-hero-img  { min-height: 240px; }
+      }
+      @media (max-width: 680px) {
+        .kb-two-grid { grid-template-columns: 1fr; }
+        .kb-body { padding: 2.5rem 1.25rem 5rem; }
+      }
+      @media (max-width: 480px) {
+        .kb-row-link { grid-template-columns: 80px 1fr; }
+        .kb-row-thumb { width: 80px; height: 80px; }
+      }
+    </style>
+  </div>
+
+  <div class="kb-page page-header-spacing">
+
+    <!-- ── HEADER ─────────────────────────────────────────────────── -->
+    <header class="kb-header">
+      <div class="kb-header-inner">
+        <div class="kb-eyebrow">
+          <span class="kb-eyebrow-dot"></span>
+          Clinical Resources
+        </div>
+        <h1>Resources for Treatment Centers</h1>
+        <p class="kb-header-sub">Insights on habit tracking as a clinical tool for engagement, retention, and compliance.</p>
       </div>
-    </section>
-  </main>
+      <svg class="kb-header-wave" viewBox="0 0 1440 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,26 C480,60 960,-8 1440,26 L1440,52 L0,52 Z" fill="#f7fdfb"></path>
+      </svg>
+    </header>
+
+    <div class="kb-body">
+      {posts.length === 0 ? (
+        <p style="text-align:center;padding:4rem 0;color:var(--kb-muted)">No articles yet.</p>
+      ) : (
+        <>
+          {/* ── HERO POST ──────────────────────────────────────────── */}
+          {featured && (
+            <a href={`/posts/${featured.slug}.html`} class="kb-hero-link kb-fade">
+              <div class="kb-hero-img">
+                {featured.data.image
+                  ? <img src={featured.data.image} alt={featured.data.title} />
+                  : <div class="kb-ph kb-ph-1"></div>
+                }
+                <div class="kb-hero-img-overlay"></div>
+                <span class="kb-badge-latest">Latest</span>
+              </div>
+              <div class="kb-hero-content">
+                <div class="kb-meta">
+                  <span class="kb-cat">{featured.data.category}</span>
+                  <span class="kb-sep">·</span>
+                  <span class="kb-date">{formatPostDate(featured.data.date, featured.data.lang)}</span>
+                  <span class="kb-sep">·</span>
+                  <span class="kb-rt">{featured.data.readTime}</span>
+                </div>
+                <h2>{featured.data.title}</h2>
+                <p>{featured.data.description}</p>
+                <span class="kb-cta">
+                  Read article
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                  </svg>
+                </span>
+              </div>
+            </a>
+          )}
+
+          {/* ── 2-UP ROW ───────────────────────────────────────────── */}
+          {secondRow.length > 0 && (
+            <div class="kb-two-grid">
+              {secondRow.map((post, i) => (
+                <a href={`/posts/${post.slug}.html`} class="kb-card-link kb-fade" style={`transition-delay:${0.1 + i * 0.08}s`}>
+                  <div class="kb-card-img">
+                    {post.data.image
+                      ? <img src={post.data.image} alt={post.data.title} loading="lazy" />
+                      : <div class={`kb-ph kb-ph-${(i % 3) + 1}`}></div>
+                    }
+                  </div>
+                  <div class="kb-card-body">
+                    <div class="kb-meta">
+                      <span class="kb-cat">{post.data.category}</span>
+                      <span class="kb-sep">·</span>
+                      <span class="kb-rt">{post.data.readTime}</span>
+                    </div>
+                    <h3>{post.data.title}</h3>
+                    <p>{post.data.description}</p>
+                    <span class="kb-cta">
+                      Read article
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                      </svg>
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          )}
+
+          {/* ── COMPACT LIST ───────────────────────────────────────── */}
+          {rest.length > 0 && (
+            <>
+              <div class="kb-section-label kb-fade" style="transition-delay:0.2s">
+                <span>More articles</span>
+                <span class="kb-section-label-line"></span>
+              </div>
+
+              <div class="kb-list kb-fade" style="transition-delay:0.25s">
+                {rest.map((post, i) => (
+                  <a href={`/posts/${post.slug}.html`} class="kb-row-link">
+                    <div class="kb-row-thumb">
+                      {post.data.image
+                        ? <img src={post.data.image} alt={post.data.title} loading="lazy" />
+                        : <div class={`kb-ph kb-ph-${(i % 3) + 1}`}></div>
+                      }
+                    </div>
+                    <div class="kb-row-body">
+                      <div class="kb-row-meta">
+                        <span class="kb-cat">{post.data.category}</span>
+                        <span class="kb-sep">·</span>
+                        <span class="kb-rt">{post.data.readTime}</span>
+                      </div>
+                      <h3>{post.data.title}</h3>
+                      <p>{post.data.description}</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </>
+          )}
+        </>
+      )}
+    </div>
+  </div>
+
+  <script slot="scripts">
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      }),
+      { threshold: 0.06 }
+    );
+    document.querySelectorAll('.kb-fade').forEach((el) => io.observe(el));
+  </script>
 </BaseLayout>
