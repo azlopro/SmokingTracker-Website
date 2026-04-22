@@ -665,31 +665,25 @@ const faqs = [
     </div>
   </section>
 
-  <section class="feature-section">
-    {featureSections.map((section, index) => (
-      <div class={`feature-inner reveal ${index % 2 !== 0 ? 'reverse' : ''}`}>
-        <div class="feature-text">
-          <div class="feature-eyebrow">{section.eyebrow}</div>
-          <h2 class="feature-title">{section.title}</h2>
-          <p class="feature-body">{section.body}</p>
-          <ul class="feature-bullets">
-            {section.bullets.map((bullet) => (
-              <li>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                {bullet}
-              </li>
-            ))}
-          </ul>
-          <a href={section.href} class="feature-link">{section.linkLabel}</a>
-        </div>
-        <div class="feature-image">
-          <div class={section.phone ? "phone-frame" : "browser-frame"}>
-            <img src={section.image} alt={section.alt} loading="lazy" />
-          </div>
-        </div>
+  <section id="faq" class="features-section" style="background:#fff;border-top:1px solid var(--color-border);">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 class="section-title">Frequently Asked Questions</h2>
       </div>
-    ))}
+      <div class="faq-list reveal" style="max-width: 780px; margin: 0 auto;">
+        {faqs.map((item) => (
+          <details class="faq-item glass">
+            <summary>
+              <span>{item.question}</span>
+              <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="faq-body">{item.answer}</div>
+          </details>
+        ))}
+      </div>
+    </div>
   </section>
+
   <script slot="scripts" define:vars={{ captions: carouselSlides.map((slide) => slide.caption) }}>
     (() => {
       const carousel = document.getElementById('hero-carousel');
