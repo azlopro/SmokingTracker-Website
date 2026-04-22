@@ -5,23 +5,27 @@ const title = 'SmokingTracker — Cannabis Habit Tracking for Individuals & Trea
 const description =
   'SmokingTracker helps individuals understand their cannabis habits and gives treatment centers real-time client data between sessions. Who are you?';
 
-const chooserPanels = [
+const panels = [
   {
     href: '/for-individuals.html',
-    backgroundImage: '/images/en_tracker_statistics.webp',
+    side: 'left',
     eyebrow: 'For you',
-    title: ['I want to track', 'my own habits'],
-    body: 'Understand your use, spot triggers, and set goals with complete privacy. Free forever.',
+    heading: 'I want to track\nmy own habits',
+    body: 'Understand your use, spot triggers, and set goals with complete privacy.',
+    sub: 'Free forever · No account needed to start',
     cta: 'Get Started Free',
+    bgImage: '/images/en_tracker_statistics.webp',
     icon: 'individual',
   },
   {
     href: '/for-clinicians.html',
-    backgroundImage: '/images/en_behandler_patient_list.webp',
+    side: 'right',
     eyebrow: 'For clinicians',
-    title: ['I work with', 'clients'],
-    body: 'Replace recall bias with real-time EMA data. Traffic light dashboards and clinical reports.',
+    heading: 'I work with\nclients',
+    body: 'Replace recall bias with real-time EMA data. Traffic-light dashboards and clinical reports.',
+    sub: 'Free until Oct 2026 · GDPR & HIPAA ready',
     cta: 'View Clinical Solutions',
+    bgImage: '/images/en_behandler_patient_list.webp',
     icon: 'clinician',
   },
 ];
@@ -29,259 +33,391 @@ const chooserPanels = [
 
 <MinimalLayout title={title} description={description} canonicalPath="/">
   <div slot="head" style="display:contents">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
     <style is:global>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
       :root {
-        --green: #10b981;
+        --green:      #10b981;
         --green-dark: #065f46;
-        --green-light: #34d399;
-        --bg-dark: #020c07;
+        --green-mid:  #34d399;
+        --bg:         #020c07;
+        --bg-panel:   #041009;
+        --border:     rgba(255,255,255,0.07);
+        --border-g:   rgba(16,185,129,0.2);
+        --dim:        rgba(255,255,255,0.4);
+        --mid:        rgba(255,255,255,0.65);
       }
 
-      body {
-        background: var(--bg-dark);
-        margin: 0;
-        padding: 0;
+      html, body {
+        height: 100%;
+        background: var(--bg);
+        color: #fff;
         font-family: 'Outfit', sans-serif;
         overflow: hidden;
-        color: white;
       }
 
-      .chooser-logo {
-        position: absolute;
-        top: 2rem;
+      /* ── LOGO ── */
+      .logo {
+        position: fixed;
+        top: 1.5rem;
         left: 50%;
         transform: translateX(-50%);
-        z-index: 100;
+        z-index: 200;
         display: flex;
         align-items: center;
-        gap: 0.75rem;
+        gap: 0.6rem;
         text-decoration: none;
-        color: white;
-        font-weight: 800;
-        font-size: 1.25rem;
-        letter-spacing: -0.02em;
-        background: rgba(0,0,0,0.2);
-        padding: 0.5rem 1.25rem;
+        color: #fff;
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: -0.01em;
+        white-space: nowrap;
+        padding: 0.45rem 1rem 0.45rem 0.7rem;
         border-radius: 100px;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.1);
+        background: rgba(2,12,7,0.7);
+        border: 1px solid var(--border);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        animation: logoIn 0.7s ease both 0.1s;
       }
+      .logo img { display: block; border-radius: 4px; }
 
-      .chooser-page {
+      /* ── LAYOUT ── */
+      .chooser {
         display: flex;
         height: 100vh;
         width: 100vw;
         position: relative;
+        animation: fadeIn 0.5s ease both 0.05s;
       }
 
-      .chooser-panel {
+      /* ── PANEL ── */
+      .panel {
         flex: 1;
         position: relative;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 2rem;
+        justify-content: flex-end;
+        padding: 3rem 3rem 3rem;
         text-decoration: none;
-        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        color: #fff;
         overflow: hidden;
-        z-index: 1;
+        transition: flex 0.5s cubic-bezier(0.4,0,0.2,1);
+        cursor: pointer;
       }
 
-      .chooser-panel-bg {
+      .chooser:has(.panel:hover) .panel      { flex: 0.72; }
+      .chooser:has(.panel:hover) .panel:hover { flex: 1.28; }
+
+      /* Photo bg */
+      .panel-bg {
         position: absolute;
         inset: 0;
         background-size: cover;
-        background-position: center;
-        opacity: 0.15;
-        filter: grayscale(1) brightness(0.5);
-        transition: all 0.8s ease;
-        z-index: -1;
+        background-position: center top;
+        opacity: 0.12;
+        filter: grayscale(0.5) brightness(0.5);
+        transition: opacity 0.7s ease, filter 0.7s ease, transform 0.9s ease;
+        z-index: 0;
+      }
+      .panel:hover .panel-bg {
+        opacity: 0.22;
+        filter: grayscale(0) brightness(0.55);
+        transform: scale(1.04);
       }
 
-      .chooser-panel:hover .chooser-panel-bg {
-        opacity: 0.4;
-        filter: grayscale(0) brightness(0.7);
-        transform: scale(1.05);
-      }
-
-      .chooser-panel-glow {
+      /* Dark gradient from bottom */
+      .panel-grad {
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at center, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+        background: linear-gradient(
+          to top,
+          rgba(2,12,7,1)    0%,
+          rgba(2,12,7,0.88) 38%,
+          rgba(2,12,7,0.4)  65%,
+          transparent       100%
+        );
+        z-index: 1;
+      }
+
+      /* Green bloom on hover */
+      .panel-bloom {
+        position: absolute;
+        bottom: -10%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70%;
+        height: 50%;
+        background: radial-gradient(ellipse, rgba(16,185,129,0.13) 0%, transparent 70%);
         opacity: 0;
-        transition: opacity 0.6s ease;
-        z-index: -1;
+        transition: opacity 0.55s ease;
+        z-index: 1;
       }
+      .panel:hover .panel-bloom { opacity: 1; }
 
-      .chooser-panel:hover .chooser-panel-glow {
-        opacity: 1;
+      /* Top line accent */
+      .panel::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--green), transparent);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        z-index: 5;
       }
+      .panel:hover::after { opacity: 1; }
 
-      .chooser-content {
-        max-width: 400px;
+      /* Content */
+      .panel-content {
         position: relative;
         z-index: 2;
+        max-width: 380px;
       }
 
-      .chooser-eyebrow {
-        font-size: 0.75rem;
-        font-weight: 800;
+      /* Eyebrow */
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
         text-transform: uppercase;
-        letter-spacing: 0.15em;
         color: var(--green);
-        margin-bottom: 1.5rem;
-        opacity: 0.8;
+        margin-bottom: 1.75rem;
+      }
+      .eyebrow-dot {
+        width: 6px; height: 6px;
+        border-radius: 50%;
+        background: var(--green);
+        flex-shrink: 0;
+        animation: dotpulse 2.8s ease-in-out infinite;
       }
 
-      .chooser-icon {
-        width: 80px;
-        height: 80px;
-        background: rgba(16, 185, 129, 0.1);
-        border: 1px solid rgba(16, 185, 129, 0.2);
-        border-radius: 20px;
+      /* Icon */
+      .icon-wrap {
+        width: 64px; height: 64px;
+        border-radius: 16px;
+        border: 1px solid var(--border-g);
+        background: rgba(16,185,129,0.06);
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 auto 2rem;
         color: var(--green);
-        transition: all 0.4s ease;
+        margin-bottom: 1.5rem;
+        transition: background 0.35s ease, border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
       }
-
-      .chooser-panel:hover .chooser-icon {
-        transform: translateY(-10px) rotate(5deg);
+      .panel.left:hover  .icon-wrap { transform: translateY(-5px) rotate(5deg); }
+      .panel.right:hover .icon-wrap { transform: translateY(-5px) rotate(-5deg); }
+      .panel:hover .icon-wrap {
         background: var(--green);
-        color: white;
-        box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+        color: #fff;
+        border-color: var(--green);
+        box-shadow: 0 8px 32px rgba(16,185,129,0.3);
       }
 
-      .chooser-heading {
-        font-size: clamp(2rem, 4vw, 3rem);
+      /* Heading */
+      .heading {
+        font-size: clamp(1.9rem, 3.2vw, 2.8rem);
         font-weight: 800;
         line-height: 1.1;
-        margin-bottom: 1.5rem;
-        color: white;
+        letter-spacing: -0.02em;
+        color: #fff;
+        margin-bottom: 1.1rem;
+        white-space: pre-line;
       }
 
-      .chooser-subtext {
-        color: #9ca3af;
-        font-size: 1.1rem;
+      /* Body */
+      .body-text {
+        font-size: 1rem;
+        font-weight: 400;
         line-height: 1.6;
-        margin-bottom: 2.5rem;
+        color: var(--mid);
+        margin-bottom: 0.6rem;
+        transition: color 0.3s ease;
+      }
+      .panel:hover .body-text { color: rgba(255,255,255,0.82); }
+
+      /* Sub-note */
+      .sub-note {
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: var(--dim);
+        margin-bottom: 2rem;
+        letter-spacing: 0.01em;
       }
 
-      .chooser-cta {
+      /* CTA */
+      .cta {
         display: inline-flex;
         align-items: center;
-        gap: 0.75rem;
+        gap: 0.65rem;
+        font-size: 0.95rem;
         font-weight: 700;
         color: var(--green);
-        font-size: 1rem;
-        transition: all 0.3s ease;
+        transition: gap 0.3s ease, color 0.3s ease;
       }
-
-      .chooser-panel:hover .chooser-cta {
-        gap: 1.25rem;
-        color: var(--green-light);
+      .panel:hover .cta {
+        gap: 1rem;
+        color: var(--green-mid);
       }
-
-      .chooser-divider {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        width: 1px;
-        background: rgba(255, 255, 255, 0.1);
-        z-index: 10;
-      }
-
-      .chooser-divider-center {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 11;
-        background: var(--bg-dark);
-        padding: 1rem;
+      .cta-icon {
+        width: 34px; height: 34px;
         border-radius: 50%;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1.5px solid rgba(16,185,129,0.35);
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+        transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+      }
+      .panel:hover .cta-icon {
+        background: var(--green);
+        border-color: var(--green);
+        transform: rotate(-45deg);
       }
 
-      .chooser-divider-center img {
-        display: block;
-        filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.5));
-      }
-
-      .chooser-hint {
+      /* ── DIVIDER ── */
+      .divider {
         position: absolute;
-        bottom: 2rem;
+        top: 0; bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        font-size: 0.75rem;
-        color: #4b5563;
-        letter-spacing: 0.05em;
-        z-index: 20;
+        width: 1px;
+        background: linear-gradient(to bottom, transparent 5%, var(--border) 25%, var(--border) 75%, transparent 95%);
+        z-index: 10;
+        pointer-events: none;
+      }
+      .divider-center {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 11;
+        width: 52px; height: 52px;
+        border-radius: 50%;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 0 0 6px var(--bg), 0 0 24px rgba(16,185,129,0.12);
+      }
+      .divider-center img { display: block; }
+
+      /* ── HINT ── */
+      .hint {
+        position: fixed;
+        bottom: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 50;
+        font-size: 0.65rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.2);
+        animation: hintIn 1s ease both 1.2s;
+        pointer-events: none;
+        white-space: nowrap;
       }
 
-      @media (max-width: 860px) {
-        .chooser-page { flex-direction: column; overflow-y: auto; }
-        .chooser-divider { display: none; }
-        .chooser-divider-center { display: none; }
-        .chooser-panel { height: 50vh; min-height: 400px; }
-        .chooser-logo { top: 1rem; }
+      /* ── KEYFRAMES ── */
+      @keyframes logoIn {
+        from { opacity:0; transform: translateX(-50%) translateY(-8px); }
+        to   { opacity:1; transform: translateX(-50%) translateY(0); }
+      }
+      @keyframes fadeIn {
+        from { opacity:0; }
+        to   { opacity:1; }
+      }
+      @keyframes hintIn {
+        from { opacity:0; transform: translateX(-50%) translateY(6px); }
+        to   { opacity:1; transform: translateX(-50%) translateY(0); }
+      }
+      @keyframes dotpulse {
+        0%, 100% { opacity:1; transform: scale(1); }
+        50%       { opacity:0.3; transform: scale(0.6); }
+      }
+
+      /* ── MOBILE ── */
+      @media (max-width: 800px) {
+        html, body { overflow-y: auto; }
+        .chooser {
+          flex-direction: column;
+          height: auto;
+          min-height: 100dvh;
+        }
+        .chooser:has(.panel:hover) .panel,
+        .chooser:has(.panel:hover) .panel:hover { flex: 1; }
+        .panel { padding: 3rem 1.75rem 2.5rem; min-height: 50dvh; }
+        .divider, .divider-center { display: none; }
+        .panel::after { display: none; }
+        .hint { display: none; }
+        .logo { font-size: 1rem; }
       }
     </style>
   </div>
 
-  <a href="/" class="chooser-logo">
-    <img src="/logo-icon-w.png" alt="SmokingTracker" width="28" height="28" />
-    <span>SmokingTracker</span>
+  <!-- Logo -->
+  <a href="/" class="logo">
+    <img src="/logo-icon.png" alt="SmokingTracker" width="26" height="26" />
+    SmokingTracker
   </a>
 
-  <div class="chooser-page">
-    {chooserPanels.map((panel) => (
-      <a href={panel.href} class="chooser-panel">
-        <div class="chooser-panel-bg" style={`background-image: url('${panel.backgroundImage}');`}></div>
-        <div class="chooser-panel-glow"></div>
-        <div class="chooser-content">
-          <div class="chooser-eyebrow">{panel.eyebrow}</div>
-          <div class="chooser-icon">
-            {panel.icon === 'individual' && (
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
+  <!-- Chooser -->
+  <div class="chooser">
+    {panels.map((p) => (
+      <a href={p.href} class={`panel ${p.side}`}>
+        <div class="panel-bg" style={`background-image:url('${p.bgImage}')`}></div>
+        <div class="panel-grad"></div>
+        <div class="panel-bloom"></div>
+
+        <div class="panel-content">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            {p.eyebrow}
+          </div>
+
+          <div class="icon-wrap">
+            {p.icon === 'individual' && (
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
               </svg>
             )}
-            {panel.icon === 'clinician' && (
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            {p.icon === 'clinician' && (
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
               </svg>
             )}
           </div>
-          <h2 class="chooser-heading">
-            {panel.title[0]}<br />{panel.title[1]}
-          </h2>
-          <p class="chooser-subtext">{panel.body}</p>
-          <span class="chooser-cta">
-            {panel.cta}
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
+
+          <h2 class="heading">{p.heading}</h2>
+          <p class="body-text">{p.body}</p>
+          <p class="sub-note">{p.sub}</p>
+
+          <span class="cta">
+            {p.cta}
+            <span class="cta-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </span>
           </span>
         </div>
       </a>
     ))}
 
-    <div class="chooser-divider"></div>
-    <div class="chooser-divider-center">
-      <img src="/logo-icon-w.png" alt="" width="40" height="40" />
+    <div class="divider"></div>
+    <div class="divider-center">
+      <img src="/logo-icon.png" alt="" width="32" height="32" />
     </div>
-
-    <p class="chooser-hint">Choose your path</p>
   </div>
+
+  <p class="hint">Choose your path</p>
 </MinimalLayout>
