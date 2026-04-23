@@ -110,19 +110,19 @@ const references = [
 const relatedFeatures = [
   {
     href: '/ema-logging.html',
-    icon: '📱',
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>`,
     title: 'EMA Logging',
     body: 'The real-time data collection that makes MBC objective and free from recall bias.',
   },
   {
     href: '/practitioner-dashboard.html',
-    icon: '🖥️',
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>`,
     title: 'Practitioner Dashboard',
     body: 'The clinical view that makes the MBC feedback loop visible — traffic-light status, trends, triggers.',
   },
   {
     href: '/cannabis-cognitive-fog.html',
-    icon: '🧠',
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
     title: 'Cannabis & Memory',
     body: 'Why recall-based questionnaires fail in cannabis treatment — and what EMA fixes.',
   },
@@ -292,7 +292,7 @@ const relatedFeatures = [
       </div>
       <div class="feature-eyebrow" style="color:rgba(255,255,255,0.75);font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.85rem;">Evidence-Based Framework</div>
       <h1>Measure outcomes. Adjust treatment. Get better results.</h1>
-      <p class="feature-hero-sub">Measurement-based care is the evidence-based practice of using systematic, repeated outcome measurement to guide clinical decisions. SmokingTracker operationalises MBC for cannabis use disorder using real-time EMA data — not end-of-week recall questionnaires.</p>
+      <p class="feature-hero-sub">Measurement-based care is the evidence-based practice of using systematic, repeated outcome measurement to guide clinical decisions. SmokingTracker operationalizes MBC for cannabis use disorder using real-time EMA data — not end-of-week recall questionnaires.</p>
       <div class="feature-hero-btns">
         <a href="/trial.html" class="btn-orange-lg">Start Free</a>
         <a href="/for-clinicians.html" class="btn-ghost">See Full Platform</a>
@@ -403,7 +403,7 @@ const relatedFeatures = [
       <div class="benefit-grid">
         {relatedFeatures.map((feature) => (
           <a class="benefit-card" href={feature.href} style="text-decoration:none;">
-            <div class="benefit-icon-wrap emoji" aria-hidden="true">{feature.icon}</div>
+            <div class="benefit-icon-wrap" aria-hidden="true" set:html={feature.icon} />
             <h3 class="benefit-title">{feature.title}</h3>
             <p class="benefit-body">{feature.body}</p>
             <span class="benefit-link">Learn more →</span>
@@ -415,8 +415,8 @@ const relatedFeatures = [
 
   <section class="cta-dark-section">
     <div class="cta-dark-inner">
-      <h2>Get full MBC capability during the free pilot</h2>
-      <p>No setup fee. No automatic charges. Full MBC capability from day one.</p>
+      <h2>Put MBC into practice — starting today.</h2>
+      <p>SmokingTracker handles the data collection. You handle the clinical decisions.</p>
       <div class="cta-btns">
         <a href="/trial.html" class="btn-orange-lg">Start Free</a>
         <a href="/for-clinicians.html" class="btn-ghost">See Full Platform</a>

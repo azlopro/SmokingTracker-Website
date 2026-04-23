@@ -6,32 +6,32 @@ const { title, description, ogTitle, ogDescription } = getPageSeo('clinical-repo
 
 const reportSections = [
   {
-    icon: '📅',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`,
     title: 'Session Calendar',
     body: 'Visual heatmap of logged sessions across the report period — frequency, pattern, and gaps visible at a glance.',
   },
   {
-    icon: '📈',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>`,
     title: 'Use Trend Chart',
     body: 'Week-by-week frequency and consumption volume plotted as a line chart — ideal for tracking reduction progress.',
   },
   {
-    icon: '🧠',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
     title: 'Mood & Craving Scores',
     body: 'Mood rating and craving intensity plotted alongside use events — shows the emotional-use relationship over time.',
   },
   {
-    icon: '🎯',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`,
     title: 'Top Triggers',
     body: 'Ranked breakdown of the client\'s logged triggers — stress, social context, boredom, habit, pain — with session count per category.',
   },
   {
-    icon: '🏷️',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>`,
     title: 'Method & Substance',
     body: 'Pie breakdown by administration method (flower, vape, edible, concentrate) and substance type with percentage split.',
   },
   {
-    icon: '📝',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`,
     title: 'Clinical Notes',
     body: 'Your session annotations and flagged events appear in chronological context alongside the objective data.',
   },
@@ -61,7 +61,7 @@ const featureSections = [
       'Objective outcome data for supervision case presentation',
       'Quantified progress metrics — not just clinician impression',
       'Supports ongoing medical necessity documentation',
-      'Formatted for non-clinical stakeholders — clear narrative + data',
+      'Formatted for non-clinical stakeholders — clear narrative and supporting data',
     ],
     href: '/privacy-compliance.html',
     linkLabel: 'See privacy and compliance details →',
@@ -118,19 +118,19 @@ const howSteps = [
 const relatedFeatures = [
   {
     href: '/practitioner-dashboard.html',
-    icon: '🖥️',
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>`,
     title: 'Practitioner Dashboard',
     body: 'The live data view that all clinical reports are drawn from — traffic-light status, trends, and triggers.',
   },
   {
     href: '/ema-logging.html',
-    icon: '📱',
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>`,
     title: 'EMA Logging',
     body: 'The real-time capture that makes report data objective and defensible — not recalled.',
   },
   {
     href: '/privacy-compliance.html',
-    icon: '🔒',
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`,
     title: 'Privacy & Compliance',
     body: 'HIPAA, GDPR, and 42 CFR Part 2 compliance built into how data is stored and exported.',
   },
@@ -210,7 +210,7 @@ const relatedFeatures = [
       <div class="report-anatomy-grid reveal">
         {reportSections.map((section) => (
           <div class="report-section-card">
-            <div class="rs-icon">{section.icon}</div>
+            <div class="rs-icon" set:html={section.icon} />
             <h3>{section.title}</h3>
             <p>{section.body}</p>
           </div>
@@ -288,7 +288,7 @@ const relatedFeatures = [
       <div class="benefit-cards">
         {relatedFeatures.map((feature) => (
           <a class="benefit-card" href={feature.href} style="text-decoration:none;">
-            <div class="benefit-icon" aria-hidden="true">{feature.icon}</div>
+            <div class="benefit-icon" aria-hidden="true" set:html={feature.icon} />
             <h3 class="benefit-card-title">{feature.title}</h3>
             <p class="benefit-card-body">{feature.body}</p>
             <span class="benefit-card-link">Learn more →</span>
@@ -300,8 +300,8 @@ const relatedFeatures = [
 
   <section class="cta-dark-section">
     <div class="cta-dark-inner">
-      <h2 class="cta-dark-title">Get full reporting access during the free pilot</h2>
-      <p class="cta-dark-sub">No setup fee. No automatic charges. Full reporting access for your entire caseload.</p>
+      <h2 class="cta-dark-title">Generate your first PDF report today.</h2>
+      <p class="cta-dark-sub">Full reporting access during the free pilot. No setup fee, no automatic charges.</p>
       <div class="cta-dark-btns">
         <a href="/trial.html" class="btn-orange-lg">Start Free</a>
         <a href="/for-clinicians.html" class="btn-ghost">See Full Platform</a>

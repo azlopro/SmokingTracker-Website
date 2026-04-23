@@ -118,13 +118,16 @@ const tiers = [
               <div class="form-group">
                 <label for="role" data-i18n="trial.labelRole">Your Role</label>
                 <select id="role" name="role" required class="form-select">
-                  <option value="solo" data-i18n="trial.roleSolo">Solo Therapist</option>
+                  <option value="solo" data-i18n="trial.roleSolo">Solo Practitioner</option>
+                  <option value="counselor" data-i18n="trial.roleCounselor">Addiction Counselor</option>
+                  <option value="lcsw" data-i18n="trial.roleLCSW">LCSW / Social Worker</option>
                   <option value="director" data-i18n="trial.roleDirector">Clinical Director</option>
+                  <option value="program" data-i18n="trial.roleProgram">Program Manager</option>
                   <option value="other" data-i18n="trial.roleOther">Other</option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="org-name" data-i18n="trial.labelOrgName">Organisation / clinic</label>
+                <label for="org-name" data-i18n="trial.labelOrgName">Organization name</label>
                 <input
                   type="text"
                   id="org-name"
@@ -166,7 +169,7 @@ const tiers = [
               </div>
               <div class="form-group">
                 <label for="cvr-number">
-                  <span data-i18n="trial.labelCVR">CVR / Tax ID</span>
+                  <span data-i18n="trial.labelCVR">Tax ID</span>
                   <span class="field-optional" data-i18n="trial.optional">(optional)</span>
                 </label>
                 <input
@@ -174,7 +177,7 @@ const tiers = [
                   id="cvr-number"
                   name="cvr_number"
                   data-i18n-placeholder="trial.placeholderCVR"
-                  placeholder="12345678"
+                  placeholder="EIN or Tax ID (optional)"
                 />
               </div>
             </div>
@@ -194,16 +197,14 @@ const tiers = [
             </div>
 
             <div class="form-error" id="trial-error" role="alert" data-i18n="trial.errorGeneric">
-              Noget gik galt. Prøv igen.
+              Something went wrong. Please try again or email support@smokingtracker.com.
             </div>
 
             <button type="submit" class="btn btn-primary btn-large btn-full" id="trial-submit" data-i18n="trial.btnStandard">
               Request free access
             </button>
 
-            <p class="form-legal" data-i18n="trial.legal">
-              Ved indsendelse accepterer du vores Handelsbetingelser og Privatlivspolitik.
-            </p>
+            <p class="form-legal" set:html={'By submitting, you agree to our <a href="/terms.html">Terms of Service</a> and <a href="/privacy.html">Privacy Policy</a>.'} />
           </form>
         </div>
       </div>

@@ -4,98 +4,150 @@ import { getPageSeo } from '../lib/pageSeo';
 
 const { title, description, ogTitle, ogDescription } = getPageSeo('about');
 ---
+
 <BaseLayout
   title={title}
   description={description}
   canonicalPath="/about.html"
   ogTitle={ogTitle}
   ogDescription={ogDescription}
-  activeNav={"about"}
-  navVariant={"marketing"}
-  footerVariant={"full"}
-  bodyClass={"light-theme"}
+  activeNav="about"
+  navVariant="marketing"
+  footerVariant="full"
+  bodyClass="light-theme"
   showCta={true}
   includeMainJs={false}
   extraModuleScripts={[]}
   hideUntilLoad={true}
 >
   <main>
+    <!-- HERO -->
     <section class="about-hero">
       <div class="container about-hero-inner">
-        <div class="about-kicker">Our Story</div>
-        <h1>Designed with lived experience, built for counselors</h1>
+        <span class="about-kicker">Our Story</span>
+        <h1>Designed from lived experience. Built for counselors.</h1>
         <p>
-          This didn't start in a boardroom. It started in an outpatient friend group that couldn't find their footing
-          and a realisation that getting an overview was what finally made it possible to get control.
+          This didn’t begin in a boardroom or a startup incubator. It began with people trying to regain control,
+          searching for clarity, structure, and something that actually helped.
         </p>
       </div>
     </section>
 
+    <!-- STORY -->
     <section class="about-section">
       <div class="container">
-        <div class="about-story-card glass fade-in-up">
+        <div class="about-panel glass fade-in-up">
           <h2 data-i18n="about.storyTitle">How it started</h2>
           <p data-i18n="about.storyText">
-            I smoked myself, and was part of an outpatient friend group. We were good at a lot of things, but having
-            an overview of our own habits wasn't one of them. No structure. No patterns. Nothing to hold on to. So I
-            started coding, not for a startup, not for a pitch deck, but for myself. Something to track. Somewhere to
-            see what was actually happening. And slowly, it worked.
+            I used cannabis myself and spent time in an outpatient support group. We were capable people, but many of us
+            struggled with the same thing: understanding our own patterns. No overview. No structure. No way to measure
+            progress.
+          </p>
+
+          <p>
+            So I started building a tool for myself. Not for investors. Not for a pitch deck. Just something simple and
+            honest that could reveal what was really happening day to day.
+          </p>
+
+          <p>
+            And slowly, that clarity changed everything.
           </p>
         </div>
       </div>
     </section>
 
+    <!-- TWO COLUMN -->
     <section class="about-section">
       <div class="container">
-        <div class="about-two-col">
-          <div class="about-card glass hover-lift fade-in-up" style="animation-delay: 0.1s">
+        <div class="about-grid">
+          <article class="about-card glass hover-lift fade-in-up">
             <h2 data-i18n="about.whyTitle">Why treatment centers</h2>
             <p data-i18n="about.whyText">
-              I know what it feels like from the citizen's side. I know what it means to show up to a session with
-              nothing to offer and I know what happens when you finally start to see your own patterns. That's why I
-              want to reach people right where they are: at treatment centers, through the people who work with them
-              every day.
+              I know what it feels like to arrive at a session with nothing to say and no idea where to begin. I also
+              know how powerful it is when someone finally sees their own habits clearly.
             </p>
-          </div>
 
-          <div class="about-card glass hover-lift fade-in-up" style="animation-delay: 0.15s">
-            <h2 data-i18n="about.practitionerTitle">Practitioners deserve just as good an experience</h2>
-            <p data-i18n="about.practitionerText">
-              The citizens are the reason this exists, but the practitioners are the ones who make it work. I'll do my
-              best to make sure your experience is just as good as theirs. If something's missing or could be better,
-              say so. It's taken seriously.
+            <p>
+              That’s why this platform is built to meet people where support already exists — through treatment centers
+              and the professionals who help every day.
             </p>
-          </div>
+          </article>
+
+          <article class="about-card glass hover-lift fade-in-up delay-1">
+            <h2 data-i18n="about.practitionerTitle">
+              Practitioners deserve a great experience too
+            </h2>
+            <p data-i18n="about.practitionerText">
+              Clients are the reason this exists. Clinicians are the reason it works. Your workflow matters.
+              Your time matters.
+            </p>
+
+            <p>
+              If something is missing, confusing, or can be improved, it gets taken seriously.
+            </p>
+          </article>
         </div>
       </div>
     </section>
 
+    <!-- PRODUCT PRINCIPLES -->
     <section class="about-section">
       <div class="container">
-        <div class="about-story-card glass fade-in-up">
-          <h2 data-i18n="about.designTitle">Built with real users</h2>
+        <div class="about-panel glass fade-in-up">
+          <h2 data-i18n="about.designTitle">Built with real users from day one</h2>
+
           <p data-i18n="about.designText">
-            SmokingTracker was developed with three cannabis users from the outset: one who just wanted to understand
-            their consumption, one who wanted to reduce, and one who wanted to quit. That set three requirements:
-            logging a session had to take three clicks, there could be no performance pressure, and the citizen had to
-            define their own goal. The three treatment modes, Awareness, Reduce, and Quit, map directly to those three
-            real people.
+            SmokingTracker was shaped alongside three real cannabis users:
+          </p>
+
+          <ul class="about-list">
+            <li>One wanted to understand their consumption</li>
+            <li>One wanted to reduce gradually</li>
+            <li>One wanted to quit completely</li>
+          </ul>
+
+          <p>
+            Those conversations created three core principles:
+          </p>
+
+          <ul class="about-list">
+            <li>Logging must be fast and frictionless</li>
+            <li>No guilt, pressure, or punishment mechanics</li>
+            <li>The user defines their own goal</li>
+          </ul>
+
+          <p>
+            That’s why the three treatment modes — <strong>Awareness</strong>,
+            <strong>Reduce</strong>, and <strong>Quit</strong> — exist today.
           </p>
         </div>
       </div>
     </section>
 
+    <!-- CREATOR -->
     <section class="about-section">
       <div class="container">
-        <div class="about-creator-card glass fade-in-up">
-          <div class="about-creator-text">
+        <div class="about-founder glass fade-in-up">
+          <div class="about-founder-copy">
             <h2 data-i18n="about.creatorTitle">Who built this?</h2>
+
             <p data-i18n="about.creatorText">
-              I'm not a company with a team of developers. I'm one person who coded their way out of a habit and wants
-              to help others do the same. If you want to know more about me:
+              SmokingTracker is an independent product built by one person. No investors, no roadmap dictated by growth targets.
+            </p>
+
+            <p>
+              Just one person who built tools to change his own habits — and decided others should have access to
+              something better too.
             </p>
           </div>
-          <a href="https://www.azlo.pro/da/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-i18n="about.creatorLink">
+
+          <a
+            href="https://www.azlo.pro/da/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-secondary"
+            data-i18n="about.creatorLink"
+          >
             Visit azlo.pro
           </a>
         </div>
@@ -105,107 +157,208 @@ const { title, description, ogTitle, ogDescription } = getPageSeo('about');
 </BaseLayout>
 
 <style is:global>
+  /* ---------------- HERO ---------------- */
+
   .about-hero {
-    background: var(--green-pale);
-    padding: 4rem 2.5rem 3rem;
+    background:
+      radial-gradient(circle at top right, rgba(74, 222, 128, 0.08), transparent 35%),
+      linear-gradient(180deg, var(--green-pale), #ffffff);
+    padding: 5.5rem 2rem 4rem;
     text-align: center;
     border-bottom: 1px solid var(--color-border);
   }
 
   .about-hero-inner {
-    max-width: 700px;
+    max-width: 760px;
     margin: 0 auto;
   }
 
   .about-kicker {
-    font-size: 11.5px;
-    font-weight: 700;
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
     color: var(--green);
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
   }
 
   .about-hero h1 {
-    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-size: clamp(2.25rem, 5vw, 3.6rem);
+    line-height: 1.08;
+    letter-spacing: -0.04em;
     font-weight: 800;
     color: var(--color-heading);
-    letter-spacing: -0.4px;
-    line-height: 1.15;
-    margin-bottom: 1rem;
+    max-width: 760px;
+    margin: 0 auto 1.25rem;
   }
 
   .about-hero p {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
+    line-height: 1.85;
     color: var(--color-text-secondary);
-    line-height: 1.75;
-    max-width: 560px;
+    max-width: 620px;
     margin: 0 auto;
   }
 
-  .about-story-card {
-    max-width: 720px;
+  /* ---------------- LAYOUT ---------------- */
+
+  .about-section {
+    padding: 4rem 0;
+  }
+
+  .about-section + .about-section {
+    padding-top: 0;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  /* ---------------- PANELS ---------------- */
+
+  .about-panel,
+  .about-card,
+  .about-founder {
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.4);
+    box-shadow:
+      0 10px 30px rgba(0,0,0,0.04),
+      inset 0 1px 0 rgba(255,255,255,0.45);
+  }
+
+  .about-panel {
+    max-width: 760px;
     margin: 0 auto;
     padding: 2.5rem;
-    border-radius: 20px;
-    line-height: 1.8;
-    font-size: 1.05rem;
-  }
-
-  .about-story-card h2 {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-  }
-
-  .about-two-col {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    max-width: 860px;
-    margin: 0 auto;
   }
 
   .about-card {
-    border-radius: 20px;
     padding: 2rem;
-    line-height: 1.75;
   }
 
-  .about-card h2 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-    color: var(--color-primary, #4ade80);
-  }
-
-  .about-creator-card {
-    max-width: 720px;
+  .about-founder {
+    max-width: 760px;
     margin: 0 auto;
-    padding: 2rem 2.5rem;
-    border-radius: 20px;
+    padding: 2rem 2.25rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
     flex-wrap: wrap;
   }
+.chooser-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;              /* more spacing from text */
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--green);
+  margin-bottom: 1.5rem;
+}
 
-  .about-creator-text h2 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
+.chooser-eyebrow::before,
+.chooser-eyebrow::after {
+  content: '';
+  width: 42px;            /* longer lines */
+  height: 1px;
+  background: rgba(16, 185, 129, 0.35);
+}
+  /* ---------------- TYPOGRAPHY ---------------- */
+
+  .about-panel h2,
+  .about-card h2,
+  .about-founder h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+    color: var(--color-heading);
   }
 
-  .about-creator-text p {
-    opacity: 0.75;
+  .about-card h2 {
+    color: var(--green);
+  }
+
+  .about-panel p,
+  .about-card p,
+  .about-founder p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--color-text-secondary);
+    margin: 0 0 1rem;
+  }
+
+  .about-panel p:last-child,
+  .about-card p:last-child,
+  .about-founder p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ---------------- LISTS ---------------- */
+
+  .about-list {
+    margin: 1rem 0 1.5rem;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  .about-list li {
+    position: relative;
+    padding-left: 1.4rem;
     line-height: 1.7;
+    color: var(--color-text);
   }
 
-  .about-section {
-    padding: 3rem 0;
+  .about-list li::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--green);
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
   }
 
-  .about-section + .about-section {
-    padding-top: 0;
+  /* ---------------- ANIMATION DELAY ---------------- */
+
+  .delay-1 {
+    animation-delay: 0.1s;
+  }
+
+  /* ---------------- MOBILE ---------------- */
+
+  @media (max-width: 768px) {
+    .about-hero {
+      padding: 4.5rem 1.25rem 3rem;
+    }
+
+    .about-panel,
+    .about-card,
+    .about-founder {
+      padding: 1.5rem;
+      border-radius: 20px;
+    }
+
+    .about-founder {
+      align-items: flex-start;
+    }
+
+    .about-hero p,
+    .about-panel p,
+    .about-card p,
+    .about-founder p {
+      line-height: 1.75;
+    }
   }
 </style>

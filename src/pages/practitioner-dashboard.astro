@@ -9,18 +9,18 @@ const heroPills = ['Measurement-Based Care', 'Real-Time Data', 'Multi-Client Vie
 const riskLights = [
   {
     color: 'green',
-    title: 'Green — On Track',
-    body: 'Use frequency stable or decreasing. Mood and craving scores within target range. No fast-use warnings this period.',
+    title: 'Green — Engaged',
+    body: 'Client logged within the past 2 days. Consistent engagement with the app — a reliable signal that data is current.',
   },
   {
     color: 'yellow',
     title: 'Yellow — Watch',
-    body: 'Increasing frequency or craving scores. One or more fast-use events. Mood deterioration trend detected.',
+    body: 'Last log was 2–7 days ago. Engagement is dropping — worth a check-in before the next scheduled session.',
   },
   {
     color: 'red',
-    title: 'Red — Needs Attention',
-    body: 'Significant escalation, missed logging streak, or sharp mood drop. Prioritise at the next clinical contact.',
+    title: 'Red — Disengaged',
+    body: 'No log in 7+ days, or never logged. Disengagement is often the first observable sign of a client pulling back — act before the next session.',
   },
 ];
 
@@ -121,19 +121,19 @@ const howSteps = [
 const relatedFeatures = [
   {
     href: '/ema-logging.html',
-    icon: '📱',
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>`,
     title: 'EMA Logging',
     body: 'Three-tap real-time session capture — the data source that powers the dashboard.',
   },
   {
     href: '/clinical-reports.html',
-    icon: '📄',
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`,
     title: 'One-Click PDF Reports',
     body: 'Export session-ready clinical documentation directly from the dashboard data.',
   },
   {
     href: '/measurement-based-care.html',
-    icon: '📊',
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`,
     title: 'Measurement-Based Care',
     body: 'The evidence-based framework that makes objective outcome tracking clinically effective.',
   },
@@ -218,7 +218,7 @@ const relatedFeatures = [
       <div class="tl-text">
         <div class="tl-eyebrow">Risk stratification</div>
         <h2>A traffic-light system that tells you who needs attention today</h2>
-        <p>Every client on your caseload shows a risk status calculated from their EMA data — frequency, consumption trend, mood trajectory, and craving intensity. Identify escalating cases without reading through raw logs.</p>
+        <p>Every client on your caseload shows a status based on app engagement — how recently they logged. Green, Yellow, and Red tell you at a glance who is actively tracking and who may be pulling back — without reading through raw logs.</p>
         <div class="tl-lights">
           {riskLights.map((light) => (
             <div class="tl-light">
@@ -306,7 +306,7 @@ const relatedFeatures = [
       <div class="benefit-cards">
         {relatedFeatures.map((feature) => (
           <a class="benefit-card" href={feature.href} style="text-decoration:none;">
-            <div class="benefit-icon" aria-hidden="true">{feature.icon}</div>
+            <div class="benefit-icon" aria-hidden="true" set:html={feature.icon} />
             <h3 class="benefit-card-title">{feature.title}</h3>
             <p class="benefit-card-body">{feature.body}</p>
             <span class="benefit-card-link">Learn more →</span>
@@ -318,8 +318,8 @@ const relatedFeatures = [
 
   <section class="cta-dark-section">
     <div class="cta-dark-inner">
-      <h2 class="cta-dark-title">Get full dashboard access during the free pilot</h2>
-      <p class="cta-dark-sub">No setup fee. No automatic charges. Full dashboard access for your entire caseload.</p>
+      <h2 class="cta-dark-title">Know your caseload before the session starts.</h2>
+      <p class="cta-dark-sub">Start free, invite your first client, and see the dashboard populate in real time.</p>
       <div class="cta-dark-btns">
         <a href="/trial.html" class="btn-orange-lg">Start Free</a>
         <a href="/for-clinicians.html" class="btn-ghost">See Full Platform</a>

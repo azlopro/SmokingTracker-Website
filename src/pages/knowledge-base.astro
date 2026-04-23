@@ -5,10 +5,10 @@ import { formatPostDate } from '../lib/formatPostDate';
 
 const title = 'Knowledge Base — SmokingTracker';
 const description =
-  'Insights on habit tracking as a clinical tool for engagement, retention, and documentation.';
+  'Insights on habit tracking as a clinical tool for engagement, retention, and clinical decision-making.';
 const ogTitle = 'Knowledge Base — SmokingTracker';
 const ogDescription =
-  'Insights on habit tracking as a clinical tool for engagement, retention, and compliance.';
+  'Insights on habit tracking as a clinical tool for engagement, retention, and clinical decision-making.';
 
 const allPosts = await getCollection('blog');
 const posts = allPosts
@@ -403,7 +403,7 @@ const rest       = posts.slice(3);    // Compact list
           <span class="kb-eyebrow-dot"></span>
           Clinical Resources
         </div>
-        <h1>Resources for Treatment Centers</h1>
+        <h1>Clinical Knowledge Base</h1>
         <p class="kb-header-sub">Insights on habit tracking as a clinical tool for engagement, retention, and compliance.</p>
       </div>
       <svg class="kb-header-wave" viewBox="0 0 1440 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -413,7 +413,7 @@ const rest       = posts.slice(3);    // Compact list
 
     <div class="kb-body">
       {posts.length === 0 ? (
-        <p style="text-align:center;padding:4rem 0;color:var(--kb-muted)">No articles yet.</p>
+        <p style="text-align:center;padding:4rem 0;color:var(--kb-muted)">No articles published yet. Check back soon.</p>
       ) : (
         <>
           {/* ── HERO POST ──────────────────────────────────────────── */}

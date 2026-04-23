@@ -102,7 +102,7 @@ const featuresActive = FEATURE_SUB.has(active);
           href={signInHref}
           style="display: flex; align-items: center; gap: 6px;"
         >
-          <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981;"></span>
+          <span style="width: 7px; height: 7px; border-radius: 50%; background: #10b981; flex-shrink: 0;"></span>
           {signInLabel}
         </a>
       ) : (
@@ -114,3 +114,27 @@ const featuresActive = FEATURE_SUB.has(active);
     <a href={ctaHref} class="nav-trial">{ctaLabel}</a>
   </div>
 </nav>
+
+<script>
+  (() => {
+    const nav = document.querySelector('nav.site-nav');
+    if (!nav) return;
+
+    const btn = nav.querySelector('.mobile-menu-btn');
+    const links = nav.querySelector('#site-nav-links');
+
+    // Scroll shadow
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Mobile toggle
+    if (btn && links) {
+      btn.addEventListener('click', () => {
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!open));
+        nav.classList.toggle('menu-open', !open);
+      });
+    }
+  })();
+</script>
