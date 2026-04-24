@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getPageSeo } from '../lib/pageSeo';
 
-const { title, description, ogTitle, ogDescription } = getPageSeo('trial');
+const { title, description, ogTitle, ogDescription, ogImage } = getPageSeo('trial');
 
 const trustItems = [
   'Full access — completely free until October 2026',
@@ -39,6 +39,8 @@ const tiers = [
   canonicalPath="/trial.html"
   ogTitle={ogTitle}
   ogDescription={ogDescription}
+  ogImage={ogImage}
+  twitterImage={ogImage}
   activeNav=""
   navVariant="marketing"
   footerVariant="blog"

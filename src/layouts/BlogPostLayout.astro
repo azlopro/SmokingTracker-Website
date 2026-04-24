@@ -20,7 +20,7 @@ const imageUrl = data.image
   ? data.image.startsWith('http')
     ? data.image
     : `${site}${data.image.startsWith('/') ? data.image : `/${data.image}`}`
-  : `${site}/logo.png`;
+  : `${site}/logo.webp`;
 const isEn = data.lang === 'en';
 const backText = isEn ? 'Back to Knowledge Base' : 'Back to Knowledge Base';
 const shareText = isEn ? 'Share this article' : 'Del denne artikel';
@@ -36,10 +36,10 @@ const copiedText = isEn ? 'Copied!' : 'Kopieret!';
   ogType="article"
   ogTitle={data.title}
   ogDescription={data.description}
-  ogImage={data.image || '/logo.png'}
+  ogImage={data.image || '/logo.webp'}
   twitterTitle={data.title}
   twitterDescription={data.description}
-  twitterImage={data.image || '/logo.png'}
+  twitterImage={data.image || '/logo.webp'}
   activeNav="blog"
   navVariant="blog"
   footerVariant="blog"
@@ -56,9 +56,16 @@ const copiedText = isEn ? 'Copied!' : 'Kopieret!';
     <meta property="og:image:alt" content={data.title} />
     <meta property="og:image:type" content="image/webp" />
     <meta name="twitter:site" content="@smokingtracker" />
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify({
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: site },
+        { '@type': 'ListItem', position: 2, name: 'Knowledge Base', item: `${site}/knowledge-base.html` },
+        { '@type': 'ListItem', position: 3, name: data.title, item: canonical },
+      ],
+    })} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Article',
         mainEntityOfPage: {
@@ -81,7 +88,7 @@ const copiedText = isEn ? 'Copied!' : 'Kopieret!';
           '@id': `${site}/#organization`,
           name: 'SmokingTracker',
           url: site,
-          logo: { '@type': 'ImageObject', url: `${site}/logo.png` },
+          logo: { '@type': 'ImageObject', url: `${site}/logo.webp` },
         },
         image: {
           '@type': 'ImageObject',
@@ -89,8 +96,7 @@ const copiedText = isEn ? 'Copied!' : 'Kopieret!';
           width: 1200,
           height: 630,
         },
-      })}
-    />
+      })} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

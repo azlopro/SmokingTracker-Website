@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getPageSeo } from '../lib/pageSeo';
 
-const { title, description, ogTitle, ogDescription } = getPageSeo('ema-logging');
+const { title, description, ogTitle, ogDescription, ogImage } = getPageSeo('ema-logging');
 
 const featureSections = [
   {
@@ -135,6 +135,8 @@ const relatedFeatures = [
   canonicalPath="/ema-logging.html"
   ogTitle={ogTitle}
   ogDescription={ogDescription}
+  ogImage={ogImage}
+  twitterImage={ogImage}
   activeNav="ema-logging"
   navVariant="marketing"
   footerVariant="full"
@@ -144,6 +146,15 @@ const relatedFeatures = [
   extraModuleScripts={[]}
   hideUntilLoad={true}
 >
+  <script is:inline type="application/ld+json" slot="head" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.smokingtracker.com/' },
+      { '@type': 'ListItem', position: 2, name: 'For Clinicians', item: 'https://www.smokingtracker.com/for-clinicians.html' },
+      { '@type': 'ListItem', position: 3, name: 'EMA Logging', item: 'https://www.smokingtracker.com/ema-logging.html' },
+    ],
+  })} />
   <div slot="head" style="display:contents">
     <style is:global>
       .fog-walker-wrap .loader { scale: 1.0; position: relative; width: 200px; height: 200px; translate: 10px -20px; filter: brightness(1.2) drop-shadow(0 0 20px rgba(52,211,153,0.35)); }

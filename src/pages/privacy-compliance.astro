@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getPageSeo } from '../lib/pageSeo';
 
-const { title, description, ogTitle, ogDescription } = getPageSeo('privacy-compliance');
+const { title, description, ogTitle, ogDescription, ogImage } = getPageSeo('privacy-compliance');
 
 const heroPills = ['HIPAA Ready', 'GDPR Compliant', '42 CFR Part 2 Aligned', 'EU Data Residency'];
 
@@ -126,6 +126,8 @@ const relatedFeatures = [
   canonicalPath="/privacy-compliance.html"
   ogTitle={ogTitle}
   ogDescription={ogDescription}
+  ogImage={ogImage}
+  twitterImage={ogImage}
   activeNav="privacy-compliance"
   navVariant="marketing"
   footerVariant="full"
@@ -135,6 +137,15 @@ const relatedFeatures = [
   extraModuleScripts={[]}
   hideUntilLoad={true}
 >
+  <script is:inline type="application/ld+json" slot="head" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.smokingtracker.com/' },
+      { '@type': 'ListItem', position: 2, name: 'For Clinicians', item: 'https://www.smokingtracker.com/for-clinicians.html' },
+      { '@type': 'ListItem', position: 3, name: 'Privacy Compliance', item: 'https://www.smokingtracker.com/privacy-compliance.html' },
+    ],
+  })} />
   <div slot="head" style="display:contents">
     <style is:global>
 

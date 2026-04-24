@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "sync": "astro sync",
     "optimize": "node optimize-images.js",
-    "generate-pages": "node scripts/generate-astro-pages.mjs"
+    "generate-pages": "node scripts/generate-astro-pages.mjs",
+    "og": "node scripts/generate-og-images.mjs"
   },
   "devDependencies": {
     "astro": "^5.18.1"

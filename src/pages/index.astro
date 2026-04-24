@@ -31,7 +31,14 @@ const panels = [
 ];
 ---
 
-<MinimalLayout title={title} description={description} canonicalPath="/">
+<MinimalLayout
+  title={title}
+  description={description}
+  canonicalPath="/"
+  ogTitle={title}
+  ogDescription={description}
+  ogImage="/og/home.webp"
+>
   <div slot="head" style="display:contents">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

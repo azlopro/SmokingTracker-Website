@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getPageSeo } from '../lib/pageSeo';
 
-const { title, description, ogTitle, ogDescription } = getPageSeo('about');
+const { title, description, ogTitle, ogDescription, ogImage } = getPageSeo('about');
 ---
 
 <BaseLayout
@@ -11,6 +11,8 @@ const { title, description, ogTitle, ogDescription } = getPageSeo('about');
   canonicalPath="/about.html"
   ogTitle={ogTitle}
   ogDescription={ogDescription}
+  ogImage={ogImage}
+  twitterImage={ogImage}
   activeNav="about"
   navVariant="marketing"
   footerVariant="full"

@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getPageSeo } from '../lib/pageSeo';
 
-const { title, description, ogTitle, ogDescription } = getPageSeo('faq');
+const { title, description, ogTitle, ogDescription, ogImage } = getPageSeo('faq');
 const faqSections = [
   {
     category: 'Getting Started',
@@ -63,6 +63,8 @@ const faqSections = [
   canonicalPath="/faq.html"
   ogTitle={ogTitle}
   ogDescription={ogDescription}
+  ogImage={ogImage}
+  twitterImage={ogImage}
   activeNav={""}
   navVariant={"marketing"}
   footerVariant={"full"}
@@ -72,6 +74,17 @@ const faqSections = [
   extraModuleScripts={[]}
   hideUntilLoad={true}
 >
+  <script is:inline type="application/ld+json" slot="head" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqSections.flatMap(section =>
+      section.items.map(([, question, , answer]) => ({
+        '@type': 'Question',
+        name: question,
+        acceptedAnswer: { '@type': 'Answer', text: answer },
+      }))
+    ),
+  })} />
   <main>
     <section class="simple-page-hero">
       <div class="simple-page-hero-inner">

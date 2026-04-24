@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getPageSeo } from '../lib/pageSeo';
 
-const { title, description, ogTitle, ogDescription } = getPageSeo('features');
+const { title, description, ogTitle, ogDescription, ogImage } = getPageSeo('features');
 
 const featureCards = [
   {
@@ -101,6 +101,8 @@ const accordionSections = [
   canonicalPath="/features.html"
   ogTitle={ogTitle}
   ogDescription={ogDescription}
+  ogImage={ogImage}
+  twitterImage={ogImage}
   activeNav="features"
   navVariant="marketing"
   navTheme="light"

@@ -4,13 +4,28 @@ export interface Props {
   description: string;
   canonicalPath?: string;
   lang?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
   /** When true, omit global /style.css (page head is fully self-contained). */
   skipDefaultStyles?: boolean;
 }
 
 const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.smokingtracker.com';
-const { title, description, canonicalPath = '/', lang = 'en', skipDefaultStyles = false } = Astro.props;
+const {
+  title,
+  description,
+  canonicalPath = '/',
+  lang = 'en',
+  ogTitle = title,
+  ogDescription = description,
+  ogImage,
+  skipDefaultStyles = false,
+} = Astro.props;
 const canonical = `${site}${canonicalPath.startsWith('/') ? canonicalPath : `/${canonicalPath}`}`;
+const ogImageAbs = ogImage
+  ? ogImage.startsWith('http') ? ogImage : `${site}${ogImage.startsWith('/') ? ogImage : `/${ogImage}`}`
+  : undefined;
 ---
 
 <!doctype html>
@@ -29,6 +44,22 @@ const canonical = `${site}${canonicalPath.startsWith('/') ? canonicalPath : `/${
       </>
     )}
     <link rel="canonical" href={canonical} />
+    {ogImageAbs && <>
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="SmokingTracker" />
+      <meta property="og:title" content={ogTitle} />
+      <meta property="og:description" content={ogDescription} />
+      <meta property="og:image" content={ogImageAbs} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:type" content="image/webp" />
+      <meta property="og:url" content={canonical} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@smokingtracker" />
+      <meta name="twitter:title" content={ogTitle} />
+      <meta name="twitter:description" content={ogDescription} />
+      <meta name="twitter:image" content={ogImageAbs} />
+    </>}
     <slot name="head" />
   </head>
   <body>

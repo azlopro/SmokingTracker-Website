@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getPageSeo } from '../lib/pageSeo';
 
-const { title, description, ogTitle, ogDescription } = getPageSeo('for-individuals');
+const { title, description, ogTitle, ogDescription, ogImage } = getPageSeo('for-individuals');
 
 const heroSlides = [
   {
@@ -109,6 +109,8 @@ const faqs = [
   canonicalPath="/for-individuals.html"
   ogTitle={ogTitle}
   ogDescription={ogDescription}
+  ogImage={ogImage}
+  twitterImage={ogImage}
   activeNav="for-individuals"
   navVariant="marketing"
   navTheme="dark"
@@ -122,6 +124,23 @@ const faqs = [
   extraModuleScripts={[]}
   hideUntilLoad={false}
 >
+  <script is:inline type="application/ld+json" slot="head" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  })} />
+  <script is:inline type="application/ld+json" slot="head" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.smokingtracker.com/' },
+      { '@type': 'ListItem', position: 2, name: 'For Individuals', item: 'https://www.smokingtracker.com/for-individuals.html' },
+    ],
+  })} />
   <div slot="head" style="display:contents">
     <link rel="preload" as="image" href={heroSlides[0].src} type="image/webp" />
     <style is:global>

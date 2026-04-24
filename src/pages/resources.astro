@@ -4,7 +4,7 @@ import { getPageSeo } from '../lib/pageSeo';
 import ResourceCard from '../components/ResourceCard.astro';
 import { resourceCategoryLabels, resources } from '../data/resources';
 
-const { title, description, ogTitle, ogDescription } = getPageSeo('resources');
+const { title, description, ogTitle, ogDescription, ogImage } = getPageSeo('resources');
 const filterOrder = ['all', 'clinical', 'government', 'research', 'patient', 'orgs'] as const;
 ---
 <BaseLayout
@@ -13,6 +13,8 @@ const filterOrder = ['all', 'clinical', 'government', 'research', 'patient', 'or
   canonicalPath="/resources.html"
   ogTitle={ogTitle}
   ogDescription={ogDescription}
+  ogImage={ogImage}
+  twitterImage={ogImage}
   activeNav={"resources"}
   navVariant={"blog"}
   footerVariant={"full"}

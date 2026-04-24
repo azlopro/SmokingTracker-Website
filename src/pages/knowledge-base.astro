@@ -9,6 +9,7 @@ const description =
 const ogTitle = 'Knowledge Base — SmokingTracker';
 const ogDescription =
   'Insights on habit tracking as a clinical tool for engagement, retention, and clinical decision-making.';
+const ogImage = '/og/knowledge-base.webp';
 
 const allPosts = await getCollection('blog');
 const posts = allPosts
@@ -26,6 +27,8 @@ const rest       = posts.slice(3);    // Compact list
   canonicalPath="/knowledge-base.html"
   ogTitle={ogTitle}
   ogDescription={ogDescription}
+  ogImage={ogImage}
+  twitterImage={ogImage}
   activeNav="blog"
   navVariant="blog"
   footerVariant="blog"
