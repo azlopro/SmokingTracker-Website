@@ -3,62 +3,59 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getPageSeo } from '../lib/pageSeo';
 
 const { title, description, ogTitle, ogDescription } = getPageSeo('features');
-const heroCards = [
+
+const featureCards = [
   {
-    rank: '01',
-    icon: '🌊',
-    title: 'Urge Surfing',
-    description:
-      'A real-time panic button. Guided breathing and distraction exercises designed to help users survive the critical 3-minute craving window.',
+    icon: 'activity',
+    eyebrow: 'Client app',
+    title: 'EMA Logging',
+    body: 'Three-tap session capture in real time — method, amount, mood, trigger. No recall bias. No missing data.',
     href: '/ema-logging.html',
-    linkText: 'Learn about EMA logging',
   },
   {
-    rank: '02',
-    icon: '⏱️',
-    title: 'Countdown Timer',
-    description:
-      'Real-time streak tracking that builds anticipatory dopamine. A powerful identity-shifting tool for users moving toward abstinence.',
-    href: '/for-individuals.html',
-    linkText: 'See personal features',
-  },
-  {
-    rank: '03',
-    icon: '🚦',
-    title: 'Traffic Light System',
-    description:
-      'Automated clinical triage. Instantly see which clients are escalating, stable, or at risk without reading through raw session logs.',
+    icon: 'grid',
+    eyebrow: 'Clinician tools',
+    title: 'Practitioner Dashboard',
+    body: 'Traffic-light triage, trigger rankings, and use-trend analytics for your entire caseload on one screen.',
     href: '/practitioner-dashboard.html',
-    linkText: 'Explore the dashboard',
   },
   {
-    rank: '04',
-    icon: '🏆',
-    title: 'Achievement System',
-    description:
-      'Resilient gamification that removes the shame spiral. Progress bars show milestones for logging consistency and reduction goals.',
-    href: '/for-individuals.html',
-    linkText: 'See progress tracking',
+    icon: 'file-text',
+    eyebrow: 'Documentation',
+    title: 'Clinical Reports',
+    body: 'One-click PDF exports with trend charts, annotations, and trigger analysis — formatted for EHR or referral.',
+    href: '/clinical-reports.html',
   },
   {
-    rank: '05',
-    icon: '🔒',
-    title: 'Implemental Intentions',
-    description:
-      'Define smoke-free hours with frictionless override prompts. Helping clients bridge the gap between intention and actual behavior.',
+    icon: 'pulse',
+    eyebrow: 'Evidence base',
+    title: 'Measurement-Based Care',
+    body: 'How systematic real-time data translates into better session decisions and improved treatment outcomes.',
+    href: '/measurement-based-care.html',
+  },
+  {
+    icon: 'lock',
+    eyebrow: 'Compliance',
+    title: 'Privacy & Compliance',
+    body: 'HIPAA, GDPR, and 42 CFR Part 2 — simultaneously. Client-controlled consent baked into the data model.',
     href: '/privacy-compliance.html',
-    linkText: 'View privacy standards',
+  },
+  {
+    icon: 'zap',
+    eyebrow: 'Clinical context',
+    title: 'Cannabis & Memory',
+    body: "Why regular cannabis use makes recall unreliable — and why EMA is the only clinical solution that works with it.",
+    href: '/cannabis-cognitive-fog.html',
   },
 ];
 
 const accordionSections = [
   {
     id: 'client-logging',
-    icon: '📱',
-    title: 'Client Side Logging',
+    title: 'Client-Side Logging',
     items: [
       ['Three-tap session logging', 'Quick and accurate capture.'],
-      ['Mood & Craving tracking', 'Tied to every use event.'],
+      ['Mood & craving tracking', 'Tied to every use event.'],
       ['Fast-use warnings', 'Real-time behavioral feedback.'],
       ['Heatmap calendar', 'Visual overview of use patterns.'],
       ['Goal configuration', 'Reduce, Quit, or Awareness modes.'],
@@ -66,7 +63,6 @@ const accordionSections = [
   },
   {
     id: 'practitioner',
-    icon: '🖥️',
     title: 'Practitioner Dashboard',
     items: [
       ['Multi-client caseload', 'All clients on one screen.'],
@@ -78,18 +74,17 @@ const accordionSections = [
   },
   {
     id: 'engagement',
-    icon: '🤝',
     title: 'Engagement & Alliance',
     items: [
       ['Achievement badges', 'Positive reinforcement.'],
       ['Money saved calculator', 'Rational motivations.'],
       ['Time-since-last-smoke', 'Visual progress.'],
       ['Urge Surfing exercises', 'Acute craving support.'],
+      ['Implemental intentions', 'Define smoke-free hours with frictionless override prompts.'],
     ],
   },
   {
     id: 'privacy',
-    icon: '🔒',
     title: 'Privacy & Compliance',
     items: [
       ['HIPAA Compliant', 'BAA available.'],
@@ -106,497 +101,256 @@ const accordionSections = [
   canonicalPath="/features.html"
   ogTitle={ogTitle}
   ogDescription={ogDescription}
-  activeNav={"features"}
-  navVariant={"marketing"}
-  footerVariant={"full"}
-  bodyClass={"dark-theme"}
-  showCta={false}
-  includeMainJs={true}
-  extraModuleScripts={[]}
+  activeNav="features"
+  navVariant="marketing"
+  navTheme="light"
+  footerVariant="full"
+  bodyClass="light-theme"
+  showCta={true}
+  includeMainJs={false}
   hideUntilLoad={true}
 >
-  <main>
-    <section class="features-hub-hero">
-      <div class="container">
-        <span class="hub-tag reveal">Platform Capabilities</span>
-        <h1 class="hub-title reveal">
-          Built for the reality of <br /><span class="text-gradient">cannabis treatment.</span>
-        </h1>
-        <p class="hub-subtitle reveal">
-          SmokingTracker combines frictionless client-side logging with clinical intelligence to solve the recall
-          problem in CUD treatment.
-        </p>
-        <div class="reveal">
-          <a href="/trial.html" class="features-hero-cta">Start Free</a>
-        </div>
-      </div>
-    </section>
+  <div slot="head">
+    <style is:global>
+      .feature-hero { background: var(--green); position: relative; overflow: hidden; padding: 4rem 2.5rem 0; text-align: center; }
+      .feature-hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 28px 28px; pointer-events: none; }
+      .feature-hero-inner { max-width: 760px; margin: 0 auto; position: relative; padding-bottom: 3.5rem; }
+      .feature-hero h1 { font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 800; color: white; letter-spacing: -0.6px; line-height: 1.15; margin-bottom: 1.25rem; }
+      .feature-hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.82); line-height: 1.7; margin-bottom: 2rem; }
+      .feature-hero-btns { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; }
+      .hero-wave { display: block; width: 100%; }
 
-    <section class="features-dark-block">
-      <div class="container">
-        <div class="killer-grid">
-          {
-            heroCards.map((card) => (
-              <div class="killer-card reveal">
-                <span class="killer-rank">{card.rank}</span>
-                <span class="killer-icon" aria-hidden="true">{card.icon}</span>
-                <h3>{card.title}</h3>
-                <p>{card.description}</p>
-                <a href={card.href} class="killer-link">
-                  {card.linkText}
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </a>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </section>
+      /* Feature hub cards */
+      .hub-cards-section { padding: 5.5rem 2.5rem; background: #ffffff; }
+      .hub-cards-grid {
+        max-width: 1080px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .hub-card {
+        background: #ffffff;
+        border: 1px solid #e6ede8;
+        border-radius: 16px;
+        padding: 2rem;
+        text-decoration: none;
+        color: inherit;
+        transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        box-shadow: var(--shadow-card);
+      }
+      .hub-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(6,95,70,0.09); border-color: #c8ddd0; }
+      .hub-card-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: #eef8f2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0.35rem;
+      }
+      .hub-card-icon svg { stroke: var(--green-hero); fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .hub-card-eyebrow { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--green-hero); }
+      .hub-card-title { font-size: 1.05rem; font-weight: 700; color: #0f1e14; line-height: 1.25; }
+      .hub-card-body { font-size: 13.5px; color: #3d4f45; line-height: 1.65; flex: 1; }
+      .hub-card-link { font-size: 13px; font-weight: 600; color: var(--green-hero); display: inline-flex; align-items: center; gap: 0.35rem; margin-top: 0.5rem; }
+      .hub-card:hover .hub-card-link { gap: 0.55rem; }
 
-    <section class="list-section">
-      <div class="container">
-        <div class="list-header reveal">
-          <span class="hub-tag">Complete Directory</span>
-          <h2 class="features-list-title">Every feature, explained.</h2>
-        </div>
+      /* Accordion — light theme */
+      .hub-accordion-section { padding: 5.5rem 2.5rem; background: #f7faf8; border-top: 1px solid #e6ede8; }
+      .hub-accordion-inner { max-width: 860px; margin: 0 auto; }
+      .hub-accordion-item {
+        background: #ffffff;
+        border: 1px solid #e6ede8;
+        border-radius: 14px;
+        margin-bottom: 0.75rem;
+        overflow: hidden;
+        transition: border-color 0.2s;
+      }
+      .hub-accordion-item:hover { border-color: #c8ddd0; }
+      .hub-accordion-item.active { border-color: #aed4bc; }
+      .hub-accordion-trigger {
+        width: 100%;
+        padding: 1.25rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        background: none;
+        border: none;
+        color: #0f1e14;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        text-align: left;
+        font-family: var(--font-family);
+        transition: color 0.15s;
+      }
+      .hub-accordion-trigger:hover { color: var(--green-hero); }
+      .hub-accordion-item.active .hub-accordion-trigger { color: var(--green-hero); }
+      .hub-accordion-chevron { flex-shrink: 0; transition: transform 0.25s ease; color: #9ca3af; }
+      .hub-accordion-item.active .hub-accordion-chevron { transform: rotate(180deg); color: var(--green-hero); }
+      .hub-accordion-content { overflow: hidden; max-height: 0; transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1); }
+      .hub-accordion-item.active .hub-accordion-content { max-height: 600px; }
+      .hub-accordion-body { padding: 0 1.5rem 1.5rem; }
+      .hub-feature-list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 0.65rem;
+      }
+      .hub-feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.6rem;
+        font-size: 0.9rem;
+        color: #3d4f45;
+        line-height: 1.5;
+      }
+      .hub-feature-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; flex-shrink: 0; margin-top: 0.44em; }
+      .hub-feature-item strong { color: #0f1e14; font-weight: 600; }
 
-        <div class="accordion-group">
-          {
-            accordionSections.map((section, index) => {
-              const isOpen = index === 0;
-              const triggerId = `feature-trigger-${section.id}`;
-              const panelId = `feature-panel-${section.id}`;
-              return (
-                <div class:list={['accordion-item', { active: isOpen }]}>
-                  <button
-                    class="accordion-trigger"
-                    aria-expanded={isOpen ? 'true' : 'false'}
-                    aria-controls={panelId}
-                    id={triggerId}
-                    type="button"
-                  >
-                    <span>{section.icon} {section.title}</span>
-                    <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
-                      <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                  </button>
-                  <div
-                    class="accordion-content"
-                    id={panelId}
-                    role="region"
-                    aria-labelledby={triggerId}
-                    hidden={!isOpen}
-                  >
-                    <ul class="feature-list">
-                      {section.items.map(([title, text]) => <li class="feature-item"><strong>{title}</strong> - {text}</li>)}
-                    </ul>
-                  </div>
-                </div>
-              );
-            })
-          }
-        </div>
-      </div>
-    </section>
-
-    <section class="features-cta-section">
-      <div class="container text-center reveal">
-        <div class="features-cta-box glass">
-          <h2 class="features-cta-title">Ready to clear the fog?</h2>
-          <p class="features-cta-text">
-            Takes under 2 minutes to invite your first client and see real-time data flowing.
-          </p>
-          <a href="/trial.html" class="features-cta-link">Request Access</a>
-        </div>
-      </div>
-    </section>
-  </main>
-  <footer slot="footer" class="features-footer footer">
-    <div class="container footer-content">
-      <div class="footer-brand">
-        <a href="/" class="logo">
-          <img src="/logo-icon-w.png" alt="SmokingTracker Logo" width="56" height="48" />
-          <span class="logo-text features-footer-logo">SmokingTracker</span>
-        </a>
-        <p class="features-footer-copy">Helping treatment centers deliver proactive, data-driven support.</p>
-      </div>
-      <div class="footer-links">
-        <div class="link-group">
-          <h4 class="features-footer-heading">Product</h4>
-          <a href="/features.html">Features</a>
-          <a href="/for-clinicians.html">For Clinicians</a>
-          <a href="/for-individuals.html">For Individuals</a>
-          <a href="/pricing.html">Pricing</a>
-          <a href="/knowledge-base.html">Blog</a>
-        </div>
-        <div class="link-group">
-          <h4 class="features-footer-heading">Legal</h4>
-          <a href="/privacy.html">Privacy Policy</a>
-          <a href="/terms.html">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-    <div class="container footer-bottom features-footer-bottom">
-      <p>&copy; 2026 SmokingTracker. All rights reserved.</p>
-    </div>
-  </footer>
-  <div slot="scripts">
-    <script is:inline>
-      document.querySelectorAll('.accordion-trigger').forEach((trigger) => {
-        trigger.addEventListener('click', () => {
-          const item = trigger.parentElement;
-          const isActive = item?.classList.contains('active');
-
-          document.querySelectorAll('.accordion-item').forEach((accordionItem) => {
-            accordionItem.classList.remove('active');
-            const button = accordionItem.querySelector('.accordion-trigger');
-            const panel = accordionItem.querySelector('.accordion-content');
-            if (button) button.setAttribute('aria-expanded', 'false');
-            if (panel) panel.hidden = true;
-          });
-
-          if (!isActive && item) {
-            item.classList.add('active');
-            trigger.setAttribute('aria-expanded', 'true');
-            const panel = item.querySelector('.accordion-content');
-            if (panel) panel.hidden = false;
-          }
-        });
-      });
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-
-      document.querySelectorAll('.reveal').forEach((element) => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(40px)';
-        element.style.transition = 'all 1s cubic-bezier(0.16, 1, 0.3, 1)';
-        observer.observe(element);
-      });
-    </script>
+      @media (max-width: 860px) { .hub-cards-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 560px) {
+        .hub-cards-grid { grid-template-columns: 1fr; }
+        .hub-cards-section, .hub-accordion-section { padding: 3.5rem 1.25rem; }
+      }
+    </style>
   </div>
+
+  <section class="feature-hero">
+    <div class="feature-hero-inner">
+      <div class="feature-eyebrow feature-eyebrow--hero">Platform Overview</div>
+      <h1>Built for the reality of cannabis treatment.</h1>
+      <p class="feature-hero-sub">
+        SmokingTracker combines frictionless client-side logging with clinical intelligence to solve the recall
+        problem in CUD treatment.
+      </p>
+      <div class="feature-hero-btns">
+        <a href="/trial.html" class="btn-orange-lg">Start Free</a>
+        <a href="/for-clinicians.html" class="btn-ghost">See Full Platform</a>
+      </div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C360,70 1080,-10 1440,30 L1440,60 L0,60 Z" fill="white"></path>
+    </svg>
+  </section>
+
+  <section class="hub-cards-section">
+    <div class="section-center reveal" style="margin-bottom:3rem;">
+      <div class="section-eyebrow">What's included</div>
+      <h2 class="section-title-lg">Six deep-dive feature areas</h2>
+      <p class="section-sub">Each links to a full breakdown of the clinical rationale, workflow, and data behind that part of the platform.</p>
+    </div>
+    <div class="hub-cards-grid">
+      {featureCards.map((card) => (
+        <a class="hub-card reveal" href={card.href}>
+          <div class="hub-card-icon">
+            {card.icon === 'activity' && (
+              <svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            )}
+            {card.icon === 'grid' && (
+              <svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path></svg>
+            )}
+            {card.icon === 'file-text' && (
+              <svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            )}
+            {card.icon === 'pulse' && (
+              <svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+            )}
+            {card.icon === 'lock' && (
+              <svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            )}
+            {card.icon === 'zap' && (
+              <svg width="22" height="22" viewBox="0 0 24 24" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            )}
+          </div>
+          <div class="hub-card-eyebrow">{card.eyebrow}</div>
+          <div class="hub-card-title">{card.title}</div>
+          <div class="hub-card-body">{card.body}</div>
+          <div class="hub-card-link">
+            Explore
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="hub-accordion-section">
+    <div class="hub-accordion-inner">
+      <div class="section-center reveal" style="margin-bottom:3rem;">
+        <div class="section-eyebrow">Complete directory</div>
+        <h2 class="section-title-lg">Every feature, explained.</h2>
+      </div>
+      <div>
+        {accordionSections.map((section, index) => {
+          const isOpen = index === 0;
+          const triggerId = `acc-trigger-${section.id}`;
+          const panelId = `acc-panel-${section.id}`;
+          return (
+            <div class:list={['hub-accordion-item', { active: isOpen }]}>
+              <button
+                class="hub-accordion-trigger"
+                aria-expanded={isOpen ? 'true' : 'false'}
+                aria-controls={panelId}
+                id={triggerId}
+                type="button"
+              >
+                <span>{section.title}</span>
+                <svg class="hub-accordion-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="hub-accordion-content" id={panelId} role="region" aria-labelledby={triggerId}>
+                <div class="hub-accordion-body">
+                  <ul class="hub-feature-list">
+                    {section.items.map(([label, text]) => (
+                      <li class="hub-feature-item">
+                        <span class="hub-feature-dot" aria-hidden="true"></span>
+                        <span><strong>{label}</strong> — {text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <script slot="scripts" is:inline>
+    document.querySelectorAll('.hub-accordion-trigger').forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const item = trigger.parentElement;
+        const isActive = item?.classList.contains('active');
+        document.querySelectorAll('.hub-accordion-item').forEach((el) => {
+          el.classList.remove('active');
+          el.querySelector('.hub-accordion-trigger')?.setAttribute('aria-expanded', 'false');
+        });
+        if (!isActive && item) {
+          item.classList.add('active');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
 </BaseLayout>
-
-<style is:global>
-  .features-hub-hero {
-    background: #020c07;
-    padding: 8rem 0 6rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .features-hub-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 50% -20%, rgba(16, 185, 129, 0.15) 0%, transparent 60%);
-  }
-
-  .hub-tag {
-    display: inline-block;
-    background: rgba(16, 185, 129, 0.1);
-    color: #10b981;
-    padding: 0.5rem 1.25rem;
-    border-radius: 100px;
-    font-size: 0.85rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: 2rem;
-    border: 1px solid rgba(16, 185, 129, 0.2);
-  }
-
-  .hub-title {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 900;
-    color: white;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    margin-bottom: 2rem;
-  }
-
-  .hub-subtitle {
-    font-size: 1.4rem;
-    color: #9ca3af;
-    max-width: 700px;
-    margin: 0 auto 4rem;
-    line-height: 1.6;
-  }
-
-  .features-hero-cta {
-    background: #10b981;
-    color: white;
-    padding: 1.25rem 2.5rem;
-    border-radius: 14px;
-    font-weight: 800;
-    text-decoration: none;
-    display: inline-block;
-  }
-
-  .features-dark-block {
-    background: #020c07;
-    padding-bottom: 8rem;
-  }
-
-  .killer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    margin-bottom: 8rem;
-  }
-
-  .killer-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 32px;
-    padding: 3rem;
-    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .killer-card:hover {
-    border-color: rgba(16, 185, 129, 0.4);
-    background: rgba(255, 255, 255, 0.04);
-    transform: translateY(-10px);
-    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5);
-  }
-
-  .killer-rank {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    font-size: 3rem;
-    font-weight: 900;
-    color: rgba(16, 185, 129, 0.1);
-    line-height: 1;
-  }
-
-  .killer-icon {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    display: block;
-  }
-
-  .killer-card h3 {
-    color: white;
-    font-size: 1.75rem;
-    font-weight: 800;
-    margin-bottom: 1.25rem;
-    letter-spacing: -0.01em;
-  }
-
-  .killer-card p {
-    color: #9ca3af;
-    font-size: 1.1rem;
-    line-height: 1.7;
-    margin-bottom: 2rem;
-    flex: 1;
-  }
-
-  .killer-link {
-    color: #10b981;
-    font-weight: 700;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.95rem;
-    transition: gap 0.3s;
-  }
-
-  .killer-card:hover .killer-link {
-    gap: 0.8rem;
-  }
-
-  .list-section {
-    background: #050a06;
-    padding: 8rem 0;
-  }
-
-  .list-header {
-    text-align: center;
-    margin-bottom: 5rem;
-  }
-
-  .features-list-title {
-    font-size: 3rem;
-    color: white;
-    font-weight: 800;
-  }
-
-  .accordion-group {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .accordion-item {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 20px;
-    margin-bottom: 1.25rem;
-    overflow: hidden;
-    transition: all 0.3s;
-  }
-
-  .accordion-item:hover {
-    border-color: rgba(16, 185, 129, 0.2);
-  }
-
-  .accordion-trigger {
-    width: 100%;
-    padding: 1.5rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.2rem;
-    font-weight: 700;
-    cursor: pointer;
-    text-align: left;
-  }
-
-  .accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    background: rgba(0, 0, 0, 0.2);
-  }
-
-  .accordion-item.active .accordion-content {
-    max-height: 1000px;
-    padding: 0 2rem 2.5rem;
-  }
-
-  .accordion-item.active .chevron {
-    transform: rotate(180deg);
-  }
-
-  .chevron {
-    transition: transform 0.3s;
-    color: #4b5563;
-  }
-
-  .feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.25rem;
-  }
-
-  .feature-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    color: #9ca3af;
-    font-size: 1.05rem;
-    line-height: 1.5;
-  }
-
-  .feature-item::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    background: #10b981;
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 0.5rem;
-  }
-
-  .feature-item strong {
-    color: #d1d5db;
-    font-weight: 600;
-  }
-
-  .features-cta-section {
-    background: #020c07;
-    padding: 12rem 0;
-  }
-
-  .features-cta-box {
-    padding: 8rem 2rem;
-    border-radius: 48px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.01);
-  }
-
-  .features-cta-title {
-    font-size: 4rem;
-    color: white;
-    font-weight: 900;
-    margin-bottom: 3rem;
-    letter-spacing: -0.04em;
-  }
-
-  .features-cta-text {
-    color: #9ca3af;
-    font-size: 1.6rem;
-    max-width: 750px;
-    margin: 0 auto 5rem;
-    line-height: 1.6;
-  }
-
-  .features-cta-link {
-    background: #10b981;
-    color: white;
-    padding: 1.6rem 5rem;
-    border-radius: 20px;
-    font-weight: 900;
-    text-decoration: none;
-    font-size: 1.5rem;
-    display: inline-block;
-    box-shadow: 0 20px 50px -10px rgba(16, 185, 129, 0.6);
-  }
-
-  .features-footer {
-    background: #020c07;
-    padding: 10rem 0 5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-  }
-
-  .features-footer-logo {
-    color: white;
-    font-weight: 900;
-    font-size: 2.25rem;
-  }
-
-  .features-footer-copy {
-    color: #6b7280;
-    margin-top: 2.5rem;
-    max-width: 400px;
-    font-size: 1.2rem;
-    line-height: 1.7;
-  }
-
-  .features-footer-heading {
-    color: white;
-    margin-bottom: 2.5rem;
-    font-size: 1.4rem;
-  }
-
-  .features-footer-bottom {
-    margin-top: 10rem;
-    padding-top: 4rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    color: #4b5563;
-    font-size: 1.1rem;
-    text-align: center;
-  }
-</style>
