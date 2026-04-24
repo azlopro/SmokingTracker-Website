@@ -4,15 +4,15 @@ import { getPageSeo } from '../lib/pageSeo';
 
 const { title, description, ogTitle, ogDescription } = getPageSeo('privacy-compliance');
 
-const heroPills = ['HIPAA Compliant', 'GDPR Compliant', '42 CFR Part 2', 'EU Data Residency'];
+const heroPills = ['HIPAA Ready', 'GDPR Compliant', '42 CFR Part 2 Aligned', 'EU Data Residency'];
 
 const frameworks = [
   {
     badge: 'HIPAA',
     title: 'Health Insurance Portability and Accountability Act',
-    body: 'Required for any US-based clinician or organization handling Protected Health Information. SmokingTracker signs a Business Associate Agreement (BAA) with all clinical accounts.',
+    body: 'Required for any US-based clinician or organization handling Protected Health Information. A HIPAA Business Associate Agreement (BAA) is available to any US-based clinical account that requires one — contact us to request it.',
     items: [
-      'Business Associate Agreement available',
+      'Business Associate Agreement available on request',
       'Access controls — role-based, per-client',
       'Audit logs for all data access events',
       'Breach notification procedures in place',
@@ -26,7 +26,7 @@ const frameworks = [
     items: [
       'Data Processing Agreement (DPA) available',
       'EU server residency option',
-      'Right to access, rectification, and erasure',
+      'Right to erasure and data deletion on request',
       'Explicit consent collection on signup',
       'Data minimisation — only necessary fields collected',
     ],
@@ -34,7 +34,7 @@ const frameworks = [
   {
     badge: '42 CFR Part 2',
     title: 'Confidentiality of Substance Use Disorder Records',
-    body: 'The strictest US federal standard — more protective than HIPAA — governing substance use disorder treatment records. Any platform used in SUD treatment must meet these requirements.',
+    body: 'The strictest US federal standard — more protective than HIPAA — governing substance use disorder treatment records. SmokingTracker is designed to support these requirements, with consent-gating, DPA language, and access controls aligned to its obligations.',
     items: [
       'Explicit written consent before disclosure',
       'Data never shared without client authorization',
@@ -51,10 +51,10 @@ const featureSections = [
     title: 'Encrypted, access-controlled, and audited at every layer',
     body: 'Compliance is not just a policy document — it requires technical controls. SmokingTracker encrypts all data at rest and in transit, implements role-based access so clients only see their own data, and maintains a full audit trail of all access events.',
     bullets: [
-      'AES-256 encryption at rest — all client data',
-      'TLS 1.2+ in transit — all API and web traffic',
+      'Data stored on encrypted servers',
+      'TLS in transit — all API and web traffic via HTTPS',
       'Role-based access — practitioners see only their clients',
-      'Full access audit log — timestamped, tamper-evident',
+      'Full access audit log — timestamped entries on all data events',
     ],
     href: '/security.html',
     linkLabel: 'Read the full security overview',

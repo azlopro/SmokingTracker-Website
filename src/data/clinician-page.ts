@@ -68,8 +68,8 @@ export const benefitCards = [
     icon: 'grid',
   },
   {
-    title: 'One-click PDF reports',
-    body: 'Session-ready clinical report in one click. Attach directly to any EHR system — no formatting required.',
+    title: 'Easy PDF reports',
+    body: 'Print a session-ready clinical report in seconds. Opens formatted in your browser — attach to any EHR system as a PDF.',
     href: '/features.html',
     linkLabel: 'See features →',
     iconBg: '#fff7ed',
@@ -94,9 +94,9 @@ export const featureSections = [
     body: "A live overview of every client's usage, mood, and trigger patterns. No prep work required — the data is already structured and ready before the session starts.",
     bullets: [
       'Traffic light status — Green, Yellow, or Red at a glance',
-      'Custom trigger alarms via app, email, or SMS',
+      'Configurable trigger alerts via app, email, or SMS',
       'Week-over-week trend for every client',
-      'One-click PDF report — attach to any EHR',
+      'Print-ready PDF report — attach to any EHR',
     ],
     href: '/features.html',
     linkLabel: 'Explore dashboard features →',
@@ -111,7 +111,7 @@ export const featureSections = [
       'Works as a private self-monitoring tool first',
       'Share logs, mood, triggers, and notes independently',
       'Consent extended or withdrawn at any time',
-      'GDPR DPA included · HIPAA BAA on Enterprise',
+      'GDPR DPA included · HIPAA BAA available on request',
     ],
     href: '/security.html',
     linkLabel: 'Explore privacy features →',
@@ -156,11 +156,11 @@ export const faqs = [
   {
     question: 'What is SmokingTracker?',
     answer:
-      'SmokingTracker is a clinical SaaS tool for outpatient substance use disorder treatment centers. Clients log cannabis consumption in real time using a three-tap mobile interface — no cognitive load required. Clinicians access a live dashboard showing usage trends, traffic-light status, trigger patterns, and one-click exportable PDF reports. SmokingTracker is built on Ecological Momentary Assessment (EMA), the gold-standard methodology for capturing behavior as it happens rather than from memory.',
+      'SmokingTracker is a clinical SaaS tool for outpatient substance use disorder treatment centers. Clients log cannabis consumption in real time using a three-tap mobile interface — no cognitive load required. Clinicians access a live dashboard showing usage trends, traffic-light status, trigger patterns, and printable PDF reports. SmokingTracker is built on Ecological Momentary Assessment (EMA), the gold-standard methodology for capturing behavior as it happens rather than from memory.',
   },
   {
     question: 'Is SmokingTracker HIPAA compliant?',
     answer:
-      "SmokingTracker is built on a Privacy by Design architecture. A HIPAA Business Associate Agreement (BAA) is available on Enterprise plans for US-based treatment centers. All plans include a GDPR Data Processing Agreement (DPA). The platform's data handling approach is designed to align with 42 CFR Part 2 substance use confidentiality requirements.",
+      "SmokingTracker is built on a Privacy by Design architecture. A HIPAA Business Associate Agreement (BAA) is available to any US-based clinical account that requires one — reach out to request it. All plans include a GDPR Data Processing Agreement (DPA). The platform's data handling approach is designed to support 42 CFR Part 2 substance use confidentiality requirements.",
   },
 ];

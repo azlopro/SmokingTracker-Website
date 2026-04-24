@@ -36,7 +36,7 @@ const featureSections = [
       'Trigger breakdown: stress, social, boredom, habit, pain',
     ],
     href: '/clinical-reports.html',
-    linkLabel: 'See how this turns into a PDF report →',
+    linkLabel: 'See how this turns into a clinical report →',
     image: '/images/en_behandler_patient_detail.webp',
     alt: 'Client detail view showing cannabis use trends and mood data',
   },
@@ -59,7 +59,7 @@ const featureSections = [
   {
     eyebrow: 'Session notes & flags',
     title: 'Add clinical annotations directly to the data',
-    body: 'Attach session notes, flag significant events, and track treatment milestones alongside the objective EMA data. When you generate a PDF report, your annotations appear in context — making the document session-ready and referral-quality without extra formatting work.',
+    body: 'Attach session notes, flag significant events, and track treatment milestones alongside the objective EMA data. When you export a report, your annotations appear in context — making the document session-ready and referral-quality without extra formatting work.',
     bullets: [
       'Free-text session notes attached to any date',
       'Flag events — relapse, goal achievement, medication change',
@@ -67,7 +67,7 @@ const featureSections = [
       'Full audit trail — timestamps on all entries',
     ],
     href: '/clinical-reports.html',
-    linkLabel: 'See one-click PDF reports →',
+    linkLabel: 'See clinical reports →',
     image: '/images/en_behandler_analytics_notes.webp',
     alt: 'Clinical notes and annotations in the practitioner dashboard',
   },
@@ -76,8 +76,8 @@ const featureSections = [
 const evidenceCards = [
   {
     category: 'Measurement-Based Care',
-    claim: 'MBC reduces symptom severity by 58% compared to treatment-as-usual',
-    detail: 'Systematic reviews of measurement-based care across substance use disorders consistently find large effect sizes when clinicians use objective outcome data to guide session decisions.',
+    claim: 'MBC reduces symptom severity by 58% vs. treatment-as-usual (Lambert et al., 2001)',
+    detail: 'These figures reflect independent MBC research, not SmokingTracker outcome data. Systematic reviews of measurement-based care consistently find large effect sizes when clinicians use objective outcome data to guide session decisions.',
   },
   {
     category: 'Self-Report Bias',
@@ -86,8 +86,8 @@ const evidenceCards = [
   },
   {
     category: 'Treatment Engagement',
-    claim: 'Clients who receive regular progress feedback are 2× more likely to stay in treatment',
-    detail: 'Feedback-informed treatment (FIT) trials demonstrate that sharing objective progress data with clients improves alliance and retention — a direct clinical use case for the dashboard.',
+    claim: 'Clients who receive regular progress feedback are 2× more likely to stay in treatment (Scott & Lewis, 2015)',
+    detail: 'These figures reflect independent MBC/FIT research, not SmokingTracker outcome data. Feedback-informed treatment trials demonstrate that sharing objective progress data with clients improves alliance and retention.',
   },
   {
     category: 'Trigger Analysis',
@@ -114,7 +114,7 @@ const howSteps = [
   },
   {
     title: 'Open prepared, close informed',
-    body: "Check the dashboard before each session — review the week's data, note any escalations, add session annotations. Export a one-click PDF when documentation is needed for EHR or referral.",
+    body: "Check the dashboard before each session — review the week's data, note any escalations, add session annotations. Export a print-ready report when documentation is needed for EHR or referral.",
   },
 ];
 
@@ -128,8 +128,8 @@ const relatedFeatures = [
   {
     href: '/clinical-reports.html',
     icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`,
-    title: 'One-Click PDF Reports',
-    body: 'Export session-ready clinical documentation directly from the dashboard data.',
+    title: 'Clinical Reports',
+    body: 'Export session-ready clinical documentation directly from the dashboard data — print or save as PDF.',
   },
   {
     href: '/measurement-based-care.html',
