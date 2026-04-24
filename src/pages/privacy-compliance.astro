@@ -479,26 +479,39 @@ const relatedFeatures = [
       /* image side */
       .pc-feature-visual {
         position: relative;
+        background: #0b1c10;
+        border-radius: 24px;
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 3rem 2rem;
+        overflow: hidden;
+      }
+      .pc-feature-visual::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(circle, rgba(16,185,129,0.06) 1px, transparent 1px);
+        background-size: 22px 22px;
+        pointer-events: none;
       }
       /* Phone mockup frame */
       .pc-feature-img-wrap {
         position: relative;
-        width: min(100%, 320px);
+        width: min(100%, 300px);
         background: #0d1f14;
-        border-radius: 44px;
-        padding: 14px;
+        border-radius: 40px;
+        padding: 12px;
         box-shadow:
-          0 40px 80px -20px rgba(0,0,0,0.35),
-          0 0 0 1px rgba(255,255,255,0.07),
+          0 32px 64px -16px rgba(0,0,0,0.6),
+          0 0 0 1px rgba(255,255,255,0.08),
           inset 0 0 0 1px rgba(255,255,255,0.04);
+        z-index: 1;
       }
       .pc-feature-img-wrap img {
         width: 100%;
         display: block;
-        border-radius: 32px;
+        border-radius: 30px;
       }
       /* decorative blob behind image */
       .pc-feature-blob {
@@ -816,7 +829,6 @@ const relatedFeatures = [
         </div>
 
         <div class="pc-feature-visual">
-          <div class:list={['pc-feature-blob', { left: s.reverse }]}></div>
           <div class="pc-feature-img-wrap">
             <img src={s.image} alt={s.alt} loading="lazy" />
           </div>
