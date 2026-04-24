@@ -75,6 +75,33 @@ const pricingFeatures = [
   'Insights into frequency, timing & triggers',
   'Private by design — data stays with you',
 ];
+
+const faqs = [
+  {
+    question: 'Is it really free?',
+    answer: 'Yes — completely free until October 2026. After that it\'s $1/month. No credit card required to sign up, no automatic charges, no hidden fees.',
+  },
+  {
+    question: 'Do I need a counsellor or doctor to use it?',
+    answer: 'No. SmokingTracker works as a standalone self-monitoring tool. You can track your sessions, see your patterns, and set your own goals entirely on your own. Connecting to a clinician is optional — and entirely under your control.',
+  },
+  {
+    question: 'What exactly does it track?',
+    answer: 'Every session you log captures the method (joint, vape, edible, etc.), the amount, the time, and optionally your mood, craving level, and what triggered the use. Over time this builds into heatmaps, trend charts, and trigger frequency rankings — the full picture of your habits.',
+  },
+  {
+    question: 'Is my data private?',
+    answer: 'Your data is yours. Nothing is shared with anyone unless you explicitly connect to a clinician and grant them access. You can see exactly what a clinician can view, and you can disconnect at any time. No data is ever sold or used for advertising.',
+  },
+  {
+    question: 'Do I need to download an app?',
+    answer: 'No download required. SmokingTracker runs in your browser — on your phone, tablet, or computer. Just open the link and start logging. It works on iPhone, Android, and any modern browser.',
+  },
+  {
+    question: 'What\'s the difference between Reduce, Quit, and Awareness mode?',
+    answer: 'Reduce: you set a weekly target and track progress toward it. Quit: you commit to abstinence and build a streak with milestone badges. Awareness: no target — just logging and understanding your patterns without the pressure of a goal. You choose during setup and can change at any time.',
+  },
+];
 ---
 <BaseLayout
   title={title}
@@ -612,6 +639,53 @@ const pricingFeatures = [
           padding-right: 1.5rem;
         }
       }
+
+      .individuals-faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+      }
+      .individuals-faq-item {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 14px;
+        overflow: hidden;
+        transition: border-color 0.2s;
+      }
+      .individuals-faq-item[open] {
+        border-color: rgba(16,185,129,0.3);
+      }
+      .individuals-faq-item summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.1rem 1.4rem;
+        cursor: pointer;
+        list-style: none;
+        font-weight: 600;
+        font-size: 0.975rem;
+        color: rgba(255,255,255,0.9);
+        transition: color 0.15s;
+      }
+      .individuals-faq-item summary::-webkit-details-marker { display: none; }
+      .individuals-faq-item[open] summary { color: #10b981; }
+      .individuals-faq-item summary svg {
+        flex-shrink: 0;
+        color: rgba(255,255,255,0.3);
+        transition: transform 0.25s ease, color 0.15s;
+      }
+      .individuals-faq-item[open] summary svg {
+        transform: rotate(180deg);
+        color: #10b981;
+      }
+      .individuals-faq-item p {
+        padding: 0 1.4rem 1.2rem;
+        font-size: 0.9rem;
+        color: rgba(255,255,255,0.6);
+        line-height: 1.7;
+        margin: 0;
+      }
     </style>
   </div>
 
@@ -795,6 +869,26 @@ const pricingFeatures = [
           </ul>
           <a href="/individual-signup.html" class="pricing-cta">Get Started — Free</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: #0a160d; padding: 5.5rem 1.5rem; border-top: 1px solid rgba(255,255,255,0.06);">
+    <div style="max-width: 720px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <div class="feature-eyebrow feature-eyebrow--hero" style="margin-bottom: 0.75rem;">Common Questions</div>
+        <h2 style="font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: white; letter-spacing: -0.4px;">FAQ</h2>
+      </div>
+      <div class="individuals-faq-list">
+        {faqs.map((item) => (
+          <details class="individuals-faq-item">
+            <summary>
+              <span>{item.question}</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
       </div>
     </div>
   </section>
