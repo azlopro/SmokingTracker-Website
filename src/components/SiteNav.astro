@@ -2,8 +2,7 @@
 /** Which top-level or feature-sub nav item is current (matches href basename without .html) */
 export interface Props {
   active?: string;
-  /** marketing: default nav; blog: Resources link + clinician sign-in */
-  variant?: 'marketing' | 'blog';
+  variant?: 'marketing' | 'blog'; // accepted for backwards compat, no longer affects rendering
   theme?: 'light' | 'dark';
   signInHref?: string;
   signInLabel?: string;
@@ -23,10 +22,10 @@ const FEATURE_SUB = new Set([
 
 const {
   active = '',
-  variant = 'marketing',
+  variant: _variant = 'marketing', // unused, kept for call-site compat
   theme = 'light',
   signInHref = 'https://behandler.smokingtracker.com',
-  signInLabel = variant === 'blog' ? 'Sign In (Clinician)' : 'Sign In',
+  signInLabel = 'Sign In (Clinician)',
   ctaHref = '/trial.html',
   ctaLabel = 'Start Free'
 } = Astro.props;
@@ -90,27 +89,13 @@ const featuresActive = FEATURE_SUB.has(active);
     <a href="/pricing.html" class:list={[{ active: active === 'pricing' }]}>Pricing</a>
     <a href="/about.html" class:list={[{ active: active === 'about' }]}>About</a>
     <a href="/knowledge-base.html" class:list={[{ active: active === 'blog' }]}>Blog</a>
-    {variant === 'blog' && (
-      <a href="/resources.html" class:list={[{ active: active === 'resources' }]}>Resources</a>
-    )}
+    <a href="/resources.html" class:list={[{ active: active === 'resources' }]}>Resources</a>
   </div>
   <div class="nav-right">
-    {
-      variant === 'blog' ? (
-        <a
-          class="nav-signin"
-          href={signInHref}
-          style="display: flex; align-items: center; gap: 6px;"
-        >
-          <span style="width: 7px; height: 7px; border-radius: 50%; background: #10b981; flex-shrink: 0;"></span>
-          {signInLabel}
-        </a>
-      ) : (
-        <a class="nav-signin" href={signInHref}>
-          {signInLabel}
-        </a>
-      )
-    }
+    <a class="nav-signin" href={signInHref} style="display:flex;align-items:center;gap:6px;">
+      <span style="width:7px;height:7px;border-radius:50%;background:#10b981;flex-shrink:0;"></span>
+      {signInLabel}
+    </a>
     <a href={ctaHref} class="nav-trial">{ctaLabel}</a>
   </div>
 </nav>
