@@ -804,6 +804,7 @@ nav.site-nav.dark .mobile-menu-btn:hover { background: rgba(255,255,255,0.07); }
 .feature-inner.reverse { direction: rtl; }
 .feature-inner.reverse > * { direction: ltr; }
 .feature-eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--green-hero); margin-bottom: 0.7rem; }
+.feature-eyebrow--hero { color: rgba(255,255,255,0.75); font-size: 11.5px; }
 .feature-title { font-size: clamp(1.45rem, 2.5vw, 1.95rem); font-weight: 800; color: #0f1e14; line-height: 1.18; letter-spacing: -0.5px; margin-bottom: 0.85rem; }
 .feature-body { font-size: 14.5px; color: #3d4f45; line-height: 1.72; margin-bottom: 1.5rem; }
 .feature-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 1.6rem; }

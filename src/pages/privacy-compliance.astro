@@ -287,14 +287,6 @@ const relatedFeatures = [
         text-align: center;
         margin-bottom: 3.5rem;
       }
-      .pc-section-tag {
-        font-size: 11px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: var(--green);
-        margin-bottom: 0.75rem;
-      }
       .pc-section-header h2 {
         font-size: clamp(1.7rem, 3vw, 2.25rem);
         font-weight: 800;
@@ -421,15 +413,6 @@ const relatedFeatures = [
           direction: ltr;
           gap: 2.5rem;
         }
-      }
-
-      .pc-feature-eyebrow {
-        font-size: 11px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: var(--green);
-        margin-bottom: 0.85rem;
       }
 
       .pc-feature-title {
@@ -773,7 +756,7 @@ const relatedFeatures = [
   <section class="pc-frameworks">
     <div class="pc-frameworks-inner">
       <div class="pc-section-header reveal">
-        <div class="pc-section-tag">Compliance Frameworks</div>
+        <div class="section-eyebrow">Compliance Frameworks</div>
         <h2>Three frameworks. One platform. Zero compromise.</h2>
         <p>Cannabis treatment data crosses multiple regulatory regimes depending on where your clients are. SmokingTracker meets all three simultaneously.</p>
       </div>
@@ -799,7 +782,7 @@ const relatedFeatures = [
       <div class:list={['pc-feature-inner reveal', { reverse: s.reverse }]}>
 
         <div class="pc-feature-text">
-          <div class="pc-feature-eyebrow">{s.eyebrow}</div>
+          <div class="feature-eyebrow">{s.eyebrow}</div>
           <h2 class="pc-feature-title">{s.title}</h2>
           <p class="pc-feature-body">{s.body}</p>
           <ul class="pc-feature-bullets">
@@ -838,7 +821,7 @@ const relatedFeatures = [
   <section class="pc-steps">
     <div class="pc-steps-inner">
       <div class="pc-section-header reveal">
-        <div class="pc-section-tag">Getting Compliant</div>
+        <div class="section-eyebrow">Getting Compliant</div>
         <h2>What compliance looks like in practice</h2>
       </div>
 

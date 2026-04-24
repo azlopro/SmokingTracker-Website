@@ -125,6 +125,36 @@ const pricingFeatures = [
         align-items: center;
         justify-content: center;
       }
+      .individuals-page .hero-cta-primary {
+        background: #10b981;
+        color: white;
+        padding: 1.5rem 3.5rem;
+        border-radius: 18px;
+        font-weight: 800;
+        font-size: 1.3rem;
+        box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.6);
+        text-decoration: none;
+        display: inline-block;
+        transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+      }
+      .individuals-page .hero-cta-primary:hover {
+        background: #059669;
+        transform: translateY(-2px);
+        box-shadow: 0 24px 48px -10px rgba(16, 185, 129, 0.65);
+      }
+      .individuals-page .hero-secondary-link a {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: rgba(255,255,255,0.8);
+        border-bottom: 2px solid rgba(255,255,255,0.2);
+        padding-bottom: 4px;
+        opacity: 0.8;
+        transition: opacity 0.3s, border-color 0.3s;
+      }
+      .individuals-page .hero-secondary-link a:hover {
+        opacity: 1;
+        border-color: rgba(255,255,255,0.5);
+      }
       .individuals-hero-stage {
         width: min(100%, 440px);
         padding-top: clamp(4rem, 8vw, 6rem);
@@ -596,9 +626,9 @@ const pricingFeatures = [
           Three taps to log a session. See your frequency, timing, mood, and triggers build into a real picture over days and weeks. No guesswork. No counselor needed.
         </p>
         <div class="hero-cta reveal" style="margin-top: 3.5rem;">
-          <a href="/individual-signup.html" class="btn btn-primary btn-large" style="background: #10b981; color: white; padding: 1.5rem 3.5rem; border-radius: 18px; font-weight: 800; text-decoration: none; display: inline-block; font-size: 1.3rem; box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.6);">Start Free — No Card Needed</a>
+          <a href="/individual-signup.html" class="hero-cta-primary">Start Free — No Card Needed</a>
           <div class="hero-secondary-link">
-            <a href="#how-it-works-individual" class="btn btn-secondary btn-large" style="color: white; text-decoration: none; font-size: 1.2rem; border-bottom: 2px solid rgba(255,255,255,0.2); padding-bottom: 4px; font-weight: 600; opacity: 0.8; transition: opacity 0.3s;">See How It Works</a>
+            <a href="#how-it-works-individual">See How It Works</a>
           </div>
         </div>
       </div>
