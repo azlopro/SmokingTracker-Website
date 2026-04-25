@@ -1705,3 +1705,53 @@ html[lang="en"] .lang-da { display: none; }
 .phone-fan-links a:hover {
   border-bottom-color: var(--green);
 }
+
+/* ---- Blog post rich components ---- */
+
+.post-phase-list { display: flex; flex-direction: column; gap: 0; margin: 2rem 0; border-radius: 16px; overflow: hidden; border: 1px solid var(--color-border); }
+.post-phase { display: flex; gap: 1.25rem; padding: 1.25rem 1.5rem; background: #fff; border-bottom: 1px solid var(--color-border); }
+.post-phase:last-child { border-bottom: none; }
+.post-phase-badge { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; width: 58px; padding-top: 3px; }
+.post-phase-days { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #fff; background: var(--green); border-radius: 6px; padding: 0.22rem 0.5rem; white-space: nowrap; line-height: 1.4; text-align: center; }
+.post-phase--peak .post-phase-days { background: var(--cta); }
+.post-phase--fade .post-phase-days { background: #6b7280; }
+.post-phase-dots { display: flex; gap: 4px; margin-top: 0.65rem; }
+.post-phase-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--color-border); }
+.post-phase-dot.on { background: var(--green); }
+.post-phase--peak .post-phase-dot.on { background: var(--cta); }
+.post-phase--fade .post-phase-dot.on { background: #9ca3af; }
+.post-phase-body { flex: 1; min-width: 0; }
+.post-phase-body strong { display: block; font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--color-text-primary); }
+.post-phase-body p { margin: 0; font-size: 0.9rem; color: var(--color-text-secondary); line-height: 1.55; }
+
+.post-stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem; margin: 2rem 0; }
+.post-stat-card { background: #f7faf8; border: 1px solid var(--color-border); border-radius: 14px; padding: 1.4rem 1rem; text-align: center; }
+.post-stat-num { display: block; font-size: 2.4rem; font-weight: 800; color: var(--cta); line-height: 1; }
+.post-stat-lbl { display: block; font-size: 0.8rem; color: var(--color-text-secondary); margin-top: 0.5rem; line-height: 1.45; }
+
+.post-callout { display: flex; gap: 0.9rem; align-items: flex-start; background: #f0faf5; border: 1px solid #a7f3d0; border-radius: 12px; padding: 1.15rem 1.25rem; margin: 1.75rem 0; }
+.post-callout svg { flex-shrink: 0; margin-top: 2px; color: var(--green); }
+.post-callout-body { font-size: 0.975rem; color: var(--color-text-primary); line-height: 1.6; }
+.post-callout-body strong { color: var(--cta); display: block; margin-bottom: 0.2rem; font-size: 0.925rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.post-callout-body p { margin: 0; }
+
+.post-tip-grid { display: flex; flex-direction: column; gap: 0.875rem; margin: 1.75rem 0; }
+.post-tip { display: flex; align-items: flex-start; gap: 1rem; background: #fff; border: 1px solid var(--color-border); border-radius: 14px; padding: 1.15rem 1.25rem; box-shadow: var(--shadow-card); }
+.post-tip-num { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--green); color: #fff; font-weight: 700; font-size: 0.82rem; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+.post-tip-body { flex: 1; }
+.post-tip-body strong { display: block; font-size: 0.975rem; font-weight: 700; margin-bottom: 0.3rem; color: var(--color-text-primary); }
+.post-tip-body p { margin: 0; font-size: 0.9rem; color: var(--color-text-secondary); line-height: 1.5; }
+
+.post-cta-block { background: linear-gradient(135deg, #065f46 0%, #0d9461 100%); border-radius: 20px; padding: 2.25rem 2rem; margin: 2.5rem 0 1.5rem; text-align: center; }
+.post-cta-block strong { display: block; font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 0.65rem; line-height: 1.35; }
+.post-cta-block p { color: rgba(255,255,255,0.82); font-size: 0.95rem; line-height: 1.65; margin-bottom: 1.5rem; }
+.post-cta-block a.post-cta-btn { display: inline-block; background: #fff; color: var(--cta); font-weight: 700; padding: 0.875rem 2.25rem; border-radius: 10px; text-decoration: none; font-size: 1rem; transition: background 0.18s, transform 0.12s; }
+.post-cta-block a.post-cta-btn:hover { background: #ecfdf5; transform: translateY(-1px); }
+
+@media (max-width: 480px) {
+  .post-stat-row { grid-template-columns: 1fr 1fr; }
+  .post-phase { padding: 1.1rem 1rem; gap: 0.9rem; }
+  .post-cta-block { padding: 1.75rem 1.25rem; border-radius: 16px; }
+  .post-cta-block strong { font-size: 1.15rem; }
+  .post-cta-block a.post-cta-btn { width: 100%; display: block; box-sizing: border-box; }
+}
