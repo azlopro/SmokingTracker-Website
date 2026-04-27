@@ -3,14 +3,14 @@ title: "How to Stop Smoking Weed: A Realistic Guide"
 category: "Guides"
 date: "2026-04-24"
 author: "SmokingTracker"
-description: "Quitting cannabis is harder than most people expect — not because it's physically brutal, but because it's quiet about it. Here's what actually helps."
+description: "Quitting cannabis is harder than most people expect, not because it's physically brutal, but because it's quiet about it. Here's what actually helps."
 readTime: "7 min"
 lang: "en"
 featured: false
 image: "/quit-weed.webp"
 ---
 
-**Cannabis withdrawal is real.** It's not as loud as alcohol withdrawal or as physically brutal as opioids — but it's consistent, it's uncomfortable, and it catches most people off guard. If you've tried to quit before and caved after a few bad nights, that's not a character flaw. That's what withdrawal does when you don't know it's coming.
+**Cannabis withdrawal is real.** It's not as loud as alcohol withdrawal or as physically brutal as opioids, but it's consistent, it's uncomfortable, and it catches most people off guard. If you've tried to quit before and caved after a few bad nights, that's not a character flaw. That's what withdrawal does when you don't know it's coming.
 
 This guide is about what actually helps. Not mindset content. Not "just drink more water." The mechanics of quitting, week by week, and the specific places where most people trip up.
 
@@ -18,21 +18,21 @@ This guide is about what actually helps. Not mindset content. Not "just drink mo
 
 Most people default to cold turkey because it feels cleaner. Set a date, stop, done. And for light or occasional users, it's fine.
 
-For daily users — especially if you smoke in the evening and rely on it for sleep — cold turkey hits harder than it needs to. The worst of the sleep disruption in weeks one and two comes from how sharply the brain rebounds after chronic THC exposure. Tapering doesn't eliminate that, but it softens it.
+For daily users, especially if you smoke in the evening and rely on it for sleep, cold turkey hits harder than it needs to. The worst of the sleep disruption in weeks one and two comes from how sharply the brain rebounds after chronic THC exposure. Tapering doesn't eliminate that, but it softens it.
 
-What tapering actually means: cut your use by roughly 25–50% per week, not "a little less when I feel like it." That vagueness is how tapers turn into indefinite reduction plans that never end. Set a quit date four weeks out, work backward, and hold the line on each week's target.
+What tapering means in practice: cut your use by roughly 25–50% per week, not "a little less when I feel like it." That vagueness is how tapers turn into indefinite reduction plans that never end. Set a quit date four weeks out, work backward, and hold the line on each week's target.
 
 <div class="post-callout">
   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
   <div class="post-callout-body">
     <strong>Pick a date</strong>
-    <p>"I'll quit when I'm ready" is how people smoke for another year. Taper or cold turkey — both work. Drifting doesn't.</p>
+    <p>"I'll quit when I'm ready" is how people smoke for another year. Taper or cold turkey, both work. Drifting doesn't.</p>
   </div>
 </div>
 
 ## What the first two weeks actually feel like
 
-Withdrawal has a shape. Knowing it in advance is one of the most useful things you can do — because symptoms that surprise you feel like reasons to smoke, and symptoms you expected feel manageable.
+Withdrawal has a shape. Knowing it in advance is one of the most useful things you can do, because symptoms that surprise you feel like reasons to smoke, and symptoms you expected feel manageable.
 
 <div class="post-phase-list">
   <div class="post-phase">
@@ -46,7 +46,7 @@ Withdrawal has a shape. Knowing it in advance is one of the most useful things y
     </div>
     <div class="post-phase-body">
       <strong>First wave</strong>
-      <p>Irritability, restlessness, sleep takes longer. Appetite drops. Most people chalk this up to stress — which is exactly how early relapses happen before withdrawal even has a chance to pass.</p>
+      <p>Irritability, restlessness, sleep takes longer. Appetite drops. Most people chalk this up to stress, which is exactly how early relapses happen before withdrawal even has a chance to pass.</p>
     </div>
   </div>
   <div class="post-phase post-phase--peak">
@@ -60,7 +60,7 @@ Withdrawal has a shape. Knowing it in advance is one of the most useful things y
     </div>
     <div class="post-phase-body">
       <strong>Peak</strong>
-      <p>Sleep is hardest here. The brain rebounds sharply — vivid dreams, fragmented nights, waking up at 3am. Mood dips; some people hit genuine anhedonia. Make it to day 14 and the acute phase is mostly behind you.</p>
+      <p>Sleep is hardest here. The brain rebounds sharply: vivid dreams, fragmented nights, waking up at 3am. Mood dips; some people hit real anhedonia. Make it to day 14 and the acute phase is mostly behind you.</p>
     </div>
   </div>
   <div class="post-phase post-phase--fade">
@@ -74,7 +74,7 @@ Withdrawal has a shape. Knowing it in advance is one of the most useful things y
     </div>
     <div class="post-phase-body">
       <strong>The grey patch</strong>
-      <p>Not painful, just flat. Low motivation, mild emotional numbness. Boredom is the main relapse trigger here, not acute craving. It passes — most people feel substantially better by week six.</p>
+      <p>Not painful, just flat. Low motivation, mild emotional numbness. Boredom is the main relapse trigger here, not acute craving. It passes; most people feel a lot better by week six.</p>
     </div>
   </div>
 </div>
@@ -101,9 +101,9 @@ Cravings aren't random. They cluster around the moments cannabis was part of you
   </div>
 </div>
 
-That's not motivational framing — it's how cravings actually work neurologically. The problem is that 20 minutes feels endless when you're in it. Having something to do with that window (walk around the block, call someone, eat something) makes it manageable in a way that just sitting with it often isn't.
+That's not motivational framing. It's how cravings actually work neurologically. The problem is that 20 minutes feels endless when you're in it. Having something to do with that window (walk around the block, call someone, eat something) makes it manageable in a way that just sitting with it often isn't.
 
-Pay attention to when your cravings hit. Write it down — time, what you were doing, how strong it was. After a week you'll see the pattern clearly. Once you can see a craving coming, you can do something about it before it arrives instead of white-knuckling through it.
+Pay attention to when your cravings hit. Write it down: time, what you were doing, how strong it was. After a week you'll see the pattern clearly. Once you can see a craving coming, you can do something about it before it arrives instead of white-knuckling through it.
 
 ## Practical things that actually help
 
@@ -119,21 +119,21 @@ Pay attention to when your cravings hit. Write it down — time, what you were d
     <div class="post-tip-num">2</div>
     <div class="post-tip-body">
       <strong>Manage sleep actively in weeks one and two</strong>
-      <p>Low-dose melatonin (0.5–1mg) helps with sleep onset. Keep your wake time consistent — a fixed wake time does more for sleep quality than almost anything else. Cut alcohol too; it fragments sleep in the same direction withdrawal is already pulling you.</p>
+      <p>Low-dose melatonin (0.5–1mg) helps with sleep onset. Keep your wake time consistent; a fixed wake time does more for sleep quality than almost anything else. Cut alcohol too. It fragments sleep in the same direction withdrawal is already pulling you.</p>
     </div>
   </div>
   <div class="post-tip">
     <div class="post-tip-num">3</div>
     <div class="post-tip-body">
       <strong>Replace the evening routine specifically</strong>
-      <p>Most people don't relapse in a moment of crisis. They relapse on a quiet Tuesday evening when there's nothing else going on and the habit fires. Put something in that slot — a walk, a show you're actually watching, cooking something. The placeholder just needs to exist.</p>
+      <p>Most people don't relapse in a moment of crisis. They relapse on a quiet Tuesday evening when there's nothing else going on and the habit fires. Put something in that slot: a walk, a show you're actually watching, cooking something. The placeholder just needs to exist.</p>
     </div>
   </div>
   <div class="post-tip">
     <div class="post-tip-num">4</div>
     <div class="post-tip-body">
       <strong>Exercise moves the timeline faster</strong>
-      <p>It genuinely accelerates mood recovery and reduces the severity of the flat patch in weeks two to four. Even 20–30 minutes of something that raises your heart rate makes a measurable difference.</p>
+      <p>It speeds up mood recovery and reduces the severity of the flat patch in weeks two to four. Even 20–30 minutes of something that raises your heart rate makes a measurable difference.</p>
     </div>
   </div>
   <div class="post-tip">
@@ -157,26 +157,26 @@ If cannabis was your primary tool for anxiety, sleep, or unwinding after a hard 
   </div>
 </div>
 
-Professional support — a therapist, a counselor, your GP — is not for people who can't manage alone. It's for people who want a better shot at actually getting through it.
+Professional support (a therapist, a counselor, your GP) is not for people who can't manage alone. It's for people who want a better shot at actually getting through it.
 
 Don't try to quit everything at the same time. If you're also quitting nicotine, drinking less, and starting an exercise routine simultaneously, you're making it harder than it needs to be. Quit the weed first. Give it a month to stabilize before stacking other changes on top.
 
 ## Frequently Asked Questions
 
 **How long does cannabis withdrawal last?**
-Acute symptoms — irritability, sleep disruption, appetite changes — typically peak around days 4–10 and largely resolve by week two to three. A subtler phase of low motivation and emotional flatness can persist for another few weeks. Most people feel substantially better by the six-week mark, though individual variation is wide depending on how long and how heavily you used.
+Acute symptoms (irritability, sleep disruption, appetite changes) typically peak around days 4–10 and largely resolve by week two to three. A subtler phase of low motivation and emotional flatness can persist for another few weeks. Most people feel a lot better by the six-week mark, though individual variation is wide depending on how long and how heavily you used.
 
 **Is cannabis actually addictive?**
-Yes. Roughly 9% of people who try cannabis develop dependence, rising to about 17% of those who start as teenagers (Anthony et al., 1994, *Experimental and Clinical Psychopharmacology*). Daily users have significantly higher rates. The withdrawal syndrome is recognized in the DSM-5 (code 292.0). It's not the same as opioid addiction, but "it's not addictive" is not accurate.
+Yes. Roughly 9% of people who try cannabis develop dependence, rising to about 17% of those who start as teenagers (Anthony et al., 1994, *Experimental and Clinical Psychopharmacology*). Daily users have much higher rates. The withdrawal syndrome is recognized in the DSM-5 (code 292.0). It's not the same as opioid addiction, but "it's not addictive" is not accurate.
 
 **Why do I feel more anxious after quitting?**
-THC has short-term anxiolytic effects — it reduces anxiety acutely, which is one reason people use it for anxiety in the first place. When you stop, the brain's anxiety-regulation systems need time to recalibrate, and the underlying anxiety that cannabis was covering becomes more visible. This usually improves significantly by weeks three to four, but it can feel worse before it gets better.
+THC has short-term anxiolytic effects. It reduces anxiety acutely, which is one reason people use it for anxiety in the first place. When you stop, the brain's anxiety-regulation systems need time to recalibrate, and the underlying anxiety that cannabis was covering becomes more visible. This usually improves a lot by weeks three to four, but it can feel worse before it gets better.
 
 **What's the best way to handle cravings?**
-Don't try to suppress them — acknowledge that the craving is there and wait. Most cravings peak and pass within 20 minutes. Physical distance from access points helps. So does having something specific to do with the window. Over time, cravings reduce in both frequency and intensity.
+Don't try to suppress them. Acknowledge that the craving is there and wait. Most cravings peak and pass within 20 minutes. Physical distance from access points helps. So does having something specific to do with the window. Over time, cravings reduce in both frequency and intensity.
 
 **Does it get easier after the first two weeks?**
-Yes, meaningfully. The acute phase — the worst of the sleep disruption and irritability — is mostly behind you by week two. What remains is a lower-energy, flatter-mood period that can last another few weeks. It's not comfortable, but it's a different and more manageable kind of discomfort. By month two, most people report feeling better than they did at the start.
+Yes, meaningfully. The acute phase, the worst of the sleep disruption and irritability, is mostly behind you by week two. What remains is a lower-energy, flatter-mood period that can last another few weeks. It's not comfortable, but it's a different and more manageable kind of discomfort. By month two, most people report feeling better than they did at the start.
 
 ---
 
@@ -186,6 +186,6 @@ Yes, meaningfully. The acute phase — the worst of the sleep disruption and irr
 
 <div class="post-cta-block">
   <strong>Track your quit with SmokingTracker</strong>
-  <p>Knowing when you smoke, how much, and what triggered it is one of the most useful things you can do during a taper or in early abstinence. SmokingTracker is browser-based — no download, no app store. Just a simple log that makes your patterns visible.</p>
+  <p>Knowing when you smoke, how much, and what triggered it is one of the most useful things you can do during a taper or in early abstinence. SmokingTracker is browser-based: no download, no app store. Just a simple log that makes your patterns visible.</p>
   <a href="/for-individuals.html" class="post-cta-btn">Try SmokingTracker free</a>
 </div>
