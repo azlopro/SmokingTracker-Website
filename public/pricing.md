@@ -5,7 +5,7 @@ All plans are currently free during the pilot period through October 2026. No au
 
 ## Solo Practitioner
 
-- Price: $79/month | $65/month (billed $790/year — save 20%)
+- Price: $39/month | $32/month (billed $390/year — save 20%)
 - Seats: 1 therapist
 - Clients: Unlimited active clients
 - Features:
@@ -19,7 +19,7 @@ All plans are currently free during the pilot period through October 2026. No au
 
 ## Group Practice
 
-- Price: $249/month | $207/month (billed $2,490/year — save 20%)
+- Price: $99/month | $82/month (billed $990/year — save 20%)
 - Seats: Up to 5 counselor seats + 1 clinical director dashboard
 - Clients: Unlimited active clients
 - Features:
