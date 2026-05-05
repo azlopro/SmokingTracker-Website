@@ -1222,6 +1222,8 @@ nav.site-nav.dark .mobile-menu-btn:hover { background: rgba(255,255,255,0.07); }
 .post-content ul { list-style: disc; padding-left: 2rem; margin-bottom: 1.5rem; color: var(--color-text-secondary); }
 .post-content li { margin-bottom: 0.5rem; }
 .post-content blockquote { border-left: 4px solid var(--color-primary); padding-left: 1.5rem; font-size: 1.5rem; font-style: italic; font-weight: 500; margin: 2rem 0; color: var(--color-text-secondary); }
+.post-content a { color: var(--color-primary); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; transition: color var(--transition-fast), text-decoration-thickness var(--transition-fast); }
+.post-content a:hover { color: #0d9669; text-decoration-thickness: 2px; }
 .callout-box { padding: 2rem; border-radius: 16px; margin: 2rem 0; border-left: 4px solid var(--color-secondary); }
 .callout-box h4 { margin-bottom: 0.5rem; color: var(--color-secondary); }
 .callout-box p { margin-bottom: 0; font-size: 1rem; }
