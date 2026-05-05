@@ -48,7 +48,7 @@ If a grower waits to harvest until late in the flowering stage, the trichomes be
 
 When a client discusses their consumption, the appearance of the hash and the nature of the high can give you insights into their underlying needs.
 
-Are they self-medicating for anxiety, racing thoughts, or insomnia (often drawn to dark, CBN-rich hash), or are they seeking an escape characterized by energy and stimulation (often drawn to lighter, THC-rich hash)?
+Are they self-medicating for anxiety, racing thoughts, or insomnia (often drawn to dark, CBN-rich hash), or are they seeking an escape characterized by energy and stimulation (often drawn to lighter, THC-rich hash)? For a plain-language overview of how these effects present in the moment, Avenues Recovery's write-up on the [short-term effects of marijuana](https://www.avenuesrecovery.com/understanding-addiction/marijuana-addiction/short-term-effects-of-marijuana/) is a useful patient-facing companion piece.
 
 *A Note on Processing: While trichome color is the baseline, how the hash is handled also matters. Pressing hash with heat and pressure bursts the resin glands, oxidizing the oils and turning even blonde hash darker on the outside.*
 

@@ -181,6 +181,16 @@ export const resources: ResourceItem[] = [
     categoryLabel: 'Patient Ed',
   },
   {
+    title: 'Avenues Recovery — Marijuana Addiction Knowledge Base',
+    description:
+      'Patient-facing library covering cannabis withdrawal, long- and short-term effects, treatment pathways, and life after rehab — useful as plain-language reading to share with clients alongside clinical material.',
+    source: 'Avenues Recovery',
+    href: 'https://www.avenuesrecovery.com/understanding-addiction/marijuana-addiction/',
+    icon: '🏥',
+    category: 'patient',
+    categoryLabel: 'Patient Ed',
+  },
+  {
     title: 'NAADAC — Association for Addiction Professionals',
     description:
       'The leading membership organization for addiction counselors — offers CEUs, credentialing (NCAC, MAC), ethics guidance, and clinical practice resources.',

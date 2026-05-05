@@ -103,7 +103,7 @@ Approximately 9% of people who try cannabis develop CUD at some point. The rate 
 Yes. Legal status is clinically irrelevant to the diagnosis. Alcohol is legal and Alcohol Use Disorder is a recognized condition with the same DSM-5 framework. The criteria assess functional impairment and loss of control, not legality. Many clients use the legalization argument as part of the "casual user" defense; the clinical response is to redirect to function rather than engage the legal question.
 
 **What's the first step in diagnosing CUD in a resistant client?**
-The most productive approach is exploring the 11 DSM-5 criteria through open-ended questions rather than presenting the checklist directly. Asking "Have you ever tried to cut back and found it harder than you expected?" often opens more than any direct diagnostic framing. The goal in early sessions is to plant curiosity, not deliver a verdict.
+The most productive approach is exploring the 11 DSM-5 criteria through open-ended questions rather than presenting the checklist directly. Asking "Have you ever tried to cut back and found it harder than you expected?" often opens more than any direct diagnostic framing. The goal in early sessions is to plant curiosity, not deliver a verdict. Once a client is open to the conversation about what comes next, Avenues Recovery's [overview of marijuana addiction treatment options](https://www.avenuesrecovery.com/understanding-addiction/marijuana-addiction/marijuana-addiction-treatment/) is a useful patient-facing reference for talking through pathways.
 
 ---
 
