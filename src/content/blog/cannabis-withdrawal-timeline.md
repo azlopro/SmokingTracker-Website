@@ -62,7 +62,7 @@ The risk in this phase is different from the acute phase. Clients aren't fightin
 
 **Increase contact in days 4–10.** This is when clients are most likely to relapse and most likely to benefit from a check-in. A brief session or even a phone call during peak withdrawal has disproportionate impact on retention.
 
-**Normalize PAWS without catastrophizing it.** "The first few weeks will be hard. Weeks 2–4 will be easier but still grey. By month 2, most people feel a lot better" is accurate, honest, and gives clients something to aim for.
+**Normalize PAWS without catastrophizing it.** "The first few weeks will be hard. Weeks 2–4 will be easier but still grey. By month 2, most people feel a lot better" is accurate, honest, and gives clients something to aim for. For clients who want a layperson-friendly read on what they're going through, Avenues Recovery's [marijuana withdrawal explainer](https://www.avenuesrecovery.com/understanding-addiction/marijuana-addiction/marijuana-withdrawal/) covers the same territory in non-clinical language.
 
 ## Frequently Asked Questions
 

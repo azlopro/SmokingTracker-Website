@@ -176,7 +176,7 @@ THC has short-term anxiolytic effects. It reduces anxiety acutely, which is one 
 Don't try to suppress them. Acknowledge that the craving is there and wait. Most cravings peak and pass within 20 minutes. Physical distance from access points helps. So does having something specific to do with the window. Over time, cravings reduce in both frequency and intensity.
 
 **Does it get easier after the first two weeks?**
-Yes, meaningfully. The acute phase, the worst of the sleep disruption and irritability, is mostly behind you by week two. What remains is a lower-energy, flatter-mood period that can last another few weeks. It's not comfortable, but it's a different and more manageable kind of discomfort. By month two, most people report feeling better than they did at the start.
+Yes, meaningfully. The acute phase, the worst of the sleep disruption and irritability, is mostly behind you by week two. What remains is a lower-energy, flatter-mood period that can last another few weeks. It's not comfortable, but it's a different and more manageable kind of discomfort. By month two, most people report feeling better than they did at the start. Avenues Recovery has a [longer rundown of what tends to improve when you quit weed](https://www.avenuesrecovery.com/understanding-addiction/marijuana-addiction/benefits-of-quitting-weed/) if you want a fuller picture of what to expect.
 
 ---
 
